@@ -10,8 +10,8 @@ uniform lowp sampler2D texture_sampler;
 uniform uniforms {
 	uniform mediump vec4 grad_data;
 	uniform mediump vec4 grad_data2;
-uniform mediump vec4 gradient_stop0;
-uniform mediump vec4 gradient_stop1;
+    uniform mediump vec4 gradient_stop0;
+    uniform mediump vec4 gradient_stop1;
 };
 
 void main()
@@ -36,25 +36,9 @@ void main()
     mediump float t = length(p_scaled);
     t = clamp(t, 0.0, 1.0);
     
-    // Интерполяция цветов
     mediump vec4 color = mix(gradient_stop0, gradient_stop1, t);
     color.xyz *= color.w;
     
     mediump float maskA = texture(texture_sampler, var_texcoord0).a;
     out_fragColor = color * var_color * maskA;
-	// mediump vec2 pos = v_normalizedPos;
-
-	// mediump vec2 center = grad_data.xy;
-	// mediump vec2 radius = grad_data.zw;
-	// mediump float rotation = grad_data2.x;
-    
-    // mediump float t = length(center - pos) / radius.x;
-    // t = clamp(t, 0.0, 1.0);
-    
-    // // Интерполяция цветов
-    // mediump vec4 color = mix(gradient_stop0, gradient_stop1, t);
-    // color.xyz *= color.w;
-    
-    // mediump float maskA = texture(texture_sampler, var_texcoord0).a;
-    // out_fragColor = color * var_color * maskA;
 }
