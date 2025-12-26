@@ -8,7 +8,7 @@ end
 
 function M.apply_all_transform(gradients)
 	for k, v in pairs(gradients) do
-		M.apply_transform(k)
+		M.apply_transform(k, gradients)
 	end
 end
 
@@ -24,12 +24,22 @@ function M.apply(node_name, gradients)
 		gui.set(node, "grad_data", vmath.vector4(gradient_data[1].x, 1 - gradient_data[1].y, gradient_data[2].x, gradient_data[2].y))
 		gui.set(node, "grad_data2", vmath.vector4((gradient_data[3]) / 180 * math.pi, 0, 0, 0))
 	elseif g.type == "linear" then
-		gui.set(node, "grad_data", vmath.vector4(gradient_data[1].x, 1 - gradient_data[1].y, gradient_data[2].x, 1 - gradient_data[2].y))
+		if not g.is_text then
+			gui.set(node, "grad_data", vmath.vector4(gradient_data[1].x, 1 - gradient_data[1].y, gradient_data[2].x, 1 - gradient_data[2].y))
+		else
+			gui.set(node, "grad_data", vmath.vector4(gradient_data[1].x, gradient_data[1].y, gradient_data[2].x, gradient_data[2].y))
+		end
 	end
-	M.apply_transform(node_name)
+
+	M.apply_transform(node_name, gradients)
 end
 
-function M.apply_transform(node_name)
+function M.apply_transform(node_name, gradients)
+	local g = gradients[node_name]
+	if g.is_text then
+		return
+	end
+
 	local node = gui.get_node(node_name)
 
 	local scale = gui.get_scale(node)
