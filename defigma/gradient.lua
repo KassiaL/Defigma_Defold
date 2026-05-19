@@ -12,10 +12,14 @@ function M.apply_all_transform(gradients)
 	end
 end
 
-function M.apply(node_name, gradients)
+function M.apply(node_name, gradients, node)
 	local g = gradients[node_name]
+	if g.type == "drop_shadow" then
+		M.apply_transform(node_name, gradients, node)
+		return
+	end
 
-	local node = gui.get_node(node_name)
+	local node = node or gui.get_node(node_name)
 	gui.set(node, "gradient_stop0", g.stops[1].color)
 	gui.set(node, "gradient_stop1", g.stops[2].color)
 	local gradient_data = g.data
@@ -31,16 +35,16 @@ function M.apply(node_name, gradients)
 		end
 	end
 
-	M.apply_transform(node_name, gradients)
+	M.apply_transform(node_name, gradients, node)
 end
 
-function M.apply_transform(node_name, gradients)
+function M.apply_transform(node_name, gradients, node)
 	local g = gradients[node_name]
 	if g.is_text then
 		return
 	end
 
-	local node = gui.get_node(node_name)
+	local node = node or gui.get_node(node_name)
 
 	local scale = gui.get_scale(node)
 	local size = gui.get_size(node)
@@ -67,6 +71,11 @@ function M.apply_transform(node_name, gradients)
 		else
 			ratio = width / gui_width
 		end
+	end
+
+	if g.type == "drop_shadow" then
+		local blur = g.data[1]
+		local spread = g.data[2]
 	end
 
 	local image_atlas_size = vmath.vector3(ratio * size.x * scale.x, ratio * size.y * scale.y, 0)

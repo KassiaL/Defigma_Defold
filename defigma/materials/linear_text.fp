@@ -64,7 +64,7 @@ void main()
         gradient_color = mix(gradient_stop0, gradient_stop1, t_normalized);
     }
 
-    mediump vec4 face_color_grad = vec4(gradient_color.rgb * gradient_color.a, gradient_color.a);
+    mediump vec4 face_color_grad = vec4(gradient_color.rgb * gradient_color.a, gradient_color.a) * var_face_color.a;
 
     out_fragColor = face_alpha * face_color_grad * var_layer_mask.x +
         outline_alpha * var_outline_color * var_layer_mask.y * (1.0 - face_alpha * sdf_is_single_layer) +
