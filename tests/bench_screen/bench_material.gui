@@ -1,0 +1,7814 @@
+script: "/tests/bench_screen/bench_material.gui_script"
+textures {
+  name: "misc"
+  texture: "/assets/textures/misc/misc.atlas"
+}
+fonts {
+  name: "din_pro_condensed_black_italic_shadow"
+  font: "/assets/fonts/din_pro_condensed_black_italic_shadow.font"
+}
+fonts {
+  name: "din_pro_condensed_black_italic"
+  font: "/assets/fonts/din_pro_condensed_black_italic.font"
+}
+fonts {
+  name: "din_pro_condensed_bold_italic"
+  font: "/assets/fonts/din_pro_condensed_bold_italic.font"
+}
+background_color {
+  x: 0.0
+  y: 0.0
+  z: 0.0
+  w: 0.0
+}
+nodes {
+  position {
+    x: 540
+    y: 1150
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1080
+    y: 2300
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "root"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_STRETCH
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1080
+    y: 2300
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bg"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "root"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1080
+    y: 2300
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/round_0"
+  id: "bg_base"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bg"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "linear"
+}
+nodes {
+  position {
+    x: 0
+    y: 900
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1200
+    y: 900
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_500"
+  id: "bg_glow_top"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bg"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "radial"
+}
+nodes {
+  position {
+    x: 360
+    y: -950
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1000
+    y: 800
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_500"
+  id: "bg_glow_bottom"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bg"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "radial"
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1080
+    y: 2300
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/round_0"
+  id: "bg_vignette"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bg"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "radial"
+}
+nodes {
+  position {
+    x: 0
+    y: 900
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1080
+    y: 260
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "top"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "root"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1080
+    y: 260
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "header"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "top"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 0.9
+    y: 0.9
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1146.6666666666667
+    y: 235.55555555555554
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/round_40"
+  id: "header_paneloutline"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "header"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 40
+    y: 40
+    z: 40
+    w: 40
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "linear"
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 0.825
+    y: 0.825
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1243.6363636363637
+    y: 249.69696969696972
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/round_40"
+  id: "header_panel"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "header"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 40
+    y: 40
+    z: 40
+    w: 40
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "linear"
+}
+nodes {
+  position {
+    x: -220
+    y: 105
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 400
+    y: 6
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_500"
+  id: "header_panel_glint"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "header"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "radial"
+}
+nodes {
+  position {
+    x: -490
+    y: 60
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 2
+    y: 2
+    z: 1
+    w: 1
+  }
+  size {
+    x: 330
+    y: 40
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.9529411792755127
+    y: 0.9137254953384399
+    z: 0.8235294222831726
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "PACK STORE"
+  font: "din_pro_condensed_black_italic_shadow"
+  id: "title"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_NW
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "top"
+  layer: ""
+  inherit_alpha: true
+  line_break: true
+  outline_alpha: 0
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.6000000238418579
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: 460
+    y: 42
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1.5
+    y: 1.5
+    z: 1
+    w: 1
+  }
+  size {
+    x: 240
+    y: 40
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.21568627655506134
+    y: 0.9529411792755127
+    z: 0.8235294222831726
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "125 000"
+  font: "din_pro_condensed_black_italic"
+  id: "coins"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_NE
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "top"
+  layer: ""
+  inherit_alpha: true
+  line_break: true
+  outline_alpha: 0
+  shadow_alpha: 0
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: -350
+    y: 520
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 340
+    y: 420
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "slot0"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "root"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 340
+    y: 420
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "card0"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "slot0"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 280
+    y: 360
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "card0_body"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card0"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 280
+    y: 360
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/round_0"
+  id: "card0_filloutline"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card0_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "linear"
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 274
+    y: 354
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/round_0"
+  id: "card0_fill"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card0_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "linear"
+}
+nodes {
+  position {
+    x: 0
+    y: 130
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 260
+    y: 220
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_300"
+  id: "card0_glow"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card0_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "radial"
+}
+nodes {
+  position {
+    x: 0
+    y: 40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 122.48
+    y: 122.48
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/outlineellipse_100_1"
+  id: "card0_iconoutline"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card0_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 0.3499999940395355
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 120
+    y: 120
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_200"
+  id: "card0_icon"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card0_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "radial"
+}
+nodes {
+  position {
+    x: 92
+    y: 132
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 64
+    y: 64
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.21568627655506134
+    y: 0.9529411792755127
+    z: 0.8235294222831726
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_100"
+  id: "card0_badgeoutline"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card0_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 92
+    y: 132
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 58
+    y: 58
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.10588235408067703
+    y: 0.09019608050584793
+    z: 0.20000000298023224
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_100"
+  id: "card0_badge"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card0_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: -132
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 0.9333333333333333
+    y: 0.9333333333333333
+    z: 1
+    w: 1
+  }
+  size {
+    x: 235.71428571428572
+    y: 60
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/round_30"
+  id: "card0_plate"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card0_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 30
+    y: 30
+    z: 30
+    w: 30
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "linear"
+}
+nodes {
+  position {
+    x: 0
+    y: -40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 0.9375
+    y: 0.9375
+    z: 1
+    w: 1
+  }
+  size {
+    x: 256
+    y: 42.666666666666664
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.9529411792755127
+    y: 0.9137254953384399
+    z: 0.8235294222831726
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "PACK 1"
+  font: "din_pro_condensed_bold_italic"
+  id: "name0"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "slot0"
+  layer: ""
+  inherit_alpha: true
+  line_break: true
+  outline_alpha: 0
+  shadow_alpha: 0
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: -108
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1.125
+    y: 1.125
+    z: 1
+    w: 1
+  }
+  size {
+    x: 195.55555555555554
+    y: 44.44444444444444
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.04313725605607033
+    y: 0.03921568766236305
+    z: 0.09019608050584793
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "1000"
+  font: "din_pro_condensed_black_italic"
+  id: "price0"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "slot0"
+  layer: ""
+  inherit_alpha: true
+  line_break: true
+  outline_alpha: 0
+  shadow_alpha: 0
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: -4
+    y: 520
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 340
+    y: 420
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "slot1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "root"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 340
+    y: 420
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "card1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "slot1"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 280
+    y: 360
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "card1_body"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card1"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 280
+    y: 360
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/round_0"
+  id: "card1_filloutline"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card1_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "linear"
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 274
+    y: 354
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/round_0"
+  id: "card1_fill"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card1_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "linear"
+}
+nodes {
+  position {
+    x: 0
+    y: 130
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 260
+    y: 220
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_300"
+  id: "card1_glow"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card1_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "radial"
+}
+nodes {
+  position {
+    x: 0
+    y: 40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 122.48
+    y: 122.48
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/outlineellipse_100_1"
+  id: "card1_iconoutline"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card1_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 0.3499999940395355
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 120
+    y: 120
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_200"
+  id: "card1_icon"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card1_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "radial"
+}
+nodes {
+  position {
+    x: 92
+    y: 132
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 64
+    y: 64
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.21568627655506134
+    y: 0.9529411792755127
+    z: 0.8235294222831726
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_100"
+  id: "card1_badgeoutline"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card1_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 92
+    y: 132
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 58
+    y: 58
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.10588235408067703
+    y: 0.09019608050584793
+    z: 0.20000000298023224
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_100"
+  id: "card1_badge"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card1_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: -132
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 0.9333333333333333
+    y: 0.9333333333333333
+    z: 1
+    w: 1
+  }
+  size {
+    x: 235.71428571428572
+    y: 60
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/round_30"
+  id: "card1_plate"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card1_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 30
+    y: 30
+    z: 30
+    w: 30
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "linear"
+}
+nodes {
+  position {
+    x: 0
+    y: -40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 0.9375
+    y: 0.9375
+    z: 1
+    w: 1
+  }
+  size {
+    x: 256
+    y: 42.666666666666664
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.9529411792755127
+    y: 0.9137254953384399
+    z: 0.8235294222831726
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "PACK 2"
+  font: "din_pro_condensed_bold_italic"
+  id: "name1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "slot1"
+  layer: ""
+  inherit_alpha: true
+  line_break: true
+  outline_alpha: 0
+  shadow_alpha: 0
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: -108
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1.125
+    y: 1.125
+    z: 1
+    w: 1
+  }
+  size {
+    x: 195.55555555555554
+    y: 44.44444444444444
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.04313725605607033
+    y: 0.03921568766236305
+    z: 0.09019608050584793
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "1250"
+  font: "din_pro_condensed_black_italic"
+  id: "price1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "slot1"
+  layer: ""
+  inherit_alpha: true
+  line_break: true
+  outline_alpha: 0
+  shadow_alpha: 0
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 342
+    y: 520
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 340
+    y: 420
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "slot2"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "root"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 340
+    y: 420
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "card2"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "slot2"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 280
+    y: 360
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "card2_body"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card2"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 280
+    y: 360
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/round_0"
+  id: "card2_filloutline"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card2_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "linear"
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 274
+    y: 354
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/round_0"
+  id: "card2_fill"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card2_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "linear"
+}
+nodes {
+  position {
+    x: 0
+    y: 130
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 260
+    y: 220
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_300"
+  id: "card2_glow"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card2_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "radial"
+}
+nodes {
+  position {
+    x: 0
+    y: 40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 122.48
+    y: 122.48
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/outlineellipse_100_1"
+  id: "card2_iconoutline"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card2_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 0.3499999940395355
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 120
+    y: 120
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_200"
+  id: "card2_icon"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card2_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "radial"
+}
+nodes {
+  position {
+    x: 92
+    y: 132
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 64
+    y: 64
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.21568627655506134
+    y: 0.9529411792755127
+    z: 0.8235294222831726
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_100"
+  id: "card2_badgeoutline"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card2_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 92
+    y: 132
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 58
+    y: 58
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.10588235408067703
+    y: 0.09019608050584793
+    z: 0.20000000298023224
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_100"
+  id: "card2_badge"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card2_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: -132
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 0.9333333333333333
+    y: 0.9333333333333333
+    z: 1
+    w: 1
+  }
+  size {
+    x: 235.71428571428572
+    y: 60
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/round_30"
+  id: "card2_plate"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card2_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 30
+    y: 30
+    z: 30
+    w: 30
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "linear"
+}
+nodes {
+  position {
+    x: 0
+    y: -40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 0.9375
+    y: 0.9375
+    z: 1
+    w: 1
+  }
+  size {
+    x: 256
+    y: 42.666666666666664
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.9529411792755127
+    y: 0.9137254953384399
+    z: 0.8235294222831726
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "PACK 3"
+  font: "din_pro_condensed_bold_italic"
+  id: "name2"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "slot2"
+  layer: ""
+  inherit_alpha: true
+  line_break: true
+  outline_alpha: 0
+  shadow_alpha: 0
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: -108
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1.125
+    y: 1.125
+    z: 1
+    w: 1
+  }
+  size {
+    x: 195.55555555555554
+    y: 44.44444444444444
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.04313725605607033
+    y: 0.03921568766236305
+    z: 0.09019608050584793
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "1500"
+  font: "din_pro_condensed_black_italic"
+  id: "price2"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "slot2"
+  layer: ""
+  inherit_alpha: true
+  line_break: true
+  outline_alpha: 0
+  shadow_alpha: 0
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: -350
+    y: 80
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 340
+    y: 420
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "slot3"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "root"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 340
+    y: 420
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "card3"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "slot3"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 280
+    y: 360
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "card3_body"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card3"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 280
+    y: 360
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/round_0"
+  id: "card3_filloutline"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card3_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "linear"
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 274
+    y: 354
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/round_0"
+  id: "card3_fill"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card3_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "linear"
+}
+nodes {
+  position {
+    x: 0
+    y: 130
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 260
+    y: 220
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_300"
+  id: "card3_glow"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card3_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "radial"
+}
+nodes {
+  position {
+    x: 0
+    y: 40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 122.48
+    y: 122.48
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/outlineellipse_100_1"
+  id: "card3_iconoutline"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card3_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 0.3499999940395355
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 120
+    y: 120
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_200"
+  id: "card3_icon"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card3_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "radial"
+}
+nodes {
+  position {
+    x: 92
+    y: 132
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 64
+    y: 64
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.21568627655506134
+    y: 0.9529411792755127
+    z: 0.8235294222831726
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_100"
+  id: "card3_badgeoutline"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card3_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 92
+    y: 132
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 58
+    y: 58
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.10588235408067703
+    y: 0.09019608050584793
+    z: 0.20000000298023224
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_100"
+  id: "card3_badge"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card3_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: -132
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 0.9333333333333333
+    y: 0.9333333333333333
+    z: 1
+    w: 1
+  }
+  size {
+    x: 235.71428571428572
+    y: 60
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/round_30"
+  id: "card3_plate"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card3_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 30
+    y: 30
+    z: 30
+    w: 30
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "linear"
+}
+nodes {
+  position {
+    x: 0
+    y: -40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 0.9375
+    y: 0.9375
+    z: 1
+    w: 1
+  }
+  size {
+    x: 256
+    y: 42.666666666666664
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.9529411792755127
+    y: 0.9137254953384399
+    z: 0.8235294222831726
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "PACK 4"
+  font: "din_pro_condensed_bold_italic"
+  id: "name3"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "slot3"
+  layer: ""
+  inherit_alpha: true
+  line_break: true
+  outline_alpha: 0
+  shadow_alpha: 0
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: -108
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1.125
+    y: 1.125
+    z: 1
+    w: 1
+  }
+  size {
+    x: 195.55555555555554
+    y: 44.44444444444444
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.04313725605607033
+    y: 0.03921568766236305
+    z: 0.09019608050584793
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "1750"
+  font: "din_pro_condensed_black_italic"
+  id: "price3"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "slot3"
+  layer: ""
+  inherit_alpha: true
+  line_break: true
+  outline_alpha: 0
+  shadow_alpha: 0
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: -4
+    y: 80
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 340
+    y: 420
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "slot4"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "root"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 340
+    y: 420
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "card4"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "slot4"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 280
+    y: 360
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "card4_body"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card4"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 280
+    y: 360
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/round_0"
+  id: "card4_filloutline"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card4_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "linear"
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 274
+    y: 354
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/round_0"
+  id: "card4_fill"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card4_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "linear"
+}
+nodes {
+  position {
+    x: 0
+    y: 130
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 260
+    y: 220
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_300"
+  id: "card4_glow"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card4_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "radial"
+}
+nodes {
+  position {
+    x: 0
+    y: 40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 122.48
+    y: 122.48
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/outlineellipse_100_1"
+  id: "card4_iconoutline"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card4_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 0.3499999940395355
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 120
+    y: 120
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_200"
+  id: "card4_icon"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card4_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "radial"
+}
+nodes {
+  position {
+    x: 92
+    y: 132
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 64
+    y: 64
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.21568627655506134
+    y: 0.9529411792755127
+    z: 0.8235294222831726
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_100"
+  id: "card4_badgeoutline"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card4_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 92
+    y: 132
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 58
+    y: 58
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.10588235408067703
+    y: 0.09019608050584793
+    z: 0.20000000298023224
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_100"
+  id: "card4_badge"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card4_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: -132
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 0.9333333333333333
+    y: 0.9333333333333333
+    z: 1
+    w: 1
+  }
+  size {
+    x: 235.71428571428572
+    y: 60
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/round_30"
+  id: "card4_plate"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card4_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 30
+    y: 30
+    z: 30
+    w: 30
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "linear"
+}
+nodes {
+  position {
+    x: 0
+    y: -40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 0.9375
+    y: 0.9375
+    z: 1
+    w: 1
+  }
+  size {
+    x: 256
+    y: 42.666666666666664
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.9529411792755127
+    y: 0.9137254953384399
+    z: 0.8235294222831726
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "PACK 5"
+  font: "din_pro_condensed_bold_italic"
+  id: "name4"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "slot4"
+  layer: ""
+  inherit_alpha: true
+  line_break: true
+  outline_alpha: 0
+  shadow_alpha: 0
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: -108
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1.125
+    y: 1.125
+    z: 1
+    w: 1
+  }
+  size {
+    x: 195.55555555555554
+    y: 44.44444444444444
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.04313725605607033
+    y: 0.03921568766236305
+    z: 0.09019608050584793
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "2000"
+  font: "din_pro_condensed_black_italic"
+  id: "price4"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "slot4"
+  layer: ""
+  inherit_alpha: true
+  line_break: true
+  outline_alpha: 0
+  shadow_alpha: 0
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 342
+    y: 80
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 340
+    y: 420
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "slot5"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "root"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 340
+    y: 420
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "card5"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "slot5"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 280
+    y: 360
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "card5_body"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card5"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 280
+    y: 360
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/round_0"
+  id: "card5_filloutline"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card5_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "linear"
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 274
+    y: 354
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/round_0"
+  id: "card5_fill"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card5_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "linear"
+}
+nodes {
+  position {
+    x: 0
+    y: 130
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 260
+    y: 220
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_300"
+  id: "card5_glow"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card5_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "radial"
+}
+nodes {
+  position {
+    x: 0
+    y: 40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 122.48
+    y: 122.48
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/outlineellipse_100_1"
+  id: "card5_iconoutline"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card5_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 0.3499999940395355
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 120
+    y: 120
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_200"
+  id: "card5_icon"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card5_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "radial"
+}
+nodes {
+  position {
+    x: 92
+    y: 132
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 64
+    y: 64
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.21568627655506134
+    y: 0.9529411792755127
+    z: 0.8235294222831726
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_100"
+  id: "card5_badgeoutline"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card5_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 92
+    y: 132
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 58
+    y: 58
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.10588235408067703
+    y: 0.09019608050584793
+    z: 0.20000000298023224
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_100"
+  id: "card5_badge"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card5_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: -132
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 0.9333333333333333
+    y: 0.9333333333333333
+    z: 1
+    w: 1
+  }
+  size {
+    x: 235.71428571428572
+    y: 60
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/round_30"
+  id: "card5_plate"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card5_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 30
+    y: 30
+    z: 30
+    w: 30
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "linear"
+}
+nodes {
+  position {
+    x: 0
+    y: -40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 0.9375
+    y: 0.9375
+    z: 1
+    w: 1
+  }
+  size {
+    x: 256
+    y: 42.666666666666664
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.9529411792755127
+    y: 0.9137254953384399
+    z: 0.8235294222831726
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "PACK 6"
+  font: "din_pro_condensed_bold_italic"
+  id: "name5"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "slot5"
+  layer: ""
+  inherit_alpha: true
+  line_break: true
+  outline_alpha: 0
+  shadow_alpha: 0
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: -108
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1.125
+    y: 1.125
+    z: 1
+    w: 1
+  }
+  size {
+    x: 195.55555555555554
+    y: 44.44444444444444
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.04313725605607033
+    y: 0.03921568766236305
+    z: 0.09019608050584793
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "2250"
+  font: "din_pro_condensed_black_italic"
+  id: "price5"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "slot5"
+  layer: ""
+  inherit_alpha: true
+  line_break: true
+  outline_alpha: 0
+  shadow_alpha: 0
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: -350
+    y: -360
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 340
+    y: 420
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "slot6"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "root"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 340
+    y: 420
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "card6"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "slot6"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 280
+    y: 360
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "card6_body"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card6"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 280
+    y: 360
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/round_0"
+  id: "card6_filloutline"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card6_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "linear"
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 274
+    y: 354
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/round_0"
+  id: "card6_fill"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card6_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "linear"
+}
+nodes {
+  position {
+    x: 0
+    y: 130
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 260
+    y: 220
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_300"
+  id: "card6_glow"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card6_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "radial"
+}
+nodes {
+  position {
+    x: 0
+    y: 40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 122.48
+    y: 122.48
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/outlineellipse_100_1"
+  id: "card6_iconoutline"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card6_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 0.3499999940395355
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 120
+    y: 120
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_200"
+  id: "card6_icon"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card6_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "radial"
+}
+nodes {
+  position {
+    x: 92
+    y: 132
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 64
+    y: 64
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.21568627655506134
+    y: 0.9529411792755127
+    z: 0.8235294222831726
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_100"
+  id: "card6_badgeoutline"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card6_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 92
+    y: 132
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 58
+    y: 58
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.10588235408067703
+    y: 0.09019608050584793
+    z: 0.20000000298023224
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_100"
+  id: "card6_badge"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card6_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: -132
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 0.9333333333333333
+    y: 0.9333333333333333
+    z: 1
+    w: 1
+  }
+  size {
+    x: 235.71428571428572
+    y: 60
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/round_30"
+  id: "card6_plate"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card6_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 30
+    y: 30
+    z: 30
+    w: 30
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "linear"
+}
+nodes {
+  position {
+    x: 0
+    y: -40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 0.9375
+    y: 0.9375
+    z: 1
+    w: 1
+  }
+  size {
+    x: 256
+    y: 42.666666666666664
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.9529411792755127
+    y: 0.9137254953384399
+    z: 0.8235294222831726
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "PACK 7"
+  font: "din_pro_condensed_bold_italic"
+  id: "name6"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "slot6"
+  layer: ""
+  inherit_alpha: true
+  line_break: true
+  outline_alpha: 0
+  shadow_alpha: 0
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: -108
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1.125
+    y: 1.125
+    z: 1
+    w: 1
+  }
+  size {
+    x: 195.55555555555554
+    y: 44.44444444444444
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.04313725605607033
+    y: 0.03921568766236305
+    z: 0.09019608050584793
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "2500"
+  font: "din_pro_condensed_black_italic"
+  id: "price6"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "slot6"
+  layer: ""
+  inherit_alpha: true
+  line_break: true
+  outline_alpha: 0
+  shadow_alpha: 0
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: -4
+    y: -360
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 340
+    y: 420
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "slot7"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "root"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 340
+    y: 420
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "card7"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "slot7"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 280
+    y: 360
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "card7_body"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card7"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 280
+    y: 360
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/round_0"
+  id: "card7_filloutline"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card7_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "linear"
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 274
+    y: 354
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/round_0"
+  id: "card7_fill"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card7_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "linear"
+}
+nodes {
+  position {
+    x: 0
+    y: 130
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 260
+    y: 220
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_300"
+  id: "card7_glow"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card7_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "radial"
+}
+nodes {
+  position {
+    x: 0
+    y: 40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 122.48
+    y: 122.48
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/outlineellipse_100_1"
+  id: "card7_iconoutline"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card7_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 0.3499999940395355
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 120
+    y: 120
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_200"
+  id: "card7_icon"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card7_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "radial"
+}
+nodes {
+  position {
+    x: 92
+    y: 132
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 64
+    y: 64
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.21568627655506134
+    y: 0.9529411792755127
+    z: 0.8235294222831726
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_100"
+  id: "card7_badgeoutline"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card7_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 92
+    y: 132
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 58
+    y: 58
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.10588235408067703
+    y: 0.09019608050584793
+    z: 0.20000000298023224
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_100"
+  id: "card7_badge"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card7_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: -132
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 0.9333333333333333
+    y: 0.9333333333333333
+    z: 1
+    w: 1
+  }
+  size {
+    x: 235.71428571428572
+    y: 60
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/round_30"
+  id: "card7_plate"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card7_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 30
+    y: 30
+    z: 30
+    w: 30
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "linear"
+}
+nodes {
+  position {
+    x: 0
+    y: -40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 0.9375
+    y: 0.9375
+    z: 1
+    w: 1
+  }
+  size {
+    x: 256
+    y: 42.666666666666664
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.9529411792755127
+    y: 0.9137254953384399
+    z: 0.8235294222831726
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "PACK 8"
+  font: "din_pro_condensed_bold_italic"
+  id: "name7"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "slot7"
+  layer: ""
+  inherit_alpha: true
+  line_break: true
+  outline_alpha: 0
+  shadow_alpha: 0
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: -108
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1.125
+    y: 1.125
+    z: 1
+    w: 1
+  }
+  size {
+    x: 195.55555555555554
+    y: 44.44444444444444
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.04313725605607033
+    y: 0.03921568766236305
+    z: 0.09019608050584793
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "2750"
+  font: "din_pro_condensed_black_italic"
+  id: "price7"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "slot7"
+  layer: ""
+  inherit_alpha: true
+  line_break: true
+  outline_alpha: 0
+  shadow_alpha: 0
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 342
+    y: -360
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 340
+    y: 420
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "slot8"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "root"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 340
+    y: 420
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "card8"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "slot8"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 280
+    y: 360
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "card8_body"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card8"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 280
+    y: 360
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/round_0"
+  id: "card8_filloutline"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card8_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "linear"
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 274
+    y: 354
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/round_0"
+  id: "card8_fill"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card8_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "linear"
+}
+nodes {
+  position {
+    x: 0
+    y: 130
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 260
+    y: 220
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_300"
+  id: "card8_glow"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card8_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "radial"
+}
+nodes {
+  position {
+    x: 0
+    y: 40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 122.48
+    y: 122.48
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/outlineellipse_100_1"
+  id: "card8_iconoutline"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card8_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 0.3499999940395355
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 120
+    y: 120
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_200"
+  id: "card8_icon"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card8_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "radial"
+}
+nodes {
+  position {
+    x: 92
+    y: 132
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 64
+    y: 64
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.21568627655506134
+    y: 0.9529411792755127
+    z: 0.8235294222831726
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_100"
+  id: "card8_badgeoutline"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card8_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 92
+    y: 132
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 58
+    y: 58
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.10588235408067703
+    y: 0.09019608050584793
+    z: 0.20000000298023224
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_100"
+  id: "card8_badge"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card8_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: -132
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 0.9333333333333333
+    y: 0.9333333333333333
+    z: 1
+    w: 1
+  }
+  size {
+    x: 235.71428571428572
+    y: 60
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/round_30"
+  id: "card8_plate"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "card8_body"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 30
+    y: 30
+    z: 30
+    w: 30
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "linear"
+}
+nodes {
+  position {
+    x: 0
+    y: -40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 0.9375
+    y: 0.9375
+    z: 1
+    w: 1
+  }
+  size {
+    x: 256
+    y: 42.666666666666664
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.9529411792755127
+    y: 0.9137254953384399
+    z: 0.8235294222831726
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "PACK 9"
+  font: "din_pro_condensed_bold_italic"
+  id: "name8"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "slot8"
+  layer: ""
+  inherit_alpha: true
+  line_break: true
+  outline_alpha: 0
+  shadow_alpha: 0
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: -108
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1.125
+    y: 1.125
+    z: 1
+    w: 1
+  }
+  size {
+    x: 195.55555555555554
+    y: 44.44444444444444
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.04313725605607033
+    y: 0.03921568766236305
+    z: 0.09019608050584793
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "3000"
+  font: "din_pro_condensed_black_italic"
+  id: "price8"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "slot8"
+  layer: ""
+  inherit_alpha: true
+  line_break: true
+  outline_alpha: 0
+  shadow_alpha: 0
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: -720
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 860
+    y: 220
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bottom"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "root"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 860
+    y: 220
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "button"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bottom"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1.6
+    y: 1.6
+    z: 1
+    w: 1
+  }
+  size {
+    x: 500
+    y: 100
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 0.9490196108818054
+    z: 0.7686274647712708
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/round_50"
+  id: "button_baseoutline"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "button"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 50
+    y: 50
+    z: 50
+    w: 50
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1.54
+    y: 1.54
+    z: 1
+    w: 1
+  }
+  size {
+    x: 515.5844155844155
+    y: 100
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/round_50"
+  id: "button_base"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "button"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 50
+    y: 50
+    z: 50
+    w: 50
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "linear"
+}
+nodes {
+  position {
+    x: 0
+    y: 44
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 700
+    y: 60
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "misc/ellipse_500"
+  id: "button_gloss"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "button"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "radial"
+}
+nodes {
+  position {
+    x: 0
+    y: 40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 2.25
+    y: 2.25
+    z: 1
+    w: 1
+  }
+  size {
+    x: 355.55555555555554
+    y: 40
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.07058823853731155
+    y: 0.054901961237192154
+    z: 0.019607843831181526
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "BUY ALL"
+  font: "din_pro_condensed_black_italic"
+  id: "buy"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bottom"
+  layer: ""
+  inherit_alpha: true
+  line_break: true
+  outline_alpha: 0
+  shadow_alpha: 0
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  size {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "{\"gradients\":{\"bg_base\":{\"type\":\"linear\",\"data\":[[0.5,0,0],[0.5,1,0]],\"stops\":[{\"color\":[0.0784,0.0627,0.1490,1],\"position\":0},{\"color\":[0.0431,0.0392,0.0901,1],\"position\":0.5500},{\"color\":[0.0235,0.0235,0.0470,1],\"position\":1}]},\"bg_glow_bottom\":{\"type\":\"radial\",\"data\":[[0.5,0.5,0],[0.5,0.5,0],0],\"stops\":[{\"color\":[0.5490,0.2352,1,0.3000],\"position\":0},{\"color\":[0.5490,0.2352,1,0],\"position\":1}]},\"bg_glow_top\":{\"type\":\"radial\",\"data\":[[0.5,0.5,0],[0.5,0.5,0],0],\"stops\":[{\"color\":[0.2156,0.9529,0.8235,0.2800],\"position\":0},{\"color\":[0.2156,0.9529,0.8235,0],\"position\":1}]},\"bg_vignette\":{\"type\":\"radial\",\"data\":[[0.5,0.5,0],[0.5,0.5,0],0],\"stops\":[{\"color\":[0,0,0,0],\"position\":0.5},{\"color\":[0,0,0,0.5],\"position\":1}]},\"button_base\":{\"type\":\"linear\",\"data\":[[0.5,0,0],[0.5,1,0]],\"stops\":[{\"color\":[1,0.9490,0.7686,1],\"position\":0},{\"color\":[0.9647,0.8627,0.5411,1],\"position\":0.4499},{\"color\":[0.7215,0.5686,0.1647,1],\"position\":1}]},\"button_gloss\":{\"type\":\"radial\",\"data\":[[0.5,0.5,0],[0.5,0.5,0],0],\"stops\":[{\"color\":[1,1,1,0.4499],\"position\":0},{\"color\":[1,1,1,0],\"position\":1}]},\"card0_fill\":{\"type\":\"linear\",\"data\":[[0.5,0,0],[0.5,1,0]],\"stops\":[{\"color\":[0.1725,0.1450,0.3215,1],\"position\":0},{\"color\":[0.1137,0.0980,0.2235,1],\"position\":0.6000},{\"color\":[0.0784,0.0666,0.1607,1],\"position\":1}]},\"card0_filloutline\":{\"type\":\"linear\",\"data\":[[0.5,0,0],[0.5,1,0]],\"stops\":[{\"color\":[0.5450,0.4901,1,0.1500],\"position\":0},{\"color\":[0.2156,0.9529,0.8235,0.8000],\"position\":1}]},\"card0_glow\":{\"type\":\"radial\",\"data\":[[0.5,0.5,0],[0.5,0.5,0],0],\"stops\":[{\"color\":[0.2156,0.9529,0.8235,0.3499],\"position\":0},{\"color\":[0.2156,0.9529,0.8235,0],\"position\":1}]},\"card0_icon\":{\"type\":\"radial\",\"data\":[[0.5,0.5,0],[0.5,0.5,0],0],\"stops\":[{\"color\":[1,1,1,0.9499],\"position\":0},{\"color\":[0.7176,0.6588,1,0.6999],\"position\":0.6000},{\"color\":[0.4352,0.3607,1,0.3000],\"position\":1}]},\"card0_plate\":{\"type\":\"linear\",\"data\":[[0,0.5,0],[1,0.5,0]],\"stops\":[{\"color\":[0.2156,0.9529,0.8235,1],\"position\":0},{\"color\":[0.1254,0.7019,0.6039,1],\"position\":1}]},\"card1_fill\":{\"type\":\"linear\",\"data\":[[0.5,0,0],[0.5,1,0]],\"stops\":[{\"color\":[0.1725,0.1450,0.3215,1],\"position\":0},{\"color\":[0.1137,0.0980,0.2235,1],\"position\":0.6000},{\"color\":[0.0784,0.0666,0.1607,1],\"position\":1}]},\"card1_filloutline\":{\"type\":\"linear\",\"data\":[[0.5,0,0],[0.5,1,0]],\"stops\":[{\"color\":[0.5450,0.4901,1,0.1500],\"position\":0},{\"color\":[0.2156,0.9529,0.8235,0.8000],\"position\":1}]},\"card1_glow\":{\"type\":\"radial\",\"data\":[[0.5,0.5,0],[0.5,0.5,0],0],\"stops\":[{\"color\":[0.2156,0.9529,0.8235,0.3499],\"position\":0},{\"color\":[0.2156,0.9529,0.8235,0],\"position\":1}]},\"card1_icon\":{\"type\":\"radial\",\"data\":[[0.5,0.5,0],[0.5,0.5,0],0],\"stops\":[{\"color\":[1,1,1,0.9499],\"position\":0},{\"color\":[0.7176,0.6588,1,0.6999],\"position\":0.6000},{\"color\":[0.4352,0.3607,1,0.3000],\"position\":1}]},\"card1_plate\":{\"type\":\"linear\",\"data\":[[0,0.5,0],[1,0.5,0]],\"stops\":[{\"color\":[0.2156,0.9529,0.8235,1],\"position\":0},{\"color\":[0.1254,0.7019,0.6039,1],\"position\":1}]},\"card2_fill\":{\"type\":\"linear\",\"data\":[[0.5,0,0],[0.5,1,0]],\"stops\":[{\"color\":[0.1725,0.1450,0.3215,1],\"position\":0},{\"color\":[0.1137,0.0980,0.2235,1],\"position\":0.6000},{\"color\":[0.0784,0.0666,0.1607,1],\"position\":1}]},\"card2_filloutline\":{\"type\":\"linear\",\"data\":[[0.5,0,0],[0.5,1,0]],\"stops\":[{\"color\":[0.5450,0.4901,1,0.1500],\"position\":0},{\"color\":[0.2156,0.9529,0.8235,0.8000],\"position\":1}]},\"card2_glow\":{\"type\":\"radial\",\"data\":[[0.5,0.5,0],[0.5,0.5,0],0],\"stops\":[{\"color\":[0.2156,0.9529,0.8235,0.3499],\"position\":0},{\"color\":[0.2156,0.9529,0.8235,0],\"position\":1}]},\"card2_icon\":{\"type\":\"radial\",\"data\":[[0.5,0.5,0],[0.5,0.5,0],0],\"stops\":[{\"color\":[1,1,1,0.9499],\"position\":0},{\"color\":[0.7176,0.6588,1,0.6999],\"position\":0.6000},{\"color\":[0.4352,0.3607,1,0.3000],\"position\":1}]},\"card2_plate\":{\"type\":\"linear\",\"data\":[[0,0.5,0],[1,0.5,0]],\"stops\":[{\"color\":[0.2156,0.9529,0.8235,1],\"position\":0},{\"color\":[0.1254,0.7019,0.6039,1],\"position\":1}]},\"card3_fill\":{\"type\":\"linear\",\"data\":[[0.5,0,0],[0.5,1,0]],\"stops\":[{\"color\":[0.1725,0.1450,0.3215,1],\"position\":0},{\"color\":[0.1137,0.0980,0.2235,1],\"position\":0.6000},{\"color\":[0.0784,0.0666,0.1607,1],\"position\":1}]},\"card3_filloutline\":{\"type\":\"linear\",\"data\":[[0.5,0,0],[0.5,1,0]],\"stops\":[{\"color\":[0.5450,0.4901,1,0.1500],\"position\":0},{\"color\":[0.2156,0.9529,0.8235,0.8000],\"position\":1}]},\"card3_glow\":{\"type\":\"radial\",\"data\":[[0.5,0.5,0],[0.5,0.5,0],0],\"stops\":[{\"color\":[0.2156,0.9529,0.8235,0.3499],\"position\":0},{\"color\":[0.2156,0.9529,0.8235,0],\"position\":1}]},\"card3_icon\":{\"type\":\"radial\",\"data\":[[0.5,0.5,0],[0.5,0.5,0],0],\"stops\":[{\"color\":[1,1,1,0.9499],\"position\":0},{\"color\":[0.7176,0.6588,1,0.6999],\"position\":0.6000},{\"color\":[0.4352,0.3607,1,0.3000],\"position\":1}]},\"card3_plate\":{\"type\":\"linear\",\"data\":[[0,0.5,0],[1,0.5,0]],\"stops\":[{\"color\":[0.2156,0.9529,0.8235,1],\"position\":0},{\"color\":[0.1254,0.7019,0.6039,1],\"position\":1}]},\"card4_fill\":{\"type\":\"linear\",\"data\":[[0.5,0,0],[0.5,1,0]],\"stops\":[{\"color\":[0.1725,0.1450,0.3215,1],\"position\":0},{\"color\":[0.1137,0.0980,0.2235,1],\"position\":0.6000},{\"color\":[0.0784,0.0666,0.1607,1],\"position\":1}]},\"card4_filloutline\":{\"type\":\"linear\",\"data\":[[0.5,0,0],[0.5,1,0]],\"stops\":[{\"color\":[0.5450,0.4901,1,0.1500],\"position\":0},{\"color\":[0.2156,0.9529,0.8235,0.8000],\"position\":1}]},\"card4_glow\":{\"type\":\"radial\",\"data\":[[0.5,0.5,0],[0.5,0.5,0],0],\"stops\":[{\"color\":[0.2156,0.9529,0.8235,0.3499],\"position\":0},{\"color\":[0.2156,0.9529,0.8235,0],\"position\":1}]},\"card4_icon\":{\"type\":\"radial\",\"data\":[[0.5,0.5,0],[0.5,0.5,0],0],\"stops\":[{\"color\":[1,1,1,0.9499],\"position\":0},{\"color\":[0.7176,0.6588,1,0.6999],\"position\":0.6000},{\"color\":[0.4352,0.3607,1,0.3000],\"position\":1}]},\"card4_plate\":{\"type\":\"linear\",\"data\":[[0,0.5,0],[1,0.5,0]],\"stops\":[{\"color\":[0.2156,0.9529,0.8235,1],\"position\":0},{\"color\":[0.1254,0.7019,0.6039,1],\"position\":1}]},\"card5_fill\":{\"type\":\"linear\",\"data\":[[0.5,0,0],[0.5,1,0]],\"stops\":[{\"color\":[0.1725,0.1450,0.3215,1],\"position\":0},{\"color\":[0.1137,0.0980,0.2235,1],\"position\":0.6000},{\"color\":[0.0784,0.0666,0.1607,1],\"position\":1}]},\"card5_filloutline\":{\"type\":\"linear\",\"data\":[[0.5,0,0],[0.5,1,0]],\"stops\":[{\"color\":[0.5450,0.4901,1,0.1500],\"position\":0},{\"color\":[0.2156,0.9529,0.8235,0.8000],\"position\":1}]},\"card5_glow\":{\"type\":\"radial\",\"data\":[[0.5,0.5,0],[0.5,0.5,0],0],\"stops\":[{\"color\":[0.2156,0.9529,0.8235,0.3499],\"position\":0},{\"color\":[0.2156,0.9529,0.8235,0],\"position\":1}]},\"card5_icon\":{\"type\":\"radial\",\"data\":[[0.5,0.5,0],[0.5,0.5,0],0],\"stops\":[{\"color\":[1,1,1,0.9499],\"position\":0},{\"color\":[0.7176,0.6588,1,0.6999],\"position\":0.6000},{\"color\":[0.4352,0.3607,1,0.3000],\"position\":1}]},\"card5_plate\":{\"type\":\"linear\",\"data\":[[0,0.5,0],[1,0.5,0]],\"stops\":[{\"color\":[0.2156,0.9529,0.8235,1],\"position\":0},{\"color\":[0.1254,0.7019,0.6039,1],\"position\":1}]},\"card6_fill\":{\"type\":\"linear\",\"data\":[[0.5,0,0],[0.5,1,0]],\"stops\":[{\"color\":[0.1725,0.1450,0.3215,1],\"position\":0},{\"color\":[0.1137,0.0980,0.2235,1],\"position\":0.6000},{\"color\":[0.0784,0.0666,0.1607,1],\"position\":1}]},\"card6_filloutline\":{\"type\":\"linear\",\"data\":[[0.5,0,0],[0.5,1,0]],\"stops\":[{\"color\":[0.5450,0.4901,1,0.1500],\"position\":0},{\"color\":[0.2156,0.9529,0.8235,0.8000],\"position\":1}]},\"card6_glow\":{\"type\":\"radial\",\"data\":[[0.5,0.5,0],[0.5,0.5,0],0],\"stops\":[{\"color\":[0.2156,0.9529,0.8235,0.3499],\"position\":0},{\"color\":[0.2156,0.9529,0.8235,0],\"position\":1}]},\"card6_icon\":{\"type\":\"radial\",\"data\":[[0.5,0.5,0],[0.5,0.5,0],0],\"stops\":[{\"color\":[1,1,1,0.9499],\"position\":0},{\"color\":[0.7176,0.6588,1,0.6999],\"position\":0.6000},{\"color\":[0.4352,0.3607,1,0.3000],\"position\":1}]},\"card6_plate\":{\"type\":\"linear\",\"data\":[[0,0.5,0],[1,0.5,0]],\"stops\":[{\"color\":[0.2156,0.9529,0.8235,1],\"position\":0},{\"color\":[0.1254,0.7019,0.6039,1],\"position\":1}]},\"card7_fill\":{\"type\":\"linear\",\"data\":[[0.5,0,0],[0.5,1,0]],\"stops\":[{\"color\":[0.1725,0.1450,0.3215,1],\"position\":0},{\"color\":[0.1137,0.0980,0.2235,1],\"position\":0.6000},{\"color\":[0.0784,0.0666,0.1607,1],\"position\":1}]},\"card7_filloutline\":{\"type\":\"linear\",\"data\":[[0.5,0,0],[0.5,1,0]],\"stops\":[{\"color\":[0.5450,0.4901,1,0.1500],\"position\":0},{\"color\":[0.2156,0.9529,0.8235,0.8000],\"position\":1}]},\"card7_glow\":{\"type\":\"radial\",\"data\":[[0.5,0.5,0],[0.5,0.5,0],0],\"stops\":[{\"color\":[0.2156,0.9529,0.8235,0.3499],\"position\":0},{\"color\":[0.2156,0.9529,0.8235,0],\"position\":1}]},\"card7_icon\":{\"type\":\"radial\",\"data\":[[0.5,0.5,0],[0.5,0.5,0],0],\"stops\":[{\"color\":[1,1,1,0.9499],\"position\":0},{\"color\":[0.7176,0.6588,1,0.6999],\"position\":0.6000},{\"color\":[0.4352,0.3607,1,0.3000],\"position\":1}]},\"card7_plate\":{\"type\":\"linear\",\"data\":[[0,0.5,0],[1,0.5,0]],\"stops\":[{\"color\":[0.2156,0.9529,0.8235,1],\"position\":0},{\"color\":[0.1254,0.7019,0.6039,1],\"position\":1}]},\"card8_fill\":{\"type\":\"linear\",\"data\":[[0.5,0,0],[0.5,1,0]],\"stops\":[{\"color\":[0.1725,0.1450,0.3215,1],\"position\":0},{\"color\":[0.1137,0.0980,0.2235,1],\"position\":0.6000},{\"color\":[0.0784,0.0666,0.1607,1],\"position\":1}]},\"card8_filloutline\":{\"type\":\"linear\",\"data\":[[0.5,0,0],[0.5,1,0]],\"stops\":[{\"color\":[0.5450,0.4901,1,0.1500],\"position\":0},{\"color\":[0.2156,0.9529,0.8235,0.8000],\"position\":1}]},\"card8_glow\":{\"type\":\"radial\",\"data\":[[0.5,0.5,0],[0.5,0.5,0],0],\"stops\":[{\"color\":[0.2156,0.9529,0.8235,0.3499],\"position\":0},{\"color\":[0.2156,0.9529,0.8235,0],\"position\":1}]},\"card8_icon\":{\"type\":\"radial\",\"data\":[[0.5,0.5,0],[0.5,0.5,0],0],\"stops\":[{\"color\":[1,1,1,0.9499],\"position\":0},{\"color\":[0.7176,0.6588,1,0.6999],\"position\":0.6000},{\"color\":[0.4352,0.3607,1,0.3000],\"position\":1}]},\"card8_plate\":{\"type\":\"linear\",\"data\":[[0,0.5,0],[1,0.5,0]],\"stops\":[{\"color\":[0.2156,0.9529,0.8235,1],\"position\":0},{\"color\":[0.1254,0.7019,0.6039,1],\"position\":1}]},\"header_panel\":{\"type\":\"linear\",\"data\":[[0.5,0,0],[0.5,1,0]],\"stops\":[{\"color\":[0.1647,0.1372,0.3137,1],\"position\":0},{\"color\":[0.0901,0.0784,0.1803,1],\"position\":1}]},\"header_panel_glint\":{\"type\":\"radial\",\"data\":[[0.5,0.5,0],[0.5,0.5,0],0],\"stops\":[{\"color\":[1,1,1,0.8999],\"position\":0},{\"color\":[1,1,1,0],\"position\":1}]},\"header_paneloutline\":{\"type\":\"linear\",\"data\":[[0,0.5,0],[1,0.5,0]],\"stops\":[{\"color\":[0.4352,0.3607,1,0.25],\"position\":0},{\"color\":[0.2156,0.9529,0.8235,0.8999],\"position\":1}]}},\"params\":{},\"text_shadows\":{\"title\":[[0,-2,1.72]]}}"
+  font: "din_pro_condensed_black_italic_shadow"
+  id: "defigma_data"
+  parent: "root"
+  layer: ""
+  inherit_alpha: true
+  line_break: false
+  alpha: 1
+  enabled: false
+}
+material: "/builtins/materials/gui.material"
+adjust_reference: ADJUST_REFERENCE_PARENT
+max_nodes: 4096
+materials {
+  name: "linear"
+  material: "/defigma/materials/linear.material"
+}
+materials {
+  name: "linear_text"
+  material: "/defigma/materials/linear_text.material"
+}
+materials {
+  name: "radial"
+  material: "/defigma/materials/radial.material"
+}
+materials {
+  name: "text_shadow"
+  material: "/defigma/materials/text_shadow.material"
+}

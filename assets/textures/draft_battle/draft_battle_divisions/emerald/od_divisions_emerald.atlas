@@ -1,0 +1,61 @@
+images {
+  image: "/assets/textures/draft_battle/draft_battle_divisions/emerald/bg.png"
+}
+images {
+  image: "/assets/textures/draft_battle/draft_battle_divisions/emerald/stage_bg.png"
+}
+images {
+  image: "/assets/textures/draft_battle/draft_battle_divisions/emerald/rewards_panel_bg.png"
+}
+images {
+  image: "/assets/textures/draft_battle/draft_battle_divisions/emerald/play_btn_bg.png"
+}
+images {
+  image: "/assets/textures/draft_battle/draft_battle_divisions/emerald/arrow.png"
+}
+images {
+  image: "/assets/textures/draft_battle/draft_battle_divisions/emerald/play_icon.png"
+}
+images {
+  image: "/assets/textures/draft_battle/draft_battle_divisions/emerald/emblem_glow.png"
+}
+images {
+  image: "/assets/textures/draft_battle/draft_battle_divisions/emerald/panel_bg.png"
+}
+images {
+  image: "/assets/textures/draft_battle/draft_battle_divisions/emerald/tasks_bg.png"
+}
+images {
+  image: "/assets/textures/draft_battle/draft_battle_divisions/emerald/division_bg.png"
+}
+images {
+  image: "/assets/textures/draft_battle/draft_battle_divisions/emerald/vs_bg.png"
+}
+images {
+  image: "/assets/textures/draft_battle/draft_battle_divisions/emerald/cancel_btn_bg.png"
+}
+images {
+  image: "/assets/textures/draft_battle/draft_battle_divisions/emerald/scoreboard_bg.png"
+}
+images {
+  image: "/assets/textures/draft_battle/draft_battle_divisions/emerald/compare_bg.png"
+}
+images {
+  image: "/assets/textures/draft_battle/draft_battle_divisions/emerald/results_leagues_bg.png"
+}
+images {
+  image: "/assets/textures/draft_battle/draft_battle_divisions/emerald/results_tasks_bg.png"
+}
+images {
+  image: "/assets/textures/draft_battle/draft_battle_divisions/emerald/league_chip.png"
+}
+images {
+  image: "/assets/textures/draft_battle/draft_battle_divisions/emerald/coins_plate.png"
+}
+images {
+  image: "/assets/textures/draft_battle/draft_battle_divisions/emerald/reward_cell_card.png"
+}
+images {
+  image: "/assets/textures/draft_battle/draft_battle_divisions/emerald/reward_cell_packs.png"
+}
+extrude_borders: 2

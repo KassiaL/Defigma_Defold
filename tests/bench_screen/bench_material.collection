@@ -1,0 +1,10 @@
+name: "bench_material"
+scale_along_z: 0
+embedded_instances {
+  id: "screen"
+  data: "components {\n"
+  "  id: \"gui\"\n"
+  "  component: \"/tests/bench_screen/bench_material.gui\"\n"
+  "}\n"
+  ""
+}

@@ -1,0 +1,10 @@
+name: "shapes_test"
+scale_along_z: 0
+embedded_instances {
+  id: "screen"
+  data: "components {\n"
+  "  id: \"gui\"\n"
+  "  component: \"/tests/shapes_test/shapes_test.gui\"\n"
+  "}\n"
+  ""
+}

@@ -1,0 +1,8389 @@
+script: "/tests/divisions_gold/divisions_gold_shapes.gui_script"
+textures {
+  name: "od_emblems"
+  texture: "/assets/textures/draft_battle/draft_battle_divisions/od_emblems/od_emblems.atlas"
+}
+textures {
+  name: "pack_ic"
+  texture: "/assets/textures/pack_ic/pack_ic.atlas"
+}
+textures {
+  name: "sort"
+  texture: "/assets/textures/sort/sort.atlas"
+}
+textures {
+  name: "misc"
+  texture: "/assets/textures/misc/misc.atlas"
+}
+fonts {
+  name: "din_pro_condensed_black_italic_shadow"
+  font: "/assets/fonts/din_pro_condensed_black_italic_shadow.font"
+}
+fonts {
+  name: "din_pro_condensed_bold_italic_shadow"
+  font: "/assets/fonts/din_pro_condensed_bold_italic_shadow.font"
+}
+fonts {
+  name: "din_pro_condensed_medium_shadow"
+  font: "/assets/fonts/din_pro_condensed_medium_shadow.font"
+}
+fonts {
+  name: "din_pro_condensed_black_italic"
+  font: "/assets/fonts/din_pro_condensed_black_italic.font"
+}
+background_color {
+  x: 0.0
+  y: 0.0
+  z: 0.0
+  w: 0.0
+}
+nodes {
+  position {
+    x: 540
+    y: 1150
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1080
+    y: 2300
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "root"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_STRETCH
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 1150
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bgN"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_TOP
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_STRETCH
+  parent: "root"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: -1150
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1080
+    y: 2300
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bg"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bgN"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1080
+    y: 2300
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bg_i"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bg"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1080
+    y: 2300
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bg_i_base"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bg_i"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[0,1,0,-1,0,1],\"stops\":[[0,0.0549,0.051,0.0627,1],[0.6,0.0392,0.0392,0.0471,1],[1,0.0196,0.0196,0.0235,1]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: -140
+    y: 790
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1280
+    y: 1040
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bg_i_glow"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bg_i"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"layer_blur\",\"radius\":140}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"radial\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,0.8314,0.6863,0.2157,0.2],[1,0.8314,0.6863,0.2157,0]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "ellipse"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 460
+    y: -870
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1040
+    y: 840
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bg_i_glow2"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bg_i"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"layer_blur\",\"radius\":120}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"radial\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,0.7216,0.5686,0.1647,0.16],[1,0.7216,0.5686,0.1647,0]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "ellipse"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: -271.89813232421875
+    y: 722.88720703125
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1170.3599853515625
+    y: 1564.4599609375
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bg_i_facets_l2"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bg_i"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"solid\",\"color\":[1,1,1,0.09]}]"
+  }
+  custom_properties {
+    id: "path"
+    type: TYPE_STRING
+    string: "{\"fill\":{\"polygons\":[[0,94.7,272.72,103.46,47.32,305.2],[272.72,103.46,238.76,364.38,47.32,305.2],[560.32,0,808.02,142.74,601.12,349.5],[808.02,142.74,857.66,275.52,601.12,349.5],[808.02,142.74,1170.36,10.5,1165.38,259.3],[47.32,305.2,238.76,364.38,405.98,661.4],[601.12,349.5,857.66,275.52,791.98,614.16],[601.2,1132.1,778.56,1118.06,677.04,1564.46]],\"edges\":[272.72,103.46,0,94.7,0,94.7,47.32,305.2,238.76,364.38,272.72,103.46,808.02,142.74,560.32,0,560.32,0,601.12,349.5,857.66,275.52,808.02,142.74,1170.36,10.5,808.02,142.74,1165.38,259.3,1170.36,10.5,808.02,142.74,1165.38,259.3,405.98,661.4,238.76,364.38,47.32,305.2,405.98,661.4,791.98,614.16,857.66,275.52,601.12,349.5,791.98,614.16,778.56,1118.06,601.2,1132.1,677.04,1564.46,778.56,1118.06,601.2,1132.1,677.04,1564.46]},\"stroke\":{\"polygons\":[],\"edges\":[]}}"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "path"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: -23.7628173828125
+    y: -19.622802734375
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1754.239990234375
+    y: 3049.47998046875
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bg_i_facets_d0"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bg_i"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"solid\",\"color\":[0,0,0,0.156]}]"
+  }
+  custom_properties {
+    id: "path"
+    type: TYPE_STRING
+    string: "{\"fill\":{\"polygons\":[[316.52,103.46,604.12,0,644.92,349.5],[316.52,103.46,644.92,349.5,282.56,364.38],[1214.16,10.5,1450.7,4.52,1209.18,259.3],[1450.7,4.52,1445.26,258.54,1209.18,259.3],[91.12,305.2,449.78,661.4,0,564.1],[901.46,275.52,1209.18,259.3,835.78,614.16],[1209.18,259.3,1270.52,697.48,835.78,614.16],[1445.26,258.54,1716.76,408.02,1491.66,628.12],[1716.76,408.02,1722.6,566.12,1491.66,628.12],[835.78,614.16,884.98,865.18,580.52,936.52],[835.78,614.16,1270.52,697.48,1214.68,995.94],[580.52,936.52,645,1132.1,418.8,1270.06],[580.52,936.52,822.36,1118.06,645,1132.1],[1214.68,995.94,1539.34,986.58,1369.38,1191],[1214.68,995.94,1369.38,1191,1224.02,1237.72],[1539.34,986.58,1660.44,1020.16,1369.38,1191],[418.8,1270.06,645,1132.1,720.84,1564.46],[1224.02,1237.72,1369.38,1191,1178.3,1609.84],[433.46,1438.52,720.84,1564.46,418.64,1743],[720.84,1564.46,928.26,1518.68,960.38,1785.02],[720.84,1564.46,960.38,1785.02,592.98,1760.18],[1178.3,1609.84,1126.78,1699.56,960.38,1785.02],[1178.3,1609.84,1461.78,1590.88,1479.88,1843.84],[111.6,1870.36,418.64,1743,30.42,2042.98],[418.64,1743,456.54,2115.24,30.42,2042.98],[592.98,1760.18,960.38,1785.02,703.56,1974.44],[960.38,1785.02,1126.78,1699.56,1093.88,2149.78],[1126.78,1699.56,1479.88,1843.84,1093.88,2149.78],[1479.88,1843.84,1616.88,1830.84,1754.24,2126.62],[30.42,2042.98,456.54,2115.24,431.46,2393.64],[703.56,1974.44,725.84,2345.16,431.46,2393.64],[703.56,1974.44,799.76,2041.36,814.8,2416.6],[703.56,1974.44,814.8,2416.6,725.84,2345.16],[1093.88,2149.78,1523.36,2467.6,1138.84,2298.02],[814.8,2416.6,1178.9,2705.02,812.64,2642.38],[1138.84,2298.02,1523.36,2467.6,1178.9,2705.02],[93.64,2754.2,355.92,2551.26,379.92,2983.48],[541.84,2762.54,536.74,3049.48,379.92,2983.48],[1178.9,2705.02,1177.38,2856.86,955.7,2868.8],[1178.9,2705.02,1512.98,2898.26,1177.38,2856.86],[1430.4,2654.14,1640.96,2690.8,1512.98,2898.26]],\"edges\":[604.12,0,316.52,103.46,644.92,349.5,604.12,0,282.56,364.38,644.92,349.5,316.52,103.46,282.56,364.38,1450.7,4.52,1214.16,10.5,1214.16,10.5,1209.18,259.3,1445.26,258.54,1450.7,4.52,1209.18,259.3,1445.26,258.54,449.78,661.4,91.12,305.2,0,564.1,449.78,661.4,91.12,305.2,0,564.1,1209.18,259.3,901.46,275.52,901.46,275.52,835.78,614.16,1270.52,697.48,1209.18,259.3,1716.76,408.02,1445.26,258.54,1445.26,258.54,1491.66,628.12,1722.6,566.12,1716.76,408.02,1491.66,628.12,1722.6,566.12,884.98,865.18,835.78,614.16,580.52,936.52,884.98,865.18,835.78,614.16,580.52,936.52,1214.68,995.94,1270.52,697.48,835.78,614.16,1214.68,995.94,580.52,936.52,418.8,1270.06,822.36,1118.06,580.52,936.52,645,1132.1,822.36,1118.06,1539.34,986.58,1214.68,995.94,1214.68,995.94,1224.02,1237.72,1660.44,1020.16,1539.34,986.58,1369.38,1191,1660.44,1020.16,720.84,1564.46,645,1132.1,418.8,1270.06,720.84,1564.46,1178.3,1609.84,1369.38,1191,1224.02,1237.72,1178.3,1609.84,720.84,1564.46,433.46,1438.52,418.64,1743,720.84,1564.46,433.46,1438.52,418.64,1743,928.26,1518.68,720.84,1564.46,960.38,1785.02,928.26,1518.68,720.84,1564.46,592.98,1760.18,1126.78,1699.56,1178.3,1609.84,1178.3,1609.84,960.38,1785.02,1461.78,1590.88,1178.3,1609.84,1479.88,1843.84,1461.78,1590.88,1178.3,1609.84,1479.88,1843.84,418.64,1743,111.6,1870.36,111.6,1870.36,30.42,2042.98,456.54,2115.24,418.64,1743,703.56,1974.44,960.38,1785.02,592.98,1760.18,703.56,1974.44,960.38,1785.02,1093.88,2149.78,1479.88,1843.84,1126.78,1699.56,1093.88,2149.78,1479.88,1843.84,1616.88,1830.84,1479.88,1843.84,1754.24,2126.62,1616.88,1830.84,1479.88,1843.84,1754.24,2126.62,431.46,2393.64,456.54,2115.24,30.42,2042.98,431.46,2393.64,431.46,2393.64,725.84,2345.16,703.56,1974.44,431.46,2393.64,799.76,2041.36,703.56,1974.44,814.8,2416.6,799.76,2041.36,725.84,2345.16,814.8,2416.6,1523.36,2467.6,1093.88,2149.78,1093.88,2149.78,1138.84,2298.02,1178.9,2705.02,814.8,2416.6,812.64,2642.38,1178.9,2705.02,814.8,2416.6,812.64,2642.38,1178.9,2705.02,1523.36,2467.6,1138.84,2298.02,1178.9,2705.02,355.92,2551.26,93.64,2754.2,379.92,2983.48,355.92,2551.26,93.64,2754.2,379.92,2983.48,536.74,3049.48,541.84,2762.54,379.92,2983.48,536.74,3049.48,541.84,2762.54,379.92,2983.48,955.7,2868.8,1177.38,2856.86,1178.9,2705.02,955.7,2868.8,1512.98,2898.26,1178.9,2705.02,1177.38,2856.86,1512.98,2898.26,1640.96,2690.8,1430.4,2654.14,1512.98,2898.26,1640.96,2690.8,1430.4,2654.14,1512.98,2898.26]},\"stroke\":{\"polygons\":[],\"edges\":[]}}"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "path"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: -23.7628173828125
+    y: -21.87841796875
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1754.239990234375
+    y: 3044.9599609375
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bg_i_facets_l0"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bg_i"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"solid\",\"color\":[1,1,1,0.027]}]"
+  }
+  custom_properties {
+    id: "path"
+    type: TYPE_STRING
+    string: "{\"fill\":{\"polygons\":[[851.82,138.22,1209.18,254.78,901.46,271],[1450.7,0,1716.76,403.5,1445.26,254.02],[644.92,344.98,835.78,609.64,610.46,636.94],[1209.18,254.78,1445.26,254.02,1491.66,623.6],[0,559.58,449.78,656.88,176.28,1011.38],[449.78,656.88,610.46,636.94,580.52,932],[449.78,656.88,580.52,932,259.78,837.68],[1491.66,623.6,1539.34,982.06,1214.68,991.42],[176.28,1011.38,259.78,837.68,418.8,1265.54],[176.28,1011.38,418.8,1265.54,110.64,1150.48],[580.52,932,884.98,860.66,822.36,1113.54],[884.98,860.66,1214.68,991.42,822.36,1113.54],[418.8,1265.54,433.46,1434,77.2,1521.5],[822.36,1113.54,928.26,1514.16,720.84,1559.94],[1369.38,1186.48,1731.88,1472.3,1461.78,1586.36],[77.2,1521.5,433.46,1434,418.64,1738.48],[928.26,1514.16,1178.3,1605.32,960.38,1780.5],[418.64,1738.48,592.98,1755.66,703.56,1969.92],[1479.88,1839.32,1363.18,2072.22,1093.88,2145.26],[1479.88,1839.32,1754.24,2122.1,1363.18,2072.22],[1093.88,2145.26,1363.18,2072.22,1523.36,2463.08],[1363.18,2072.22,1754.24,2122.1,1523.36,2463.08],[65.74,2450.12,431.46,2389.12,93.64,2749.68],[431.46,2389.12,725.84,2340.64,541.84,2758.02],[725.84,2340.64,814.8,2412.08,541.84,2758.02],[814.8,2412.08,812.64,2637.86,541.84,2758.02],[93.64,2749.68,379.92,2978.96,39.32,2876],[541.84,2758.02,955.7,2864.28,536.74,3044.96],[812.64,2637.86,1178.9,2700.5,955.7,2864.28],[1640.96,2686.28,1698.14,2919.44,1512.98,2893.74]],\"edges\":[1209.18,254.78,851.82,138.22,901.46,271,1209.18,254.78,851.82,138.22,901.46,271,1716.76,403.5,1450.7,0,1445.26,254.02,1716.76,403.5,1450.7,0,1445.26,254.02,835.78,609.64,644.92,344.98,610.46,636.94,835.78,609.64,644.92,344.98,610.46,636.94,1445.26,254.02,1209.18,254.78,1491.66,623.6,1445.26,254.02,1209.18,254.78,1491.66,623.6,449.78,656.88,0,559.58,176.28,1011.38,449.78,656.88,0,559.58,176.28,1011.38,610.46,636.94,449.78,656.88,580.52,932,610.46,636.94,259.78,837.68,580.52,932,449.78,656.88,259.78,837.68,1539.34,982.06,1491.66,623.6,1214.68,991.42,1539.34,982.06,1491.66,623.6,1214.68,991.42,259.78,837.68,176.28,1011.38,418.8,1265.54,259.78,837.68,110.64,1150.48,418.8,1265.54,176.28,1011.38,110.64,1150.48,884.98,860.66,580.52,932,580.52,932,822.36,1113.54,1214.68,991.42,884.98,860.66,822.36,1113.54,1214.68,991.42,433.46,1434,418.8,1265.54,418.8,1265.54,77.2,1521.5,928.26,1514.16,822.36,1113.54,720.84,1559.94,928.26,1514.16,822.36,1113.54,720.84,1559.94,1731.88,1472.3,1369.38,1186.48,1461.78,1586.36,1731.88,1472.3,1369.38,1186.48,1461.78,1586.36,418.64,1738.48,433.46,1434,77.2,1521.5,418.64,1738.48,1178.3,1605.32,928.26,1514.16,960.38,1780.5,1178.3,1605.32,928.26,1514.16,960.38,1780.5,592.98,1755.66,418.64,1738.48,703.56,1969.92,592.98,1755.66,418.64,1738.48,703.56,1969.92,1479.88,1839.32,1093.88,2145.26,1754.24,2122.1,1479.88,1839.32,1093.88,2145.26,1523.36,2463.08,1523.36,2463.08,1754.24,2122.1,431.46,2389.12,65.74,2450.12,93.64,2749.68,431.46,2389.12,65.74,2450.12,93.64,2749.68,725.84,2340.64,431.46,2389.12,431.46,2389.12,541.84,2758.02,814.8,2412.08,725.84,2340.64,812.64,2637.86,814.8,2412.08,541.84,2758.02,812.64,2637.86,379.92,2978.96,93.64,2749.68,39.32,2876,379.92,2978.96,93.64,2749.68,39.32,2876,955.7,2864.28,541.84,2758.02,536.74,3044.96,955.7,2864.28,541.84,2758.02,536.74,3044.96,1178.9,2700.5,812.64,2637.86,955.7,2864.28,1178.9,2700.5,812.64,2637.86,955.7,2864.28,1698.14,2919.44,1640.96,2686.28,1512.98,2893.74,1698.14,2919.44,1640.96,2686.28,1512.98,2893.74]},\"stroke\":{\"polygons\":[],\"edges\":[]}}"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "path"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 31.2003173828125
+    y: 306.04150390625
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1709.760009765625
+    y: 2389.1201171875
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bg_i_facets_l1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bg_i"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"solid\",\"color\":[1,1,1,0.054]}]"
+  }
+  custom_properties {
+    id: "path"
+    type: TYPE_STRING
+    string: "{\"fill\":{\"polygons\":[[1373.5,0,1682.2,167.1,1639.56,403.5],[205.36,359.86,567.72,344.98,372.58,656.88],[567.72,344.98,533.26,636.94,372.58,656.88],[1131.98,254.78,1414.46,623.6,1193.32,692.96],[99.08,1011.38,182.58,837.68,372.58,656.88],[533.26,636.94,758.58,609.64,503.32,932],[758.58,609.64,1137.48,991.42,807.78,860.66],[1193.32,692.96,1414.46,623.6,1137.48,991.42],[182.58,837.68,503.32,932,341.6,1265.54],[1137.48,991.42,1146.82,1233.2,745.16,1113.54],[1583.24,1015.64,1709.76,1206.18,1292.18,1186.48],[33.44,1150.48,341.6,1265.54,0,1521.5],[341.6,1265.54,643.64,1559.94,356.26,1434],[0,1521.5,341.44,1738.48,34.4,1865.84],[1101.1,1605.32,1402.68,1839.32,1049.58,1695.04],[341.44,1738.48,626.36,1969.92,379.34,2110.72],[379.34,2110.72,626.36,1969.92,354.26,2389.12]],\"edges\":[1682.2,167.1,1373.5,0,1639.56,403.5,1682.2,167.1,1373.5,0,1639.56,403.5,567.72,344.98,205.36,359.86,205.36,359.86,372.58,656.88,533.26,636.94,567.72,344.98,372.58,656.88,533.26,636.94,1414.46,623.6,1131.98,254.78,1131.98,254.78,1193.32,692.96,182.58,837.68,99.08,1011.38,372.58,656.88,182.58,837.68,99.08,1011.38,372.58,656.88,758.58,609.64,533.26,636.94,503.32,932,758.58,609.64,533.26,636.94,503.32,932,1137.48,991.42,758.58,609.64,807.78,860.66,1137.48,991.42,758.58,609.64,807.78,860.66,1137.48,991.42,1414.46,623.6,1193.32,692.96,1137.48,991.42,503.32,932,182.58,837.68,341.6,1265.54,503.32,932,182.58,837.68,341.6,1265.54,1146.82,1233.2,1137.48,991.42,745.16,1113.54,1146.82,1233.2,1137.48,991.42,745.16,1113.54,1709.76,1206.18,1583.24,1015.64,1292.18,1186.48,1709.76,1206.18,1583.24,1015.64,1292.18,1186.48,341.6,1265.54,33.44,1150.48,0,1521.5,341.6,1265.54,33.44,1150.48,0,1521.5,643.64,1559.94,341.6,1265.54,356.26,1434,643.64,1559.94,341.6,1265.54,356.26,1434,341.44,1738.48,0,1521.5,34.4,1865.84,341.44,1738.48,0,1521.5,34.4,1865.84,1402.68,1839.32,1101.1,1605.32,1049.58,1695.04,1402.68,1839.32,1101.1,1605.32,1049.58,1695.04,626.36,1969.92,341.44,1738.48,341.44,1738.48,379.34,2110.72,354.26,2389.12,626.36,1969.92,379.34,2110.72,354.26,2389.12]},\"stroke\":{\"polygons\":[],\"edges\":[]}}"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "path"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 7.80908203125
+    y: -269.6800537109375
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1756.5400390625
+    y: 2417.360107421875
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bg_i_facets_d1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bg_i"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"solid\",\"color\":[0,0,0,0.286]}]"
+  }
+  custom_properties {
+    id: "path"
+    type: TYPE_STRING
+    string: "{\"fill\":{\"polygons\":[[1461.24,62,1692.18,0,1630.02,454.04],[791.94,551.94,1193.6,671.6,1147.88,1043.72],[791.94,551.94,1147.88,1043.72,897.84,952.56],[1338.96,624.88,1431.36,1024.76,1147.88,1043.72],[1338.96,624.88,1756.54,644.58,1701.46,910.7],[690.42,998.34,562.56,1194.06,388.22,1176.88],[929.96,1218.9,769.34,1475.24,673.14,1408.32],[929.96,1218.9,1063.46,1583.66,769.34,1475.24],[0,1476.86,401.04,1827.52,35.32,1888.52],[769.34,1475.24,1063.46,1583.66,784.38,1850.48],[401.04,1827.52,325.5,1985.14,63.22,2188.08],[401.04,1827.52,511.42,2196.42,325.5,1985.14],[784.38,1850.48,1108.42,1731.9,1148.48,2138.9],[1492.94,1901.48,1399.98,2088.02,1148.48,2138.9],[325.5,1985.14,511.42,2196.42,349.5,2417.36]],\"edges\":[1692.18,0,1461.24,62,1630.02,454.04,1692.18,0,1461.24,62,1630.02,454.04,1193.6,671.6,791.94,551.94,1147.88,1043.72,1193.6,671.6,897.84,952.56,1147.88,1043.72,791.94,551.94,897.84,952.56,1431.36,1024.76,1338.96,624.88,1147.88,1043.72,1431.36,1024.76,1338.96,624.88,1147.88,1043.72,1756.54,644.58,1338.96,624.88,1701.46,910.7,1756.54,644.58,1338.96,624.88,1701.46,910.7,562.56,1194.06,690.42,998.34,388.22,1176.88,562.56,1194.06,690.42,998.34,388.22,1176.88,673.14,1408.32,769.34,1475.24,929.96,1218.9,673.14,1408.32,1063.46,1583.66,929.96,1218.9,401.04,1827.52,0,1476.86,35.32,1888.52,401.04,1827.52,0,1476.86,35.32,1888.52,784.38,1850.48,1063.46,1583.66,769.34,1475.24,784.38,1850.48,63.22,2188.08,325.5,1985.14,401.04,1827.52,63.22,2188.08,511.42,2196.42,401.04,1827.52,1108.42,1731.9,784.38,1850.48,1148.48,2138.9,1108.42,1731.9,784.38,1850.48,1148.48,2138.9,1399.98,2088.02,1492.94,1901.48,1148.48,2138.9,1399.98,2088.02,1492.94,1901.48,1148.48,2138.9,349.5,2417.36,511.42,2196.42,325.5,1985.14,349.5,2417.36]},\"stroke\":{\"polygons\":[],\"edges\":[]}}"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "path"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 247.16094970703125
+    y: -258.0699462890625
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1212.4000244140625
+    y: 2270.139892578125
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bg_i_facets_d2"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bg_i"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"solid\",\"color\":[0,0,0,0.416]}]"
+  }
+  custom_properties {
+    id: "path"
+    type: TYPE_STRING
+    string: "{\"fill\":{\"polygons\":[[949.82,0,1118.6,392.04,997.5,358.46],[919.94,962.76,1190.04,848.7,938.04,1215.72],[1190.04,848.7,1075.04,1202.72,938.04,1215.72],[552.04,1521.66,597,1669.9,272.96,1788.48],[1212.4,1498.5,1184.44,1632.52,981.52,1839.48],[981.52,1839.48,1184.44,1632.52,1099.12,2062.68],[981.52,1839.48,1099.12,2062.68,888.56,2026.02],[0,2134.42,270.8,2014.26,413.86,2240.68],[637.06,2076.9,888.56,2026.02,971.14,2270.14]],\"edges\":[1118.6,392.04,949.82,0,997.5,358.46,1118.6,392.04,949.82,0,997.5,358.46,1190.04,848.7,919.94,962.76,919.94,962.76,938.04,1215.72,1075.04,1202.72,1190.04,848.7,938.04,1215.72,1075.04,1202.72,597,1669.9,552.04,1521.66,272.96,1788.48,597,1669.9,552.04,1521.66,272.96,1788.48,1184.44,1632.52,1212.4,1498.5,1212.4,1498.5,981.52,1839.48,1099.12,2062.68,1184.44,1632.52,888.56,2026.02,1099.12,2062.68,981.52,1839.48,888.56,2026.02,270.8,2014.26,0,2134.42,413.86,2240.68,270.8,2014.26,0,2134.42,413.86,2240.68,888.56,2026.02,637.06,2076.9,971.14,2270.14,888.56,2026.02,637.06,2076.9,971.14,2270.14]},\"stroke\":{\"polygons\":[],\"edges\":[]}}"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "path"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: -445.00156889992945
+    y: 353.00071265301506
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 59.356774700194535
+    w: 0
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1471.4808349609375
+    y: 124
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bg_i_chevron_top_l"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bg_i"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 62
+      y: 62
+      z: 62
+      w: 62
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"layer_blur\",\"radius\":104}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,0.5412,0.4157,0.1216,1],[1,0.8314,0.6863,0.2157,1]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 0.609000027179718
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 395.0014363602464
+    y: 423.0021001107274
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: -50.44559292318057
+    w: 0
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1460.4027099609375
+    y: 124
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bg_i_chevron_top_r"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bg_i"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 62
+      y: 62
+      z: 62
+      w: 62
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"layer_blur\",\"radius\":104}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,0.8314,0.6863,0.2157,1],[1,0.9647,0.8627,0.5412,1]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 0.609000027179718
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: -444.9989671039427
+    y: 352.99869131327955
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 59.356774700194535
+    w: 0
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1471.4808349609375
+    y: 18
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bg_i_chevron_top_l_core"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bg_i"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 9
+      y: 9
+      z: 9
+      w: 9
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"layer_blur\",\"radius\":16}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,0.9647,0.8627,0.5412,1],[1,1,0.949,0.7686,1]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 0.7975000143051147
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 394.9983208786057
+    y: 423.0030648092119
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: -50.44559292318057
+    w: 0
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1460.4027099609375
+    y: 18
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bg_i_chevron_top_r_core"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bg_i"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 9
+      y: 9
+      z: 9
+      w: 9
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"layer_blur\",\"radius\":16}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,1,0.949,0.7686,1],[1,1,0.9804,0.9412,1]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 0.7975000143051147
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 237.00311011286047
+    y: -485.00273984041166
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: -32.70141023419467
+    w: 0
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 610.8158569335938
+    y: 60
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bg_i_chevron_bottom_u"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bg_i"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 30
+      y: 30
+      z: 30
+      w: 30
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"layer_blur\",\"radius\":56}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,0.5412,0.4157,0.1216,1],[1,0.9098,0.7765,0.3529,1]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 0.5799999833106995
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: -83.00338542957479
+    y: -939.9997969230647
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: -153.31591431640032
+    w: 0
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1291.5556640625
+    y: 60
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bg_i_chevron_bottom_d"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bg_i"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 30
+      y: 30
+      z: 30
+      w: 30
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"layer_blur\",\"radius\":56}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,0.9098,0.7765,0.3529,1],[1,0.4196,0.3216,0.0902,1]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 0.5799999833106995
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 327.0016237642112
+    y: -541.9974235186934
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: -32.891014638993866
+    w: 0
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 397.75872802734375
+    y: 9
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bg_i_chevron_bottom_u_core"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bg_i"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 4.5
+      y: 4.5
+      z: 4.5
+      w: 4.5
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"layer_blur\",\"radius\":8}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,1,0.949,0.7686,0],[1,1,0.9804,0.9412,1]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: -82.99739148575509
+    y: -940.002698887308
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: -153.31591431640032
+    w: 0
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1291.5556640625
+    y: 9
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bg_i_chevron_bottom_d_core"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bg_i"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 4.5
+      y: 4.5
+      z: 4.5
+      w: 4.5
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"layer_blur\",\"radius\":8}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,1,0.9804,0.9412,1],[1,0.8314,0.6863,0.2157,1]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: -5.97625732421875
+    y: -19.65380859375
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1731.3599853515625
+    y: 3051.6201171875
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bg_i_mesh"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bg_i"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"solid\",\"color\":[0.9647,0.8627,0.5412,0.105]}]"
+  }
+  custom_properties {
+    id: "path"
+    type: TYPE_STRING
+    string: "{\"fill\":{\"polygons\":[[1186.64,997.2,1184.28,996.76,1240.12,698.3,1242.48,698.74],[927.2,2870.8,925.78,2868.86,1148.96,2705.08,1150.38,2707.02],[616.9,350.4,614.5,350.68,573.7,1.18,576.1,0.9],[1725.88,2126.82,1724.16,2128.48,1449.8,1845.72,1451.52,1844.04],[420.7,663.62,420.42,661.24,581.08,641.32,581.38,643.7],[63.08,305.98,60.74,306.5,13.4,96,15.74,95.48],[37.72,2455.56,35.34,2455.78,0,2044.14,2.38,2043.92],[403.26,2395.32,401.24,2394.02,673.32,1974.82,675.34,1976.14],[1185.9,995.88,1185,998.1,855.3,867.34,856.2,865.1],[1493.46,2467.66,1494.82,2469.64,1150.36,2707.04,1149,2705.06],[1463.28,630.02,1461.6,628.32,1686.7,408.2,1688.38,409.92],[1184.26,997.04,1186.66,996.94,1196,1238.7,1193.6,1238.8],[930.44,1785.08,931.86,1787.02,675.04,1976.44,673.62,1974.52],[581.08,641.32,581.38,643.7,420.7,663.62,420.42,661.24],[784.62,2643.44,782.22,2643.4,784.38,2417.62,786.78,2417.66],[390.04,1745.08,388.82,1743.02,691.02,1564.46,692.24,1566.52],[1184.26,997.04,1186.66,996.94,1196,1238.7,1193.6,1238.8],[1148.34,1611.82,1149.82,1609.92,1451.4,1843.94,1449.92,1845.84],[782.92,2642.32,783.9,2644.52,513.12,2764.68,512.14,2762.48],[771.24,2041.42,769.86,2043.38,673.66,1976.46,675.02,1974.5],[1462.76,630.32,1462.14,628,1693.06,566,1693.68,568.32],[1432.48,1590.74,1432.64,1593.12,1149.16,1612.08,1149,1609.68],[82.84,1872.5,81.92,1870.3,388.96,1742.94,389.88,1745.16],[930.14,1785.42,932.18,1786.7,771.56,2043.04,769.54,2041.76],[673.32,1974.82,675.34,1976.14,403.26,2395.32,401.24,2394.02],[351.06,2983.36,350.36,2985.66,9.76,2882.7,10.44,2880.42],[821.76,142.94,823.44,144.64,616.54,351.38,614.86,349.68],[821.48,144.2,823.72,143.36,873.38,276.14,871.12,276.98],[931.9,1786.98,930.4,1785.12,1148.32,1609.94,1149.84,1611.8],[1729,172.46,1731.36,172.88,1688.72,409.28,1686.36,408.84],[580.04,642.38,582.44,642.62,552.5,937.68,550.12,937.44],[61.06,307.08,62.76,305.38,421.4,661.58,419.72,663.28],[1420.92,6.62,1422.06,4.5,1730.74,171.62,1729.6,173.72],[1493.46,2467.66,1494.82,2469.64,1150.36,2707.04,1149,2705.06],[930.14,1785.42,932.18,1786.7,771.56,2043.04,769.54,2041.76],[61.56,307.38,62.26,305.08,253.7,364.26,252.98,366.56],[148,1017.66,146.1,1016.2,419.6,661.7,421.5,663.16],[229.48,842.72,231.64,843.76,148.14,1017.46,145.98,1016.42],[252.3,366,254.38,364.82,421.6,661.84,419.52,663.02],[564.76,1761.88,562.74,1760.56,690.62,1564.84,692.64,1566.14],[793.5,1120.24,792.8,1117.96,1185.1,995.84,1185.8,998.14],[403.26,2395.32,401.24,2394.02,673.32,1974.82,675.34,1976.14],[1484.78,2899.92,1482.74,2898.66,1610.72,2691.22,1612.76,2692.48],[690.82,1566.38,692.44,1564.6,931.96,1785.18,930.34,1786.94],[325.8,2553.1,327.6,2551.52,513.52,2762.8,511.72,2764.38],[1509.2,986.84,1511.04,988.38,1341.08,1192.8,1339.24,1191.28],[794.32,1119.38,791.98,1118.82,854.58,865.92,856.92,866.5],[552.24,938.3,550.36,936.8,805.62,614.44,807.5,615.94],[1178.78,260.5,1181.16,260.18,1242.48,698.36,1240.12,698.7],[821.48,144.2,823.72,143.36,873.38,276.14,871.12,276.98],[550.58,938.52,552.02,936.6,793.86,1118.14,792.42,1120.06],[1241.66,699.68,1240.94,697.38,1462.08,628.02,1462.8,630.32],[1150.88,2705.94,1148.48,2706.18,1108.42,2299.18,1110.82,2298.94],[791.98,1119.4,794.3,1118.8,900.2,1519.42,897.88,1520.02],[854.58,865.92,856.92,866.5,794.32,1119.38,791.98,1118.82],[1240.12,698.3,1242.48,698.74,1186.64,997.2,1184.28,996.76],[1341.1,1191.3,1339.22,1192.78,1184.52,997.74,1186.4,996.24],[1494.64,2467.56,1493.66,2469.74,1109.14,2300.16,1110.1,2297.96],[931.24,1784.86,931.08,1787.26,563.66,1762.42,563.84,1760.02],[792.8,1120.26,793.48,1117.96,1195.16,1237.6,1194.46,1239.9],[1692.18,567,1694.56,567.34,1632.4,1021.36,1630.04,1021.02],[403.44,2394.78,401.06,2394.56,426.14,2116.16,428.52,2116.38],[551.64,936.4,550.96,938.7,230.22,844.38,230.9,842.08],[388.86,1270.14,390.3,1272.06,48.7,1528.02,47.26,1526.1],[0.4,2044.94,1.98,2043.12,403.04,2393.78,401.46,2395.58],[148.14,1017.46,145.98,1016.42,229.48,842.72,231.64,843.76],[403.04,1439.5,405.42,1439.62,390.62,1744.1,388.22,1744],[388.22,1744.18,390.62,1743.92,428.52,2116.16,426.14,2116.4],[574.3,2.08,575.5,0,823.2,142.74,822,144.82],[927.5,2869.2,925.46,2870.48,782.4,2644.06,784.42,2642.78],[1701.52,1477.5,1703.8,1478.24,1588.8,1832.24,1586.5,1831.5],[1184.52,997.74,1186.4,996.24,1341.1,1191.3,1339.22,1192.78],[390.46,1270.28,388.72,1271.92,146.2,1017.76,147.92,1016.1],[390.62,1744.1,388.22,1744,403.04,1439.5,405.42,1439.62],[65.28,2756.06,63.54,2754.42,401.38,2393.86,403.12,2395.5],[428.52,2116.16,426.14,2116.4,388.22,1744.18,390.62,1743.92],[807.54,614.48,805.58,615.9,614.72,351.24,616.68,349.84],[692.1,1564.4,691.14,1566.6,403.74,1440.66,404.72,1438.46],[926,2868.74,926.96,2870.94,507.98,3051.62,507.04,3049.42],[65.6,2755.12,63.22,2755.34,35.34,2455.78,37.72,2455.56]],\"edges\":[1240.12,698.3,1184.28,996.76,1242.48,698.74,1240.12,698.3,1186.64,997.2,1242.48,698.74,1184.28,996.76,1186.64,997.2,1148.96,2705.08,925.78,2868.86,1150.38,2707.02,1148.96,2705.08,927.2,2870.8,1150.38,2707.02,925.78,2868.86,927.2,2870.8,573.7,1.18,614.5,350.68,576.1,0.9,573.7,1.18,616.9,350.4,576.1,0.9,614.5,350.68,616.9,350.4,1449.8,1845.72,1724.16,2128.48,1451.52,1844.04,1449.8,1845.72,1725.88,2126.82,1451.52,1844.04,1724.16,2128.48,1725.88,2126.82,581.08,641.32,420.42,661.24,581.38,643.7,581.08,641.32,420.7,663.62,581.38,643.7,420.42,661.24,420.7,663.62,13.4,96,60.74,306.5,15.74,95.48,13.4,96,63.08,305.98,15.74,95.48,60.74,306.5,63.08,305.98,0,2044.14,35.34,2455.78,2.38,2043.92,0,2044.14,37.72,2455.56,2.38,2043.92,673.32,1974.82,401.24,2394.02,675.34,1976.14,673.32,1974.82,403.26,2395.32,675.34,1976.14,401.24,2394.02,403.26,2395.32,855.3,867.34,1185,998.1,856.2,865.1,855.3,867.34,1185.9,995.88,856.2,865.1,1185,998.1,1185.9,995.88,1150.36,2707.04,1494.82,2469.64,1149,2705.06,1150.36,2707.04,1493.46,2467.66,1149,2705.06,1494.82,2469.64,1493.46,2467.66,1686.7,408.2,1461.6,628.32,1688.38,409.92,1686.7,408.2,1463.28,630.02,1688.38,409.92,1461.6,628.32,1463.28,630.02,1196,1238.7,1186.66,996.94,1193.6,1238.8,1196,1238.7,1184.26,997.04,1193.6,1238.8,1186.66,996.94,1184.26,997.04,675.04,1976.44,931.86,1787.02,673.62,1974.52,675.04,1976.44,930.44,1785.08,673.62,1974.52,931.86,1787.02,930.44,1785.08,784.38,2417.62,782.22,2643.4,786.78,2417.66,784.38,2417.62,784.62,2643.44,786.78,2417.66,782.22,2643.4,784.62,2643.44,691.02,1564.46,388.82,1743.02,692.24,1566.52,691.02,1564.46,390.04,1745.08,692.24,1566.52,388.82,1743.02,390.04,1745.08,1451.4,1843.94,1149.82,1609.92,1449.92,1845.84,1451.4,1843.94,1148.34,1611.82,1449.92,1845.84,1149.82,1609.92,1148.34,1611.82,513.12,2764.68,783.9,2644.52,512.14,2762.48,513.12,2764.68,782.92,2642.32,512.14,2762.48,783.9,2644.52,782.92,2642.32,673.66,1976.46,769.86,2043.38,675.02,1974.5,673.66,1976.46,771.24,2041.42,675.02,1974.5,769.86,2043.38,771.24,2041.42,1693.06,566,1462.14,628,1693.68,568.32,1693.06,566,1462.76,630.32,1693.68,568.32,1462.14,628,1462.76,630.32,1149.16,1612.08,1432.64,1593.12,1149,1609.68,1149.16,1612.08,1432.48,1590.74,1149,1609.68,1432.64,1593.12,1432.48,1590.74,388.96,1742.94,81.92,1870.3,389.88,1745.16,388.96,1742.94,82.84,1872.5,389.88,1745.16,81.92,1870.3,82.84,1872.5,771.56,2043.04,932.18,1786.7,769.54,2041.76,771.56,2043.04,930.14,1785.42,769.54,2041.76,932.18,1786.7,930.14,1785.42,9.76,2882.7,350.36,2985.66,10.44,2880.42,9.76,2882.7,351.06,2983.36,10.44,2880.42,350.36,2985.66,351.06,2983.36,616.54,351.38,823.44,144.64,614.86,349.68,616.54,351.38,821.76,142.94,614.86,349.68,823.44,144.64,821.76,142.94,873.38,276.14,823.72,143.36,871.12,276.98,873.38,276.14,821.48,144.2,871.12,276.98,823.72,143.36,821.48,144.2,1148.32,1609.94,930.4,1785.12,1149.84,1611.8,1148.32,1609.94,931.9,1786.98,1149.84,1611.8,930.4,1785.12,931.9,1786.98,1688.72,409.28,1731.36,172.88,1686.36,408.84,1688.72,409.28,1729,172.46,1686.36,408.84,1731.36,172.88,1729,172.46,552.5,937.68,582.44,642.62,550.12,937.44,552.5,937.68,580.04,642.38,550.12,937.44,582.44,642.62,580.04,642.38,421.4,661.58,62.76,305.38,419.72,663.28,421.4,661.58,61.06,307.08,419.72,663.28,62.76,305.38,61.06,307.08,1730.74,171.62,1422.06,4.5,1729.6,173.72,1730.74,171.62,1420.92,6.62,1729.6,173.72,1422.06,4.5,1420.92,6.62,253.7,364.26,62.26,305.08,252.98,366.56,253.7,364.26,61.56,307.38,252.98,366.56,62.26,305.08,61.56,307.38,419.6,661.7,146.1,1016.2,421.5,663.16,419.6,661.7,148,1017.66,421.5,663.16,146.1,1016.2,148,1017.66,148.14,1017.46,231.64,843.76,145.98,1016.42,148.14,1017.46,229.48,842.72,145.98,1016.42,231.64,843.76,229.48,842.72,421.6,661.84,254.38,364.82,419.52,663.02,421.6,661.84,252.3,366,419.52,663.02,254.38,364.82,252.3,366,690.62,1564.84,562.74,1760.56,692.64,1566.14,690.62,1564.84,564.76,1761.88,692.64,1566.14,562.74,1760.56,564.76,1761.88,1185.1,995.84,792.8,1117.96,1185.8,998.14,1185.1,995.84,793.5,1120.24,1185.8,998.14,792.8,1117.96,793.5,1120.24,1610.72,2691.22,1482.74,2898.66,1612.76,2692.48,1610.72,2691.22,1484.78,2899.92,1612.76,2692.48,1482.74,2898.66,1484.78,2899.92,931.96,1785.18,692.44,1564.6,930.34,1786.94,931.96,1785.18,690.82,1566.38,930.34,1786.94,692.44,1564.6,690.82,1566.38,513.52,2762.8,327.6,2551.52,511.72,2764.38,513.52,2762.8,325.8,2553.1,511.72,2764.38,327.6,2551.52,325.8,2553.1,1341.08,1192.8,1511.04,988.38,1339.24,1191.28,1341.08,1192.8,1509.2,986.84,1339.24,1191.28,1511.04,988.38,1509.2,986.84,854.58,865.92,791.98,1118.82,856.92,866.5,854.58,865.92,794.32,1119.38,856.92,866.5,791.98,1118.82,794.32,1119.38,805.62,614.44,550.36,936.8,807.5,615.94,805.62,614.44,552.24,938.3,807.5,615.94,550.36,936.8,552.24,938.3,1242.48,698.36,1181.16,260.18,1240.12,698.7,1242.48,698.36,1178.78,260.5,1240.12,698.7,1181.16,260.18,1178.78,260.5,793.86,1118.14,552.02,936.6,792.42,1120.06,793.86,1118.14,550.58,938.52,792.42,1120.06,552.02,936.6,550.58,938.52,1462.08,628.02,1240.94,697.38,1462.8,630.32,1462.08,628.02,1241.66,699.68,1462.8,630.32,1240.94,697.38,1241.66,699.68,1108.42,2299.18,1148.48,2706.18,1110.82,2298.94,1108.42,2299.18,1150.88,2705.94,1110.82,2298.94,1148.48,2706.18,1150.88,2705.94,900.2,1519.42,794.3,1118.8,897.88,1520.02,900.2,1519.42,791.98,1119.4,897.88,1520.02,794.3,1118.8,791.98,1119.4,1184.52,997.74,1339.22,1192.78,1186.4,996.24,1184.52,997.74,1341.1,1191.3,1186.4,996.24,1339.22,1192.78,1341.1,1191.3,1109.14,2300.16,1493.66,2469.74,1110.1,2297.96,1109.14,2300.16,1494.64,2467.56,1110.1,2297.96,1493.66,2469.74,1494.64,2467.56,563.66,1762.42,931.08,1787.26,563.84,1760.02,563.66,1762.42,931.24,1784.86,563.84,1760.02,931.08,1787.26,931.24,1784.86,1195.16,1237.6,793.48,1117.96,1194.46,1239.9,1195.16,1237.6,792.8,1120.26,1194.46,1239.9,793.48,1117.96,792.8,1120.26,1632.4,1021.36,1694.56,567.34,1630.04,1021.02,1632.4,1021.36,1692.18,567,1630.04,1021.02,1694.56,567.34,1692.18,567,426.14,2116.16,401.06,2394.56,428.52,2116.38,426.14,2116.16,403.44,2394.78,428.52,2116.38,401.06,2394.56,403.44,2394.78,230.22,844.38,550.96,938.7,230.9,842.08,230.22,844.38,551.64,936.4,230.9,842.08,550.96,938.7,551.64,936.4,48.7,1528.02,390.3,1272.06,47.26,1526.1,48.7,1528.02,388.86,1270.14,47.26,1526.1,390.3,1272.06,388.86,1270.14,403.04,2393.78,1.98,2043.12,401.46,2395.58,403.04,2393.78,0.4,2044.94,401.46,2395.58,1.98,2043.12,0.4,2044.94,390.62,1744.1,405.42,1439.62,388.22,1744,390.62,1744.1,403.04,1439.5,388.22,1744,405.42,1439.62,403.04,1439.5,428.52,2116.16,390.62,1743.92,426.14,2116.4,428.52,2116.16,388.22,1744.18,426.14,2116.4,390.62,1743.92,388.22,1744.18,823.2,142.74,575.5,0,822,144.82,823.2,142.74,574.3,2.08,822,144.82,575.5,0,574.3,2.08,782.4,2644.06,925.46,2870.48,784.42,2642.78,782.4,2644.06,927.5,2869.2,784.42,2642.78,925.46,2870.48,927.5,2869.2,1588.8,1832.24,1703.8,1478.24,1586.5,1831.5,1588.8,1832.24,1701.52,1477.5,1586.5,1831.5,1703.8,1478.24,1701.52,1477.5,146.2,1017.76,388.72,1271.92,147.92,1016.1,146.2,1017.76,390.46,1270.28,147.92,1016.1,388.72,1271.92,390.46,1270.28,401.38,2393.86,63.54,2754.42,403.12,2395.5,401.38,2393.86,65.28,2756.06,403.12,2395.5,63.54,2754.42,65.28,2756.06,614.72,351.24,805.58,615.9,616.68,349.84,614.72,351.24,807.54,614.48,616.68,349.84,805.58,615.9,807.54,614.48,403.74,1440.66,691.14,1566.6,404.72,1438.46,403.74,1440.66,692.1,1564.4,404.72,1438.46,691.14,1566.6,692.1,1564.4,507.98,3051.62,926.96,2870.94,507.04,3049.42,507.98,3051.62,926,2868.74,507.04,3049.42,926.96,2870.94,926,2868.74,35.34,2455.78,63.22,2755.34,65.6,2755.12,37.72,2455.56,63.22,2755.34,65.6,2755.12]},\"stroke\":{\"polygons\":[],\"edges\":[]}}"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "path"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: -22.4927978515625
+    y: 100.751220703125
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1697.780029296875
+    y: 2604.06005859375
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bg_i_mesh_lit"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bg_i"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"solid\",\"color\":[0.9098,0.7765,0.3529,0.625]}]"
+  }
+  custom_properties {
+    id: "path"
+    type: TYPE_STRING
+    string: "{\"fill\":{\"polygons\":[[1186.54,893.86,1183.8,893.34,1239.64,594.88,1242.4,595.4],[1065.68,2046.96,1063.06,2047.92,929.56,1683.16,932.18,1682.2],[402.88,2290.24,401.04,2292.34,0,1941.7,1.84,1939.6],[421.5,558.36,419.06,559.74,251.84,262.72,254.28,261.34],[696.12,2241.44,696.58,2244.2,402.2,2292.68,401.74,2289.92],[1193.14,1135.2,1195.92,1135.54,1150.2,1507.66,1147.42,1507.32],[1334.94,1975.02,1332.42,1973.76,1449.14,1740.88,1451.64,1742.14],[782.9,2541.42,783.38,2538.66,1149.64,2601.3,1149.16,2604.06],[614.12,1030,616.88,1029.52,692.72,1461.86,689.96,1462.36],[1178.3,157.16,1181.08,156.76,1242.4,594.96,1239.64,595.34],[1494.86,2366.24,1492.86,2364.28,1695.78,2157.32,1697.78,2159.28],[286.18,2.24,287.86,0,616.26,246.04,614.58,248.28],[786.7,2314.2,783.92,2314.32,768.86,1939.08,771.66,1938.96],[672.66,1872.18,675.46,1872.02,697.74,2242.74,694.96,2242.9]],\"edges\":[1239.64,594.88,1183.8,893.34,1242.4,595.4,1239.64,594.88,1186.54,893.86,1242.4,595.4,1183.8,893.34,1186.54,893.86,929.56,1683.16,1063.06,2047.92,932.18,1682.2,929.56,1683.16,1065.68,2046.96,932.18,1682.2,1063.06,2047.92,1065.68,2046.96,0,1941.7,401.04,2292.34,1.84,1939.6,0,1941.7,402.88,2290.24,1.84,1939.6,401.04,2292.34,402.88,2290.24,251.84,262.72,419.06,559.74,254.28,261.34,251.84,262.72,421.5,558.36,254.28,261.34,419.06,559.74,421.5,558.36,402.2,2292.68,696.58,2244.2,401.74,2289.92,402.2,2292.68,696.12,2241.44,401.74,2289.92,696.58,2244.2,696.12,2241.44,1150.2,1507.66,1195.92,1135.54,1147.42,1507.32,1150.2,1507.66,1193.14,1135.2,1147.42,1507.32,1195.92,1135.54,1193.14,1135.2,1449.14,1740.88,1332.42,1973.76,1451.64,1742.14,1449.14,1740.88,1334.94,1975.02,1451.64,1742.14,1332.42,1973.76,1334.94,1975.02,1149.64,2601.3,783.38,2538.66,1149.16,2604.06,1149.64,2601.3,782.9,2541.42,1149.16,2604.06,783.38,2538.66,782.9,2541.42,692.72,1461.86,616.88,1029.52,689.96,1462.36,692.72,1461.86,614.12,1030,689.96,1462.36,616.88,1029.52,614.12,1030,1242.4,594.96,1181.08,156.76,1239.64,595.34,1242.4,594.96,1178.3,157.16,1239.64,595.34,1181.08,156.76,1178.3,157.16,1695.78,2157.32,1492.86,2364.28,1697.78,2159.28,1695.78,2157.32,1494.86,2366.24,1697.78,2159.28,1492.86,2364.28,1494.86,2366.24,616.26,246.04,287.86,0,614.58,248.28,616.26,246.04,286.18,2.24,614.58,248.28,287.86,0,286.18,2.24,768.86,1939.08,783.92,2314.32,771.66,1938.96,768.86,1939.08,786.7,2314.2,771.66,1938.96,783.92,2314.32,786.7,2314.2,697.74,2242.74,675.46,1872.02,694.96,2242.9,697.74,2242.74,672.66,1872.18,694.96,2242.9,675.46,1872.02,672.66,1872.18]},\"stroke\":{\"polygons\":[],\"edges\":[]}}"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "path"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: -67.56375122070312
+    y: -38.1015625
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 768.5599975585938
+    y: 1769
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bg_i_sparks_0_1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bg_i"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"solid\",\"color\":[0.8314,0.6863,0.2157,0.4]}]"
+  }
+  custom_properties {
+    id: "path"
+    type: TYPE_STRING
+    string: "{\"fill\":{\"polygons\":[[209.28,1761.64,193.96,1769,195.28,1752],[750.64,1270,739.74,1276.4,739.66,1263.72],[475.9,1069.06,459,1079.14,458.76,1059.4],[19.32,1327.62,1.98,1339.96,0,1318.7],[768.56,9.8,753.18,16.98,754.7,0],[610.12,1640.58,590.3,1651.82,590.52,1628.96]],\"edges\":[193.96,1769,209.28,1761.64,195.28,1752,193.96,1769,209.28,1761.64,195.28,1752,739.74,1276.4,750.64,1270,739.66,1263.72,739.74,1276.4,750.64,1270,739.66,1263.72,459,1079.14,475.9,1069.06,458.76,1059.4,459,1079.14,475.9,1069.06,458.76,1059.4,1.98,1339.96,19.32,1327.62,0,1318.7,1.98,1339.96,19.32,1327.62,0,1318.7,753.18,16.98,768.56,9.8,754.7,0,753.18,16.98,768.56,9.8,754.7,0,590.3,1651.82,610.12,1640.58,590.52,1628.96,590.3,1651.82,610.12,1640.58,590.52,1628.96]},\"stroke\":{\"polygons\":[],\"edges\":[]}}"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "path"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: -142.6387481689453
+    y: 310.8375244140625
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 438.1600036621094
+    y: 1083.199951171875
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bg_i_sparks_1_0"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bg_i"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"solid\",\"color\":[0.9647,0.8627,0.5412,0.2]}]"
+  }
+  custom_properties {
+    id: "path"
+    type: TYPE_STRING
+    string: "{\"fill\":{\"polygons\":[[423.3,1075.1,410.14,1083.2,409.74,1067.7],[333.02,12.04,314.08,20.86,315.96,0],[438.16,781.32,417.16,796.56,414.5,770.66],[18.54,696.4,0,704.88,1.96,684.54]],\"edges\":[410.14,1083.2,423.3,1075.1,409.74,1067.7,410.14,1083.2,423.3,1075.1,409.74,1067.7,314.08,20.86,333.02,12.04,315.96,0,314.08,20.86,333.02,12.04,315.96,0,417.16,796.56,438.16,781.32,414.5,770.66,417.16,796.56,438.16,781.32,414.5,770.66,0,704.88,18.54,696.4,1.96,684.54,0,704.88,18.54,696.4,1.96,684.54]},\"stroke\":{\"polygons\":[],\"edges\":[]}}"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "path"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: -80.87030029296875
+    y: 138.60626220703125
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 541.9000244140625
+    y: 1845.0999755859375
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bg_i_sparks_1_1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bg_i"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"solid\",\"color\":[0.9647,0.8627,0.5412,0.4]}]"
+  }
+  custom_properties {
+    id: "path"
+    type: TYPE_STRING
+    string: "{\"fill\":{\"polygons\":[[541.9,1838.38,528.96,1845.1,529.66,1830.5],[369.18,1703.96,357.62,1710.64,357.64,1697.24],[15.78,6.64,2.18,17.04,0,0]],\"edges\":[528.96,1845.1,541.9,1838.38,529.66,1830.5,528.96,1845.1,541.9,1838.38,529.66,1830.5,357.62,1710.64,369.18,1703.96,357.64,1697.24,357.62,1710.64,369.18,1703.96,357.64,1697.24,2.18,17.04,15.78,6.64,0,0,2.18,17.04,15.78,6.64,0,0]},\"stroke\":{\"polygons\":[],\"edges\":[]}}"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "path"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 253.71656799316406
+    y: 60.162506103515625
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 314.4800109863281
+    y: 457.79998779296875
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bg_i_sparks_0_2"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bg_i"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"solid\",\"color\":[0.8314,0.6863,0.2157,0.7]}]"
+  }
+  custom_properties {
+    id: "path"
+    type: TYPE_STRING
+    string: "{\"fill\":{\"polygons\":[[314.48,6.54,301.08,16.78,298.96,0],[22.66,443.04,2.84,457.8,0,433.18]],\"edges\":[301.08,16.78,314.48,6.54,298.96,0,301.08,16.78,314.48,6.54,298.96,0,2.84,457.8,22.66,443.04,0,433.18,2.84,457.8,22.66,443.04,0,433.18]},\"stroke\":{\"polygons\":[],\"edges\":[]}}"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "path"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 125.85751342773438
+    y: 73.36309814453125
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 665.8400268554688
+    y: 1927.6800537109375
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bg_i_sparks_0_0"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bg_i"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"solid\",\"color\":[0.8314,0.6863,0.2157,0.2]}]"
+  }
+  custom_properties {
+    id: "path"
+    type: TYPE_STRING
+    string: "{\"fill\":{\"polygons\":[[432.04,7.42,418.42,16.28,417.58,0],[14.36,487.46,0.52,496.08,0,479.74],[26.6,35.56,13.9,43.02,13.82,28.24],[665.84,317.54,645.58,329.48,645.4,305.88],[135.98,891.68,116.46,904.92,114.8,881.32],[85.98,1915.54,65.64,1927.68,65.34,1903.92],[578.96,353.42,568.68,359.08,568.94,347.3]],\"edges\":[418.42,16.28,432.04,7.42,417.58,0,418.42,16.28,432.04,7.42,417.58,0,0.52,496.08,14.36,487.46,0,479.74,0.52,496.08,14.36,487.46,0,479.74,13.9,43.02,26.6,35.56,13.82,28.24,13.9,43.02,26.6,35.56,13.82,28.24,645.58,329.48,665.84,317.54,645.4,305.88,645.58,329.48,665.84,317.54,645.4,305.88,116.46,904.92,135.98,891.68,114.8,881.32,116.46,904.92,135.98,891.68,114.8,881.32,65.64,1927.68,85.98,1915.54,65.34,1903.92,65.64,1927.68,85.98,1915.54,65.34,1903.92,568.68,359.08,578.96,353.42,568.94,347.3,568.68,359.08,578.96,353.42,568.94,347.3]},\"stroke\":{\"polygons\":[],\"edges\":[]}}"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "path"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: -105.5028076171875
+    y: 323.197509765625
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 506.760009765625
+    y: 980.47998046875
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bg_i_sparks_1_2"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bg_i"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"solid\",\"color\":[0.9647,0.8627,0.5412,0.7]}]"
+  }
+  custom_properties {
+    id: "path"
+    type: TYPE_STRING
+    string: "{\"fill\":{\"polygons\":[[433.66,171.34,416.52,179.02,418.48,160.28],[506.76,11.64,488.86,19.48,491.06,0],[13.32,974.64,0,980.48,1.64,965.98],[417.18,189.8,403.52,199.06,402.34,182.54]],\"edges\":[416.52,179.02,433.66,171.34,418.48,160.28,416.52,179.02,433.66,171.34,418.48,160.28,488.86,19.48,506.76,11.64,491.06,0,488.86,19.48,506.76,11.64,491.06,0,0,980.48,13.32,974.64,1.64,965.98,0,980.48,13.32,974.64,1.64,965.98,403.52,199.06,417.18,189.8,402.34,182.54,403.52,199.06,417.18,189.8,402.34,182.54]},\"stroke\":{\"polygons\":[],\"edges\":[]}}"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "path"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1080
+    y: 2300
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bg_i_vignette"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bg_i"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"radial\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0.5,0,0,0,0],[1,0,0,0,0.45]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 0
+    y: 1150
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "top_blockN"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_TOP
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_STRETCH
+  parent: "root"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: -590
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1080
+    y: 1180
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "top_block"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "top_blockN"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: -76
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1080
+    y: 680
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "stage"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "top_block"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: -46
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1096
+    y: 672
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "stage_bg"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "stage"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 1
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1016
+    y: 590
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "stage_bg_tile"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "stage_bg"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1016
+    y: 590
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "stage_bg_tile_glassfill"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "stage_bg_tile_glass"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 40
+      y: 40
+      z: 40
+      w: 40
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"drop_shadow\",\"offset\":[0,14],\"radius\":28,\"spread\":0,\"color\":[0,0,0,0.4],\"show_behind\":false}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1016
+    y: 590
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "stage_bg_tile_glass"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "stage_bg_tile"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1016
+    y: 590
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "stage_bg_tile_fill"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "stage_bg_tile_glass"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 40
+      y: 40
+      z: 40
+      w: 40
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[0,1,0,-1,0,1],\"stops\":[[0,0.0784,0.0706,0.051,0.35],[0.55,0.1843,0.1529,0.0706,0.485],[1,0.2902,0.2314,0.0902,0.62]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 0
+    y: -295
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 853.4400024414062
+    y: 144
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "stage_bg_tile_bottom_glow"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "stage_bg_tile_glass"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: "[-81.2812,-478,-81.0886,-481.9207,-80.5127,-485.8036,-79.5589,-489.6114,-78.2364,-493.3073,-76.5581,-496.8559,-74.54,-500.2228,-72.2017,-503.3757,-69.5655,-506.2843,-66.657,-508.9204,-63.5041,-511.2588,-60.1371,-513.2769,-56.5886,-514.9552,-52.8926,-516.2776,-49.0849,-517.2314,-45.2019,-517.8074,-41.2813,-518,894.7188,-518,898.6394,-517.8074,902.5224,-517.2314,906.3301,-516.2776,910.0261,-514.9552,913.5746,-513.2769,916.9416,-511.2588,920.0945,-508.9204,923.003,-506.2843,925.6392,-503.3757,927.9775,-500.2228,929.9956,-496.8559,931.6739,-493.3073,932.9964,-489.6114,933.9502,-485.8036,934.5261,-481.9207,934.7188,-478,934.7188,32,934.5261,35.9207,933.9502,39.8036,932.9964,43.6114,931.6739,47.3073,929.9956,50.8559,927.9775,54.2228,925.6392,57.3757,923.003,60.2843,920.0945,62.9204,916.9416,65.2588,913.5746,67.2769,910.0261,68.9552,906.3301,70.2776,902.5224,71.2314,898.6394,71.8074,894.7188,72,-41.2812,72,-45.2019,71.8074,-49.0849,71.2314,-52.8926,70.2776,-56.5886,68.9552,-60.1371,67.2769,-63.5041,65.2588,-66.657,62.9204,-69.5655,60.2843,-72.2017,57.3757,-74.54,54.2228,-76.5581,50.8559,-78.2364,47.3073,-79.5589,43.6114,-80.5127,39.8036,-81.0886,35.9207,-81.2812,32]"
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"radial\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,0.8314,0.6863,0.2157,0.45],[1,0.8314,0.6863,0.2157,0]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "ellipse"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: -283.17924880981445
+    y: 145
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 378.67999267578125
+    y: 300
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "stage_bg_tile_sheen"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "stage_bg_tile_glass"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: "[-35.4805,40,-35.2879,36.0793,-34.7119,32.1964,-33.7581,28.3886,-32.4357,24.6927,-30.7573,21.1441,-28.7393,17.7772,-26.4009,14.6243,-23.7647,11.7157,-20.8562,9.0796,-17.7033,6.7412,-14.3363,4.7231,-10.7878,3.0448,-7.0919,1.7224,-3.2841,0.7686,0.5988,0.1926,4.5195,0,940.5195,0,944.4402,0.1926,948.3231,0.7686,952.1309,1.7224,955.8269,3.0448,959.3754,4.7231,962.7423,6.7412,965.8953,9.0796,968.8038,11.7157,971.4399,14.6243,973.7783,17.7772,975.7964,21.1441,977.4747,24.6927,978.7971,28.3886,979.7509,32.1964,980.3269,36.0793,980.5195,40,980.5195,550,980.3269,553.9207,979.7509,557.8036,978.7971,561.6114,977.4747,565.3073,975.7964,568.8559,973.7783,572.2228,971.4399,575.3757,968.8038,578.2843,965.8953,580.9204,962.7423,583.2588,959.3754,585.2769,955.8269,586.9552,952.1309,588.2776,948.3231,589.2314,944.4402,589.8074,940.5195,590,4.5195,590,0.5988,589.8074,-3.2841,589.2314,-7.0919,588.2776,-10.7878,586.9552,-14.3363,585.2769,-17.7033,583.2588,-20.8562,580.9204,-23.7647,578.2843,-26.4009,575.3757,-28.7393,572.2228,-30.7573,568.8559,-32.4357,565.3073,-33.7581,561.6114,-34.7119,557.8036,-35.2879,553.9207,-35.4805,550]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[0,1,0,-1,0,1],\"stops\":[[0,1,1,1,0.11],[1,1,1,1,0]]}]"
+  }
+  custom_properties {
+    id: "path"
+    type: TYPE_STRING
+    string: "{\"fill\":{\"polygons\":[[0,300,228.68,0,378.68,0,150,300]],\"edges\":[378.68,0,228.68,0,150,300,378.68,0,0,300,150,300,228.68,0,0,300]},\"stroke\":{\"polygons\":[],\"edges\":[]}}"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "path"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: -192.4159393310547
+    y: 85
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 323.1499938964844
+    y: 420
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "stage_bg_tile_facet"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "stage_bg_tile_glass"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[0,1,0,-1,0,1],\"stops\":[[0,1,1,1,0.2],[1,1,1,1,0]]}]"
+  }
+  custom_properties {
+    id: "path"
+    type: TYPE_STRING
+    string: "{\"fill\":{\"polygons\":[[0,420,320.15,0,323.15,0,3,420]],\"edges\":[323.15,0,320.15,0,3,420,323.15,0,0,420,3,420,320.15,0,0,420]},\"stroke\":{\"polygons\":[],\"edges\":[]}}"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "path"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 0.00000762939453125
+    y: 294
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 894.0800170898438
+    y: 2
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "stage_bg_tile_top_line"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "stage_bg_tile_glass"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,1,1,1,0],[0.5,1,1,1,0.4],[1,1,1,1,0]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1016
+    y: 590
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "stage_bg_tile_rim"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "stage_bg_tile"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 40
+      y: 40
+      z: 40
+      w: 40
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 3
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[0,1,0,-1,0,1],\"stops\":[[0,0.9647,0.8627,0.5412,0.12],[0.55,0.9647,0.8627,0.5412,0.2],[1,0.9647,0.8627,0.5412,1]]}]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: -348
+    y: 293.5
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 220
+    y: 7
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "stage_bg_tile_glint"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "stage_bg_tile"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"layer_blur\",\"radius\":2}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"radial\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,0.9824,0.9314,0.7706,1],[1,0.9824,0.9314,0.7706,0]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "ellipse"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 348
+    y: -293.5
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 198
+    y: 7
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "stage_bg_tile_glint_low"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "stage_bg_tile"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"layer_blur\",\"radius\":2}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"radial\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,0.9824,0.9314,0.7706,0.9],[1,0.9824,0.9314,0.7706,0]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "ellipse"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: -506.5
+    y: 184.20000457763672
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 7
+    y: 153.39999389648438
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "stage_bg_tile_glint_side"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "stage_bg_tile"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"layer_blur\",\"radius\":2}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"radial\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,0.9824,0.9314,0.7706,0.8],[1,0.9824,0.9314,0.7706,0]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "ellipse"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 0
+    y: 89.99999237060547
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 420
+    y: 472.5
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "division_current"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "stage"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 420
+    y: 472.5
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "division_current_scalable"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "division_current"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 18.900001525878906
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 546
+    y: 546
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "division_current_glow"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "division_current_scalable"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 546
+    y: 546
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "division_current_glow_glow"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "division_current_glow"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"radial\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,0.8314,0.6863,0.2157,0.4],[1,0.8314,0.6863,0.2157,0]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "ellipse"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 462
+    y: 519.75
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_emblems/emblem_1"
+  id: "division_current_shield"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "division_current_scalable"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: -229
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 860
+    y: 130
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "progress"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "stage"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 72.5
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1.3125
+    y: 1.3125
+    z: 1
+    w: 1
+  }
+  size {
+    x: 685.2380952380952
+    y: 38.857142857142854
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.9529411792755127
+    y: 0.9137254953384399
+    z: 0.8235294222831726
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "120 / 300"
+  font: "din_pro_condensed_black_italic_shadow"
+  id: "progress_t"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "progress"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline_alpha: 0
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.6000000238418579
+  text_tracking: 0.06
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: 0
+    y: 5
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 860
+    y: 16
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bar_track"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "progress"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 8
+      y: 8
+      z: 8
+      w: 8
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"solid\",\"color\":[0,0,0,0.45]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: -430
+    y: 5
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 344
+    y: 16
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bar_fill"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_W
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "progress"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 8
+      y: 8
+      z: 8
+      w: 8
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"drop_shadow\",\"offset\":[0,0],\"radius\":12,\"spread\":0,\"color\":[0.9098,0.7765,0.3529,0.8],\"show_behind\":false}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,0.5412,0.4157,0.1216,1],[1,0.9647,0.8627,0.5412,1]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: -444.0625
+    y: -17.5
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 0.9375
+    y: 0.9375
+    z: 1
+    w: 1
+  }
+  size {
+    x: 350
+    y: 37.333333333333336
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.7215686440467834
+    y: 0.6784313917160034
+    z: 0.5882353186607361
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "DIV 2"
+  font: "din_pro_condensed_bold_italic_shadow"
+  id: "lower_t"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_NW
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "progress"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline_alpha: 0
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.4000000059604645
+  text_tracking: 0.1
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: 444.0625
+    y: -17.5
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 0.9375
+    y: 0.9375
+    z: 1
+    w: 1
+  }
+  size {
+    x: 350
+    y: 37.333333333333336
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.9098039269447327
+    y: 0.7764706015586853
+    z: 0.3529411852359772
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "DIV 1"
+  font: "din_pro_condensed_bold_italic_shadow"
+  id: "upper_t"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_NE
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "progress"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline_alpha: 0
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.4000000059604645
+  text_tracking: 0.1
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: 0
+    y: 1150
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bottom_blockN"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_TOP
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_STRETCH
+  parent: "root"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: -1740
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1080
+    y: 1120
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bottom_block"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bottom_blockN"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 365
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1016
+    y: 610
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "rewards_panel"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bottom_block"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: -1
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1096
+    y: 692
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "rewards_panel_bg"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "rewards_panel"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 1
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1016
+    y: 610
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "rewards_panel_bg_tile"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "rewards_panel_bg"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1016
+    y: 610
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "rewards_panel_bg_tile_glassfill"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "rewards_panel_bg_tile_glass"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 40
+      y: 40
+      z: 40
+      w: 40
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"drop_shadow\",\"offset\":[0,14],\"radius\":28,\"spread\":0,\"color\":[0,0,0,0.4],\"show_behind\":false}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1016
+    y: 610
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "rewards_panel_bg_tile_glass"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "rewards_panel_bg_tile"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1016
+    y: 610
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "rewards_panel_bg_tile_fill"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "rewards_panel_bg_tile_glass"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 40
+      y: 40
+      z: 40
+      w: 40
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[0,1,0,-1,0,1],\"stops\":[[0,0.0784,0.0706,0.051,0.35],[0.55,0.1843,0.1529,0.0706,0.485],[1,0.2902,0.2314,0.0902,0.62]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 0
+    y: -305
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 853.4400024414062
+    y: 144
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "rewards_panel_bg_tile_bottom_glow"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "rewards_panel_bg_tile_glass"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: "[-81.2812,-498,-81.0886,-501.9207,-80.5127,-505.8036,-79.5589,-509.6114,-78.2364,-513.3073,-76.5581,-516.8559,-74.54,-520.2228,-72.2017,-523.3757,-69.5655,-526.2843,-66.657,-528.9204,-63.5041,-531.2588,-60.1371,-533.2769,-56.5886,-534.9552,-52.8926,-536.2776,-49.0849,-537.2314,-45.2019,-537.8074,-41.2813,-538,894.7188,-538,898.6394,-537.8074,902.5224,-537.2314,906.3301,-536.2776,910.0261,-534.9552,913.5746,-533.2769,916.9416,-531.2588,920.0945,-528.9204,923.003,-526.2843,925.6392,-523.3757,927.9775,-520.2228,929.9956,-516.8559,931.6739,-513.3073,932.9964,-509.6114,933.9502,-505.8036,934.5261,-501.9207,934.7188,-498,934.7188,32,934.5261,35.9207,933.9502,39.8036,932.9964,43.6114,931.6739,47.3073,929.9956,50.8559,927.9775,54.2228,925.6392,57.3757,923.003,60.2843,920.0945,62.9204,916.9416,65.2588,913.5746,67.2769,910.0261,68.9552,906.3301,70.2776,902.5224,71.2314,898.6394,71.8074,894.7188,72,-41.2812,72,-45.2019,71.8074,-49.0849,71.2314,-52.8926,70.2776,-56.5886,68.9552,-60.1371,67.2769,-63.5041,65.2588,-66.657,62.9204,-69.5655,60.2843,-72.2017,57.3757,-74.54,54.2228,-76.5581,50.8559,-78.2364,47.3073,-79.5589,43.6114,-80.5127,39.8036,-81.0886,35.9207,-81.2812,32]"
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"radial\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,0.8314,0.6863,0.2157,0.45],[1,0.8314,0.6863,0.2157,0]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "ellipse"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 195.16030883789062
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 231.67999267578125
+    y: 610
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "rewards_panel_bg_tile_facet"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "rewards_panel_bg_tile_glass"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[0,1,0,-1,0,1],\"stops\":[[0,1,1,1,0.22],[1,1,1,1,0]]}]"
+  }
+  custom_properties {
+    id: "path"
+    type: TYPE_STRING
+    string: "{\"fill\":{\"polygons\":[[0,610,228.68,0,231.68,0,3,610]],\"edges\":[231.68,0,228.68,0,3,610,231.68,0,0,610,3,610,228.68,0,0,610]},\"stroke\":{\"polygons\":[],\"edges\":[]}}"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "path"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 216.66030883789062
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 230.67999267578125
+    y: 610
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "rewards_panel_bg_tile_facet_2"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "rewards_panel_bg_tile_glass"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[0,1,0,-1,0,1],\"stops\":[[0,1,1,1,0.12],[1,1,1,1,0]]}]"
+  }
+  custom_properties {
+    id: "path"
+    type: TYPE_STRING
+    string: "{\"fill\":{\"polygons\":[[0,610,228.68,0,230.68,0,2,610]],\"edges\":[230.68,0,228.68,0,2,610,230.68,0,0,610,2,610,228.68,0,0,610]},\"stroke\":{\"polygons\":[],\"edges\":[]}}"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "path"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 0.00000762939453125
+    y: 304
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 894.0800170898438
+    y: 2
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "rewards_panel_bg_tile_top_line"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "rewards_panel_bg_tile_glass"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,1,1,1,0],[0.5,1,1,1,0.4],[1,1,1,1,0]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1016
+    y: 610
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "rewards_panel_bg_tile_rim"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "rewards_panel_bg_tile"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 40
+      y: 40
+      z: 40
+      w: 40
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 3
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[0,1,0,-1,0,1],\"stops\":[[0,0.9647,0.8627,0.5412,0.12],[0.55,0.9647,0.8627,0.5412,0.2],[1,0.9647,0.8627,0.5412,1]]}]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: -348
+    y: 303.5
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 220
+    y: 7
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "rewards_panel_bg_tile_glint"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "rewards_panel_bg_tile"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"layer_blur\",\"radius\":2}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"radial\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,0.9824,0.9314,0.7706,1],[1,0.9824,0.9314,0.7706,0]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "ellipse"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 348
+    y: -303.5
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 198
+    y: 7
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "rewards_panel_bg_tile_glint_low"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "rewards_panel_bg_tile"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"layer_blur\",\"radius\":2}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"radial\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,0.9824,0.9314,0.7706,0.9],[1,0.9824,0.9314,0.7706,0]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "ellipse"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: -298
+    y: -35
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 412
+    y: 540
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "reward_cell_card_i"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "rewards_panel"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 6
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 372
+    y: 500
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "reward_cell_card_i_Rectangle"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "reward_cell_card_i"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 28
+      y: 28
+      z: 28
+      w: 28
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"drop_shadow\",\"offset\":[0,6],\"radius\":12,\"spread\":0,\"color\":[0,0,0,0.45],\"show_behind\":true}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[0,1,0,-1,0,1],\"stops\":[[0,0.9098,0.7216,0.2275,0.16],[0.45,0.102,0.0706,0.0235,0.55],[1,0.102,0.0706,0.0235,0.75]]},{\"type\":\"radial\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,0.9098,0.7216,0.2275,0.4],[1,0.9098,0.7216,0.2275,0]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 2
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[0.7,0.7,-0.2,-0.7,0.7,0.5],\"stops\":[[0,1,0.9529,0.7686,0.7],[0.5,0.9098,0.7216,0.2275,0.12],[1,1,0.9529,0.7686,0.45]]}]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 194
+    y: -35
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 620
+    y: 540
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "reward_cell_packs_i"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "rewards_panel"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 6
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 580
+    y: 500
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "reward_cell_packs_i_Rectangle"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "reward_cell_packs_i"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 28
+      y: 28
+      z: 28
+      w: 28
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"drop_shadow\",\"offset\":[0,6],\"radius\":12,\"spread\":0,\"color\":[0,0,0,0.45],\"show_behind\":true}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[0,1,0,-1,0,1],\"stops\":[[0,0.9098,0.7216,0.2275,0.16],[0.45,0.102,0.0706,0.0235,0.55],[1,0.102,0.0706,0.0235,0.75]]},{\"type\":\"radial\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,0.9098,0.7216,0.2275,0.18],[1,0.9098,0.7216,0.2275,0]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 2
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[0.7,0.7,-0.2,-0.7,0.7,0.5],\"stops\":[[0,1,0.9529,0.7686,0.7],[0.5,0.9098,0.7216,0.2275,0.12],[1,1,0.9529,0.7686,0.45]]}]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 194
+    y: -184
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 500
+    y: 150
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "coins_plate_i"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "rewards_panel"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 6
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 460
+    y: 110
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "coins_plate_i_Rectangle"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "coins_plate_i"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 55
+      y: 55
+      z: 55
+      w: 55
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"drop_shadow\",\"offset\":[0,6],\"radius\":12,\"spread\":0,\"color\":[0,0,0,0.5],\"show_behind\":true}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[0,1,0,-1,0,1],\"stops\":[[0,0.9098,0.7216,0.2275,0.35],[0.55,0.102,0.0706,0.0235,0.85],[1,0.102,0.0706,0.0235,0.92]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 2
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,0.9098,0.7216,0.2275,0.2],[0.5,1,0.9529,0.7686,0.9],[1,0.9098,0.7216,0.2275,0.2]]}]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 0
+    y: 155
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1016
+    y: 300
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "rewards_row"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "rewards_panel"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 4
+    y: -113
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 180
+    y: 270
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "reward_pack1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "rewards_row"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 32.18400573730469
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 136
+    y: 205.63198852539062
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "pack_ic/rare_gold"
+  id: "reward_pack1_i"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "reward_pack1"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: -79
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1.4375
+    y: 1.4375
+    z: 1
+    w: 1
+  }
+  size {
+    x: 155.2173913043478
+    y: 38.95652173913044
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.9529411792755127
+    y: 0.9137254953384399
+    z: 0.8235294222831726
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "x2"
+  font: "din_pro_condensed_black_italic_shadow"
+  id: "reward_pack1_count"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "reward_pack1"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline_alpha: 0
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.6000000238418579
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: 194
+    y: -113
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 180
+    y: 270
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "reward_pack2"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "rewards_row"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 32.18400573730469
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 136
+    y: 205.63198852539062
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "pack_ic/pack86"
+  id: "reward_pack2_i"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "reward_pack2"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: -79
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1.4375
+    y: 1.4375
+    z: 1
+    w: 1
+  }
+  size {
+    x: 155.2173913043478
+    y: 38.95652173913044
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.9529411792755127
+    y: 0.9137254953384399
+    z: 0.8235294222831726
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "x1"
+  font: "din_pro_condensed_black_italic_shadow"
+  id: "reward_pack2_count"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "reward_pack2"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline_alpha: 0
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.6000000238418579
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: 152.5
+    y: -331
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 337
+    y: 146
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "reward_coins"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "rewards_row"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: -93.5
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 82
+    y: 82
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "sort/coin_big"
+  id: "reward_coins_i"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "reward_coins"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: -67.4375
+    y: 39
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 2.0625
+    y: 2.0625
+    z: 1
+    w: 1
+  }
+  size {
+    x: 112.9090909090909
+    y: 38.78787878787879
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.9647058844566345
+    y: 0.8627451062202454
+    z: 0.5411764979362488
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "250 000"
+  font: "din_pro_condensed_black_italic_shadow"
+  id: "reward_coins_t"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_NW
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "reward_coins"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline_alpha: 0
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.6000000238418579
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: 384
+    y: -113
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 180
+    y: 270
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "reward_pack3"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "rewards_row"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 32.18400573730469
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 136
+    y: 205.63198852539062
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "pack_ic/special"
+  id: "reward_pack3_i"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "reward_pack3"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: -79
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1.4375
+    y: 1.4375
+    z: 1
+    w: 1
+  }
+  size {
+    x: 155.2173913043478
+    y: 38.95652173913044
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.9529411792755127
+    y: 0.9137254953384399
+    z: 0.8235294222831726
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "x1"
+  font: "din_pro_condensed_black_italic_shadow"
+  id: "reward_pack3_count"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "reward_pack3"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline_alpha: 0
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.6000000238418579
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: 0
+    y: 286
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1.125
+    y: 1.125
+    z: 1
+    w: 1
+  }
+  size {
+    x: 933.1111111111111
+    y: 38.22222222222222
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.9529411792755127
+    y: 0.9137254953384399
+    z: 0.8235294222831726
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "PROMOTION REWARDS"
+  font: "din_pro_condensed_black_italic_shadow"
+  id: "rewards_title"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "rewards_panel"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline_alpha: 0
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.6000000238418579
+  text_tracking: 0.14
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: 0
+    y: 22
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 0.96875
+    y: 0.96875
+    z: 1
+    w: 1
+  }
+  size {
+    x: 959.0322580645161
+    y: 74.3225806451613
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.7215686440467834
+    y: 0.6784313917160034
+    z: 0.5882353186607361
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "Pick a card back in 10 sec, then a player in 20 sec. The card you leave goes to your rival. Highest score wins."
+  font: "din_pro_condensed_medium_shadow"
+  id: "info_t"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bottom_block"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: true
+  outline_alpha: 0
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.5
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: 0
+    y: -200
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 780
+    y: 200
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "play_btn"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bottom_block"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 780
+    y: 200
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "play_btn1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "play_btn"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: -1
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 860
+    y: 282
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "play_btn_bg"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "play_btn1"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 1
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 780
+    y: 200
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "play_btn_bg_tile"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "play_btn_bg"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 780
+    y: 200
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "play_btn_bg_tile_glassfill"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "play_btn_bg_tile_glass"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 46
+      y: 46
+      z: 46
+      w: 46
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"drop_shadow\",\"offset\":[0,14],\"radius\":28,\"spread\":0,\"color\":[0,0,0,0.4],\"show_behind\":false}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 780
+    y: 200
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "play_btn_bg_tile_glass"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "play_btn_bg_tile"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 780
+    y: 200
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "play_btn_bg_tile_fill"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "play_btn_bg_tile_glass"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 46
+      y: 46
+      z: 46
+      w: 46
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[0,1,0,-1,0,1],\"stops\":[[0,0.5412,0.4157,0.1216,0.72],[0.55,0.7255,0.5961,0.2392,0.835],[1,0.9098,0.7765,0.3529,0.95]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 0.00000762939453125
+    y: -100
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 655.2000122070312
+    y: 144
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "play_btn_bg_tile_bottom_glow"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "play_btn_bg_tile_glass"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: "[-62.3984,-82,-62.1769,-86.5088,-61.5146,-90.9742,-60.4177,-95.3531,-58.8969,-99.6034,-56.9668,-103.6842,-54.646,-107.5562,-51.9569,-111.1821,-48.9253,-114.5269,-45.5805,-117.5585,-41.9547,-120.2476,-38.0827,-122.5684,-34.0019,-124.4985,-29.7515,-126.0193,-25.3726,-127.1161,-20.9072,-127.7785,-16.3984,-128,671.6016,-128,676.1104,-127.7785,680.5757,-127.1161,684.9547,-126.0193,689.205,-124.4985,693.2858,-122.5684,697.1578,-120.2476,700.7837,-117.5585,704.1285,-114.5269,707.16,-111.1821,709.8492,-107.5562,712.1699,-103.6842,714.1,-99.6034,715.6208,-95.3531,716.7177,-90.9742,717.3801,-86.5088,717.6016,-82,717.6016,26,717.3801,30.5088,716.7177,34.9742,715.6208,39.3531,714.1,43.6034,712.1699,47.6842,709.8492,51.5562,707.16,55.1821,704.1285,58.5269,700.7837,61.5585,697.1578,64.2476,693.2858,66.5684,689.205,68.4985,684.9547,70.0193,680.5757,71.1161,676.1104,71.7785,671.6016,72,-16.3984,72,-20.9072,71.7785,-25.3726,71.1161,-29.7515,70.0193,-34.0019,68.4985,-38.0827,66.5684,-41.9547,64.2476,-45.5805,61.5585,-48.9253,58.5269,-51.9569,55.1821,-54.646,51.5562,-56.9668,47.6842,-58.8969,43.6034,-60.4177,39.3531,-61.5146,34.9742,-62.1769,30.5088,-62.3984,26]"
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"radial\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,1,0.949,0.7686,0.5],[1,1,0.949,0.7686,0]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "ellipse"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: -0.000011444091796875
+    y: 100
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 717.5999755859375
+    y: 190
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "play_btn_bg_tile_gloss"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "play_btn_bg_tile_glass"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: "[-31.1992,141,-30.9777,136.4912,-30.3153,132.0258,-29.2185,127.6469,-27.6977,123.3966,-25.7676,119.3158,-23.4468,115.4438,-20.7577,111.8179,-17.7261,108.4731,-14.3813,105.4415,-10.7554,102.7524,-6.8835,100.4316,-2.8027,98.5015,1.4477,96.9807,5.8266,95.8839,10.292,95.2215,14.8008,95,702.8008,95,707.3096,95.2215,711.7749,95.8839,716.1539,96.9807,720.4042,98.5015,724.485,100.4316,728.357,102.7524,731.9829,105.4415,735.3277,108.4731,738.3593,111.8179,741.0484,115.4438,743.3692,119.3158,745.2992,123.3966,746.82,127.6469,747.9169,132.0258,748.5793,136.4912,748.8008,141,748.8008,249,748.5793,253.5088,747.9169,257.9742,746.82,262.3531,745.2992,266.6034,743.3692,270.6842,741.0484,274.5562,738.3593,278.1821,735.3277,281.5269,731.9829,284.5585,728.357,287.2476,724.485,289.5684,720.4042,291.4985,716.1539,293.0193,711.7749,294.1161,707.3096,294.7785,702.8008,295,14.8008,295,10.292,294.7785,5.8266,294.1161,1.4477,293.0193,-2.8027,291.4985,-6.8835,289.5684,-10.7554,287.2476,-14.3813,284.5585,-17.7261,281.5269,-20.7577,278.1821,-23.4468,274.5562,-25.7676,270.6842,-27.6977,266.6034,-29.2185,262.3531,-30.3153,257.9742,-30.9777,253.5088,-31.1992,249]"
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"radial\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,1,1,1,0.16],[1,1,1,1,0]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "ellipse"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 0.000011444091796875
+    y: 99
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 686.4000244140625
+    y: 2
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "play_btn_bg_tile_top_line"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "play_btn_bg_tile_glass"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,1,1,1,0],[0.5,1,1,1,0.4],[1,1,1,1,0]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 780
+    y: 200
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "play_btn_bg_tile_rim"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "play_btn_bg_tile"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 46
+      y: 46
+      z: 46
+      w: 46
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 3
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[0,1,0,-1,0,1],\"stops\":[[0,1,0.949,0.7686,0.12],[0.55,1,0.949,0.7686,0.2],[1,1,0.949,0.7686,1]]}]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: -224
+    y: 98.5
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 220
+    y: 7
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "play_btn_bg_tile_glint"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "play_btn_bg_tile"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"layer_blur\",\"radius\":2}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"radial\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,1,0.9745,0.8843,1],[1,1,0.9745,0.8843,0]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "ellipse"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 224
+    y: -98.5
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 198
+    y: 7
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "play_btn_bg_tile_glint_low"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "play_btn_bg_tile"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"layer_blur\",\"radius\":2}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"radial\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,1,0.9745,0.8843,0.9],[1,1,0.9745,0.8843,0]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "ellipse"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: -50
+    y: 50.5
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 2.625
+    y: 2.625
+    z: 1
+    w: 1
+  }
+  size {
+    x: 213.33333333333334
+    y: 38.476190476190474
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.07058823853731155
+    y: 0.054901961237192154
+    z: 0.019607843831181526
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "PLAY"
+  font: "din_pro_condensed_black_italic"
+  id: "locale_od_play"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "play_btn1"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline_alpha: 0
+  shadow_alpha: 0
+  text_tracking: 0.24
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 265
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 134
+    y: 108
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "play_icon"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "play_btn1"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: -0.40000152587890625
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 109.19999694824219
+    y: 84
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "play_icon_chevrons"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "play_icon"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: -27.719999313354492
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 53.7599983215332
+    y: 84
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "play_icon_chevrons_0"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "play_icon_chevrons"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"solid\",\"color\":[0.0706,0.0549,0.0196,1]}]"
+  }
+  custom_properties {
+    id: "path"
+    type: TYPE_STRING
+    string: "{\"fill\":{\"polygons\":[[35.28,42,0,0,18.48,0,53.76,42],[35.28,42,53.76,42,18.48,84,0,84]],\"edges\":[18.48,0,0,0,53.76,42,18.48,0,18.48,84,53.76,42,0,84,18.48,84,35.28,42,0,84,0,0,35.28,42]},\"stroke\":{\"polygons\":[],\"edges\":[]}}"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "path"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 14.280000686645508
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 53.7599983215332
+    y: 84
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "play_icon_chevrons_1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "play_icon_chevrons"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: ""
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"solid\",\"color\":[0.0706,0.0549,0.0196,0.55]}]"
+  }
+  custom_properties {
+    id: "path"
+    type: TYPE_STRING
+    string: "{\"fill\":{\"polygons\":[[35.28,42,0,0,18.48,0,53.76,42],[35.28,42,53.76,42,18.48,84,0,84]],\"edges\":[18.48,0,0,0,53.76,42,18.48,0,18.48,84,53.76,42,0,84,18.48,84,35.28,42,0,84,0,0,35.28,42]},\"stroke\":{\"polygons\":[],\"edges\":[]}}"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "path"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  size {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "{\"gradients\":{},\"params\":{},\"text_shadows\":{\"info_t\":[[0,-4.1290,3.5509]],\"lower_t\":[[0,-4.2666,3.6693]],\"progress_t\":[[0,-3.0476,2.6209]],\"reward_coins_t\":[[0,-1.9393,1.6678]],\"reward_pack1_count\":[[0,-2.7826,2.3930]],\"reward_pack2_count\":[[0,-2.7826,2.3930]],\"reward_pack3_count\":[[0,-2.7826,2.3930]],\"rewards_title\":[[0,-3.5555,3.0577]],\"upper_t\":[[0,-4.2666,3.6693]]}}"
+  font: "din_pro_condensed_black_italic_shadow"
+  id: "defigma_data"
+  parent: "root"
+  layer: ""
+  inherit_alpha: true
+  line_break: false
+  alpha: 1
+  enabled: false
+}
+material: "/builtins/materials/gui.material"
+adjust_reference: ADJUST_REFERENCE_PARENT
+max_nodes: 1024
+materials {
+  name: "text_shadow"
+  material: "/defigma/materials/text_shadow.material"
+}
+materials {
+  name: "shape"
+  material: "/defigma/materials/shape.material"
+}
+layers {
+  name: "fl"
+}
+layers {
+  name: "club"
+}
+layers {
+  name: "league"
+}
+layers {
+  name: "nation"
+}
+layers {
+  name: "nation_ring"
+}
+layers {
+  name: "top_bar_up_node"
+}
+layers {
+  name: "top_bar_up_font"
+}

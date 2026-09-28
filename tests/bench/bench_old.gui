@@ -1,0 +1,4251 @@
+script: "/tests/bench/bench_old.gui_script"
+fonts {
+  name: "defigma_data"
+  font: "/builtins/fonts/default.font"
+}
+textures {
+  name: "bench"
+  texture: "/tests/bench/bench.atlas"
+}
+nodes {
+  position {
+    x: 540
+    y: 1150
+  }
+  size {
+    x: 1080
+    y: 2300
+  }
+  color {
+    x: 0.05
+    y: 0.05
+    z: 0.06
+  }
+  type: TYPE_BOX
+  id: "root"
+}
+nodes {
+  size {
+    x: 1
+    y: 1
+  }
+  type: TYPE_BOX
+  id: "scroller"
+  parent: "root"
+  visible: false
+}
+nodes {
+  position {
+    x: -450
+    y: 1000
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n0_0"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -350
+    y: 1000
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n0_1"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -250
+    y: 1000
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n0_2"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -150
+    y: 1000
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n0_3"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -50
+    y: 1000
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n0_4"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 50
+    y: 1000
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n0_5"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 150
+    y: 1000
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n0_6"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 250
+    y: 1000
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n0_7"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 350
+    y: 1000
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n0_8"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 450
+    y: 1000
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n0_9"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -450
+    y: 900
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n1_0"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -350
+    y: 900
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n1_1"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -250
+    y: 900
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n1_2"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -150
+    y: 900
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n1_3"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -50
+    y: 900
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n1_4"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 50
+    y: 900
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n1_5"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 150
+    y: 900
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n1_6"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 250
+    y: 900
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n1_7"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 350
+    y: 900
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n1_8"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 450
+    y: 900
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n1_9"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -450
+    y: 800
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n2_0"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -350
+    y: 800
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n2_1"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -250
+    y: 800
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n2_2"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -150
+    y: 800
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n2_3"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -50
+    y: 800
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n2_4"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 50
+    y: 800
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n2_5"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 150
+    y: 800
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n2_6"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 250
+    y: 800
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n2_7"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 350
+    y: 800
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n2_8"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 450
+    y: 800
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n2_9"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -450
+    y: 700
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n3_0"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -350
+    y: 700
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n3_1"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -250
+    y: 700
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n3_2"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -150
+    y: 700
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n3_3"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -50
+    y: 700
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n3_4"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 50
+    y: 700
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n3_5"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 150
+    y: 700
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n3_6"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 250
+    y: 700
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n3_7"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 350
+    y: 700
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n3_8"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 450
+    y: 700
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n3_9"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -450
+    y: 600
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n4_0"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -350
+    y: 600
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n4_1"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -250
+    y: 600
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n4_2"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -150
+    y: 600
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n4_3"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -50
+    y: 600
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n4_4"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 50
+    y: 600
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n4_5"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 150
+    y: 600
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n4_6"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 250
+    y: 600
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n4_7"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 350
+    y: 600
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n4_8"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 450
+    y: 600
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n4_9"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -450
+    y: 500
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n5_0"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -350
+    y: 500
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n5_1"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -250
+    y: 500
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n5_2"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -150
+    y: 500
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n5_3"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -50
+    y: 500
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n5_4"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 50
+    y: 500
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n5_5"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 150
+    y: 500
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n5_6"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 250
+    y: 500
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n5_7"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 350
+    y: 500
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n5_8"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 450
+    y: 500
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n5_9"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -450
+    y: 400
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n6_0"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -350
+    y: 400
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n6_1"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -250
+    y: 400
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n6_2"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -150
+    y: 400
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n6_3"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -50
+    y: 400
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n6_4"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 50
+    y: 400
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n6_5"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 150
+    y: 400
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n6_6"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 250
+    y: 400
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n6_7"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 350
+    y: 400
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n6_8"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 450
+    y: 400
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n6_9"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -450
+    y: 300
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n7_0"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -350
+    y: 300
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n7_1"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -250
+    y: 300
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n7_2"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -150
+    y: 300
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n7_3"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -50
+    y: 300
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n7_4"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 50
+    y: 300
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n7_5"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 150
+    y: 300
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n7_6"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 250
+    y: 300
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n7_7"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 350
+    y: 300
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n7_8"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 450
+    y: 300
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n7_9"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -450
+    y: 200
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n8_0"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -350
+    y: 200
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n8_1"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -250
+    y: 200
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n8_2"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -150
+    y: 200
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n8_3"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -50
+    y: 200
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n8_4"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 50
+    y: 200
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n8_5"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 150
+    y: 200
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n8_6"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 250
+    y: 200
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n8_7"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 350
+    y: 200
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n8_8"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 450
+    y: 200
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n8_9"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -450
+    y: 100
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n9_0"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -350
+    y: 100
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n9_1"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -250
+    y: 100
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n9_2"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -150
+    y: 100
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n9_3"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -50
+    y: 100
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n9_4"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 50
+    y: 100
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n9_5"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 150
+    y: 100
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n9_6"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 250
+    y: 100
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n9_7"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 350
+    y: 100
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n9_8"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 450
+    y: 100
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n9_9"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -450
+    y: 0
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n10_0"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -350
+    y: 0
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n10_1"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -250
+    y: 0
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n10_2"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -150
+    y: 0
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n10_3"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -50
+    y: 0
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n10_4"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 50
+    y: 0
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n10_5"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 150
+    y: 0
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n10_6"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 250
+    y: 0
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n10_7"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 350
+    y: 0
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n10_8"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 450
+    y: 0
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n10_9"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -450
+    y: -100
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n11_0"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -350
+    y: -100
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n11_1"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -250
+    y: -100
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n11_2"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -150
+    y: -100
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n11_3"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -50
+    y: -100
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n11_4"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 50
+    y: -100
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n11_5"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 150
+    y: -100
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n11_6"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 250
+    y: -100
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n11_7"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 350
+    y: -100
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n11_8"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 450
+    y: -100
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n11_9"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -450
+    y: -200
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n12_0"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -350
+    y: -200
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n12_1"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -250
+    y: -200
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n12_2"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -150
+    y: -200
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n12_3"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -50
+    y: -200
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n12_4"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 50
+    y: -200
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n12_5"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 150
+    y: -200
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n12_6"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 250
+    y: -200
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n12_7"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 350
+    y: -200
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n12_8"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 450
+    y: -200
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n12_9"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -450
+    y: -300
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n13_0"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -350
+    y: -300
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n13_1"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -250
+    y: -300
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n13_2"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -150
+    y: -300
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n13_3"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -50
+    y: -300
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n13_4"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 50
+    y: -300
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n13_5"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 150
+    y: -300
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n13_6"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 250
+    y: -300
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n13_7"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 350
+    y: -300
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n13_8"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 450
+    y: -300
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n13_9"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -450
+    y: -400
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n14_0"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -350
+    y: -400
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n14_1"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -250
+    y: -400
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n14_2"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -150
+    y: -400
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n14_3"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -50
+    y: -400
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n14_4"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 50
+    y: -400
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n14_5"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 150
+    y: -400
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n14_6"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 250
+    y: -400
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n14_7"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 350
+    y: -400
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n14_8"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 450
+    y: -400
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n14_9"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -450
+    y: -500
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n15_0"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -350
+    y: -500
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n15_1"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -250
+    y: -500
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n15_2"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -150
+    y: -500
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n15_3"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -50
+    y: -500
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n15_4"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 50
+    y: -500
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n15_5"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 150
+    y: -500
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n15_6"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 250
+    y: -500
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n15_7"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 350
+    y: -500
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n15_8"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 450
+    y: -500
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n15_9"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -450
+    y: -600
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n16_0"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -350
+    y: -600
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n16_1"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -250
+    y: -600
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n16_2"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -150
+    y: -600
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n16_3"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -50
+    y: -600
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n16_4"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 50
+    y: -600
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n16_5"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 150
+    y: -600
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n16_6"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 250
+    y: -600
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n16_7"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 350
+    y: -600
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n16_8"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 450
+    y: -600
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n16_9"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -450
+    y: -700
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n17_0"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -350
+    y: -700
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n17_1"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -250
+    y: -700
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n17_2"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -150
+    y: -700
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n17_3"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -50
+    y: -700
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n17_4"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 50
+    y: -700
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n17_5"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 150
+    y: -700
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n17_6"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 250
+    y: -700
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n17_7"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 350
+    y: -700
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n17_8"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 450
+    y: -700
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n17_9"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -450
+    y: -800
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n18_0"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -350
+    y: -800
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n18_1"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -250
+    y: -800
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n18_2"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -150
+    y: -800
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n18_3"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -50
+    y: -800
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n18_4"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 50
+    y: -800
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n18_5"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 150
+    y: -800
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n18_6"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 250
+    y: -800
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n18_7"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 350
+    y: -800
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n18_8"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 450
+    y: -800
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n18_9"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -450
+    y: -900
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n19_0"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -350
+    y: -900
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n19_1"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -250
+    y: -900
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n19_2"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -150
+    y: -900
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n19_3"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: -50
+    y: -900
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n19_4"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 50
+    y: -900
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n19_5"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 150
+    y: -900
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n19_6"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 250
+    y: -900
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n19_7"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 350
+    y: -900
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n19_8"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  position {
+    x: 450
+    y: -900
+  }
+  size {
+    x: 90
+    y: 44
+  }
+  type: TYPE_BOX
+  texture: "bench/round12"
+  id: "n19_9"
+  parent: "scroller"
+  slice9 {
+    x: 12
+    y: 12
+    z: 12
+    w: 12
+  }
+  material: "linear"
+}
+nodes {
+  type: TYPE_TEXT
+  text: "{\"gradients\":{\"n0_0\":{\"type\":\"linear\",\"data\":[[0.008277091455864694,0.40939877918650364,0],[0.9917229085441353,0.5906012208134963,0]],\"stops\":[{\"position\":0,\"color\":[0.32383276483316237,0.15084917392450192,0.6509344730398537,1]},{\"position\":1,\"color\":[0.07243628666754276,0.5358820043066892,0.36568891691258554,1]}]},\"n0_1\":{\"type\":\"linear\",\"data\":[[0.9278329674274977,0.24123572120135717,0],[0.07216703257250234,0.7587642787986428,0]],\"stops\":[{\"position\":0,\"color\":[0.5074357331894203,0.03749565844198488,0.4336456836623859,1]},{\"position\":1,\"color\":[0.06985542357461894,0.09071301334386506,0.42451918914251396,1]}]},\"n0_2\":{\"type\":\"linear\",\"data\":[[0.9986094748844199,0.46273618973477004,0],[0.0013905251155801324,0.53726381026523,0]],\"stops\":[{\"position\":0,\"color\":[0.12380196114964559,0.22323896460701453,0.6274332224055893,1]},{\"position\":1,\"color\":[0.9477089424570057,0.5771029486174987,0.39668047465078016,1]}]},\"n0_3\":{\"type\":\"linear\",\"data\":[[0.9188724377997128,0.22696908443964503,0],[0.08112756220028716,0.773030915560355,0]],\"stops\":[{\"position\":0,\"color\":[0.04658268061775628,0.8584684590486795,0.28960928633167626,1]},{\"position\":1,\"color\":[0.14425508335743753,0.11779223807836836,0.30848182410193437,1]}]},\"n0_4\":{\"type\":\"linear\",\"data\":[[0.008739369405703579,0.40692480014475274,0],[0.9912606305942964,0.5930751998552473,0]],\"stops\":[{\"position\":0,\"color\":[0.18072637992393747,0.5816001636624663,0.6389134689261841,1]},{\"position\":1,\"color\":[0.3723975427257312,0.5477444657095578,0.06278897497332314,1]}]},\"n0_5\":{\"type\":\"linear\",\"data\":[[0.20581135201705397,0.09570674084525443,0],[0.7941886479829461,0.9042932591547456,0]],\"stops\":[{\"position\":0,\"color\":[0.20595871281932654,0.6803999731817859,0.4275923056694029,1]},{\"position\":1,\"color\":[0.3141471703767915,0.5855618635076387,0.45318437637077535,1]}]},\"n0_6\":{\"type\":\"linear\",\"data\":[[0.830001831143223,0.12436880927947458,0],[0.169998168856777,0.8756311907205254,0]],\"stops\":[{\"position\":0,\"color\":[0.7943794815224912,0.6989944337295713,0.24409651072215288,1]},{\"position\":1,\"color\":[0.574423710258671,0.5251965038114514,0.8751374955734289,1]}]},\"n0_7\":{\"type\":\"linear\",\"data\":[[0.482666752397994,0.0003005317917903483,0],[0.517333247602006,0.9996994682082097,0]],\"stops\":[{\"position\":0,\"color\":[0.2879377648901865,0.9801748474925821,0.11806577825496212,1]},{\"position\":1,\"color\":[0.4181228217852272,0.7571409295652494,0.15198453466050477,1]}]},\"n0_8\":{\"type\":\"linear\",\"data\":[[0.7878820911458024,0.09119209694831004,0],[0.21211790885419762,0.90880790305169,0]],\"stops\":[{\"position\":0,\"color\":[0.03920725704743766,0.6682158565343952,0.7645708662128131,1]},{\"position\":1,\"color\":[0.573025940277384,0.8754778118308882,0.31374751284809677,1]}]},\"n0_9\":{\"type\":\"linear\",\"data\":[[0.746571689440631,0.06502597552682182,0],[0.253428310559369,0.9349740244731781,0]],\"stops\":[{\"position\":0,\"color\":[0.5943698771050184,0.5798952042824922,0.45620533130141305,1]},{\"position\":1,\"color\":[0.8399677805125414,0.9446810951079374,0.47409833741964447,1]}]},\"n1_0\":{\"type\":\"linear\",\"data\":[[0.3244260624563626,0.03183999267833343,0],[0.6755739375436374,0.9681600073216665,0]],\"stops\":[{\"position\":0,\"color\":[0.060669427597219716,0.7014920213044239,0.6471288545276688,1]},{\"position\":1,\"color\":[0.9930959394666341,0.8219247866097149,0.28459553209414923,1]}]},\"n1_1\":{\"type\":\"linear\",\"data\":[[0.8732142180954945,0.16726715309220125,0],[0.12678578190450546,0.8327328469077988,0]],\"stops\":[{\"position\":0,\"color\":[0.6686527158841882,0.02256292805558857,0.46169528629976586,1]},{\"position\":1,\"color\":[0.16804837890654456,0.11709579448173191,0.058954419331310404,1]}]},\"n1_2\":{\"type\":\"linear\",\"data\":[[0.5773481548829784,0.006018965003514731,0],[0.42265184511702164,0.9939810349964853,0]],\"stops\":[{\"position\":0,\"color\":[0.12934022201868423,0.24761483369691428,0.3909497031332271,1]},{\"position\":1,\"color\":[0.8714219741262994,0.08058130120013862,0.44918740094933096,1]}]},\"n1_3\":{\"type\":\"linear\",\"data\":[[0.9672723399004279,0.32207709432459536,0],[0.032727660099572065,0.6779229056754046,0]],\"stops\":[{\"position\":0,\"color\":[0.8833838264415125,0.8192798378357413,0.8639844696985152,1]},{\"position\":1,\"color\":[0.27842106451389714,0.4152965172116986,0.3587711653316248,1]}]},\"n1_4\":{\"type\":\"linear\",\"data\":[[0.6381728962647826,0.019470863799288862,0],[0.36182710373521737,0.9805291362007111,0]],\"stops\":[{\"position\":0,\"color\":[0.9577312039639913,0.15092090579110895,0.17621772849037032,1]},{\"position\":1,\"color\":[0.23195686681953576,0.23333608368086112,0.4849627303413566,1]}]},\"n1_5\":{\"type\":\"linear\",\"data\":[[0.7816826977616183,0.08689606903136737,0],[0.2183173022383817,0.9131039309686326,0]],\"stops\":[{\"position\":0,\"color\":[0.26274661929853793,0.004093603385063926,0.41894650112532794,1]},{\"position\":1,\"color\":[0.3692535728947254,0.566341223706392,0.9530979255250953,1]}]},\"n1_6\":{\"type\":\"linear\",\"data\":[[0.9616465924845952,0.3079520277447271,0],[0.03835340751540478,0.6920479722552729,0]],\"stops\":[{\"position\":0,\"color\":[0.5154914330707784,0.6175927494091277,0.6762000824495014,1]},{\"position\":1,\"color\":[0.053992893223790195,0.8995330100579522,0.7799694907060728,1]}]},\"n1_7\":{\"type\":\"linear\",\"data\":[[0.011149707669370346,0.3949981348343852,0],[0.9888502923306297,0.6050018651656148,0]],\"stops\":[{\"position\":0,\"color\":[0.7978731211965661,0.39237890689126864,0.398978832320273,1]},{\"position\":1,\"color\":[0.10353709371032427,0.634289565685709,0.06224782161868758,1]}]},\"n1_8\":{\"type\":\"linear\",\"data\":[[0.025187579684234462,0.343305502604958,0],[0.9748124203157655,0.6566944973950419,0]],\"stops\":[{\"position\":0,\"color\":[0.20876318544616446,0.1623031877720974,0.3400536522323434,1]},{\"position\":1,\"color\":[0.05257560389026694,0.00023328190135663007,0.15126493227942794,1]}]},\"n1_9\":{\"type\":\"linear\",\"data\":[[0.2693588597991716,0.05637328253715168,0],[0.7306411402008284,0.9436267174628483,0]],\"stops\":[{\"position\":0,\"color\":[0.363609922034571,0.025500886666145695,0.8743323773738196,1]},{\"position\":1,\"color\":[0.6140689877884787,0.14855048533089144,0.2522577565570773,1]}]},\"n2_0\":{\"type\":\"linear\",\"data\":[[0.01808983700052258,0.36672361500319317,0],[0.9819101629994774,0.6332763849968068,0]],\"stops\":[{\"position\":0,\"color\":[0.36416343952828245,0.12284223076219491,0.8489369264846149,1]},{\"position\":1,\"color\":[0.9931027217047139,0.4659894591599337,0.48383465641626944,1]}]},\"n2_1\":{\"type\":\"linear\",\"data\":[[0.9940839842538589,0.42331221411572423,0],[0.00591601574614109,0.5766877858842757,0]],\"stops\":[{\"position\":0,\"color\":[0.10218761674816845,0.3426358382430018,0.2647568917171801,1]},{\"position\":1,\"color\":[0.8288553781215605,0.1614386105264315,0.023095721045248152,1]}]},\"n2_2\":{\"type\":\"linear\",\"data\":[[0.9546126250722243,0.2918477453282305,0],[0.04538737492777567,0.7081522546717696,0]],\"stops\":[{\"position\":0,\"color\":[0.5282573950421248,0.1466025388990907,0.5431724258821143,1]},{\"position\":1,\"color\":[0.027042491422168524,0.5281094409383065,0.9785012427189728,1]}]},\"n2_3\":{\"type\":\"linear\",\"data\":[[0.8843086220196037,0.18014552833922526,0],[0.1156913779803963,0.8198544716607747,0]],\"stops\":[{\"position\":0,\"color\":[0.6961967859078019,0.26111519722936194,0.36669979176117884,1]},{\"position\":1,\"color\":[0.1670420345343363,0.7719379084020312,0.532592397492879,1]}]},\"n2_4\":{\"type\":\"linear\",\"data\":[[0.9207550600086529,0.22987932423245555,0],[0.07924493999134707,0.7701206757675445,0]],\"stops\":[{\"position\":0,\"color\":[0.32966499504776237,0.22304167310318512,0.811511246773595,1]},{\"position\":1,\"color\":[0.9849260505908908,0.8526287987466605,0.8060785847856675,1]}]},\"n2_5\":{\"type\":\"linear\",\"data\":[[0.1805847838163332,0.11532621655441427,0],[0.8194152161836668,0.8846737834455858,0]],\"stops\":[{\"position\":0,\"color\":[0.7398730203757141,0.2267394900315849,0.5176387242435055,1]},{\"position\":1,\"color\":[0.3555625433549582,0.028980150741365396,0.027937075422064472,1]}]},\"n2_6\":{\"type\":\"linear\",\"data\":[[0.9950119685858487,0.42955036581526684,0],[0.004988031414151273,0.5704496341847332,0]],\"stops\":[{\"position\":0,\"color\":[0.25917436326775656,0.6925219417001234,0.9565150763413378,1]},{\"position\":1,\"color\":[0.44722767776672345,0.9370212012762423,0.9880380582028602,1]}]},\"n2_7\":{\"type\":\"linear\",\"data\":[[0.975677703083905,0.34595220615399797,0],[0.024322296916095054,0.6540477938460021,0]],\"stops\":[{\"position\":0,\"color\":[0.3646358853618661,0.22046232299623747,0.22684582673072795,1]},{\"position\":1,\"color\":[0.19670616341931724,0.20437336327622302,0.6240663974378182,1]}]},\"n2_8\":{\"type\":\"linear\",\"data\":[[0.9800490583232013,0.3601683097327088,0],[0.019950941676798672,0.6398316902672911,0]],\"stops\":[{\"position\":0,\"color\":[0.8404355272792898,0.4794734262615382,0.652978042841009,1]},{\"position\":1,\"color\":[0.7996437448496602,0.08477848645038011,0.6605856502048941,1]}]},\"n2_9\":{\"type\":\"linear\",\"data\":[[0.9052675360869441,0.20715494848979016,0],[0.0947324639130559,0.7928450515102099,0]],\"stops\":[{\"position\":0,\"color\":[0.78230288409809,0.7501404598304584,0.47803274459400025,1]},{\"position\":1,\"color\":[0.17852171833757358,0.7891354310202764,0.3325171998646099,1]}]},\"n3_0\":{\"type\":\"linear\",\"data\":[[0.03929499558700478,0.30570409446202407,0],[0.9607050044129952,0.6942959055379759,0]],\"stops\":[{\"position\":0,\"color\":[0.9716572889821583,0.3958384950694481,0.4013868178677015,1]},{\"position\":1,\"color\":[0.946797006464893,0.7247986656342152,0.17000365997189548,1]}]},\"n3_1\":{\"type\":\"linear\",\"data\":[[0.7371078198919316,0.05979563638453633,0],[0.2628921801080684,0.9402043636154637,0]],\"stops\":[{\"position\":0,\"color\":[0.1511507003814898,0.9048520957332393,0.8065019820321961,1]},{\"position\":1,\"color\":[0.14617430874387416,0.8265104785253871,0.9803059434470305,1]}]},\"n3_2\":{\"type\":\"linear\",\"data\":[[0.5417049009304441,0.0017423344910970084,0],[0.45829509906955584,0.998257665508903,0]],\"stops\":[{\"position\":0,\"color\":[0.3504075121575029,0.5486600439867791,0.1309838520094504,1]},{\"position\":1,\"color\":[0.014242938156105556,0.9708901772377644,0.6496746696738306,1]}]},\"n3_3\":{\"type\":\"linear\",\"data\":[[0.1972418574373021,0.10208354254694985,0],[0.802758142562698,0.8979164574530502,0]],\"stops\":[{\"position\":0,\"color\":[0.9336248050574267,0.4338094367574856,0.8717429279894041,1]},{\"position\":1,\"color\":[0.8261552518152211,0.2110423373281488,0.2518348113654538,1]}]},\"n3_4\":{\"type\":\"linear\",\"data\":[[0.2783167460626763,0.05182979246299735,0],[0.7216832539373237,0.9481702075370027,0]],\"stops\":[{\"position\":0,\"color\":[0.24053939255833456,0.5864371681659617,0.25936479527021017,1]},{\"position\":1,\"color\":[0.41901255275454363,0.13107367650348334,0.9100170563155565,1]}]},\"n3_5\":{\"type\":\"linear\",\"data\":[[0.5499072896993177,0.0024969724364801715,0],[0.45009271030068226,0.9975030275635198,0]],\"stops\":[{\"position\":0,\"color\":[0.45816098647173364,0.58334877204185,0.9042967745420398,1]},{\"position\":1,\"color\":[0.42062827070906517,0.9177210843426643,0.5016489411202315,1]}]},\"n3_6\":{\"type\":\"linear\",\"data\":[[0.07151709730602829,0.24231336453174684,0],[0.9284829026939717,0.7576866354682532,0]],\"stops\":[{\"position\":0,\"color\":[0.5235065855871663,0.01870486790542003,0.44012491238494333,1]},{\"position\":1,\"color\":[0.18310788727219873,0.003932481825641987,0.7991704504922217,1]}]},\"n3_7\":{\"type\":\"linear\",\"data\":[[0.8894996621227138,0.1864876187352535,0],[0.11050033787728619,0.8135123812647465,0]],\"stops\":[{\"position\":0,\"color\":[0.47349293246195634,0.7251932704473779,0.5564756249022133,1]},{\"position\":1,\"color\":[0.3259821510488641,0.5183487127030368,0.5554418748802469,1]}]},\"n3_8\":{\"type\":\"linear\",\"data\":[[0.5963576586703605,0.00937264485603101,0],[0.40364234132963944,0.990627355143969,0]],\"stops\":[{\"position\":0,\"color\":[0.10610941710492827,0.5602961335839522,0.24849432104309,1]},{\"position\":1,\"color\":[0.27691707046478153,0.7722610987554883,0.5077139917923206,1]}]},\"n3_9\":{\"type\":\"linear\",\"data\":[[0.7845793521361715,0.08888615647517178,0],[0.21542064786382853,0.9111138435248283,0]],\"stops\":[{\"position\":0,\"color\":[0.7599931425900166,0.912488036329812,0.44324839357743884,1]},{\"position\":1,\"color\":[0.6125278843444604,0.5055531308512217,0.5121614724353194,1]}]},\"n4_0\":{\"type\":\"linear\",\"data\":[[0.9917739255356005,0.40967610414012445,0],[0.008226074464399491,0.5903238958598755,0]],\"stops\":[{\"position\":0,\"color\":[0.4523457922649097,0.5332854375791709,0.4780363180320848,1]},{\"position\":1,\"color\":[0.9415011275385007,0.6992178821802858,0.8765354817805934,1]}]},\"n4_1\":{\"type\":\"linear\",\"data\":[[0.4095795462533203,0.008243819007585251,0],[0.5904204537466797,0.9917561809924147,0]],\"stops\":[{\"position\":0,\"color\":[0.2595922941176907,0.5595138064977149,0.9432670340134838,1]},{\"position\":1,\"color\":[0.8399997833932058,0.13713443589685148,0.12162195438418066,1]}]},\"n4_2\":{\"type\":\"linear\",\"data\":[[0.05771110897232806,0.2668036516720038,0],[0.9422888910276719,0.7331963483279962,0]],\"stops\":[{\"position\":0,\"color\":[0.07254609965648828,0.24063875845326987,0.07312076697267433,1]},{\"position\":1,\"color\":[0.6694721453098957,0.7839360171731552,0.8970264328787668,1]}]},\"n4_3\":{\"type\":\"linear\",\"data\":[[0.994444213574089,0.42567019666983674,0],[0.005555786425911091,0.5743298033301633,0]],\"stops\":[{\"position\":0,\"color\":[0.7161198827881962,0.6602565151913709,0.14297899792423718,1]},{\"position\":1,\"color\":[0.8828328336570754,0.9675447826663839,0.21958783080191968,1]}]},\"n4_4\":{\"type\":\"linear\",\"data\":[[0.5245025497204083,0.0006007358263341311,0],[0.4754974502795917,0.9993992641736659,0]],\"stops\":[{\"position\":0,\"color\":[0.3982568747172719,0.48726077499088016,0.9898714547442865,1]},{\"position\":1,\"color\":[0.8324446694829476,0.16146605988087914,0.4315218179976389,1]}]},\"n4_5\":{\"type\":\"linear\",\"data\":[[0.40701627829641573,0.008722046598719835,0],[0.5929837217035843,0.9912779534012801,0]],\"stops\":[{\"position\":0,\"color\":[0.33911614433881987,0.19574466613393116,0.31852556833769397,1]},{\"position\":1,\"color\":[0.7221508351411857,0.019482928052393156,0.554050247808328,1]}]},\"n4_6\":{\"type\":\"linear\",\"data\":[[0.8934963176885058,0.19151880451867642,0],[0.10650368231149426,0.8084811954813236,0]],\"stops\":[{\"position\":0,\"color\":[0.018081980827037603,0.33149788914199063,0.623927073891864,1]},{\"position\":1,\"color\":[0.5122622844634556,0.06429079259075188,0.9850832441340993,1]}]},\"n4_7\":{\"type\":\"linear\",\"data\":[[0.040845875350062066,0.3020669562277454,0],[0.959154124649938,0.6979330437722546,0]],\"stops\":[{\"position\":0,\"color\":[0.9716959586470741,0.10477959427283157,0.26556427234351976,1]},{\"position\":1,\"color\":[0.03958818991406765,0.7789974300678922,0.2704460975213091,1]}]},\"n4_8\":{\"type\":\"linear\",\"data\":[[0.6099834303392746,0.012246327486090669,0],[0.39001656966072534,0.9877536725139093,0]],\"stops\":[{\"position\":0,\"color\":[0.4222541812776611,0.911413816183609,0.8189789797812816,1]},{\"position\":1,\"color\":[0.2586090147938417,0.14936794740407822,0.9191715085117713,1]}]},\"n4_9\":{\"type\":\"linear\",\"data\":[[0.9906512835701499,0.4037642585576211,0],[0.009348716429850135,0.5962357414423789,0]],\"stops\":[{\"position\":0,\"color\":[0.7004174465466179,0.0894622078468077,0.05752651244094631,1]},{\"position\":1,\"color\":[0.6882055713485481,0.42531704079572263,0.07241409472319049,1]}]},\"n5_0\":{\"type\":\"linear\",\"data\":[[0.42764258287679735,0.0052632981198394435,0],[0.5723574171232026,0.9947367018801605,0]],\"stops\":[{\"position\":0,\"color\":[0.6344395062965595,0.8016285915713898,0.08374252623451806,1]},{\"position\":1,\"color\":[0.8562286363721489,0.06662253487446146,0.8627749690538462,1]}]},\"n5_1\":{\"type\":\"linear\",\"data\":[[0.1338385297005093,0.15952125225189873,0],[0.8661614702994906,0.8404787477481013,0]],\"stops\":[{\"position\":0,\"color\":[0.3391517772846362,0.553064118458035,0.9266692840712272,1]},{\"position\":1,\"color\":[0.26785974667745416,0.12922479989532887,0.5269150265271717,1]}]},\"n5_2\":{\"type\":\"linear\",\"data\":[[0.8639443427135616,0.15715234373443115,0],[0.13605565728643848,0.8428476562655689,0]],\"stops\":[{\"position\":0,\"color\":[0.10945146507928383,0.16144909159761134,0.050379717209532604,1]},{\"position\":1,\"color\":[0.20176824876850008,0.31199240407847684,0.30500539787922676,1]}]},\"n5_3\":{\"type\":\"linear\",\"data\":[[0.0005809686101641565,0.4759037122021216,0],[0.9994190313898359,0.5240962877978784,0]],\"stops\":[{\"position\":0,\"color\":[0.2899608347243582,0.5000885998618394,0.17789988421292868,1]},{\"position\":1,\"color\":[0.3470010221278589,0.018163107294581704,0.25044875619522744,1]}]},\"n5_4\":{\"type\":\"linear\",\"data\":[[0.9212526445519827,0.2306559645027184,0],[0.07874735544801725,0.7693440354972816,0]],\"stops\":[{\"position\":0,\"color\":[0.7330803834323136,0.5510491280112536,0.18945649649377838,1]},{\"position\":1,\"color\":[0.47476063851773376,0.9346428397823539,0.10628134502709141,1]}]},\"n5_5\":{\"type\":\"linear\",\"data\":[[0.9992394077288744,0.472431652742273,0],[0.0007605922711255153,0.527568347257727,0]],\"stops\":[{\"position\":0,\"color\":[0.4321775857844161,0.4950015734576154,0.8346139333302227,1]},{\"position\":1,\"color\":[0.3930860755615859,0.5066859521551657,0.6877417356906914,1]}]},\"n5_6\":{\"type\":\"linear\",\"data\":[[0.007281110638026167,0.4149817897982851,0],[0.9927188893619738,0.585018210201715,0]],\"stops\":[{\"position\":0,\"color\":[0.3427046254174745,0.8322865432644495,0.7067254016462279,1]},{\"position\":1,\"color\":[0.6359769488850147,0.4046977087068413,0.34755218015523204,1]}]},\"n5_7\":{\"type\":\"linear\",\"data\":[[0.9391101410538704,0.26087182511537865,0],[0.06088985894612964,0.7391281748846213,0]],\"stops\":[{\"position\":0,\"color\":[0.12981858115088285,0.07072281558400617,0.7408891981829275,1]},{\"position\":1,\"color\":[0.2555938767696969,0.16324652027637576,0.0844848727079307,1]}]},\"n5_8\":{\"type\":\"linear\",\"data\":[[0.05999292311715593,0.26252627030971415,0],[0.9400070768828441,0.7374737296902858,0]],\"stops\":[{\"position\":0,\"color\":[0.8705378212477483,0.6705432979086785,0.2819332823066295,1]},{\"position\":1,\"color\":[0.24221293399248656,0.29305849258033545,0.45945294339472076,1]}]},\"n5_9\":{\"type\":\"linear\",\"data\":[[0.9970943186292442,0.44617399897329063,0],[0.002905681370755697,0.5538260010267094,0]],\"stops\":[{\"position\":0,\"color\":[0.44582460823374026,0.2632430669973891,0.9617865333626133,1]},{\"position\":1,\"color\":[0.9726229979463763,0.5470733741189084,0.24444649394189355,1]}]},\"n6_0\":{\"type\":\"linear\",\"data\":[[0.09639829385477805,0.2048633150611976,0],[0.903601706145222,0.7951366849388024,0]],\"stops\":[{\"position\":0,\"color\":[0.30954791767795276,0.35658391701398706,0.001068914944922783,1]},{\"position\":1,\"color\":[0.3816266066125822,0.474643627397186,0.5027640063763996,1]}]},\"n6_1\":{\"type\":\"linear\",\"data\":[[0.0012479525374916034,0.4646956779989222,0],[0.9987520474625085,0.5353043220010778,0]],\"stops\":[{\"position\":0,\"color\":[0.5047356395143127,0.004950531503943312,0.2641686858016571,1]},{\"position\":1,\"color\":[0.08975339788097991,0.3995111702889258,0.041666957691152695,1]}]},\"n6_2\":{\"type\":\"linear\",\"data\":[[0.8138376590126647,0.11076238133313682,0],[0.1861623409873353,0.8892376186668631,0]],\"stops\":[{\"position\":0,\"color\":[0.30424456022433843,0.2328095665908061,0.5855832841816334,1]},{\"position\":1,\"color\":[0.5291895482931099,0.7505406301859925,0.6575436733126727,1]}]},\"n6_3\":{\"type\":\"linear\",\"data\":[[0.7174544795502072,0.04976278549685781,0],[0.28254552044979275,0.9502372145031421,0]],\"stops\":[{\"position\":0,\"color\":[0.87909069356739,0.38951647106044995,0.3261347541263495,1]},{\"position\":1,\"color\":[0.9847290850742962,0.149463149042253,0.7241557733618257,1]}]},\"n6_4\":{\"type\":\"linear\",\"data\":[[0.04712446532836306,0.2880949502822574,0],[0.9528755346716369,0.7119050497177426,0]],\"stops\":[{\"position\":0,\"color\":[0.04378806669158586,0.8352895432338937,0.8919423558785111,1]},{\"position\":1,\"color\":[0.6273321243319265,0.7338521234769618,0.812218915712394,1]}]},\"n6_5\":{\"type\":\"linear\",\"data\":[[0.9719274449066251,0.33481983550103755,0],[0.028072555093374862,0.6651801644989624,0]],\"stops\":[{\"position\":0,\"color\":[0.5237572845285173,0.5043710512554608,0.8349375934370263,1]},{\"position\":1,\"color\":[0.8046776057487708,0.8264091215019802,0.5840615168062387,1]}]},\"n6_6\":{\"type\":\"linear\",\"data\":[[0.026914836661061647,0.3381654294392881,0],[0.9730851633389384,0.6618345705607118,0]],\"stops\":[{\"position\":0,\"color\":[0.6828953695005007,0.6933261352992788,0.22994072053649794,1]},{\"position\":1,\"color\":[0.031160526289508494,0.13309319792032148,0.3607074764334862,1]}]},\"n6_7\":{\"type\":\"linear\",\"data\":[[2.7103574674225417e-05,0.49479396119199387,0],[0.9999728964253258,0.5052060388080062,0]],\"stops\":[{\"position\":0,\"color\":[0.835821199799971,0.5585272464959347,0.6277671085211685,1]},{\"position\":1,\"color\":[0.626226458932786,0.6806641760808205,0.4892943148597545,1]}]},\"n6_8\":{\"type\":\"linear\",\"data\":[[0.838578632707381,0.13208083839788887,0],[0.16142136729261897,0.8679191616021111,0]],\"stops\":[{\"position\":0,\"color\":[0.7976975520708526,0.7482653702237058,0.5029710523624538,1]},{\"position\":1,\"color\":[0.5351998142297709,0.6592994893043499,0.06605035622215194,1]}]},\"n6_9\":{\"type\":\"linear\",\"data\":[[0.9985479329967973,0.46192167933560035,0],[0.0014520670032026617,0.5380783206643996,0]],\"stops\":[{\"position\":0,\"color\":[0.2521935314626901,0.07444999997417345,0.26555822219539893,1]},{\"position\":1,\"color\":[0.7293350380393967,0.20521752708208651,0.7398285914207419,1]}]},\"n7_0\":{\"type\":\"linear\",\"data\":[[0.7168085906228713,0.049451406580683865,0],[0.2831914093771287,0.9505485934193161,0]],\"stops\":[{\"position\":0,\"color\":[0.49394877884932786,0.382560477232485,0.479010164070626,1]},{\"position\":1,\"color\":[0.6836965627023515,0.7669701058175227,0.6169740157782497,1]}]},\"n7_1\":{\"type\":\"linear\",\"data\":[[0.00038358562765594684,0.4804184145248087,0],[0.999616414372344,0.5195815854751913,0]],\"stops\":[{\"position\":0,\"color\":[0.07747181951780069,0.14742507287690743,0.25394028165589533,1]},{\"position\":1,\"color\":[0.7432172573572905,0.30441713795923253,0.5677616978693083,1]}]},\"n7_2\":{\"type\":\"linear\",\"data\":[[0.5259625265457907,0.0006745077453393922,0],[0.4740374734542093,0.9993254922546606,0]],\"stops\":[{\"position\":0,\"color\":[0.06066101406364177,0.268772765789248,0.6720015786552359,1]},{\"position\":1,\"color\":[0.692185172570448,0.6757076568127744,0.290856478429369,1]}]},\"n7_3\":{\"type\":\"linear\",\"data\":[[0.9900071574837792,0.4005365111477239,0],[0.009992842516220846,0.5994634888522761,0]],\"stops\":[{\"position\":0,\"color\":[0.46466285337431434,0.4663391542968881,0.11850286270156796,1]},{\"position\":1,\"color\":[0.8936629261752702,0.19925002985950302,0.978125736757027,1]}]},\"n7_4\":{\"type\":\"linear\",\"data\":[[0.10476582867216055,0.19374855132620838,0],[0.8952341713278394,0.8062514486737916,0]],\"stops\":[{\"position\":0,\"color\":[0.017504455816662823,0.45897082296359715,0.8198976926998682,1]},{\"position\":1,\"color\":[0.9681082516506996,0.4494509696510952,0.26865724017358084,1]}]},\"n7_5\":{\"type\":\"linear\",\"data\":[[0.04276318115457378,0.29767725908313003,0],[0.9572368188454262,0.70232274091687,0]],\"stops\":[{\"position\":0,\"color\":[0.9455872768948678,0.21070879753390592,0.581472367721074,1]},{\"position\":1,\"color\":[0.14174067785953115,0.5240657125548196,0.9527403366532443,1]}]},\"n7_6\":{\"type\":\"linear\",\"data\":[[0.4782366719133955,0.00047386699933826826,0],[0.5217633280866045,0.9995261330006617,0]],\"stops\":[{\"position\":0,\"color\":[0.820217010614784,0.5087443536487809,0.8868621596148428,1]},{\"position\":1,\"color\":[0.7033370387940744,0.2313836030504699,0.8977056956003996,1]}]},\"n7_7\":{\"type\":\"linear\",\"data\":[[0.2645928027039194,0.05888385717454847,0],[0.7354071972960806,0.9411161428254515,0]],\"stops\":[{\"position\":0,\"color\":[0.024834403090665202,0.0035904716697302552,0.49169610948553766,1]},{\"position\":1,\"color\":[0.45076030049785465,0.3019510412751344,0.14070722025767857,1]}]},\"n7_8\":{\"type\":\"linear\",\"data\":[[0.9866932188210769,0.3854150500563909,0],[0.013306781178923144,0.6145849499436091,0]],\"stops\":[{\"position\":0,\"color\":[0.31607804537496975,0.8402310336479869,0.0017413819175032819,1]},{\"position\":1,\"color\":[0.7507340411713169,0.8391107946504619,0.12004134759218255,1]}]},\"n7_9\":{\"type\":\"linear\",\"data\":[[0.6382531334976203,0.01949394272487137,0],[0.3617468665023798,0.9805060572751286,0]],\"stops\":[{\"position\":0,\"color\":[0.7130235657969237,0.9015665630989359,0.2898329589755253,1]},{\"position\":1,\"color\":[0.37222199935449174,0.39289938204110453,0.9987925057856136,1]}]},\"n8_0\":{\"type\":\"linear\",\"data\":[[0.18814323745483785,0.10917349161699597,0],[0.8118567625451621,0.890826508383004,0]],\"stops\":[{\"position\":0,\"color\":[0.36070932392340516,0.428052751389566,0.27515525262247964,1]},{\"position\":1,\"color\":[0.0482680967497654,0.10170985796762633,0.8346759949771924,1]}]},\"n8_1\":{\"type\":\"linear\",\"data\":[[0.995266416081797,0.4313619850120047,0],[0.004733583918202944,0.5686380149879954,0]],\"stops\":[{\"position\":0,\"color\":[0.9355898883112846,0.24932471641181853,0.2657280149775798,1]},{\"position\":1,\"color\":[0.5109629878074032,0.18984904716300688,0.3733492850150366,1]}]},\"n8_2\":{\"type\":\"linear\",\"data\":[[0.818194395360287,0.11431576806757926,0],[0.18180560463971296,0.8856842319324207,0]],\"stops\":[{\"position\":0,\"color\":[0.8842665555254468,0.8119622674707723,0.630895803869081,1]},{\"position\":1,\"color\":[0.9134238874593851,0.9406992983382416,0.5492281481879637,1]}]},\"n8_3\":{\"type\":\"linear\",\"data\":[[0.005906979278553548,0.42337045690886377,0],[0.9940930207214465,0.5766295430911362,0]],\"stops\":[{\"position\":0,\"color\":[0.049476034443567296,0.7323524684524984,0.45086042296077355,1]},{\"position\":1,\"color\":[0.7526680092407206,0.6444907104185137,0.2862083203015855,1]}]},\"n8_4\":{\"type\":\"linear\",\"data\":[[0.9986142788005317,0.462800524516793,0],[0.0013857211994683927,0.537199475483207,0]],\"stops\":[{\"position\":0,\"color\":[0.9267770465471461,0.12731132038505966,0.4721840874468285,1]},{\"position\":1,\"color\":[0.3436628526579293,0.29777186554478685,0.7390325049962496,1]}]},\"n8_5\":{\"type\":\"linear\",\"data\":[[0.06310647450767809,0.2568456305494597,0],[0.9368935254923219,0.7431543694505403,0]],\"stops\":[{\"position\":0,\"color\":[0.26016905461407647,0.6559953260322289,0.300836291038856,1]},{\"position\":1,\"color\":[0.5573217024570404,0.39436777770327414,0.16733246775869304,1]}]},\"n8_6\":{\"type\":\"linear\",\"data\":[[0.4217213979935067,0.006165553583076744,0],[0.5782786020064933,0.9938344464169233,0]],\"stops\":[{\"position\":0,\"color\":[0.2078725211367367,0.9059599102424573,0.49707578532685737,1]},{\"position\":1,\"color\":[0.22002525220055924,0.9062593902113605,0.9964751136246909,1]}]},\"n8_7\":{\"type\":\"linear\",\"data\":[[0.15585032667951104,0.13728661128461123,0],[0.844149673320489,0.8627133887153888,0]],\"stops\":[{\"position\":0,\"color\":[0.13959606399972213,0.192407095760745,0.09071450810652293,1]},{\"position\":1,\"color\":[0.34195523378159165,0.09109433978265324,0.2391265807174543,1]}]},\"n8_8\":{\"type\":\"linear\",\"data\":[[0.3113692737939969,0.03694660228976193,0],[0.6886307262060031,0.963053397710238,0]],\"stops\":[{\"position\":0,\"color\":[0.5696177423159915,0.8872514592117199,0.7496576076046787,1]},{\"position\":1,\"color\":[0.4127816586407861,0.4138835724133293,0.524168142750896,1]}]},\"n8_9\":{\"type\":\"linear\",\"data\":[[0.6980359544160688,0.04089025194566309,0],[0.30196404558393114,0.9591097480543369,0]],\"stops\":[{\"position\":0,\"color\":[0.33820310050331803,0.06205951793600539,0.2775163469782528,1]},{\"position\":1,\"color\":[0.9676852625619264,0.12587380175853646,0.503395747611118,1]}]},\"n9_0\":{\"type\":\"linear\",\"data\":[[0.9947752875972178,0.4279069019732792,0],[0.005224712402782161,0.5720930980267208,0]],\"stops\":[{\"position\":0,\"color\":[0.8628613490509411,0.21596314081995305,0.2710208810626725,1]},{\"position\":1,\"color\":[0.2484536497634705,0.39975713674568913,0.4458583923566094,1]}]},\"n9_1\":{\"type\":\"linear\",\"data\":[[0.45805924846088314,0.001762131747963136,0],[0.5419407515391168,0.9982378682520369,0]],\"stops\":[{\"position\":0,\"color\":[0.8486836762304526,0.8728909862640528,0.02181051021253333,1]},{\"position\":1,\"color\":[0.032243493387102085,0.709511784938654,0.8956965193469022,1]}]},\"n9_2\":{\"type\":\"linear\",\"data\":[[0.998099935607209,0.45645170326988393,0],[0.001900064392791001,0.5435482967301161,0]],\"stops\":[{\"position\":0,\"color\":[0.5871764904992607,0.00017868781937568912,0.39152109570978955,1]},{\"position\":1,\"color\":[0.9268272737276606,0.8255892062772915,0.8554626738142327,1]}]},\"n9_3\":{\"type\":\"linear\",\"data\":[[0.8208075023199474,0.11648657591260647,0],[0.17919249768005263,0.8835134240873935,0]],\"stops\":[{\"position\":0,\"color\":[0.24846528308918459,0.109045998929444,0.15437838548472693,1]},{\"position\":1,\"color\":[0.522365607111808,0.6820750617153227,0.9414905594691287,1]}]},\"n9_4\":{\"type\":\"linear\",\"data\":[[0.12763349994262135,0.16631873047020118,0],[0.8723665000573786,0.8336812695297988,0]],\"stops\":[{\"position\":0,\"color\":[0.6473481196650006,0.764800547770313,0.4573250419274224,1]},{\"position\":1,\"color\":[0.5515009148185075,0.039546258757755415,0.7822986180011314,1]}]},\"n9_5\":{\"type\":\"linear\",\"data\":[[0.7920876148294584,0.09418621849025638,0],[0.20791238517054156,0.9058137815097436,0]],\"stops\":[{\"position\":0,\"color\":[0.9199201094924787,0.6455057763682427,0.30378226162817246,1]},{\"position\":1,\"color\":[0.1279668482130224,0.2517939472813393,0.6362910973834285,1]}]},\"n9_6\":{\"type\":\"linear\",\"data\":[[0.6560925273632829,0.024989344433892946,0],[0.34390747263671706,0.9750106555661071,0]],\"stops\":[{\"position\":0,\"color\":[0.11213268413726074,0.07035190835855365,0.5244366820420359,1]},{\"position\":1,\"color\":[0.5828909739233684,0.3880819474226376,0.22358303361003984,1]}]},\"n9_7\":{\"type\":\"linear\",\"data\":[[0.4612468646380781,0.0015040677200860442,0],[0.5387531353619219,0.998495932279914,0]],\"stops\":[{\"position\":0,\"color\":[0.010461639892133445,0.30152130124251575,0.4606906270876798,1]},{\"position\":1,\"color\":[0.9589399718966858,0.6445756393627167,0.8837740290340602,1]}]},\"n9_8\":{\"type\":\"linear\",\"data\":[[0.49734575107239,7.045087002943706e-06,0],[0.50265424892761,0.9999929549129971,0]],\"stops\":[{\"position\":0,\"color\":[0.23476809670777787,0.2470583843386236,0.9606142298267047,1]},{\"position\":1,\"color\":[0.7046536628130822,0.3073978279181474,0.021787384108567398,1]}]},\"n9_9\":{\"type\":\"linear\",\"data\":[[0.0028659430343440095,0.4465422652475072,0],[0.9971340569656559,0.5534577347524928,0]],\"stops\":[{\"position\":0,\"color\":[0.6744632620153453,0.4200158721289937,0.2572561221408881,1]},{\"position\":1,\"color\":[0.6673550488376796,0.9251608280108722,0.2267860732446868,1]}]},\"n10_0\":{\"type\":\"linear\",\"data\":[[0.5076626529620282,5.8719698419473776e-05,0],[0.4923373470379719,0.9999412803015806,0]],\"stops\":[{\"position\":0,\"color\":[0.33805157034346633,0.42055684598028575,0.6825666829672322,1]},{\"position\":1,\"color\":[0.1980796382334341,0.7970642171212375,0.7391292217757531,1]}]},\"n10_1\":{\"type\":\"linear\",\"data\":[[0.8649900938266682,0.1582658468803566,0],[0.13500990617333175,0.8417341531196434,0]],\"stops\":[{\"position\":0,\"color\":[0.20521858703863327,0.9698587223918274,0.31171574269128666,1]},{\"position\":1,\"color\":[0.8200044944430386,0.23080881286497468,0.2214428131656494,1]}]},\"n10_2\":{\"type\":\"linear\",\"data\":[[0.7481307194798753,0.06591343484231232,0],[0.2518692805201247,0.9340865651576877,0]],\"stops\":[{\"position\":0,\"color\":[0.2949328505173926,0.9519268842309491,0.4957647294558458,1]},{\"position\":1,\"color\":[0.18731321317312255,0.22332413855979394,0.4170290821075141,1]}]},\"n10_3\":{\"type\":\"linear\",\"data\":[[0.006616352981869689,0.4189285694273934,0],[0.9933836470181303,0.5810714305726066,0]],\"stops\":[{\"position\":0,\"color\":[0.9487613036841315,0.14638305397274742,0.3934599761244534,1]},{\"position\":1,\"color\":[0.2129490749808305,0.9741197049329217,0.14191107761401633,1]}]},\"n10_4\":{\"type\":\"linear\",\"data\":[[0.9884989600477331,0.39337558425818564,0],[0.011501039952266923,0.6066244157418144,0]],\"stops\":[{\"position\":0,\"color\":[0.06013525414544951,0.39332169629366664,0.8981674068572725,1]},{\"position\":1,\"color\":[0.8835836374327537,0.7327237659186538,0.9975298052978604,1]}]},\"n10_5\":{\"type\":\"linear\",\"data\":[[0.3139231333176643,0.03591444788090603,0],[0.6860768666823357,0.964085552119094,0]],\"stops\":[{\"position\":0,\"color\":[0.3292427598735952,0.1855121899580079,0.9358815515398798,1]},{\"position\":1,\"color\":[0.7463084419639098,0.03189368778338386,0.664429863731394,1]}]},\"n10_6\":{\"type\":\"linear\",\"data\":[[0.9951251277405471,0.43035010495408527,0],[0.004874872259452934,0.5696498950459148,0]],\"stops\":[{\"position\":0,\"color\":[0.37388361979263185,0.3316974896373983,0.1692609422576251,1]},{\"position\":1,\"color\":[0.002870724188104301,0.2798064282593352,0.35146686002748573,1]}]},\"n10_7\":{\"type\":\"linear\",\"data\":[[0.394686318222936,0.011216787900239666,0],[0.605313681777064,0.9887832120997604,0]],\"stops\":[{\"position\":0,\"color\":[0.12370828212148621,0.9642712157875669,0.20740243330694497,1]},{\"position\":1,\"color\":[0.3566292209083741,0.821573617374146,0.8220079824621696,1]}]},\"n10_8\":{\"type\":\"linear\",\"data\":[[0.9740476377910302,0.3410068017028898,0],[0.025952362208969793,0.6589931982971102,0]],\"stops\":[{\"position\":0,\"color\":[0.049257335851017214,0.47346405085709564,0.37271438942498736,1]},{\"position\":1,\"color\":[0.9195064190503023,0.1930261874445467,0.3642488623955831,1]}]},\"n10_9\":{\"type\":\"linear\",\"data\":[[0.009631873650589984,0.4023316803637481,0],[0.99036812634941,0.5976683196362519,0]],\"stops\":[{\"position\":0,\"color\":[0.030282055077419545,0.41080182975540336,0.8118245275721572,1]},{\"position\":1,\"color\":[0.7666680023429737,0.04064948391592249,0.034854385733981474,1]}]},\"n11_0\":{\"type\":\"linear\",\"data\":[[0.9955894334709501,0.4337345230761693,0],[0.00441056652904992,0.5662654769238307,0]],\"stops\":[{\"position\":0,\"color\":[0.9200767208785109,0.25701595243022923,0.7472868044886867,1]},{\"position\":1,\"color\":[0.8985517889679692,0.33906953307222043,0.27231466274686833,1]}]},\"n11_1\":{\"type\":\"linear\",\"data\":[[0.8597755269742788,0.15278022782338563,0],[0.14022447302572122,0.8472197721766144,0]],\"stops\":[{\"position\":0,\"color\":[0.6169784817366716,0.26217247356800644,0.7166357464311819,1]},{\"position\":1,\"color\":[0.3164836311655348,0.27563032729481063,0.0037716159341637523,1]}]},\"n11_2\":{\"type\":\"linear\",\"data\":[[0.9953975498499239,0.4323149381126669,0],[0.004602450150076043,0.567685061887333,0]],\"stops\":[{\"position\":0,\"color\":[0.9164596036498125,0.6339800428337433,0.9432501425246306,1]},{\"position\":1,\"color\":[0.02425670494152843,0.23386626025484025,0.4751890578536032,1]}]},\"n11_3\":{\"type\":\"linear\",\"data\":[[0.0803278766649243,0.2281998732608298,0],[0.9196721233350758,0.7718001267391702,0]],\"stops\":[{\"position\":0,\"color\":[0.9539105801012864,0.38651478879003864,0.25104682083088126,1]},{\"position\":1,\"color\":[0.42993808399737066,0.4934738437288051,0.9280994198958621,1]}]},\"n11_4\":{\"type\":\"linear\",\"data\":[[0.23148843581344725,0.07821624035758468,0],[0.7685115641865528,0.9217837596424153,0]],\"stops\":[{\"position\":0,\"color\":[0.8025683233965653,0.7384880133220164,0.8227552525111282,1]},{\"position\":1,\"color\":[0.7728093799301626,0.6072542312453874,0.32779981092544175,1]}]},\"n11_5\":{\"type\":\"linear\",\"data\":[[0.010303725605362746,0.399017036862587,0],[0.9896962743946373,0.600982963137413,0]],\"stops\":[{\"position\":0,\"color\":[0.3618584408151584,0.7822486206570043,0.079014871358013,1]},{\"position\":1,\"color\":[0.19731179171566215,0.7528856706614597,0.24730751222190828,1]}]},\"n11_6\":{\"type\":\"linear\",\"data\":[[0.1633674929347403,0.13029937085939675,0],[0.8366325070652597,0.8697006291406033,0]],\"stops\":[{\"position\":0,\"color\":[0.03386371941633448,0.5525946434186146,0.32575835407296105,1]},{\"position\":1,\"color\":[0.9802557708811332,0.8834746264310286,0.9878238295925039,1]}]},\"n11_7\":{\"type\":\"linear\",\"data\":[[0.3708544484423051,0.016966433347682608,0],[0.6291455515576949,0.9830335666523173,0]],\"stops\":[{\"position\":0,\"color\":[0.0840825975562709,0.09642257855132419,0.49847526839697454,1]},{\"position\":1,\"color\":[0.7097711710044492,0.4469631029158224,0.2341962988147971,1]}]},\"n11_8\":{\"type\":\"linear\",\"data\":[[0.9388109520944194,0.260323242007096,0],[0.061189047905580496,0.739676757992904,0]],\"stops\":[{\"position\":0,\"color\":[0.620307645881642,0.6741086187581219,0.7479770447206838,1]},{\"position\":1,\"color\":[0.8469870744189153,0.6644252222744125,0.12116473749094148,1]}]},\"n11_9\":{\"type\":\"linear\",\"data\":[[0.14130904744987416,0.15165993546724582,0],[0.8586909525501258,0.8483400645327541,0]],\"stops\":[{\"position\":0,\"color\":[0.29378214686659654,0.5668842067395589,0.37297103743297233,1]},{\"position\":1,\"color\":[0.7380674277270961,0.199190090890212,0.2474291263948114,1]}]},\"n12_0\":{\"type\":\"linear\",\"data\":[[0.5115043032019752,0.00013236651305675862,0],[0.4884956967980249,0.9998676334869432,0]],\"stops\":[{\"position\":0,\"color\":[0.1533221995931423,0.8841678195265548,0.5782807557899514,1]},{\"position\":1,\"color\":[0.32633791912201116,0.39606959560255506,0.9924487266387733,1]}]},\"n12_1\":{\"type\":\"linear\",\"data\":[[0.9214070569103648,0.23089761727895364,0],[0.07859294308963516,0.7691023827210464,0]],\"stops\":[{\"position\":0,\"color\":[0.2313809443238426,0.808442891393173,0.6533265520924009,1]},{\"position\":1,\"color\":[0.9909556510822709,0.10233242068061299,0.4747627592297272,1]}]},\"n12_2\":{\"type\":\"linear\",\"data\":[[0.9981977059435452,0.45758484006173233,0],[0.0018022940564547674,0.5424151599382677,0]],\"stops\":[{\"position\":0,\"color\":[0.8405563641212668,0.9143755538305364,0.040361865437643085,1]},{\"position\":1,\"color\":[0.29367746586272625,0.11921662874811256,0.18957318067918194,1]}]},\"n12_3\":{\"type\":\"linear\",\"data\":[[0.8830207052857864,0.17860438814075458,0],[0.11697929471421359,0.8213956118592454,0]],\"stops\":[{\"position\":0,\"color\":[0.5831937655371546,0.9301737478011591,0.3722369634558931,1]},{\"position\":1,\"color\":[0.866127328408949,0.4491138577687903,0.2599482221528754,1]}]},\"n12_4\":{\"type\":\"linear\",\"data\":[[0.04850658664279367,0.28516588330747183,0],[0.9514934133572064,0.7148341166925282,0]],\"stops\":[{\"position\":0,\"color\":[0.9457020834560657,0.10578006235850812,0.5961470656820096,1]},{\"position\":1,\"color\":[0.6199479799695284,0.21764542190324143,0.36870855346334397,1]}]},\"n12_5\":{\"type\":\"linear\",\"data\":[[0.24176966522200172,0.07184454435282162,0],[0.7582303347779983,0.9281554556471784,0]],\"stops\":[{\"position\":0,\"color\":[0.20397643744851468,0.2549136730897128,0.5994233692603442,1]},{\"position\":1,\"color\":[0.6516428210880991,0.2034417898561337,0.011379836640008523,1]}]},\"n12_6\":{\"type\":\"linear\",\"data\":[[0.00984509322736804,0.4012671920448299,0],[0.990154906772632,0.5987328079551701,0]],\"stops\":[{\"position\":0,\"color\":[0.6783197400853727,0.18514509961764358,0.312195733770242,1]},{\"position\":1,\"color\":[0.2034077721198393,0.7952811680408212,0.5480448341630922,1]}]},\"n12_7\":{\"type\":\"linear\",\"data\":[[0.7880240171998133,0.0912920779871258,0],[0.2119759828001867,0.9087079220128742,0]],\"stops\":[{\"position\":0,\"color\":[0.10138776746275924,0.39529671269674915,0.5501376103948963,1]},{\"position\":1,\"color\":[0.6391819457262543,0.09115259835912548,0.1636893182826945,1]}]},\"n12_8\":{\"type\":\"linear\",\"data\":[[0.28311312671109423,0.04948908537643382,0],[0.7168868732889058,0.9505109146235662,0]],\"stops\":[{\"position\":0,\"color\":[0.4097889213877822,0.2833011945173959,0.30759576274339384,1]},{\"position\":1,\"color\":[0.9531888369572213,0.3123618866900918,0.5665200642026579,1]}]},\"n12_9\":{\"type\":\"linear\",\"data\":[[0.09890413793287978,0.20146673647207475,0],[0.9010958620671202,0.7985332635279252,0]],\"stops\":[{\"position\":0,\"color\":[0.41644538207510984,0.8642463741202847,0.9966203555630149,1]},{\"position\":1,\"color\":[0.3637813750243053,0.19720159017094308,0.7280316979063558,1]}]},\"n13_0\":{\"type\":\"linear\",\"data\":[[0.438745922134821,0.0037662466690858154,0],[0.561254077865179,0.9962337533309142,0]],\"stops\":[{\"position\":0,\"color\":[0.0058765965265350495,0.9016305815917764,0.4237548046822792,1]},{\"position\":1,\"color\":[0.8203685811943413,0.40621768368628364,0.8828379464501672,1]}]},\"n13_1\":{\"type\":\"linear\",\"data\":[[0.6872630593816775,0.036391817812698346,0],[0.3127369406183224,0.9636081821873017,0]],\"stops\":[{\"position\":0,\"color\":[0.16254457928221744,0.014834374574537512,0.5515478562004625,1]},{\"position\":1,\"color\":[0.6406666920070964,0.9097945123666461,0.08903111199188607,1]}]},\"n13_2\":{\"type\":\"linear\",\"data\":[[0.028920686645562077,0.3324163476662736,0],[0.971079313354438,0.6675836523337264,0]],\"stops\":[{\"position\":0,\"color\":[0.3708436246011326,0.5044630629694883,0.14588682612735726,1]},{\"position\":1,\"color\":[0.2832950067655349,0.5211588753147818,0.9254997899166997,1]}]},\"n13_3\":{\"type\":\"linear\",\"data\":[[0.99852529461899,0.4616264332508795,0],[0.0014747053810099664,0.5383735667491205,0]],\"stops\":[{\"position\":0,\"color\":[0.4905096497651622,0.804813614429122,0.9668760732167195,1]},{\"position\":1,\"color\":[0.19734170512568416,0.12665035454401585,0.9430757093690136,1]}]},\"n13_4\":{\"type\":\"linear\",\"data\":[[0.9259550570364279,0.2381559827204497,0],[0.07404494296357206,0.7618440172795503,0]],\"stops\":[{\"position\":0,\"color\":[0.48273648555968673,0.05337454831335475,0.9261678132144192,1]},{\"position\":1,\"color\":[0.38789518241803655,0.9042208471321335,0.6203429675714415,1]}]},\"n13_5\":{\"type\":\"linear\",\"data\":[[0.08035034565460303,0.22816518323108637,0],[0.9196496543453969,0.7718348167689136,0]],\"stops\":[{\"position\":0,\"color\":[0.16027614951375435,0.7858255718394186,0.2220750869889042,1]},{\"position\":1,\"color\":[0.40448455225474456,0.8463513791271517,0.8291877021860719,1]}]},\"n13_6\":{\"type\":\"linear\",\"data\":[[0.8245838828859888,0.11967736989411915,0],[0.17541611711401117,0.8803226301058809,0]],\"stops\":[{\"position\":0,\"color\":[0.2181368771323008,0.3997455830763954,0.517892518315307,1]},{\"position\":1,\"color\":[0.38357637345200524,0.12305670342942432,0.24705889799216607,1]}]},\"n13_7\":{\"type\":\"linear\",\"data\":[[0.03381154153763832,0.3192562001160568,0],[0.9661884584623617,0.6807437998839432,0]],\"stops\":[{\"position\":0,\"color\":[0.8972950219556368,0.041099033384490835,0.5623432684129848,1]},{\"position\":1,\"color\":[0.7574612548370171,0.03812870135826185,0.8382042596057265,1]}]},\"n13_8\":{\"type\":\"linear\",\"data\":[[0.384407664259746,0.013545056641303732,0],[0.615592335740254,0.9864549433586962,0]],\"stops\":[{\"position\":0,\"color\":[0.5995197702626399,0.5500518370345951,0.6270424185550673,1]},{\"position\":1,\"color\":[0.3062141437011052,0.4200718649343521,0.5826246607993457,1]}]},\"n13_9\":{\"type\":\"linear\",\"data\":[[0.13044983495606155,0.16320232257927042,0],[0.8695501650439385,0.8367976774207295,0]],\"stops\":[{\"position\":0,\"color\":[0.6588427079278976,0.44678939509077664,0.4383525936213427,1]},{\"position\":1,\"color\":[0.023375280227572404,0.6188918798129082,0.4895015989636863,1]}]},\"n14_0\":{\"type\":\"linear\",\"data\":[[0.0401648086741862,0.3036543944511306,0],[0.9598351913258139,0.6963456055488694,0]],\"stops\":[{\"position\":0,\"color\":[0.7635651947451774,0.7799748913867044,0.4582890408973779,1]},{\"position\":1,\"color\":[0.17956903435684257,0.47321884632365663,0.10707607170284283,1]}]},\"n14_1\":{\"type\":\"linear\",\"data\":[[0.01659585240782524,0.3722485612970134,0],[0.9834041475921748,0.6277514387029866,0]],\"stops\":[{\"position\":0,\"color\":[0.43059900675216545,0.0917131439021378,0.4419671334649775,1]},{\"position\":1,\"color\":[0.5101612482748611,0.040766790812102105,0.6364370221664828,1]}]},\"n14_2\":{\"type\":\"linear\",\"data\":[[0.9940556196388621,0.4231296890648929,0],[0.005944380361137924,0.5768703109351071,0]],\"stops\":[{\"position\":0,\"color\":[0.7334802248606521,0.7776360863476505,0.5114817327258583,1]},{\"position\":1,\"color\":[0.05426493102355956,0.5039240635549089,0.37786262968738116,1]}]},\"n14_3\":{\"type\":\"linear\",\"data\":[[0.9991764530835132,0.47131431215809777,0],[0.0008235469164867282,0.5286856878419023,0]],\"stops\":[{\"position\":0,\"color\":[0.13618571330500007,0.8570701112328519,0.9961241827467364,1]},{\"position\":1,\"color\":[0.7320843912105973,0.8149894484101835,0.19370730319334173,1]}]},\"n14_4\":{\"type\":\"linear\",\"data\":[[0.010553670665386539,0.3978124728703494,0],[0.9894463293346134,0.6021875271296506,0]],\"stops\":[{\"position\":0,\"color\":[0.49186996585042464,0.9566392884477595,0.9160412236673822,1]},{\"position\":1,\"color\":[0.1651115170578208,0.7883815223059005,0.9305834786677866,1]}]},\"n14_5\":{\"type\":\"linear\",\"data\":[[0.05000410960588114,0.2820465677526409,0],[0.9499958903941188,0.7179534322473591,0]],\"stops\":[{\"position\":0,\"color\":[0.35089739866886016,0.75617976674602,0.15876744928836073,1]},{\"position\":1,\"color\":[0.8965372414405026,0.2749925919254287,0.8156266544491264,1]}]},\"n14_6\":{\"type\":\"linear\",\"data\":[[0.003343725606834602,0.44227179973443836,0],[0.9966562743931654,0.5577282002655617,0]],\"stops\":[{\"position\":0,\"color\":[0.5022179332697971,0.9199078118809132,0.20832334154760657,1]},{\"position\":1,\"color\":[0.262867663918929,0.5060069727703868,0.3190775168856006,1]}]},\"n14_7\":{\"type\":\"linear\",\"data\":[[0.8900868214804827,0.18721849206314306,0],[0.10991317851951737,0.812781507936857,0]],\"stops\":[{\"position\":0,\"color\":[0.18209638747174628,0.16122934696504299,0.9364037608966095,1]},{\"position\":1,\"color\":[0.6796799550043369,0.8954131035271349,0.16874204421135897,1]}]},\"n14_8\":{\"type\":\"linear\",\"data\":[[0.6244114084872627,0.015725489584455354,0],[0.3755885915127373,0.9842745104155446,0]],\"stops\":[{\"position\":0,\"color\":[0.11507870084245297,0.5307212326569227,0.6363186751178574,1]},{\"position\":1,\"color\":[0.3597791266899921,0.872952099539627,0.5551801213730313,1]}]},\"n14_9\":{\"type\":\"linear\",\"data\":[[0.16320817710003793,0.1304444993945827,0],[0.836791822899962,0.8695555006054173,0]],\"stops\":[{\"position\":0,\"color\":[0.8825349352963348,0.10460879841470405,0.9929546083189641,1]},{\"position\":1,\"color\":[0.6297762159749819,0.3942564110303157,0.7976706055661009,1]}]},\"n15_0\":{\"type\":\"linear\",\"data\":[[0.8463678150318046,0.1394041920514139,0],[0.15363218496819536,0.860595807948586,0]],\"stops\":[{\"position\":0,\"color\":[0.9904982475112711,0.5773605119153518,0.36025138445816074,1]},{\"position\":1,\"color\":[0.7646391919358486,0.44228162787889913,0.17675605874787004,1]}]},\"n15_1\":{\"type\":\"linear\",\"data\":[[0.7459514878384167,0.06467498850850623,0],[0.2540485121615833,0.9353250114914937,0]],\"stops\":[{\"position\":0,\"color\":[0.04829145443725136,0.819824297101101,0.25365250043624965,1]},{\"position\":1,\"color\":[0.6392378432002457,0.9840551977626721,0.5858703250323177,1]}]},\"n15_2\":{\"type\":\"linear\",\"data\":[[0.5199092676905581,0.000396536180917062,0],[0.4800907323094419,0.9996034638190829,0]],\"stops\":[{\"position\":0,\"color\":[0.3126488159078268,0.0017909686797841218,0.033793153029959666,1]},{\"position\":1,\"color\":[0.14936475672551697,0.6160520510794073,0.4322328747636598,1]}]},\"n15_3\":{\"type\":\"linear\",\"data\":[[0.27997762380113167,0.051012078144852924,0],[0.7200223761988683,0.9489879218551471,0]],\"stops\":[{\"position\":0,\"color\":[0.8955424506051567,0.13202329343851282,0.22725964048891834,1]},{\"position\":1,\"color\":[0.6531084257780291,0.022289522397466177,0.0026154932910290585,1]}]},\"n15_4\":{\"type\":\"linear\",\"data\":[[0.6897871846041121,0.037419385879558675,0],[0.3102128153958878,0.9625806141204414,0]],\"stops\":[{\"position\":0,\"color\":[0.10636265220559205,0.3571515495636546,0.22425896237223186,1]},{\"position\":1,\"color\":[0.5835909195330364,0.5890916074345015,0.20418437098141407,1]}]},\"n15_5\":{\"type\":\"linear\",\"data\":[[0.7103423054235074,0.046396522776639304,0],[0.2896576945764926,0.9536034772233607,0]],\"stops\":[{\"position\":0,\"color\":[0.4749018114702659,0.13474869738602646,0.9365909159295467,1]},{\"position\":1,\"color\":[0.24358826657736754,0.1493130806897066,0.0958046694373238,1]}]},\"n15_6\":{\"type\":\"linear\",\"data\":[[0.5972850554589738,0.009555693289906353,0],[0.4027149445410262,0.9904443067100936,0]],\"stops\":[{\"position\":0,\"color\":[0.8712855999579467,0.7821561341714869,0.4019528911379764,1]},{\"position\":1,\"color\":[0.26423983996462375,0.011496037663002001,0.6449473635917953,1]}]},\"n15_7\":{\"type\":\"linear\",\"data\":[[0.977200014826004,0.3507346461831762,0],[0.022799985173996007,0.6492653538168238,0]],\"stops\":[{\"position\":0,\"color\":[0.35033270414713213,0.64560410066301,0.4437542379042615,1]},{\"position\":1,\"color\":[0.937157120686639,0.7335223741296802,0.24849701795800894,1]}]},\"n15_8\":{\"type\":\"linear\",\"data\":[[0.00037629273007949715,0.4806053838949875,0],[0.9996237072699206,0.5193946161050125,0]],\"stops\":[{\"position\":0,\"color\":[0.04400198207444328,0.5315274002047273,0.405988724422886,1]},{\"position\":1,\"color\":[0.23766880601060847,0.05837918007181553,0.7788722373911576,1]}]},\"n15_9\":{\"type\":\"linear\",\"data\":[[0.7151184408136668,0.04864198642109285,0],[0.28488155918633323,0.9513580135789071,0]],\"stops\":[{\"position\":0,\"color\":[0.5509229574859135,0.9409206077252191,0.1422665447978546,1]},{\"position\":1,\"color\":[0.19951826720131993,0.6080829698048061,0.5069482151239865,1]}]},\"n16_0\":{\"type\":\"linear\",\"data\":[[0.888217697794206,0.18490157233117382,0],[0.11178230220579394,0.8150984276688262,0]],\"stops\":[{\"position\":0,\"color\":[0.8133808047561619,0.17463947466444973,0.30938249128883466,1]},{\"position\":1,\"color\":[0.30026616622480606,0.04849077756748599,0.8893524238788043,1]}]},\"n16_1\":{\"type\":\"linear\",\"data\":[[0.4256439610392179,0.0055597311402896255,0],[0.574356038960782,0.9944402688597104,0]],\"stops\":[{\"position\":0,\"color\":[0.715398613649654,0.006349402481010014,0.8444324764359553,1]},{\"position\":1,\"color\":[0.7451874458213129,0.46526555031894556,0.7417549465263729,1]}]},\"n16_2\":{\"type\":\"linear\",\"data\":[[0.7876429797201312,0.0910238194983427,0],[0.2123570202798688,0.9089761805016573,0]],\"stops\":[{\"position\":0,\"color\":[0.22594841567136703,0.10528169022073397,0.23229668769255096,1]},{\"position\":1,\"color\":[0.03881756308128326,0.33551605709846255,0.7496540615348383,1]}]},\"n16_3\":{\"type\":\"linear\",\"data\":[[0.5364801428229327,0.0013325765807250534,0],[0.4635198571770674,0.998667423419275,0]],\"stops\":[{\"position\":0,\"color\":[0.8453333620972822,0.7116842273811466,0.2659877064516092,1]},{\"position\":1,\"color\":[0.5537877580466485,0.4360527223775811,0.7884500169551014,1]}]},\"n16_4\":{\"type\":\"linear\",\"data\":[[0.15814880552958843,0.1351195252700511,0],[0.8418511944704116,0.8648804747299489,0]],\"stops\":[{\"position\":0,\"color\":[0.2652962453336789,0.6420031855148871,0.9651408113105443,1]},{\"position\":1,\"color\":[0.21699553046689257,0.8800452016847474,0.0152277065051315,1]}]},\"n16_5\":{\"type\":\"linear\",\"data\":[[0.24352649040731128,0.07078986629250117,0],[0.7564735095926887,0.9292101337074988,0]],\"stops\":[{\"position\":0,\"color\":[0.2361092928180314,0.7438786640970139,0.9446978953420095,1]},{\"position\":1,\"color\":[0.7461513498049855,0.32687139654112585,0.8801647975199459,1]}]},\"n16_6\":{\"type\":\"linear\",\"data\":[[0.45215295900983915,0.0022946045415160876,0],[0.5478470409901609,0.9977053954584839,0]],\"stops\":[{\"position\":0,\"color\":[0.23916775270885915,0.9075683940345639,0.630696042788609,1]},{\"position\":1,\"color\":[0.6928429602210273,0.665236233484154,0.979013409736424,1]}]},\"n16_7\":{\"type\":\"linear\",\"data\":[[0.21604329131034194,0.08845584976805143,0],[0.783956708689658,0.9115441502319486,0]],\"stops\":[{\"position\":0,\"color\":[0.8397112677292398,0.6976182088731356,0.8575227560588476,1]},{\"position\":1,\"color\":[0.43721400913370057,0.7246233242290353,0.5703404760715268,1]}]},\"n16_8\":{\"type\":\"linear\",\"data\":[[0.027817865456193303,0.33554930277540806,0],[0.9721821345438066,0.6644506972245919,0]],\"stops\":[{\"position\":0,\"color\":[0.21196610772284152,0.6226220696071706,0.07780234936777175,1]},{\"position\":1,\"color\":[0.9107897294427906,0.14459491545642622,0.026902549802460096,1]}]},\"n16_9\":{\"type\":\"linear\",\"data\":[[0.7041497989370987,0.0435760089632205,0],[0.2958502010629013,0.9564239910367796,0]],\"stops\":[{\"position\":0,\"color\":[0.9289488357440475,0.34486368281698276,0.14184158817484838,1]},{\"position\":1,\"color\":[0.02873262786023212,0.0416494394719763,0.6926252144839221,1]}]},\"n17_0\":{\"type\":\"linear\",\"data\":[[0.9217960342012478,0.2315077179282432,0],[0.07820396579875222,0.7684922820717568,0]],\"stops\":[{\"position\":0,\"color\":[0.6970077236579931,0.7367852631709655,0.06576526803149263,1]},{\"position\":1,\"color\":[0.5904728007448363,0.3634061157652153,0.8175616260958445,1]}]},\"n17_1\":{\"type\":\"linear\",\"data\":[[0.10084098177551165,0.1988819530980207,0],[0.8991590182244884,0.8011180469019793,0]],\"stops\":[{\"position\":0,\"color\":[0.8912802164566774,0.06594841837670351,0.8677922692579967,1]},{\"position\":1,\"color\":[0.9144087784830216,0.9443258001196583,0.1071158889426097,1]}]},\"n17_2\":{\"type\":\"linear\",\"data\":[[0.7007866444216003,0.04208655466134886,0],[0.2992133555783997,0.9579134453386511,0]],\"stops\":[{\"position\":0,\"color\":[0.1119697245498048,0.03442682288029386,0.8477172472410746,1]},{\"position\":1,\"color\":[0.8120190184843217,0.6341727531512805,0.8250602688746632,1]}]},\"n17_3\":{\"type\":\"linear\",\"data\":[[0.3813924568113372,0.014271422810280265,0],[0.6186075431886627,0.9857285771897197,0]],\"stops\":[{\"position\":0,\"color\":[0.28736508993145327,0.09987709025035596,0.09786181741928524,1]},{\"position\":1,\"color\":[0.7573638979071393,0.20499343644424817,0.31913887960103005,1]}]},\"n17_4\":{\"type\":\"linear\",\"data\":[[0.9968055083988958,0.4435705145822266,0],[0.0031944916011042435,0.5564294854177734,0]],\"stops\":[{\"position\":0,\"color\":[0.02091846131459474,0.256702266112696,0.28259322083300376,1]},{\"position\":1,\"color\":[0.7157621887315212,0.3680243187422614,0.3208281902167014,1]}]},\"n17_5\":{\"type\":\"linear\",\"data\":[[0.8781817901989009,0.17292426937793964,0],[0.1218182098010992,0.8270757306220604,0]],\"stops\":[{\"position\":0,\"color\":[0.5037373190826384,0.8513773254129943,0.6182758565668381,1]},{\"position\":1,\"color\":[0.030981360294340954,0.4129209371749185,0.43644958375858034,1]}]},\"n17_6\":{\"type\":\"linear\",\"data\":[[0.9220049403480972,0.23183618752374724,0],[0.07799505965190273,0.7681638124762528,0]],\"stops\":[{\"position\":0,\"color\":[0.3467816670905177,0.7046594697841785,0.5378805441118585,1]},{\"position\":1,\"color\":[0.2165742569743847,0.8622393222736552,0.09088954012498929,1]}]},\"n17_7\":{\"type\":\"linear\",\"data\":[[0.4855867894636492,0.00020778381207775531,0],[0.5144132105363508,0.9997922161879222,0]],\"stops\":[{\"position\":0,\"color\":[0.17037126001758485,0.0012990573313513831,0.20203516847144554,1]},{\"position\":1,\"color\":[0.7621810194143537,0.9778657038060167,0.004361669330326223,1]}]},\"n17_8\":{\"type\":\"linear\",\"data\":[[0.1583855102310387,0.134897904169406,0],[0.8416144897689612,0.8651020958305939,0]],\"stops\":[{\"position\":0,\"color\":[0.4914840958655472,0.7967718975643805,0.18451920127239962,1]},{\"position\":1,\"color\":[0.4945816665333125,0.34718567846124326,0.831835840010198,1]}]},\"n17_9\":{\"type\":\"linear\",\"data\":[[0.707947574172967,0.04529371414551747,0],[0.29205242582703295,0.9547062858544826,0]],\"stops\":[{\"position\":0,\"color\":[0.9438698899663639,0.28372975301177006,0.21471434040583093,1]},{\"position\":1,\"color\":[0.6994791495168772,0.4983156037762092,0.10992324306600776,1]}]},\"n18_0\":{\"type\":\"linear\",\"data\":[[0.34739085038359857,0.023858794627729385,0],[0.6526091496164015,0.9761412053722707,0]],\"stops\":[{\"position\":0,\"color\":[0.08088259764233008,0.7879140748911739,0.6971583408210772,1]},{\"position\":1,\"color\":[0.7869331322949968,0.6279322007793502,0.35561706196627363,1]}]},\"n18_1\":{\"type\":\"linear\",\"data\":[[0.16140258461994228,0.1320981240902071,0],[0.8385974153800577,0.867901875909793,0]],\"stops\":[{\"position\":0,\"color\":[0.3945994592595228,0.8904074411483086,0.08617290423907331,1]},{\"position\":1,\"color\":[0.8884487870772383,0.025174031942710173,0.20611678289727142,1]}]},\"n18_2\":{\"type\":\"linear\",\"data\":[[0.5494690547146378,0.0024532055920366558,0],[0.45053094528536214,0.9975467944079633,0]],\"stops\":[{\"position\":0,\"color\":[0.9012156840036583,0.5011901793711243,0.3793051465035221,1]},{\"position\":1,\"color\":[0.8839786323215367,0.23357557463586387,0.46090801154733085,1]}]},\"n18_3\":{\"type\":\"linear\",\"data\":[[0.9404829219854896,0.26341006902421826,0],[0.059517078014510505,0.7365899309757817,0]],\"stops\":[{\"position\":0,\"color\":[0.7544756806584804,0.7529894158642657,0.6462998839757153,1]},{\"position\":1,\"color\":[0.3484854443489095,0.32666020484069125,0.15532674542068103,1]}]},\"n18_4\":{\"type\":\"linear\",\"data\":[[0.03869818884500864,0.30712532819179006,0],[0.9613018111549914,0.6928746718082099,0]],\"stops\":[{\"position\":0,\"color\":[0.6621001776586173,0.7419872531543218,0.16955053406325826,1]},{\"position\":1,\"color\":[0.43879803038434206,0.7734351847858197,0.5791697668360506,1]}]},\"n18_5\":{\"type\":\"linear\",\"data\":[[0.9408957233563406,0.2641802359298756,0],[0.059104276643659304,0.7358197640701244,0]],\"stops\":[{\"position\":0,\"color\":[0.46201797308549974,0.8851255230349587,0.2379404120721177,1]},{\"position\":1,\"color\":[0.19157379319878498,0.30150769468199445,0.7031661631653014,1]}]},\"n18_6\":{\"type\":\"linear\",\"data\":[[0.24288136401693955,0.07117601859246442,0],[0.7571186359830604,0.9288239814075356,0]],\"stops\":[{\"position\":0,\"color\":[0.1545943373690254,0.15598572026764845,0.2475810328361383,1]},{\"position\":1,\"color\":[0.32656257303726,0.5221787568079835,0.16092435446540299,1]}]},\"n18_7\":{\"type\":\"linear\",\"data\":[[0.32213591401524255,0.03270526761281933,0],[0.6778640859847574,0.9672947323871807,0]],\"stops\":[{\"position\":0,\"color\":[0.18927341147279853,0.9751482081038392,0.7287323027471105,1]},{\"position\":1,\"color\":[0.10180656734557092,0.9623857115052629,0.10163799073869018,1]}]},\"n18_8\":{\"type\":\"linear\",\"data\":[[0.02791680193751922,0.3352655041981171,0],[0.9720831980624808,0.6647344958018828,0]],\"stops\":[{\"position\":0,\"color\":[0.9838327851021226,0.7948877982952094,0.7332925967678755,1]},{\"position\":1,\"color\":[0.43492300267383865,0.1961909317171504,0.6379808627918548,1]}]},\"n18_9\":{\"type\":\"linear\",\"data\":[[0.5007642863999487,5.84134042358464e-07,0],[0.4992357136000513,0.9999994158659576,0]],\"stops\":[{\"position\":0,\"color\":[0.20644396458005987,0.38834121423897405,0.033931605611870364,1]},{\"position\":1,\"color\":[0.399021125244555,0.7910042959192994,0.6934393511895252,1]}]},\"n19_0\":{\"type\":\"linear\",\"data\":[[0.9792626351264326,0.3574962226056167,0],[0.02073736487356742,0.6425037773943834,0]],\"stops\":[{\"position\":0,\"color\":[0.6323777384773885,0.4632792474487222,0.14181252760599217,1]},{\"position\":1,\"color\":[0.6037087793517141,0.4047133699470583,0.7409457880428749,1]}]},\"n19_1\":{\"type\":\"linear\",\"data\":[[0.9649328943068167,0.3160505401163505,0],[0.035067105693183276,0.6839494598836495,0]],\"stops\":[{\"position\":0,\"color\":[0.43002836928637256,0.5739780335681649,0.7491000566423021,1]},{\"position\":1,\"color\":[0.4211548033803221,0.22856461754363577,0.7222195912337691,1]}]},\"n19_2\":{\"type\":\"linear\",\"data\":[[0.2228869288608044,0.0838169323437063,0],[0.7771130711391956,0.9161830676562936,0]],\"stops\":[{\"position\":0,\"color\":[0.7740483555323805,0.7000785289985041,0.8524439873442512,1]},{\"position\":1,\"color\":[0.6795965223126482,0.6415388220862708,0.4539026948252979,1]}]},\"n19_3\":{\"type\":\"linear\",\"data\":[[0.14651435801067658,0.1463788737824112,0],[0.8534856419893234,0.8536211262175888,0]],\"stops\":[{\"position\":0,\"color\":[0.6282769419301314,0.09786681007403297,0.4195804017960736,1]},{\"position\":1,\"color\":[0.7823780506859119,0.7131504767584464,0.6296147045229256,1]}]},\"n19_4\":{\"type\":\"linear\",\"data\":[[0.08043280287361426,0.22803793077800616,0],[0.9195671971263857,0.7719620692219938,0]],\"stops\":[{\"position\":0,\"color\":[0.42357984544890814,0.45519447341305985,0.6215687756131403,1]},{\"position\":1,\"color\":[0.40934466956743787,0.6752450068377197,0.9301973795368734,1]}]},\"n19_5\":{\"type\":\"linear\",\"data\":[[0.5678991533545082,0.004631748116877221,0],[0.43210084664549175,0.9953682518831228,0]],\"stops\":[{\"position\":0,\"color\":[0.6544896984700379,0.7781794221001275,0.388708426295753,1]},{\"position\":1,\"color\":[0.4898401640965935,0.9746195607362689,0.03814552911537217,1]}]},\"n19_6\":{\"type\":\"linear\",\"data\":[[0.5642797331594657,0.004149099118547661,0],[0.4357202668405343,0.9958509008814523,0]],\"stops\":[{\"position\":0,\"color\":[0.1608426102713948,0.7817917015502323,0.9405877158031726,1]},{\"position\":1,\"color\":[0.5192199747875891,0.10108699535697319,0.5745604966341308,1]}]},\"n19_7\":{\"type\":\"linear\",\"data\":[[0.9933359758840618,0.41863898415997725,0],[0.00666402411593825,0.5813610158400228,0]],\"stops\":[{\"position\":0,\"color\":[0.7172960972468221,0.5121911616333309,0.6392612888855248,1]},{\"position\":1,\"color\":[0.8289853212976,0.5216882701430605,0.41034865187190417,1]}]},\"n19_8\":{\"type\":\"linear\",\"data\":[[0.28069788242920846,0.05065983795239637,0],[0.7193021175707915,0.9493401620476036,0]],\"stops\":[{\"position\":0,\"color\":[0.21008941523937852,0.6843602745518285,0.39249301339531006,1]},{\"position\":1,\"color\":[0.7627016375414433,0.12239462680448943,0.9844683454483918,1]}]},\"n19_9\":{\"type\":\"linear\",\"data\":[[0.7916677647712527,0.09388435761061698,0],[0.20833223522874733,0.906115642389383,0]],\"stops\":[{\"position\":0,\"color\":[0.05661830494148812,0.27435721741495045,0.3996841763072001,1]},{\"position\":1,\"color\":[0.013308339381105871,0.41858249839719874,0.4205470653516409,1]}]}},\"params\":{}}"
+  font: "defigma_data"
+  id: "defigma_data"
+  parent: "root"
+  enabled: false
+}
+material: "/builtins/materials/gui.material"
+adjust_reference: ADJUST_REFERENCE_PARENT
+max_nodes: 512
+materials {
+  name: "linear"
+  material: "/defigma/materials/linear.material"
+}

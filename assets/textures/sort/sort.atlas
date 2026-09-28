@@ -1,0 +1,88 @@
+images {
+  image: "/assets/textures/sort/setting_icon.png"
+}
+images {
+  image: "/assets/textures/sort/collection_comp_i.png"
+}
+images {
+  image: "/assets/textures/sort/card_i.png"
+}
+images {
+  image: "/assets/textures/sort/coin_i.png"
+}
+images {
+  image: "/assets/textures/sort/collection_comp_i_ell.png"
+}
+images {
+  image: "/assets/textures/sort/shadow.png"
+}
+images {
+  image: "/assets/textures/sort/sort_bg2.png"
+}
+images {
+  image: "/assets/textures/sort/field_pos_i.png"
+}
+images {
+  image: "/assets/textures/sort/field_pos_a.png"
+}
+images {
+  image: "/assets/textures/sort/coin_big.png"
+}
+images {
+  image: "/assets/textures/sort/loop2.png"
+}
+images {
+  image: "/assets/textures/sort/card_pos_stroke_small.png"
+}
+images {
+  image: "/assets/textures/sort/lps_a.png"
+}
+images {
+  image: "/assets/textures/sort/lps_i.png"
+}
+images {
+  image: "/assets/textures/sort/club_i.png"
+}
+images {
+  image: "/assets/textures/sort/club_i_2.png"
+}
+images {
+  image: "/assets/textures/sort/league_i.png"
+}
+images {
+  image: "/assets/textures/sort/league_i_2.png"
+}
+images {
+  image: "/assets/textures/sort/cards_i.png"
+}
+images {
+  image: "/assets/textures/sort/cards_i_2.png"
+}
+images {
+  image: "/assets/textures/sort/field_i.png"
+}
+images {
+  image: "/assets/textures/sort/field_i_2.png"
+}
+images {
+  image: "/assets/textures/sort/nation_i.png"
+}
+images {
+  image: "/assets/textures/sort/nation_i_2.png"
+}
+images {
+  image: "/assets/textures/sort/rating_i.png"
+}
+images {
+  image: "/assets/textures/sort/rating_i_2.png"
+}
+images {
+  image: "/assets/textures/sort/sort_active.png"
+}
+images {
+  image: "/assets/textures/sort/sort_inactive.png"
+}
+images {
+  image: "/assets/textures/sort/sort_inactive_2.png"
+}
+extrude_borders: 2

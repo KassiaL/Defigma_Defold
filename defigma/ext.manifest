@@ -1,0 +1,6 @@
+name: DefigmaShape
+
+platforms:
+    common:
+        context:
+            symbols: ["ComponentTypeGuiNodeDefigmaShape"]

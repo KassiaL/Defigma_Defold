@@ -1,0 +1,10 @@
+name: "results_vector_plain"
+scale_along_z: 0
+embedded_instances {
+  id: "screen"
+  data: "components {\n"
+  "  id: \"gui\"\n"
+  "  component: \"/tests/results_screen/results_vector_plain.gui\"\n"
+  "}\n"
+  ""
+}

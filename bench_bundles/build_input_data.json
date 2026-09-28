@@ -1,0 +1,22 @@
+{
+  "project_git" : {
+    "sha1" : "f4622ec07f2471162b820282ee5dcd968e46758c",
+    "origin" : "https://github.com/KassiaL/Defigma_Defold.git",
+    "branch" : "main"
+  },
+  "bob_arguments" : {
+    "sha1" : "574678c7d44be490d874fbed2d0ae6211feec4d9",
+    "version" : "1.13.1",
+    "timestamp" : "2026-08-17 09:23:44"
+  },
+  "defold_sdk" : "574678c7d44be490d874fbed2d0ae6211feec4d9",
+  "dependencies" : [ {
+    "url" : "https://github.com/defold/extension-automation-bridge/archive/refs/tags/2.0.2.zip",
+    "commit-sha1" : "d94a5b41fa17c39590c6078f6e79867bd010824d",
+    "payload-sha1" : "afc1d5605137c17d63c84b096461d3fc6ed94979"
+  }, {
+    "url" : "https://github.com/Insality/defold-event/archive/refs/tags/14.zip",
+    "commit-sha1" : "3e841089340598d428bacb2acd349afa2d6e6ccf",
+    "payload-sha1" : "654486e5e5b9786a29a7bf79ec37b622639f7803"
+  } ]
+}

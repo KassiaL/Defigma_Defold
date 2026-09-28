@@ -1,0 +1,534 @@
+script: ""
+nodes {
+  position {
+    x: 540
+    y: 500
+  }
+  size {
+    x: 1080
+    y: 1000
+  }
+  type: TYPE_BOX
+  id: "root"
+  inherit_alpha: true
+  color {
+    x: 0.1
+    y: 0.1
+    z: 0.12
+  }
+}
+nodes {
+  position {
+    x: -340
+    y: 350
+  }
+  size {
+    x: 300
+    y: 160
+  }
+  type: TYPE_CUSTOM
+  id: "solid_rect"
+  parent: "root"
+  custom_type: 1816843757
+  material: "shape"
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 40
+      y: 40
+      z: 40
+      w: 40
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"solid\",\"color\":[0.8,0.2,0.2,1]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+}
+nodes {
+  position {
+    x: 60
+    y: 350
+  }
+  size {
+    x: 360
+    y: 200
+  }
+  type: TYPE_CUSTOM
+  id: "glass"
+  parent: "root"
+  custom_type: 1816843757
+  material: "shape"
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 40
+      y: 40
+      z: 40
+      w: 40
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"drop_shadow\",\"offset\":[0,14],\"radius\":28,\"spread\":0,\"color\":[0,0,0,0.4],\"show_behind\":false}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[0,1,0,-1,0,1],\"stops\":[[0,0.078,0.071,0.051,0.35],[0.55,0.184,0.153,0.071,0.485],[1,0.29,0.231,0.09,0.62]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 3
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[0,1,0,-1,0,1],\"stops\":[[0,0.965,0.863,0.541,0.12],[0.55,0.965,0.863,0.541,0.2],[1,0.965,0.863,0.541,1]]}]"
+  }
+}
+nodes {
+  position {
+    x: 400
+    y: 350
+  }
+  size {
+    x: 200
+    y: 160
+  }
+  type: TYPE_CUSTOM
+  id: "per_corner"
+  parent: "root"
+  custom_type: 1816843757
+  material: "shape"
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 60
+      y: 10
+      z: 0
+      w: 30
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,0.2,0.6,1,1],[0.5,1,1,1,1],[1,1,0.3,0.2,1]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+}
+nodes {
+  position {
+    x: -340
+    y: 50
+  }
+  size {
+    x: 300
+    y: 200
+  }
+  type: TYPE_CUSTOM
+  id: "glow_ellipse"
+  parent: "root"
+  custom_type: 1816843757
+  material: "shape"
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"radial\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,0.831,0.686,0.216,1],[1,0.831,0.686,0.216,0]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "ellipse"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+}
+nodes {
+  position {
+    x: 0
+    y: 50
+  }
+  size {
+    x: 120
+    y: 120
+  }
+  type: TYPE_CUSTOM
+  id: "ring"
+  parent: "root"
+  custom_type: 1816843757
+  material: "shape"
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"drop_shadow\",\"offset\":[0,4],\"radius\":14,\"spread\":0,\"color\":[0,0,0,0.6],\"show_behind\":false}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"solid\",\"color\":[0.027,0.027,0.039,1]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "ellipse"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 4
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[{\"type\":\"solid\",\"color\":[0.91,0.776,0.353,1]}]"
+  }
+}
+nodes {
+  position {
+    x: 330
+    y: 50
+  }
+  size {
+    x: 344
+    y: 16
+  }
+  type: TYPE_CUSTOM
+  id: "bar_fill"
+  parent: "root"
+  custom_type: 1816843757
+  material: "shape"
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 8
+      y: 8
+      z: 8
+      w: 8
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"drop_shadow\",\"offset\":[0,0],\"radius\":12,\"spread\":0,\"color\":[0.83,0.69,0.22,0.6],\"show_behind\":false}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,0.541,0.416,0.122,1],[1,0.965,0.863,0.541,1]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+}
+nodes {
+  position {
+    x: -250
+    y: -250
+  }
+  rotation {
+    z: -32.7
+  }
+  size {
+    x: 400
+    y: 150
+  }
+  type: TYPE_CUSTOM
+  id: "chevron"
+  parent: "root"
+  custom_type: 1816843757
+  material: "shape"
+  alpha: 0.6
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 30
+      y: 30
+      z: 30
+      w: 30
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"layer_blur\",\"radius\":16}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,0.541,0.416,0.122,1],[1,0.91,0.776,0.353,1]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+}
+nodes {
+  position {
+    x: 250
+    y: -200
+  }
+  size {
+    x: 220
+    y: 7
+  }
+  type: TYPE_CUSTOM
+  id: "glint"
+  parent: "root"
+  custom_type: 1816843757
+  material: "shape"
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"layer_blur\",\"radius\":2}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"radial\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,0.98,0.93,0.77,1],[1,0.98,0.93,0.77,0]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "ellipse"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+}
+nodes {
+  position {
+    x: 250
+    y: -350
+  }
+  size {
+    x: 400
+    y: 200
+  }
+  type: TYPE_CUSTOM
+  id: "big_glow"
+  parent: "root"
+  custom_type: 1816843757
+  material: "shape"
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"layer_blur\",\"radius\":60}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"radial\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,0.831,0.686,0.216,0.5],[1,0.831,0.686,0.216,0]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "ellipse"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+}
+material: "/builtins/materials/gui.material"
+materials {
+  name: "shape"
+  material: "/defigma/materials/shape.material"
+}
+adjust_reference: ADJUST_REFERENCE_PARENT
+max_nodes: 512

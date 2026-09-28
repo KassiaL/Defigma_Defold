@@ -1,0 +1,21 @@
+local defigma = require("defigma.screen")
+
+local function animate(self, dt)
+	self.time = self.time + dt
+	gui.set_position(self.scroller, vmath.vector3(math.sin(self.time) * 20, math.cos(self.time * 0.7) * 20, 0))
+end
+
+function init(self)
+	self.time = 0
+	self.scroller = gui.get_node("scroller")
+	defigma.init(self, "bench_old")
+end
+
+function update(self, dt)
+	animate(self, dt)
+	defigma.update(self, dt)
+end
+
+function final(self)
+	defigma.final(self)
+end

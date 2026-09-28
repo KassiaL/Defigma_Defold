@@ -1,0 +1,64 @@
+#version 140
+
+in highp vec4 position;
+in highp vec2 texcoord0;
+in mediump vec4 color;
+in highp float page_index;
+
+out mediump vec2 var_uv;
+out mediump vec4 var_color;
+out mediump vec4 var_params;
+
+uniform vs_uniforms
+{
+    highp mat4 view_proj;
+};
+
+highp vec4 decode_params(highp float packed_value)
+{
+    highp float packed_data = packed_value;
+    highp float mode_high = 0.0;
+    if (packed_data < 0.0)
+    {
+        packed_data = -packed_data - 1.0;
+        mode_high = 4.0;
+    }
+    highp float mode = mod(packed_data, 4.0) + mode_high;
+    highp float data = floor(packed_data / 4.0);
+    highp vec4 params = vec4(mode, 0.0, 0.0, 0.0);
+    if (mode > 0.5 && mode < 1.5)
+    {
+        params.y = mod(data, 4096.0) / 4.0;
+        params.z = floor(data / 4096.0) / 4.0;
+    }
+    else if (mode > 4.5)
+    {
+        highp float ratio = mod(data, 2048.0) / 2047.0;
+        highp float rest = floor(data / 2048.0);
+        highp float swap_axes = mod(rest, 2.0);
+        params.y = swap_axes > 0.5 ? ratio : 1.0;
+        params.z = swap_axes > 0.5 ? 1.0 : ratio;
+        params.w = floor(rest / 2.0) / 1023.0;
+    }
+    else if (mode > 2.5 && mode < 3.5)
+    {
+        params.y = mod(data, 1024.0) / 16.0;
+        highp float rest = floor(data / 1024.0);
+        params.z = mod(rest, 64.0) / 8.0;
+        params.w = floor(rest / 64.0) / 8.0;
+    }
+    else if (mode > 3.5 && mode < 4.5)
+    {
+        params.y = mod(data, 2048.0) / 8.0;
+        params.z = floor(data / 2048.0) / 8.0;
+    }
+    return params;
+}
+
+void main()
+{
+    var_uv = texcoord0;
+    var_color = color;
+    var_params = decode_params(page_index);
+    gl_Position = view_proj * vec4(position.xyz, 1.0);
+}

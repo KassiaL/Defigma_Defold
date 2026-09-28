@@ -1,0 +1,17 @@
+local defigma = require("defigma.screen")
+
+function init(self)
+	defigma.init(self, "divisions_gold_shapes")
+end
+
+function update(self, dt)
+	defigma.update(self, dt)
+end
+
+function on_message(self, message_id, message, sender)
+	defigma.on_message(self, message_id, message, sender)
+end
+
+function final(self)
+	defigma.final(self)
+end

@@ -1,0 +1,16 @@
+path_settings {
+  path: "**"
+  profile: "Default"
+}
+profiles {
+  name: "Default"
+  platforms {
+    os: OS_ID_GENERIC
+    formats {
+      format: TEXTURE_FORMAT_RGBA_ASTC_4X4
+      compressor: "ASTC"
+      compressor_preset: "ASTC_QUALITY_60"
+    }
+    mipmaps: false
+  }
+}

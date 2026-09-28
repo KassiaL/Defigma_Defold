@@ -1,0 +1,67 @@
+images {
+  image: "/assets/textures/profile/stat_circle.png"
+}
+images {
+  image: "/assets/textures/profile/stat_progress.png"
+}
+images {
+  image: "/assets/textures/profile/division_shield.png"
+}
+images {
+  image: "/assets/textures/profile/draft_bubble.png"
+}
+images {
+  image: "/assets/textures/profile/trade_cards_grey.png"
+}
+images {
+  image: "/assets/textures/profile/trade_cards_gold.png"
+}
+images {
+  image: "/assets/textures/profile/badge_bg.png"
+}
+images {
+  image: "/assets/textures/profile/panel_bg.png"
+}
+images {
+  image: "/assets/textures/profile/edit_pencil.png"
+}
+images {
+  image: "/assets/textures/profile/icon_apple.png"
+}
+images {
+  image: "/assets/textures/profile/icon_google.png"
+}
+images {
+  image: "/assets/textures/profile/btn_neon.png"
+}
+images {
+  image: "/assets/textures/profile/btn_danger.png"
+}
+images {
+  image: "/assets/textures/profile/btn_ok.png"
+}
+images {
+  image: "/assets/textures/profile/panel_bg_small.png"
+}
+images {
+  image: "/assets/textures/profile/ok_icon.png"
+}
+images {
+  image: "/assets/textures/profile/cell_frame_green.png"
+}
+images {
+  image: "/assets/textures/profile/cell_frame_teal.png"
+}
+images {
+  image: "/assets/textures/profile/ok_icon_green.png"
+}
+images {
+  image: "/assets/textures/profile/ok_icon_teal.png"
+}
+images {
+  image: "/assets/textures/profile/cell_frame_bg.png"
+}
+images {
+  image: "/assets/textures/profile/flag_ring.png"
+}
+extrude_borders: 2

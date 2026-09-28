@@ -1,0 +1,201 @@
+images {
+  image: "/assets/textures/leagues/1.png"
+}
+images {
+  image: "/assets/textures/leagues/10.png"
+}
+images {
+  image: "/assets/textures/leagues/1003.png"
+}
+images {
+  image: "/assets/textures/leagues/1014.png"
+}
+images {
+  image: "/assets/textures/leagues/13.png"
+}
+images {
+  image: "/assets/textures/leagues/14.png"
+}
+images {
+  image: "/assets/textures/leagues/16.png"
+}
+images {
+  image: "/assets/textures/leagues/17.png"
+}
+images {
+  image: "/assets/textures/leagues/189.png"
+}
+images {
+  image: "/assets/textures/leagues/19.png"
+}
+images {
+  image: "/assets/textures/leagues/20.png"
+}
+images {
+  image: "/assets/textures/leagues/2012.png"
+}
+images {
+  image: "/assets/textures/leagues/2076.png"
+}
+images {
+  image: "/assets/textures/leagues/2118.png"
+}
+images {
+  image: "/assets/textures/leagues/2136.png"
+}
+images {
+  image: "/assets/textures/leagues/2149.png"
+}
+images {
+  image: "/assets/textures/leagues/2172.png"
+}
+images {
+  image: "/assets/textures/leagues/2209.png"
+}
+images {
+  image: "/assets/textures/leagues/2210.png"
+}
+images {
+  image: "/assets/textures/leagues/2211.png"
+}
+images {
+  image: "/assets/textures/leagues/2215.png"
+}
+images {
+  image: "/assets/textures/leagues/2216.png"
+}
+images {
+  image: "/assets/textures/leagues/2218.png"
+}
+images {
+  image: "/assets/textures/leagues/2221.png"
+}
+images {
+  image: "/assets/textures/leagues/2222.png"
+}
+images {
+  image: "/assets/textures/leagues/2228.png"
+}
+images {
+  image: "/assets/textures/leagues/2229.png"
+}
+images {
+  image: "/assets/textures/leagues/2230.png"
+}
+images {
+  image: "/assets/textures/leagues/2231.png"
+}
+images {
+  image: "/assets/textures/leagues/2232.png"
+}
+images {
+  image: "/assets/textures/leagues/2233.png"
+}
+images {
+  image: "/assets/textures/leagues/2236.png"
+}
+images {
+  image: "/assets/textures/leagues/2244.png"
+}
+images {
+  image: "/assets/textures/leagues/2249.png"
+}
+images {
+  image: "/assets/textures/leagues/2265.png"
+}
+images {
+  image: "/assets/textures/leagues/2272.png"
+}
+images {
+  image: "/assets/textures/leagues/2273.png"
+}
+images {
+  image: "/assets/textures/leagues/2274.png"
+}
+images {
+  image: "/assets/textures/leagues/308.png"
+}
+images {
+  image: "/assets/textures/leagues/31.png"
+}
+images {
+  image: "/assets/textures/leagues/317.png"
+}
+images {
+  image: "/assets/textures/leagues/319.png"
+}
+images {
+  image: "/assets/textures/leagues/32.png"
+}
+images {
+  image: "/assets/textures/leagues/322.png"
+}
+images {
+  image: "/assets/textures/leagues/330.png"
+}
+images {
+  image: "/assets/textures/leagues/332.png"
+}
+images {
+  image: "/assets/textures/leagues/341.png"
+}
+images {
+  image: "/assets/textures/leagues/350.png"
+}
+images {
+  image: "/assets/textures/leagues/351.png"
+}
+images {
+  image: "/assets/textures/leagues/353.png"
+}
+images {
+  image: "/assets/textures/leagues/39.png"
+}
+images {
+  image: "/assets/textures/leagues/4.png"
+}
+images {
+  image: "/assets/textures/leagues/41.png"
+}
+images {
+  image: "/assets/textures/leagues/50.png"
+}
+images {
+  image: "/assets/textures/leagues/53.png"
+}
+images {
+  image: "/assets/textures/leagues/54.png"
+}
+images {
+  image: "/assets/textures/leagues/56.png"
+}
+images {
+  image: "/assets/textures/leagues/60.png"
+}
+images {
+  image: "/assets/textures/leagues/61.png"
+}
+images {
+  image: "/assets/textures/leagues/63.png"
+}
+images {
+  image: "/assets/textures/leagues/65.png"
+}
+images {
+  image: "/assets/textures/leagues/66.png"
+}
+images {
+  image: "/assets/textures/leagues/68.png"
+}
+images {
+  image: "/assets/textures/leagues/78.png"
+}
+images {
+  image: "/assets/textures/leagues/80.png"
+}
+images {
+  image: "/assets/textures/leagues/83.png"
+}
+extrude_borders: 2
+max_page_width: 0
+max_page_height: 0

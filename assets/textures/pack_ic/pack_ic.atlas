@@ -1,0 +1,43 @@
+images {
+  image: "/assets/textures/pack_ic/random_new.png"
+}
+images {
+  image: "/assets/textures/pack_ic/silver.png"
+}
+images {
+  image: "/assets/textures/pack_ic/gold.png"
+}
+images {
+  image: "/assets/textures/pack_ic/pack86.png"
+}
+images {
+  image: "/assets/textures/pack_ic/double_special.png"
+}
+images {
+  image: "/assets/textures/pack_ic/totw.png"
+}
+images {
+  image: "/assets/textures/pack_ic/triple_special.png"
+}
+images {
+  image: "/assets/textures/pack_ic/rare_gold.png"
+}
+images {
+  image: "/assets/textures/pack_ic/rainbow.png"
+}
+images {
+  image: "/assets/textures/pack_ic/gold81.png"
+}
+images {
+  image: "/assets/textures/pack_ic/rainbow_special.png"
+}
+images {
+  image: "/assets/textures/pack_ic/special.png"
+}
+images {
+  image: "/assets/textures/pack_ic/random.png"
+}
+images {
+  image: "/assets/textures/pack_ic/free.png"
+}
+extrude_borders: 2

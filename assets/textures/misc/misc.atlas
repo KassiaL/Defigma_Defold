@@ -1,0 +1,64 @@
+images {
+  image: "/assets/textures/misc/ellipse_100.png"
+}
+images {
+  image: "/assets/textures/misc/ellipse_50.png"
+}
+images {
+  image: "/assets/textures/misc/ellipse_30.png"
+}
+images {
+  image: "/assets/textures/misc/ellipse_15.png"
+}
+images {
+  image: "/assets/textures/misc/ellipse_500.png"
+}
+images {
+  image: "/assets/textures/misc/ellipse_300.png"
+}
+images {
+  image: "/assets/textures/misc/ellipse_200.png"
+}
+images {
+  image: "/assets/textures/misc/round_5.png"
+}
+images {
+  image: "/assets/textures/misc/round_10.png"
+}
+images {
+  image: "/assets/textures/misc/round_15.png"
+}
+images {
+  image: "/assets/textures/misc/round_20.png"
+}
+images {
+  image: "/assets/textures/misc/round_30.png"
+}
+images {
+  image: "/assets/textures/misc/round_40.png"
+}
+images {
+  image: "/assets/textures/misc/round_50.png"
+}
+images {
+  image: "/assets/textures/misc/round_0.png"
+}
+images {
+  image: "/assets/textures/misc/outlinerect_50_1.png"
+}
+images {
+  image: "/assets/textures/misc/outlinerect_50_5.png"
+}
+images {
+  image: "/assets/textures/misc/outlinerect_50_15.png"
+}
+images {
+  image: "/assets/textures/misc/outlineellipse_100_1.png"
+}
+images {
+  image: "/assets/textures/misc/outlineellipse_100_5.png"
+}
+images {
+  image: "/assets/textures/misc/outlineellipse_100_15.png"
+}
+extrude_borders: 2

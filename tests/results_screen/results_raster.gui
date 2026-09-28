@@ -1,0 +1,9749 @@
+script: "/tests/results_screen/results_raster.gui_script"
+textures {
+  name: "od_divisions_emerald"
+  texture: "/assets/textures/draft_battle/draft_battle_divisions/emerald/od_divisions_emerald.atlas"
+}
+textures {
+  name: "results_extra"
+  texture: "/tests/results_screen/results_extra.atlas"
+}
+textures {
+  name: "clubs"
+  texture: "/assets/textures/clubs/clubs.atlas"
+}
+textures {
+  name: "leagues"
+  texture: "/assets/textures/leagues/leagues.atlas"
+}
+textures {
+  name: "nations"
+  texture: "/assets/textures/nations/nations.atlas"
+}
+textures {
+  name: "profile"
+  texture: "/assets/textures/profile/profile.atlas"
+}
+textures {
+  name: "od_tasks"
+  texture: "/assets/textures/draft_battle/draft_battle_tasks/od_tasks.atlas"
+}
+fonts {
+  name: "din_pro_condensed_black_italic_shadow"
+  font: "/assets/fonts/din_pro_condensed_black_italic_shadow.font"
+}
+fonts {
+  name: "din_pro_condensed_black_italic_shadow2"
+  font: "/assets/fonts/din_pro_condensed_black_italic_shadow2.font"
+}
+fonts {
+  name: "din_pro_condensed_bold"
+  font: "/assets/fonts/din_pro_condensed_bold.font"
+}
+fonts {
+  name: "din_pro_condensed_black_italic"
+  font: "/assets/fonts/din_pro_condensed_black_italic.font"
+}
+background_color {
+  x: 0.0
+  y: 0.0
+  z: 0.0
+  w: 0.0
+}
+nodes {
+  position {
+    x: 540
+    y: 1150
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1080
+    y: 2300
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "root"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_STRETCH
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: -1150
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bgS"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_BOTTOM
+  pivot: PIVOT_S
+  adjust_mode: ADJUST_MODE_STRETCH
+  parent: "root"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 1150
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1080
+    y: 2300
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "bg"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bgS"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1080
+    y: 2300
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_divisions_emerald/bg"
+  id: "bg_i"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "bg"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 1150
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "headerN"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_TOP
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_STRETCH
+  parent: "root"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: -280
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1080
+    y: 560
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "header"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "headerN"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 111.5
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1.125
+    y: 1.125
+    z: 1
+    w: 1
+  }
+  size {
+    x: 990
+    y: 38.22222222222222
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.6549019813537598
+    y: 0.9529411792755127
+    z: 0.8156862854957581
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "MATCH RESULT"
+  font: "din_pro_condensed_black_italic_shadow"
+  id: "locale_od_match_result"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "header"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline_alpha: 0
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.5
+  text_tracking: 0.3
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: 0
+    y: 72.5
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 5.3125
+    y: 5.3125
+    z: 1
+    w: 1
+  }
+  size {
+    x: 233.2941176470588
+    y: 38.588235294117645
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.29019609093666077
+    y: 0.8705882430076599
+    z: 0.501960813999176
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "VICTORY"
+  font: "din_pro_condensed_black_italic_shadow2"
+  id: "result_t"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "header"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline {
+    x: 0.062745101749897
+    y: 0.7254902124404907
+    z: 0.5058823823928833
+  }
+  outline_alpha: 0.6000000238418579
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.6000000238418579
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "contentC"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_STRETCH
+  parent: "root"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: -195
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1080
+    y: 1830
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "content"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "contentC"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 705
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1016
+    y: 400
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "scoreboard"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "content"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: -1
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1096
+    y: 482
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_divisions_emerald/scoreboard_bg"
+  id: "scoreboard_bg"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scoreboard"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: -356
+    y: 110
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 256
+    y: 320
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "team_me"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scoreboard"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 256
+    y: 320
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "scalable"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "team_me"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 72
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 160
+    y: 160
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "avatar"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 160
+    y: 160
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "results_extra/extra_0"
+  id: "avatar_ring"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "avatar"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 105.5999984741211
+    y: 105.5999984741211
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "icon"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "avatar"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 105.5999984741211
+    y: 105.5999984741211
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "clubs/DEXFUT"
+  id: "club"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "icon"
+  layer: "club"
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: false
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 105.5999984741211
+    y: 105.5999984741211
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "leagues/13"
+  id: "league"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "icon"
+  layer: "league"
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: false
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 105.5999984741211
+    y: 105.5999984741211
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "nation"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "icon"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 4.76837158203125e-7
+    y: -4.76837158203125e-7
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 98.14588165283203
+    y: 98.14588165283203
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "nation_mask"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "nation"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: -0.00000762939453125
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 167.0568084716797
+    y: 98.14588165283203
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "nations/8"
+  id: "flag"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "nation_mask"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 105.5999984741211
+    y: 105.5999984741211
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "profile/flag_ring"
+  id: "nation_ring"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "nation"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: -26
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1.25
+    y: 1.25
+    z: 1
+    w: 1
+  }
+  size {
+    x: 204.8
+    y: 37.6
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "DEXFUT_PLAYER"
+  font: "din_pro_condensed_bold"
+  id: "name"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline_alpha: 0
+  shadow_alpha: 0
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: -109.60000038146973
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 144
+    y: 43.20000076293945
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "tag"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: -0.5
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 144
+    y: 44.20000076293945
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "results_extra/extra_2"
+  id: "tag_bg"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "tag"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 16.40000009536743
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 0.8500000238418579
+    y: 0.8500000238418579
+    z: 1
+    w: 1
+  }
+  size {
+    x: 169.41175995401045
+    y: 38.82352832279406
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "WINNER"
+  font: "din_pro_condensed_black_italic"
+  id: "tag_t"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "tag"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline_alpha: 0
+  shadow_alpha: 0
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 356
+    y: 110
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 256
+    y: 320
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "team_enemy"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scoreboard"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 256
+    y: 320
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "scalable1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "team_enemy"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 72
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 160
+    y: 160
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "avatar1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable1"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 160
+    y: 160
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "results_extra/extra_0"
+  id: "avatar_ring1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "avatar1"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 105.5999984741211
+    y: 105.5999984741211
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "icon1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "avatar1"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 105.5999984741211
+    y: 105.5999984741211
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "clubs/DEXFUT"
+  id: "club1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "icon1"
+  layer: "club"
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: false
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 105.5999984741211
+    y: 105.5999984741211
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "leagues/13"
+  id: "league1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "icon1"
+  layer: "league"
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: false
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 105.5999984741211
+    y: 105.5999984741211
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "nation1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "icon1"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 4.76837158203125e-7
+    y: -4.76837158203125e-7
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 98.14588165283203
+    y: 98.14588165283203
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "nation_mask1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "nation1"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: -0.00000762939453125
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 167.0568084716797
+    y: 98.14588165283203
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "nations/8"
+  id: "flag1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "nation_mask1"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 105.5999984741211
+    y: 105.5999984741211
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "profile/flag_ring"
+  id: "nation_ring1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "nation1"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: -26
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1.25
+    y: 1.25
+    z: 1
+    w: 1
+  }
+  size {
+    x: 204.8
+    y: 37.6
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "NEON UNITED"
+  font: "din_pro_condensed_bold"
+  id: "name1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable1"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline_alpha: 0
+  shadow_alpha: 0
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 29.625
+    y: 62.5
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 4.375
+    y: 4.375
+    z: 1
+    w: 1
+  }
+  size {
+    x: 80.28571428571429
+    y: 38.628571428571426
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.29019609093666077
+    y: 0.8705882430076599
+    z: 0.501960813999176
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "124"
+  font: "din_pro_condensed_black_italic_shadow2"
+  id: "me_score_t"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_NE
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scoreboard"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline {
+    x: 0.29019609093666077
+    y: 0.8705882430076599
+    z: 0.501960813999176
+  }
+  outline_alpha: 0.4000000059604645
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.6000000238418579
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: 0
+    y: 50.5
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 3.4375
+    y: 3.4375
+    z: 1
+    w: 1
+  }
+  size {
+    x: 47.45454545454545
+    y: 38.69090909090909
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.6549019813537598
+    y: 0.9529411792755127
+    z: 0.8156862854957581
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: ":"
+  font: "din_pro_condensed_black_italic_shadow"
+  id: "score_sep"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scoreboard"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline_alpha: 0
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.6000000238418579
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: -29.625
+    y: 62.5
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 4.375
+    y: 4.375
+    z: 1
+    w: 1
+  }
+  size {
+    x: 80.28571428571429
+    y: 38.628571428571426
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "117"
+  font: "din_pro_condensed_black_italic_shadow"
+  id: "enemy_score_t"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_NW
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scoreboard"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline_alpha: 0
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.6000000238418579
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: 0
+    y: -88
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 0.9375
+    y: 0.9375
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1113.7333333333333
+    y: 38.4
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.6549019813537598
+    y: 0.9529411792755127
+    z: 0.8156862854957581
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "SCORE"
+  font: "din_pro_condensed_black_italic_shadow"
+  id: "locale_od_score"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scoreboard"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline_alpha: 0
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.6000000238418579
+  text_tracking: 0.24
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: 0
+    y: -152
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 936
+    y: 18
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "scoreboard_progress_frame"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scoreboard"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: -238
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 460
+    y: 18
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "results_extra/extra_3"
+  id: "score_me_track"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scoreboard_progress_frame"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 3.001556396484375
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 407.3999938964844
+    y: 38
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "results_extra/extra_4"
+  id: "score_me_fill"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_E
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scoreboard_progress_frame"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 8
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 372.6000061035156
+    y: 18
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "results_extra/extra_5"
+  id: "score_enemy_fill"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_W
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scoreboard_progress_frame"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 238
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 460
+    y: 18
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "results_extra/extra_3"
+  id: "score_enemy_track"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scoreboard_progress_frame"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 225
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1016
+    y: 500
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "compare"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "content"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: -1
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1096
+    y: 582
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_divisions_emerald/compare_bg"
+  id: "compare_bg"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "compare"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 212.5
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1.0625
+    y: 1.0625
+    z: 1
+    w: 1
+  }
+  size {
+    x: 986.2352941176471
+    y: 38.588235294117645
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.6549019813537598
+    y: 0.9529411792755127
+    z: 0.8156862854957581
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "SCORE BREAKDOWN"
+  font: "din_pro_condensed_black_italic_shadow"
+  id: "locale_od_breakdown"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "compare"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline_alpha: 0
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.5
+  text_tracking: 0.24
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: 0
+    y: 45
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 936
+    y: 190
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "rating_row"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "compare"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 81.5
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1.0625
+    y: 1.0625
+    z: 1
+    w: 1
+  }
+  size {
+    x: 910.9411764705883
+    y: 38.588235294117645
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "RATING"
+  font: "din_pro_condensed_black_italic_shadow"
+  id: "locale_rating"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "rating_row"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline_alpha: 0
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.6000000238418579
+  text_tracking: 0.16
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: -507.375
+    y: 105.5
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 2.625
+    y: 2.625
+    z: 1
+    w: 1
+  }
+  size {
+    x: 144.28571428571428
+    y: 38.476190476190474
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.29019609093666077
+    y: 0.8705882430076599
+    z: 0.501960813999176
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "84"
+  font: "din_pro_condensed_black_italic_shadow2"
+  id: "rating_me_t"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_NW
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "rating_row"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline {
+    x: 0.29019609093666077
+    y: 0.8705882430076599
+    z: 0.501960813999176
+  }
+  outline_alpha: 0.3499999940395355
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.6000000238418579
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: 507.375
+    y: 105.5
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 2.625
+    y: 2.625
+    z: 1
+    w: 1
+  }
+  size {
+    x: 144.28571428571428
+    y: 38.476190476190474
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "81"
+  font: "din_pro_condensed_black_italic_shadow"
+  id: "rating_enemy_t"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_NE
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "rating_row"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline_alpha: 0
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.6000000238418579
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: -238
+    y: -10
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 460
+    y: 18
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "results_extra/extra_3"
+  id: "rating_me_track"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "rating_row"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 238
+    y: -10
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 460
+    y: 18
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "results_extra/extra_3"
+  id: "rating_enemy_track"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "rating_row"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 2.9999923706054688
+    y: -10
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 407.3999938964844
+    y: 38
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "results_extra/extra_4"
+  id: "rating_me_fill"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_E
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "rating_row"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 8
+    y: -10
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 372.6000061035156
+    y: 18
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "results_extra/extra_5"
+  id: "rating_enemy_fill"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_W
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "rating_row"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: -145
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 936
+    y: 190
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "chem_row"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "compare"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 81.5
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1.0625
+    y: 1.0625
+    z: 1
+    w: 1
+  }
+  size {
+    x: 910.9411764705883
+    y: 38.588235294117645
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "CHEMISTRY"
+  font: "din_pro_condensed_black_italic_shadow"
+  id: "locale_chemistry"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "chem_row"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline_alpha: 0
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.6000000238418579
+  text_tracking: 0.16
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: -507.375
+    y: 105.5
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 2.625
+    y: 2.625
+    z: 1
+    w: 1
+  }
+  size {
+    x: 144.28571428571428
+    y: 38.476190476190474
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.29019609093666077
+    y: 0.8705882430076599
+    z: 0.501960813999176
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "31"
+  font: "din_pro_condensed_black_italic_shadow2"
+  id: "chem_me_t"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_NW
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "chem_row"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline {
+    x: 0.29019609093666077
+    y: 0.8705882430076599
+    z: 0.501960813999176
+  }
+  outline_alpha: 0.3499999940395355
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.6000000238418579
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: 507.375
+    y: 105.5
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 2.625
+    y: 2.625
+    z: 1
+    w: 1
+  }
+  size {
+    x: 144.28571428571428
+    y: 38.476190476190474
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "28"
+  font: "din_pro_condensed_black_italic_shadow"
+  id: "chem_enemy_t"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_NE
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "chem_row"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline_alpha: 0
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.6000000238418579
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: -238
+    y: -10
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 460
+    y: 18
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "results_extra/extra_3"
+  id: "chem_me_track"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "chem_row"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 238
+    y: -10
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 460
+    y: 18
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "results_extra/extra_3"
+  id: "chem_enemy_track"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "chem_row"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 2.0000038146972656
+    y: -10
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 452.1212158203125
+    y: 38
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "results_extra/extra_6"
+  id: "chem_me_fill"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_E
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "chem_row"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 8
+    y: -10
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 390.30303955078125
+    y: 18
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "results_extra/extra_7"
+  id: "chem_enemy_fill"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_W
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "chem_row"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: -200
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1016
+    y: 290
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "leagues_block"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "content"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: -1
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1096
+    y: 372
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_divisions_emerald/results_leagues_bg"
+  id: "leagues_bg"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "leagues_block"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 123
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1.0625
+    y: 1.0625
+    z: 1
+    w: 1
+  }
+  size {
+    x: 986.2352941176471
+    y: 38.588235294117645
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "LEAGUES"
+  font: "din_pro_condensed_black_italic_shadow"
+  id: "locale_od_leagues"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "leagues_block"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline_alpha: 0
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.6000000238418579
+  text_tracking: 0.16
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: -507.375
+    y: 139
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 2.625
+    y: 2.625
+    z: 1
+    w: 1
+  }
+  size {
+    x: 144.28571428571428
+    y: 38.476190476190474
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.29019609093666077
+    y: 0.8705882430076599
+    z: 0.501960813999176
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "6"
+  font: "din_pro_condensed_black_italic_shadow2"
+  id: "leagues_me_t"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_NW
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "leagues_block"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline {
+    x: 0.29019609093666077
+    y: 0.8705882430076599
+    z: 0.501960813999176
+  }
+  outline_alpha: 0.3499999940395355
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.6000000238418579
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: 507.375
+    y: 139
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 2.625
+    y: 2.625
+    z: 1
+    w: 1
+  }
+  size {
+    x: 144.28571428571428
+    y: 38.476190476190474
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "4"
+  font: "din_pro_condensed_black_italic_shadow"
+  id: "leagues_enemy_t"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_NE
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "leagues_block"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline_alpha: 0
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.6000000238418579
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: 0
+    y: -40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 2
+    y: 162
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "results_extra/extra_8"
+  id: "leagues_divider"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "leagues_block"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: -420
+    y: -31
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 96
+    y: 96
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "me_league1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "leagues_block"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 144
+    y: 144
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_divisions_emerald/league_chip"
+  id: "me_league1_bg"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "me_league1"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 68
+    y: 68
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "leagues/13"
+  id: "me_league1_i"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "me_league1"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: -310
+    y: -31
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 96
+    y: 96
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "me_league2"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "leagues_block"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 144
+    y: 144
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_divisions_emerald/league_chip"
+  id: "me_league2_bg"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "me_league2"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 68
+    y: 68
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "leagues/14"
+  id: "me_league2_i"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "me_league2"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: -200
+    y: -31
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 96
+    y: 96
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "me_league3"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "leagues_block"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 144
+    y: 144
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_divisions_emerald/league_chip"
+  id: "me_league3_bg"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "me_league3"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 68
+    y: 68
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "leagues/13"
+  id: "me_league3_i"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "me_league3"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: -90
+    y: -31
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 96
+    y: 96
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "me_league4"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "leagues_block"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 144
+    y: 144
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_divisions_emerald/league_chip"
+  id: "me_league4_bg"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "me_league4"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 68
+    y: 68
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "leagues/14"
+  id: "me_league4_i"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "me_league4"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 420
+    y: -31
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 96
+    y: 96
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "enemy_league1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "leagues_block"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 144
+    y: 144
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_divisions_emerald/league_chip"
+  id: "enemy_league1_bg"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "enemy_league1"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 68
+    y: 68
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "leagues/13"
+  id: "enemy_league1_i"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "enemy_league1"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 310
+    y: -31
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 96
+    y: 96
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "enemy_league2"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "leagues_block"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 144
+    y: 144
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_divisions_emerald/league_chip"
+  id: "enemy_league2_bg"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "enemy_league2"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 68
+    y: 68
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "leagues/14"
+  id: "enemy_league2_i"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "enemy_league2"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 200
+    y: -31
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 96
+    y: 96
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "enemy_league3"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "leagues_block"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 144
+    y: 144
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_divisions_emerald/league_chip"
+  id: "enemy_league3_bg"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "enemy_league3"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 68
+    y: 68
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "leagues/13"
+  id: "enemy_league3_i"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "enemy_league3"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 90
+    y: -31
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 96
+    y: 96
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "enemy_league4"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "leagues_block"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 144
+    y: 144
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_divisions_emerald/league_chip"
+  id: "enemy_league4_bg"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "enemy_league4"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 68
+    y: 68
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "leagues/14"
+  id: "enemy_league4_i"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "enemy_league4"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: -505
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1016
+    y: 260
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "tasks_block"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "content"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: -1
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1096
+    y: 342
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_divisions_emerald/results_tasks_bg"
+  id: "tasks_bg"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "tasks_block"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 108
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1.0625
+    y: 1.0625
+    z: 1
+    w: 1
+  }
+  size {
+    x: 986.2352941176471
+    y: 38.588235294117645
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "TASKS"
+  font: "din_pro_condensed_black_italic_shadow"
+  id: "locale_od_tasks"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "tasks_block"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline_alpha: 0
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.6000000238418579
+  text_tracking: 0.16
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: -507.375
+    y: 124
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 2.625
+    y: 2.625
+    z: 1
+    w: 1
+  }
+  size {
+    x: 144.28571428571428
+    y: 38.476190476190474
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.29019609093666077
+    y: 0.8705882430076599
+    z: 0.501960813999176
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "2"
+  font: "din_pro_condensed_black_italic_shadow2"
+  id: "tasks_me_t"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_NW
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "tasks_block"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline {
+    x: 0.29019609093666077
+    y: 0.8705882430076599
+    z: 0.501960813999176
+  }
+  outline_alpha: 0.3499999940395355
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.6000000238418579
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: 507.375
+    y: 124
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 2.625
+    y: 2.625
+    z: 1
+    w: 1
+  }
+  size {
+    x: 144.28571428571428
+    y: 38.476190476190474
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "1"
+  font: "din_pro_condensed_black_italic_shadow"
+  id: "tasks_enemy_t"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_NE
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "tasks_block"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline_alpha: 0
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.6000000238418579
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: 0
+    y: -40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 2
+    y: 132
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "results_extra/extra_9"
+  id: "tasks_divider"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "tasks_block"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: -408
+    y: -40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 110
+    y: 110
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "me_task1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "tasks_block"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 110
+    y: 110
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "preview"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "me_task1"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 110
+    y: 110
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "scalable2"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "preview"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 9.5367431640625e-7
+    y: 2.4444427490234375
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 140.55555725097656
+    y: 140.55555725097656
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_tasks/task_plate_club"
+  id: "plate"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable2"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 2.4444446563720703
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 53.77777862548828
+    y: 53.77777862548828
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "clubs/15"
+  id: "icon2"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable2"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 43.999996185302734
+    y: -46.44443893432617
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 70.88888549804688
+    y: 58.666664123535156
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "count"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable2"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 70.88888549804688
+    y: 58.666664123535156
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_tasks/task_count_club"
+  id: "count_bg"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "count"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 9.5367431640625e-7
+    y: 16.194443702697754
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 0.8402777910232544
+    y: 0.8402777910232544
+    z: 1
+    w: 1
+  }
+  size {
+    x: 85.27272438376049
+    y: 38.08264402779439
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "2"
+  font: "din_pro_condensed_black_italic_shadow"
+  id: "count_t"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "count"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline_alpha: 0
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.550000011920929
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: 42.77777671813965
+    y: 37.88888931274414
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 61.11111068725586
+    y: 61.11111068725586
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_tasks/task_done"
+  id: "done"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable2"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: false
+  visible: true
+}
+nodes {
+  position {
+    x: -284
+    y: -40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 110
+    y: 110
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "me_task2"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "tasks_block"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 110
+    y: 110
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "preview1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "me_task2"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 110
+    y: 110
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "scalable3"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "preview1"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 9.5367431640625e-7
+    y: 2.4444427490234375
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 140.55555725097656
+    y: 140.55555725097656
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_tasks/task_plate_nation"
+  id: "plate1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable3"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 2.4444446563720703
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 61.11111068725586
+    y: 36.0555534362793
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "nations/8"
+  id: "icon3"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable3"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 43.999996185302734
+    y: -46.44443893432617
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 70.88888549804688
+    y: 58.666664123535156
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "count1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable3"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 70.88888549804688
+    y: 58.666664123535156
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_tasks/task_count_nation"
+  id: "count_bg1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "count1"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 9.5367431640625e-7
+    y: 16.194443702697754
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 0.8402777910232544
+    y: 0.8402777910232544
+    z: 1
+    w: 1
+  }
+  size {
+    x: 85.27272438376049
+    y: 38.08264402779439
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "5"
+  font: "din_pro_condensed_black_italic_shadow"
+  id: "count_t1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "count1"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline_alpha: 0
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.550000011920929
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: 42.77777671813965
+    y: 37.88888931274414
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 61.11111068725586
+    y: 61.11111068725586
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_tasks/task_done"
+  id: "done1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable3"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: false
+  visible: true
+}
+nodes {
+  position {
+    x: -160
+    y: -40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 110
+    y: 110
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "me_task3"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "tasks_block"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 408
+    y: -40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 110
+    y: 110
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "enemy_task1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "tasks_block"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 110
+    y: 110
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "preview2"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "enemy_task1"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 110
+    y: 110
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "scalable4"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "preview2"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 9.5367431640625e-7
+    y: 2.4444427490234375
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 140.55555725097656
+    y: 140.55555725097656
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_tasks/task_plate_no_icons"
+  id: "plate2"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable4"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 2.4444446563720703
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 56.22222137451172
+    y: 56.22222137451172
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "leagues/14"
+  id: "icon4"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable4"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 9.5367431640625e-7
+    y: 2.4444427490234375
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 140.55555725097656
+    y: 140.55555725097656
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_tasks/task_ban"
+  id: "ban"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable4"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 43.999996185302734
+    y: -46.44443893432617
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 70.88888549804688
+    y: 58.666664123535156
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "count2"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable4"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 70.88888549804688
+    y: 58.666664123535156
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_tasks/task_count_no_icons"
+  id: "count_bg2"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "count2"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 9.5367431640625e-7
+    y: 16.194443702697754
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 0.8402777910232544
+    y: 0.8402777910232544
+    z: 1
+    w: 1
+  }
+  size {
+    x: 85.27272438376049
+    y: 38.08264402779439
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "0"
+  font: "din_pro_condensed_black_italic_shadow"
+  id: "count_t2"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "count2"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline_alpha: 0
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.550000011920929
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: 42.77777671813965
+    y: 37.88888931274414
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 61.11111068725586
+    y: 61.11111068725586
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_tasks/task_done"
+  id: "done2"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable4"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: false
+  visible: true
+}
+nodes {
+  position {
+    x: 284
+    y: -40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 110
+    y: 110
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "enemy_task2"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "tasks_block"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 160
+    y: -40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 110
+    y: 110
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "enemy_task3"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "tasks_block"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: -418
+    y: 40
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 180
+    y: 180
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "task_protos"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "tasks_block"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: false
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 180
+    y: 180
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "od_task_club"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "task_protos"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 180
+    y: 180
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "scalable5"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "od_task_club"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 4
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 230
+    y: 230
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_tasks/task_plate_club"
+  id: "plate3"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable5"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 4
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 88
+    y: 88
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "clubs/15"
+  id: "icon5"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable5"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 72
+    y: -76
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 116
+    y: 96
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "count3"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable5"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 116
+    y: 96
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_tasks/task_count_club"
+  id: "count_bg3"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "count3"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 26.5
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1.375
+    y: 1.375
+    z: 1
+    w: 1
+  }
+  size {
+    x: 85.27272727272727
+    y: 38.54545454545455
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "2"
+  font: "din_pro_condensed_black_italic_shadow"
+  id: "count_t3"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "count3"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline_alpha: 0
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.550000011920929
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: 70
+    y: 62
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 100
+    y: 100
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_tasks/task_done"
+  id: "done3"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable5"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: false
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 180
+    y: 180
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "od_task_nation"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "task_protos"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 180
+    y: 180
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "scalable6"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "od_task_nation"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 4
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 230
+    y: 230
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_tasks/task_plate_nation"
+  id: "plate4"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable6"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 4
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 100
+    y: 59
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "nations/8"
+  id: "icon6"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable6"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 72
+    y: -76
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 116
+    y: 96
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "count4"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable6"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 116
+    y: 96
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_tasks/task_count_nation"
+  id: "count_bg4"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "count4"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 26.5
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1.375
+    y: 1.375
+    z: 1
+    w: 1
+  }
+  size {
+    x: 85.27272727272727
+    y: 38.54545454545455
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "5"
+  font: "din_pro_condensed_black_italic_shadow"
+  id: "count_t4"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "count4"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline_alpha: 0
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.550000011920929
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: 70
+    y: 62
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 100
+    y: 100
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_tasks/task_done"
+  id: "done4"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable6"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: false
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 180
+    y: 180
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "od_task_league"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "task_protos"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 180
+    y: 180
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "scalable7"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "od_task_league"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 4
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 230
+    y: 230
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_tasks/task_plate_league"
+  id: "plate5"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable7"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 4
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 92
+    y: 92
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "leagues/13"
+  id: "icon7"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable7"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 72
+    y: -76
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 116
+    y: 96
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "count5"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable7"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 116
+    y: 96
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_tasks/task_count_league"
+  id: "count_bg5"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "count5"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 26.5
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1.375
+    y: 1.375
+    z: 1
+    w: 1
+  }
+  size {
+    x: 85.27272727272727
+    y: 38.54545454545455
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "7"
+  font: "din_pro_condensed_black_italic_shadow"
+  id: "count_t5"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "count5"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline_alpha: 0
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.550000011920929
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: 70
+    y: 62
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 100
+    y: 100
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_tasks/task_done"
+  id: "done5"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable7"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: false
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 180
+    y: 180
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "od_task_no_icons"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "task_protos"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 180
+    y: 180
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "scalable8"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "od_task_no_icons"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 4
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 230
+    y: 230
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_tasks/task_plate_no_icons"
+  id: "plate6"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable8"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 4
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 92
+    y: 92
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "leagues/14"
+  id: "icon8"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable8"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 4
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 230
+    y: 230
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_tasks/task_ban"
+  id: "ban1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable8"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 72
+    y: -76
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 116
+    y: 96
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "count6"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable8"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 116
+    y: 96
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_tasks/task_count_no_icons"
+  id: "count_bg6"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "count6"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 26.5
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1.375
+    y: 1.375
+    z: 1
+    w: 1
+  }
+  size {
+    x: 85.27272727272727
+    y: 38.54545454545455
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "0"
+  font: "din_pro_condensed_black_italic_shadow"
+  id: "count_t6"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_N
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "count6"
+  layer: "fl"
+  inherit_alpha: true
+  line_break: false
+  outline_alpha: 0
+  shadow {
+    x: 0
+    y: 0
+    z: 0
+  }
+  shadow_alpha: 0.550000011920929
+  text_tracking: 0
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: true
+  material: "text_shadow"
+}
+nodes {
+  position {
+    x: 70
+    y: 62
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 100
+    y: 100
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "od_tasks/task_done"
+  id: "done6"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "scalable8"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: false
+  visible: true
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  size {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "{\"gradients\":{},\"params\":{},\"text_shadows\":{\"chem_enemy_t\":[[0,-1.5238,1.3104]],\"chem_me_t\":[[0,-1.5238,1.3104],[0,0,1.9657]],\"count_t\":[[0,-2.1818,1.8763]],\"count_t1\":[[0,-2.1818,1.8763]],\"count_t2\":[[0,-2.1818,1.8763]],\"count_t3\":[[0,-2.1818,1.8763]],\"count_t4\":[[0,-2.1818,1.8763]],\"count_t5\":[[0,-2.1818,1.8763]],\"count_t6\":[[0,-2.1818,1.8763]],\"enemy_score_t\":[[0,-0.9142,0.7862]],\"leagues_enemy_t\":[[0,-1.5238,1.3104]],\"leagues_me_t\":[[0,-1.5238,1.3104],[0,0,1.9657]],\"locale_chemistry\":[[0,-3.7647,3.2376]],\"locale_od_breakdown\":[[0,-3.7647,3.2376]],\"locale_od_leagues\":[[0,-3.7647,3.2376]],\"locale_od_match_result\":[[0,-3.5555,3.0577]],\"locale_od_score\":[[0,-4.2666,3.6693]],\"locale_od_tasks\":[[0,-3.7647,3.2376]],\"locale_rating\":[[0,-3.7647,3.2376]],\"me_score_t\":[[0,-0.9142,0.7862],[0,0,1.5725]],\"rating_enemy_t\":[[0,-1.5238,1.3104]],\"rating_me_t\":[[0,-1.5238,1.3104],[0,0,1.9657]],\"result_t\":[[0,-0.7529,0.6475],[0,0,2.9138]],\"score_sep\":[[0,-1.1636,1.0007]],\"tasks_enemy_t\":[[0,-1.5238,1.3104]],\"tasks_me_t\":[[0,-1.5238,1.3104],[0,0,1.9657]]}}"
+  font: "din_pro_condensed_black_italic_shadow"
+  id: "defigma_data"
+  parent: "root"
+  layer: ""
+  inherit_alpha: true
+  line_break: false
+  alpha: 1
+  enabled: false
+}
+material: "/builtins/materials/gui.material"
+adjust_reference: ADJUST_REFERENCE_PARENT
+max_nodes: 4096
+materials {
+  name: "text_shadow"
+  material: "/defigma/materials/text_shadow.material"
+}
+layers {
+  name: "fl"
+}
+layers {
+  name: "club"
+}
+layers {
+  name: "league"
+}
+layers {
+  name: "nation"
+}
+layers {
+  name: "nation_ring"
+}

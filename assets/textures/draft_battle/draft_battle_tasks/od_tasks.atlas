@@ -1,0 +1,31 @@
+images {
+  image: "/assets/textures/draft_battle/draft_battle_tasks/task_plate_club.png"
+}
+images {
+  image: "/assets/textures/draft_battle/draft_battle_tasks/task_plate_nation.png"
+}
+images {
+  image: "/assets/textures/draft_battle/draft_battle_tasks/task_plate_league.png"
+}
+images {
+  image: "/assets/textures/draft_battle/draft_battle_tasks/task_plate_no_icons.png"
+}
+images {
+  image: "/assets/textures/draft_battle/draft_battle_tasks/task_ban.png"
+}
+images {
+  image: "/assets/textures/draft_battle/draft_battle_tasks/task_count_club.png"
+}
+images {
+  image: "/assets/textures/draft_battle/draft_battle_tasks/task_count_nation.png"
+}
+images {
+  image: "/assets/textures/draft_battle/draft_battle_tasks/task_count_league.png"
+}
+images {
+  image: "/assets/textures/draft_battle/draft_battle_tasks/task_count_no_icons.png"
+}
+images {
+  image: "/assets/textures/draft_battle/draft_battle_tasks/task_done.png"
+}
+extrude_borders: 2

@@ -17,6 +17,11 @@ Script generation: `python/sync_defigma.py`, documented in `python/sync_defigma.
 | `gradient_nodes.lua` | Registry of gradient nodes owned by one screen or widget: what is refreshed every frame and what on demand. |
 | `text_shadow.lua` | Writes the offset and the blur of every text shadow into its node. |
 | `materials/` | Matching materials and shaders; `*.glsl` are the parts they share through `#include`. |
+| `ext.manifest`, `src/` | Native extension: the `DefigmaShape` custom GUI node type. |
+| `commonsrc/`, `include/defigma/` | Shape geometry and property parsing, shared by the engine and the editor library. |
+| `pluginsrc/` | Editor library entry points (`DefigmaShape_Build`) and the bob plugin that registers the custom type. |
+| `plugins/` | Built editor libraries per platform and the bob plugin jar. |
+| `editor/src/defigma_shape.clj` | Editor node type: properties, save format and the preview. |
 
 ## The data node
 
@@ -195,6 +200,170 @@ Limits:
 - A third shadow and inner shadows are not exported, and a text with two shadows loses its stroke.
 - The shadows of neighbouring letters are mixed by alpha blending instead of added, which only
   matters where both are dense.
+
+## Shape nodes
+
+A Figma rectangle, ellipse, vector or frame visual exported with `{"shape_nodes":true}` is one
+`TYPE_CUSTOM` node, `custom_type_name: "DefigmaShape"`, material `shape`. Its look lives in custom
+properties, so it needs no `defigma_data` entry and no Lua:
+
+| Property | Type | Meaning |
+|---|---|---|
+| `shape` | string | `rect` (default), `ellipse` or `path` |
+| `corner_radius` | vector4 | top-left, top-right, bottom-right, bottom-left, Figma pixels |
+| `fills`, `strokes` | string | JSON array of paints: `{"type":"solid","color":[r,g,b,a]}` or `{"type":"linear"\|"radial","transform":[6],"stops":[[pos,r,g,b,a],...]}`; `transform` is the Figma `gradientTransform` |
+| `stroke_width`, `stroke_align` | number, string | `inside` (default), `center`, `outside` |
+| `effects` | string | JSON array: `{"type":"drop_shadow","offset":[x,y],"radius","spread","color","show_behind"}`, `{"type":"layer_blur","radius"}` |
+| `path` | string | `{"fill":{"polygons":[[x,y,...],...],"edges":[...]},"stroke":{...}}` in node pixels, Figma axes: convex pieces (at most 60 points) and the outline edges, which keep the filled side on the right |
+| `clip` | string | JSON `[x,y,...]`, the convex outline of the `Clip content` frame in node pixels, Figma axes; every piece of the node is cut by it (hard edge) |
+
+### How it renders
+
+`GetVertices` builds the geometry once per node size (`commonsrc/shape_geometry.cpp`) and copies the
+cached vertices every frame; the engine applies the node transform, color and opacity. Nothing
+depends on the node transform, so scrolls, animations and layouts need no refresh, and every shape
+node of one material batches into one draw call - the node carries no material constants.
+
+Everything a pixel needs travels in the standard GUI vertex:
+
+- `color` - the paint color at that vertex. Pieces are cut along the gradient stops (linear) or
+  along rings at the stops and 12-32 sectors, one per 12 pixels of gradient radius (radial), so the
+  interpolated color is the gradient. The antialiasing fringe of a path is not cut.
+- `texcoord0` - the distance field coordinate: for a rounded rectangle the position folded into
+  one quadrant minus the inner corner box, for an ellipse the position over the half size, for a
+  blur the same in units of sigma, for a path edge the signed distance to the edge.
+- `page_index` - a packed integer: the mode (rounded rect, ellipse, their blurs, three ellipse
+  stroke alignments, path edge) and its constants (radius, stroke width, radius and inner box over
+  sigma, axis ratio). `shape.vp` decodes it.
+
+Antialiasing uses the screen derivatives of the distance (`GL_OES_standard_derivatives` on GLES2);
+the fragment shader is `mediump`. Blurs are Gaussian: sigma is `0.43 * radius` for shadows and layer
+blur, a rounded rectangle uses the Evan Wallace integration, an ellipse the same integration over
+its chords. A drop shadow is cut out under the shape unless `show_behind` is set.
+
+Measured against Figma exports of the same frames, the mean difference is under 1/255 on shapes;
+the largest remaining ones are tiny blurred ellipses (layer blur of a radial gradient is
+approximated as blurred shape times the unblurred gradient) and the outer edge of thick ellipse
+strokes (first-order distance).
+
+### Cost
+
+The engine calls `GetVertices` for every custom node every frame, then transforms each vertex on
+the CPU and uploads the whole GUI vertex buffer again: there is no static buffer for custom nodes.
+The CPU cost of a shape screen is therefore proportional to its vertex count, and the GPU cost to
+the covered area times the mode (a blur runs a 4-sample integration per pixel). Keep both down:
+no large blurred shapes in vector form (bake glows into the background image), few radial
+gradients over big areas.
+
+Measured on the `tests/bench_screen` store screen (background with two blurred glows and a
+vignette, header, nine cards with shadow, stroke, glow, badge and plate, a button, texts), debug
+build, milliseconds per frame, one layer / eight stacked layers moving:
+
+| Variant | Desktop i5-12400F + RTX 4060, 486x1035 | Redmi Note 10 Pro (SD 732G, Adreno 618), 1080x2400 | Draw calls | Vertices |
+|---|---|---|---|---|
+| raster atlas (ASTC 4x4) | 0.21 / 0.55 | 2.15 / 10.2 | 32 | 72 |
+| material gradients + Lua refresh | 0.62 / 4.03 | 4.96 / 37.6 | 94 | 1116 |
+| shape nodes | 0.37 / 2.14 | 8.55 / 64.4 | 32 | 14622 |
+| shape nodes, background as image | 0.36 / 1.98 | 4.40 / 29.8 | 33 | 13290 |
+
+On the phone the shape screen waits 3.2 ms for the GPU (raster 0.5 ms) and spends 1.5 ms on the
+vertex path; the background glows alone account for about 2 ms of GPU time. The raster screen
+needs an 8 MB ASTC atlas (32 MB uncompressed), the shape screen no texture and about 0.6 MB of
+cached vertices. Shape nodes are faster and look better than the material gradients (shadows,
+clipping and vectors the material path cannot do), a raster atlas stays the cheapest to draw.
+
+#### Cheap and expensive operations
+
+CPU cost is the vertex count (built once per size, transformed and uploaded every frame), GPU cost
+is the covered area times the shader mode, plus overdraw: every shape node is blended, so a panel
+made of six stacked full-size shapes shades its area six times where an atlas image shades it once.
+Vertex counts for a 300x120 rounded rectangle (`tools/geometry/vertex_count.cpp`):
+
+| Operation | Vertices | Pixel cost | Use |
+|---|---|---|---|
+| solid fill, rect or rounded rect | 24 | 1x area, one distance | freely |
+| solid ellipse | 6 | 1x area | freely |
+| linear gradient | +8 per stop | same as solid | freely |
+| stroke on rect / ellipse (any alignment) | 48-96 (the hole is cut only when it is at least 32x32 px) | ring area | freely |
+| drop shadow, small radius (up to ~16) | ~200 (shape knocked out of the shadow) | (w + 6 sigma)(h + 6 sigma), 4-sample integral | a few per screen |
+| radial gradient | 190-290 (rings at the stops x 12-32 sectors) | same as solid | small shapes; not on dozens of instances |
+| `path` (vectors, boolean ops) | convex pieces + 2 per outline edge; curves flattened every 6 px | 1x area | icons with few points; a round-cap stroke of a small check mark is already ~360 |
+| `clip` (child crossing a `Clip content` frame) | every piece cut by the outline | - | fine; hard edge |
+| large drop shadow / glow (radius 24+) | ~200 | a quad of (w + 6 sigma)(h + 6 sigma), 4-sample integral | avoid on big nodes; bake into the image |
+| layer blur | 24 | same as a large shadow, over the whole blurred quad | avoid; bake into the image |
+| many stacked translucent full-size layers | - | overdraw per layer | flatten into one image |
+| background blur, inner shadow, blend modes, angular / diamond gradients, image fills | not supported | - | keep as raster |
+
+Every `CompGuiNodeTypeSet*Fn`, and the context, has to be set in `GuiNodeTypeCreate`: the engine
+does not initialize `CompGuiNodeType`, and an unset update callback crashed the Android build.
+
+Limits: no inner shadow, no angular or diamond gradient, no blur or shadow on a `path`, no blend
+modes; the `clip` edge is not antialiased. A shape node is not a stencil clipper that follows its
+corners; use a box clipper.
+
+### Results screen: four ways to export one real screen
+
+`tests/results_screen` is the Dexfut match result screen (Figma 4575:231281) exported four ways
+from the same masters, marked with `{"shape_nodes":true}` only for the export:
+
+| Variant | What is raster | Shape nodes | Shape vertices | Effects in shape nodes |
+|---|---|---|---|---|
+| `results_raster` | everything, the native progress bars and pills too; text keeps the shadow material | 0 | 0 | - |
+| `results_current` | atlases as in Dexfut, native shapes (bars, pills) as shape nodes | 17 | 1 056 | 3 nodes with shadows |
+| `results_bg_raster` | background image; panels, chips, rings, task plates as shape nodes | 140 | 23 166 | 39 nodes with shadows, 9 with layer blur |
+| `results_vector` | only emblems and flags | 169 | 32 619 | 49 nodes with shadows, 9 with layer blur |
+
+`_plain` copies of the last three have every effect removed: they are the "no blur, no shadow"
+measurement, the lower bound of what the geometry itself costs. The masters of this screen are not
+effect-free: the panels carry glows (layer blur) and drop shadows, `league_chip` an inner shadow
+(not supported, lost in the vector variants).
+
+Against the Figma export all four differ by 6.8-7.1/255 mean, almost all of it common to every
+variant (fonts, the round flag mask and the task checks, which are runtime logic). Against the
+raster variant in the engine: current 0.21, bg_raster 1.43, vector 2.0 - antialiased edges and the
+blurred tile glints.
+
+Frame time, debug build, milliseconds, 1 layer static / 8 layers moving:
+
+| Variant | Desktop i5-12400F + RTX 4060, 432x920 |
+|---|---|
+| raster | 0.34 / 1.30 |
+| current | 0.37 / 1.52 |
+| current, plain | 0.37 / 1.46 |
+| bg raster | 0.54 / 3.12 |
+| bg raster, plain | 0.49 / 2.55 |
+| vector | 0.66 / 5.09 |
+| vector, plain | 0.60 / 3.65 |
+
+### Choosing raster or vector
+
+- **Keep as raster** whatever has image fills, background blur, blend modes, inner shadows, large
+  glows or many stacked translucent layers: full-screen backgrounds, big decorated tiles and
+  buttons, pack art. A baked image is one quad; the vector version is several blended layers.
+- **Use shape nodes where a raster is wrong or wasteful**: elements that stretch (panels resized
+  per layout, bars, pills, rings), progress bars and rings that change at run time, gradients that
+  would otherwise need the material path with Lua refresh, and simple shapes that repeat in many
+  sizes (each size would be another atlas image).
+- **Do not vectorize a whole screen.** A decorated panel becomes dozens of nodes and thousands of
+  vertices, and on a weak GPU its overdraw and glows cost more than the atlas it replaces. The
+  `current` variant - atlases plus shape nodes only for the native shapes - costs the same as full
+  raster.
+- `tools/figma/screen_census.py` lists, per screen, which masters are `bitmap` / `heavy` / `light`
+  and how many instances are stretched: `light` + stretched is the vector candidate.
+
+### Editor
+
+`editor/src/defigma_shape.clj` registers the node type (Add > Defigma Shape), shows the properties
+and renders the preview with the real `shape.material`, getting the vertices from the editor
+library in `plugins/lib/<platform>/` through JNA. Resizing the node rebuilds the shape. After a
+change in `commonsrc/` or `pluginsrc/` rebuild the libraries for every desktop platform and copy
+them into `plugins/`:
+
+```bash
+java -jar bob.jar --platform x86_64-linux --variant headless --build-artifacts=plugins build
+```
+
+(`x86_64-macos`, `arm64-macos`, `x86_64-win32` the same; results land in `build/<platform>/defigma/`.)
 
 ## Features
 

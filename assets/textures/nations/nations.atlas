@@ -1,0 +1,426 @@
+images {
+  image: "/assets/textures/nations/1.png"
+}
+images {
+  image: "/assets/textures/nations/10.png"
+}
+images {
+  image: "/assets/textures/nations/101.png"
+}
+images {
+  image: "/assets/textures/nations/102.png"
+}
+images {
+  image: "/assets/textures/nations/103.png"
+}
+images {
+  image: "/assets/textures/nations/104.png"
+}
+images {
+  image: "/assets/textures/nations/105.png"
+}
+images {
+  image: "/assets/textures/nations/106.png"
+}
+images {
+  image: "/assets/textures/nations/107.png"
+}
+images {
+  image: "/assets/textures/nations/108.png"
+}
+images {
+  image: "/assets/textures/nations/11.png"
+}
+images {
+  image: "/assets/textures/nations/110.png"
+}
+images {
+  image: "/assets/textures/nations/111.png"
+}
+images {
+  image: "/assets/textures/nations/112.png"
+}
+images {
+  image: "/assets/textures/nations/115.png"
+}
+images {
+  image: "/assets/textures/nations/116.png"
+}
+images {
+  image: "/assets/textures/nations/117.png"
+}
+images {
+  image: "/assets/textures/nations/118.png"
+}
+images {
+  image: "/assets/textures/nations/119.png"
+}
+images {
+  image: "/assets/textures/nations/12.png"
+}
+images {
+  image: "/assets/textures/nations/120.png"
+}
+images {
+  image: "/assets/textures/nations/122.png"
+}
+images {
+  image: "/assets/textures/nations/123.png"
+}
+images {
+  image: "/assets/textures/nations/124.png"
+}
+images {
+  image: "/assets/textures/nations/125.png"
+}
+images {
+  image: "/assets/textures/nations/126.png"
+}
+images {
+  image: "/assets/textures/nations/127.png"
+}
+images {
+  image: "/assets/textures/nations/129.png"
+}
+images {
+  image: "/assets/textures/nations/13.png"
+}
+images {
+  image: "/assets/textures/nations/130.png"
+}
+images {
+  image: "/assets/textures/nations/131.png"
+}
+images {
+  image: "/assets/textures/nations/133.png"
+}
+images {
+  image: "/assets/textures/nations/134.png"
+}
+images {
+  image: "/assets/textures/nations/136.png"
+}
+images {
+  image: "/assets/textures/nations/138.png"
+}
+images {
+  image: "/assets/textures/nations/139.png"
+}
+images {
+  image: "/assets/textures/nations/14.png"
+}
+images {
+  image: "/assets/textures/nations/140.png"
+}
+images {
+  image: "/assets/textures/nations/144.png"
+}
+images {
+  image: "/assets/textures/nations/145.png"
+}
+images {
+  image: "/assets/textures/nations/146.png"
+}
+images {
+  image: "/assets/textures/nations/147.png"
+}
+images {
+  image: "/assets/textures/nations/148.png"
+}
+images {
+  image: "/assets/textures/nations/15.png"
+}
+images {
+  image: "/assets/textures/nations/151.png"
+}
+images {
+  image: "/assets/textures/nations/155.png"
+}
+images {
+  image: "/assets/textures/nations/159.png"
+}
+images {
+  image: "/assets/textures/nations/160.png"
+}
+images {
+  image: "/assets/textures/nations/161.png"
+}
+images {
+  image: "/assets/textures/nations/162.png"
+}
+images {
+  image: "/assets/textures/nations/163.png"
+}
+images {
+  image: "/assets/textures/nations/164.png"
+}
+images {
+  image: "/assets/textures/nations/167.png"
+}
+images {
+  image: "/assets/textures/nations/17.png"
+}
+images {
+  image: "/assets/textures/nations/173.png"
+}
+images {
+  image: "/assets/textures/nations/179.png"
+}
+images {
+  image: "/assets/textures/nations/18.png"
+}
+images {
+  image: "/assets/textures/nations/181.png"
+}
+images {
+  image: "/assets/textures/nations/182.png"
+}
+images {
+  image: "/assets/textures/nations/183.png"
+}
+images {
+  image: "/assets/textures/nations/186.png"
+}
+images {
+  image: "/assets/textures/nations/19.png"
+}
+images {
+  image: "/assets/textures/nations/190.png"
+}
+images {
+  image: "/assets/textures/nations/191.png"
+}
+images {
+  image: "/assets/textures/nations/195.png"
+}
+images {
+  image: "/assets/textures/nations/198.png"
+}
+images {
+  image: "/assets/textures/nations/20.png"
+}
+images {
+  image: "/assets/textures/nations/204.png"
+}
+images {
+  image: "/assets/textures/nations/207.png"
+}
+images {
+  image: "/assets/textures/nations/208.png"
+}
+images {
+  image: "/assets/textures/nations/21.png"
+}
+images {
+  image: "/assets/textures/nations/213.png"
+}
+images {
+  image: "/assets/textures/nations/214.png"
+}
+images {
+  image: "/assets/textures/nations/215.png"
+}
+images {
+  image: "/assets/textures/nations/219.png"
+}
+images {
+  image: "/assets/textures/nations/22.png"
+}
+images {
+  image: "/assets/textures/nations/23.png"
+}
+images {
+  image: "/assets/textures/nations/24.png"
+}
+images {
+  image: "/assets/textures/nations/25.png"
+}
+images {
+  image: "/assets/textures/nations/26.png"
+}
+images {
+  image: "/assets/textures/nations/27.png"
+}
+images {
+  image: "/assets/textures/nations/28.png"
+}
+images {
+  image: "/assets/textures/nations/3.png"
+}
+images {
+  image: "/assets/textures/nations/30.png"
+}
+images {
+  image: "/assets/textures/nations/31.png"
+}
+images {
+  image: "/assets/textures/nations/32.png"
+}
+images {
+  image: "/assets/textures/nations/34.png"
+}
+images {
+  image: "/assets/textures/nations/35.png"
+}
+images {
+  image: "/assets/textures/nations/36.png"
+}
+images {
+  image: "/assets/textures/nations/37.png"
+}
+images {
+  image: "/assets/textures/nations/38.png"
+}
+images {
+  image: "/assets/textures/nations/39.png"
+}
+images {
+  image: "/assets/textures/nations/4.png"
+}
+images {
+  image: "/assets/textures/nations/40.png"
+}
+images {
+  image: "/assets/textures/nations/42.png"
+}
+images {
+  image: "/assets/textures/nations/43.png"
+}
+images {
+  image: "/assets/textures/nations/44.png"
+}
+images {
+  image: "/assets/textures/nations/45.png"
+}
+images {
+  image: "/assets/textures/nations/46.png"
+}
+images {
+  image: "/assets/textures/nations/47.png"
+}
+images {
+  image: "/assets/textures/nations/48.png"
+}
+images {
+  image: "/assets/textures/nations/49.png"
+}
+images {
+  image: "/assets/textures/nations/5.png"
+}
+images {
+  image: "/assets/textures/nations/50.png"
+}
+images {
+  image: "/assets/textures/nations/51.png"
+}
+images {
+  image: "/assets/textures/nations/52.png"
+}
+images {
+  image: "/assets/textures/nations/53.png"
+}
+images {
+  image: "/assets/textures/nations/54.png"
+}
+images {
+  image: "/assets/textures/nations/55.png"
+}
+images {
+  image: "/assets/textures/nations/56.png"
+}
+images {
+  image: "/assets/textures/nations/57.png"
+}
+images {
+  image: "/assets/textures/nations/58.png"
+}
+images {
+  image: "/assets/textures/nations/59.png"
+}
+images {
+  image: "/assets/textures/nations/6.png"
+}
+images {
+  image: "/assets/textures/nations/60.png"
+}
+images {
+  image: "/assets/textures/nations/61.png"
+}
+images {
+  image: "/assets/textures/nations/63.png"
+}
+images {
+  image: "/assets/textures/nations/7.png"
+}
+images {
+  image: "/assets/textures/nations/70.png"
+}
+images {
+  image: "/assets/textures/nations/72.png"
+}
+images {
+  image: "/assets/textures/nations/73.png"
+}
+images {
+  image: "/assets/textures/nations/77.png"
+}
+images {
+  image: "/assets/textures/nations/78.png"
+}
+images {
+  image: "/assets/textures/nations/79.png"
+}
+images {
+  image: "/assets/textures/nations/8.png"
+}
+images {
+  image: "/assets/textures/nations/80.png"
+}
+images {
+  image: "/assets/textures/nations/81.png"
+}
+images {
+  image: "/assets/textures/nations/82.png"
+}
+images {
+  image: "/assets/textures/nations/83.png"
+}
+images {
+  image: "/assets/textures/nations/84.png"
+}
+images {
+  image: "/assets/textures/nations/85.png"
+}
+images {
+  image: "/assets/textures/nations/87.png"
+}
+images {
+  image: "/assets/textures/nations/89.png"
+}
+images {
+  image: "/assets/textures/nations/9.png"
+}
+images {
+  image: "/assets/textures/nations/90.png"
+}
+images {
+  image: "/assets/textures/nations/92.png"
+}
+images {
+  image: "/assets/textures/nations/93.png"
+}
+images {
+  image: "/assets/textures/nations/95.png"
+}
+images {
+  image: "/assets/textures/nations/97.png"
+}
+images {
+  image: "/assets/textures/nations/98.png"
+}
+images {
+  image: "/assets/textures/nations/99.png"
+}
+extrude_borders: 2
+max_page_width: 0
+max_page_height: 0

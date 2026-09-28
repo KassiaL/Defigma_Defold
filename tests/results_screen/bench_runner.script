@@ -1,0 +1,175 @@
+local VARIANTS = { "results_raster", "results_current", "results_current_plain", "results_bg_raster", "results_bg_raster_plain", "results_vector", "results_vector_plain" }
+local CASES = {
+	{ layers = 1, moving = false },
+	{ layers = 1, moving = true },
+	{ layers = 4, moving = true },
+	{ layers = 8, moving = true },
+}
+local WARMUP_SECONDS = 2
+local MEASURE_SECONDS = 6
+
+local PROXY_LOADED = hash("proxy_loaded")
+local PROXY_UNLOADED = hash("proxy_unloaded")
+local LOAD_SET = hash("load_set")
+
+local function proxy_url(variant)
+	return msg.url("#" .. variant)
+end
+
+local function gui_url(variant)
+	return msg.url(variant, "/screen", "gui")
+end
+
+local function memory_mb()
+	return profiler.get_memory_usage() / (1024 * 1024)
+end
+
+local function report(line)
+	print("BENCH|" .. line)
+	io.stdout:flush()
+end
+
+local function percentile(values, fraction)
+	table.sort(values)
+	return values[math.max(1, math.ceil(#values * fraction))]
+end
+
+local HOLD_SECONDS = 30
+
+local function start_hold(self, index)
+	local variant = VARIANTS[index]
+	if not variant then
+		report("HOLD_DONE")
+		return
+	end
+	self.hold = { variant = variant, layers = 1, moving = true, index = index }
+	msg.post(proxy_url(variant), "async_load")
+end
+
+local function next_variant(self)
+	self.variant_index = self.variant_index + 1
+	local variant = VARIANTS[self.variant_index]
+	if not variant then
+		report("DONE")
+		start_hold(self, 1)
+		return
+	end
+	self.memory_before = memory_mb()
+	self.load_started = socket.gettime()
+	msg.post(proxy_url(variant), "async_load")
+end
+
+local function start_case(self)
+	local case = CASES[self.case_index]
+	msg.post(gui_url(VARIANTS[self.variant_index]), "set_load", case)
+end
+
+local function begin_measure(self)
+	self.phase = "warmup"
+	self.phase_time = 0
+	self.frames = {}
+	self.cpu_samples = {}
+end
+
+local function finish_case(self)
+	local case = CASES[self.case_index]
+	local total = 0
+	for i = 1, #self.frames do
+		total = total + self.frames[i]
+	end
+	local average = total / #self.frames
+	local cpu = 0
+	for i = 1, #self.cpu_samples do
+		cpu = cpu + self.cpu_samples[i]
+	end
+	cpu = cpu / math.max(1, #self.cpu_samples)
+	report(string.format("CASE|%s|layers=%d|moving=%s|fps=%.1f|avg_ms=%.2f|p95_ms=%.2f|p99_ms=%.2f|cpu=%.1f|mem_mb=%.1f",
+		VARIANTS[self.variant_index], case.layers, tostring(case.moving), 1000 / average, average,
+		percentile(self.frames, 0.95), percentile(self.frames, 0.99), cpu, memory_mb()))
+	self.phase = nil
+	self.case_index = self.case_index + 1
+	if CASES[self.case_index] then
+		start_case(self)
+	else
+		msg.post(proxy_url(VARIANTS[self.variant_index]), "disable")
+		msg.post(proxy_url(VARIANTS[self.variant_index]), "final")
+		msg.post(proxy_url(VARIANTS[self.variant_index]), "unload")
+	end
+end
+
+function init(self)
+	msg.post(".", "acquire_input_focus")
+	self.variant_index = 0
+	self.last_time = socket.gettime()
+	local hold = sys.get_config_string("bench.hold", "")
+	if hold ~= "" then
+		local variant, layers, moving = hold:match("([%w_]+):(%d+):(%d)")
+		self.hold = { variant = variant, layers = tonumber(layers), moving = moving == "1" }
+		msg.post(proxy_url(variant), "async_load")
+		return
+	end
+	report("START|" .. sys.get_sys_info().device_model .. "|" .. sys.get_sys_info().system_name)
+	next_variant(self)
+end
+
+function update(self, dt)
+	local now = socket.gettime()
+	local frame_ms = (now - self.last_time) * 1000
+	self.last_time = now
+	if self.hold and self.hold.index and self.hold.started then
+		self.hold.time = self.hold.time + frame_ms / 1000
+		if self.hold.time >= HOLD_SECONDS then
+			local variant = self.hold.variant
+			self.hold.started = false
+			msg.post(proxy_url(variant), "disable")
+			msg.post(proxy_url(variant), "final")
+			msg.post(proxy_url(variant), "unload")
+		end
+	end
+	if not self.phase then
+		return
+	end
+	self.phase_time = self.phase_time + frame_ms / 1000
+	if self.phase == "warmup" then
+		if self.phase_time >= WARMUP_SECONDS then
+			self.phase = "measure"
+			self.phase_time = 0
+		end
+		return
+	end
+	self.frames[#self.frames + 1] = frame_ms
+	if #self.frames % 30 == 0 then
+		self.cpu_samples[#self.cpu_samples + 1] = profiler.get_cpu_usage()
+	end
+	if self.phase_time >= MEASURE_SECONDS then
+		finish_case(self)
+	end
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == PROXY_LOADED then
+		msg.post(sender, "enable")
+		if self.hold then
+			msg.post(gui_url(self.hold.variant), "set_load", { layers = self.hold.layers, moving = self.hold.moving })
+			self.hold.started = true
+			self.hold.time = 0
+			report("HOLD|" .. self.hold.variant)
+			return
+		end
+		local variant = VARIANTS[self.variant_index]
+		report(string.format("LOAD|%s|load_ms=%.0f|mem_before_mb=%.1f|mem_after_mb=%.1f", variant,
+			(socket.gettime() - self.load_started) * 1000, self.memory_before, memory_mb()))
+		self.case_index = 1
+		start_case(self)
+	elseif message_id == LOAD_SET then
+		if not self.hold then
+			begin_measure(self)
+		end
+	elseif message_id == PROXY_UNLOADED then
+		if self.hold and self.hold.index then
+			start_hold(self, self.hold.index + 1)
+		else
+			next_variant(self)
+		end
+	end
+end

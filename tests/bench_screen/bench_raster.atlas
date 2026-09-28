@@ -1,0 +1,13 @@
+images {
+  image: "/tests/bench_screen/bench_bg.png"
+}
+images {
+  image: "/tests/bench_screen/bench_header.png"
+}
+images {
+  image: "/tests/bench_screen/bench_card.png"
+}
+images {
+  image: "/tests/bench_screen/bench_button.png"
+}
+extrude_borders: 2
