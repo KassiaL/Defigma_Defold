@@ -26,7 +26,7 @@ def launch(config, log_name):
     os.makedirs(LOGS, exist_ok=True)
     log = os.path.join(LOGS, log_name)
     env = dict(os.environ, DM_SERVICE_PORT="dynamic")
-    process = subprocess.Popen([ENGINE, "build/default/game.projectc"] + ["--config=%s" % c for c in config], cwd=PROJECT, env=env,
+    process = subprocess.Popen([ENGINE] + ["--config=%s" % c for c in config] + ["build/default/game.projectc"], cwd=PROJECT, env=env,
                                stdout=open(log, "w"), stderr=subprocess.STDOUT)
     for _ in range(60):
         match = re.search(r"Engine service started on port (\d+)", open(log, errors="ignore").read())

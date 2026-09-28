@@ -1,5 +1,6 @@
 #include <defigma/shape_geometry.h>
 
+#include <float.h>
 #include <math.h>
 #include <stdlib.h>
 #include <string.h>
@@ -23,6 +24,8 @@ namespace defigma
     static const int   HOLE_SECTORS     = 12;
     static const float MIN_HOLE_AREA    = 1024.0f;
     static const float KNOCKOUT_INSET   = 1.0f;
+    static const int   MAX_JSON_DEPTH   = 16;
+    static const size_t MAX_GRADIENT_STOPS = 64;
 
     enum Mode
     {
@@ -112,16 +115,12 @@ namespace defigma
             const JsonValue* value = Get(key);
             return value && value->type == NUMBER ? (float)value->number : fallback;
         }
-
-        float At(size_t index) const
-        {
-            return (float)items[index].number;
-        }
     };
 
     struct JsonReader
     {
         const char* cursor;
+        int         depth;
 
         void SkipSpace()
         {
@@ -153,6 +152,16 @@ namespace defigma
         }
 
         bool ReadValue(JsonValue& value)
+        {
+            if (depth == MAX_JSON_DEPTH)
+                return false;
+            ++depth;
+            bool read = ReadAny(value);
+            --depth;
+            return read;
+        }
+
+        bool ReadAny(JsonValue& value)
         {
             SkipSpace();
             char c = *cursor;
@@ -233,7 +242,7 @@ namespace defigma
             }
             char* end = 0;
             value.number = strtod(cursor, &end);
-            if (end == cursor)
+            if (end == cursor || !(fabs(value.number) <= FLT_MAX))
                 return false;
             value.type = JsonValue::NUMBER;
             cursor = end;
@@ -245,13 +254,29 @@ namespace defigma
     {
         JsonReader reader;
         reader.cursor = text;
+        reader.depth = 0;
         return reader.ReadValue(root);
     }
 
-    static Color ReadColor(const JsonValue& value)
+    static bool ReadFloats(const JsonValue* value, float* out, size_t count)
     {
-        Color color = { value.At(0), value.At(1), value.At(2), value.At(3) };
-        return color;
+        if (!value || value->type != JsonValue::ARRAY || value->items.size() < count)
+            return false;
+        for (size_t i = 0; i < count; ++i)
+            out[i] = (float)value->items[i].number;
+        return true;
+    }
+
+    static bool ReadColor(const JsonValue* value, Color& color)
+    {
+        float channels[4];
+        if (!ReadFloats(value, channels, 4))
+            return false;
+        color.r = channels[0];
+        color.g = channels[1];
+        color.b = channels[2];
+        color.a = channels[3];
+        return true;
     }
 
     static bool ReadPaint(const JsonValue& value, Paint& paint)
@@ -265,8 +290,7 @@ namespace defigma
         if (type->string == "solid")
         {
             paint.type = PAINT_SOLID;
-            paint.color = ReadColor(*value.Get("color"));
-            return true;
+            return ReadColor(value.Get("color"), paint.color);
         }
         if (type->string == "linear")
             paint.type = PAINT_LINEAR;
@@ -274,19 +298,17 @@ namespace defigma
             paint.type = PAINT_RADIAL;
         else
             return false;
-        const JsonValue& transform = *value.Get("transform");
-        for (int i = 0; i < 6; ++i)
-            paint.transform[i] = transform.At(i);
-        const JsonValue& stops = *value.Get("stops");
-        for (size_t i = 0; i < stops.items.size(); ++i)
+        if (!ReadFloats(value.Get("transform"), paint.transform, 6))
+            return false;
+        const JsonValue* stops = value.Get("stops");
+        if (!stops || stops->type != JsonValue::ARRAY || stops->items.size() > MAX_GRADIENT_STOPS)
+            return false;
+        for (size_t i = 0; i < stops->items.size(); ++i)
         {
-            const JsonValue& stop = stops.items[i];
-            GradientStop gradient_stop;
-            gradient_stop.position = stop.At(0);
-            gradient_stop.color.r = stop.At(1);
-            gradient_stop.color.g = stop.At(2);
-            gradient_stop.color.b = stop.At(3);
-            gradient_stop.color.a = stop.At(4);
+            float stop[5];
+            if (!ReadFloats(&stops->items[i], stop, 5))
+                return false;
+            GradientStop gradient_stop = { stop[0], { stop[1], stop[2], stop[3], stop[4] } };
             paint.stops.push_back(gradient_stop);
         }
         return !paint.stops.empty();
@@ -399,12 +421,13 @@ namespace defigma
             else if (type->string == "drop_shadow")
             {
                 DropShadow shadow;
-                const JsonValue& offset = *effect.Get("offset");
-                shadow.offset_x = offset.At(0);
-                shadow.offset_y = offset.At(1);
+                float offset[2];
+                if (!ReadFloats(effect.Get("offset"), offset, 2) || !ReadColor(effect.Get("color"), shadow.color))
+                    return false;
+                shadow.offset_x = offset[0];
+                shadow.offset_y = offset[1];
                 shadow.radius = effect.Number("radius", 0.0f);
                 shadow.spread = effect.Number("spread", 0.0f);
-                shadow.color = ReadColor(*effect.Get("color"));
                 const JsonValue* behind = effect.Get("show_behind");
                 shadow.show_behind = behind && behind->boolean;
                 desc.shadows.push_back(shadow);
@@ -700,8 +723,7 @@ namespace defigma
         rings.push_back(far_radius);
 
         float radius_pixels = fmaxf(sqrtf(i00 * i00 + i10 * i10), sqrtf(i01 * i01 + i11 * i11));
-        int sectors = (int)ceilf(radius_pixels / RADIAL_SECTOR_PIXELS);
-        sectors = sectors < MIN_RADIAL_SECTORS ? MIN_RADIAL_SECTORS : (sectors > RADIAL_SECTORS ? RADIAL_SECTORS : sectors);
+        int sectors = (int)fminf(fmaxf(ceilf(radius_pixels / RADIAL_SECTOR_PIXELS), (float)MIN_RADIAL_SECTORS), (float)RADIAL_SECTORS);
 
         std::vector<Poly> cells;
         for (int s = 0; s < sectors; ++s)
@@ -793,7 +815,7 @@ namespace defigma
     static uint32_t Quantize(float value, float scale, uint32_t max)
     {
         float q = floorf(value * scale + 0.5f);
-        if (q < 0.0f)
+        if (!(q >= 0.0f))
             return 0;
         return q > (float)max ? max : (uint32_t)q;
     }
@@ -1229,7 +1251,7 @@ namespace defigma
     void BuildShapeVertices(const ShapeDesc& desc, float width, float height, std::vector<ShapeVertex>& out)
     {
         out.clear();
-        if (width <= 0.0f || height <= 0.0f)
+        if (!(width > 0.0f && height > 0.0f && isfinite(width) && isfinite(height)))
             return;
         Builder builder;
         builder.out = &out;

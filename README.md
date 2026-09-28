@@ -49,7 +49,7 @@ end
 ## Shape Nodes
 
 Export a screen (or mark any frame or master component inside it) with `{"shape_nodes":true}` and every rectangle, ellipse, vector and frame visual
-becomes a `DefigmaShape` custom GUI node: gradients with any number of stops, strokes, per-corner
+becomes a `DefigmaShape` custom GUI node: gradients with up to 64 stops, strokes, per-corner
 radii, drop shadows and layer blur in one node, drawn by the native extension without any Lua and
 batched into one draw call per run of shape nodes. The editor shows the preview and lets you resize
 the node like a box. Details: [defigma/DEFIGMA.md](defigma/DEFIGMA.md#shape-nodes).
@@ -79,6 +79,9 @@ This repository is also the test bed for the shape nodes:
   `results_vector` (everything but the emblems as shape nodes) and their `_plain` copies without
   effects. Built from masters marked with `{"shape_nodes":true}` for the export only; the markers
   are removed from Figma afterwards;
+- `tests/panels_screen/` - the `my_profile` background with its five panels as slice9 images and as
+  shape nodes, plus diagnostic copies with one fill and with `shape_lite.material` (the shape shader
+  without the blur code); built and exported by `tools/figma/scenes/panels_screen.js`;
 - `tools/` - export, accuracy, vertex count and benchmark scripts, see [tools/README.md](tools/README.md).
 
 ## License

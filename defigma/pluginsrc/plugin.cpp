@@ -4,7 +4,7 @@
 #include <dmsdk/sdk.h>
 #include <defigma/shape_geometry.h>
 
-static std::vector<defigma::ShapeVertex> g_Vertices;
+static thread_local std::vector<defigma::ShapeVertex> g_Vertices;
 
 extern "C" DM_DLLEXPORT int DefigmaShape_Build(const char* shape, float radius_tl, float radius_tr, float radius_br, float radius_bl,
                                                const char* fills, const char* strokes, float stroke_width, const char* stroke_align,

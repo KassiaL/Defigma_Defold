@@ -1,0 +1,16 @@
+name: "leak_scene"
+scale_along_z: 0
+embedded_instances {
+  id: "runner"
+  data: "components {\n"
+  "  id: \"script\"\n"
+  "  component: \"/tests/leak_stress/leak_runner.script\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"screen\"\n"
+  "  type: \"collectionproxy\"\n"
+  "  data: \"collection: \\\"/tests/leak_stress/leak_screen.collection\\\"\\n"
+  "\"\n"
+  "}\n"
+  ""
+}

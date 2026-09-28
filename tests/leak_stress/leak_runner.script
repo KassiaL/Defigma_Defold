@@ -1,0 +1,62 @@
+local PROXY = "#screen"
+local GUI = msg.url("leak_screen", "/screen", "gui")
+local PROXY_LOADED = hash("proxy_loaded")
+local PROXY_UNLOADED = hash("proxy_unloaded")
+local CYCLE_DONE = hash("cycle_done")
+
+local function report(line)
+	io.stdout:write("LEAK|" .. line .. "\n")
+	io.stdout:flush()
+end
+
+local function resident_kb()
+	local statm = assert(io.open("/proc/self/statm"))
+	local _, resident = statm:read("*l"):match("(%d+) (%d+)")
+	statm:close()
+	return tonumber(resident) * 4
+end
+
+local function profiler_kb()
+	return sys.get_engine_info().is_debug and profiler.get_memory_usage() / 1024 or 0
+end
+
+local function memory_line(self)
+	collectgarbage("collect")
+	return string.format("%d|lua_kb=%.1f|mem_kb=%.0f|rss_kb=%d", self.cycle, collectgarbage("count"), profiler_kb(), resident_kb())
+end
+
+local function start_cycle(self)
+	self.cycle = self.cycle + 1
+	if self.cycle > self.cycles then
+		report("DONE")
+		if self.snapshot_exit then
+			os.exit(0)
+		end
+		sys.exit(0)
+		return
+	end
+	msg.post(PROXY, "async_load")
+end
+
+function init(self)
+	self.cycles = sys.get_config_int("leak.cycles", 40)
+	self.snapshot_exit = sys.get_config_int("leak.snapshot_exit", 0) == 1
+	self.cycle = 0
+	report("START|" .. memory_line(self))
+	start_cycle(self)
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == PROXY_LOADED then
+		msg.post(sender, "enable")
+		msg.post(GUI, "start_cycle", { cycle = self.cycle })
+	elseif message_id == CYCLE_DONE then
+		report("LOADED|" .. memory_line(self) .. "|shapes=" .. message.shapes .. "|layout_switches=" .. message.layout_switches)
+		msg.post(PROXY, "disable")
+		msg.post(PROXY, "final")
+		msg.post(PROXY, "unload")
+	elseif message_id == PROXY_UNLOADED then
+		report("CYCLE|" .. memory_line(self))
+		start_cycle(self)
+	end
+end

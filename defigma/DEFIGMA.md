@@ -211,11 +211,27 @@ properties, so it needs no `defigma_data` entry and no Lua:
 |---|---|---|
 | `shape` | string | `rect` (default), `ellipse` or `path` |
 | `corner_radius` | vector4 | top-left, top-right, bottom-right, bottom-left, Figma pixels |
-| `fills`, `strokes` | string | JSON array of paints: `{"type":"solid","color":[r,g,b,a]}` or `{"type":"linear"\|"radial","transform":[6],"stops":[[pos,r,g,b,a],...]}`; `transform` is the Figma `gradientTransform` |
+| `fills`, `strokes` | string | JSON array of paints: `{"type":"solid","color":[r,g,b,a]}` or `{"type":"linear"\|"radial","transform":[6],"stops":[[pos,r,g,b,a],...]}` with 1-64 stops; `transform` is the Figma `gradientTransform` |
 | `stroke_width`, `stroke_align` | number, string | `inside` (default), `center`, `outside` |
 | `effects` | string | JSON array: `{"type":"drop_shadow","offset":[x,y],"radius","spread","color","show_behind"}`, `{"type":"layer_blur","radius"}` |
-| `path` | string | `{"fill":{"polygons":[[x,y,...],...],"edges":[...]},"stroke":{...}}` in node pixels, Figma axes: convex pieces (at most 60 points) and the outline edges, which keep the filled side on the right |
-| `clip` | string | JSON `[x,y,...]`, the convex outline of the `Clip content` frame in node pixels, Figma axes; every piece of the node is cut by it (hard edge) |
+| `path` | string | `{"fill":{"polygons":[[x,y,...],...],"edges":[...]},"stroke":{...}}` in node pixels, Figma axes: convex pieces (the exporter writes at most 60 points, points past 96 are dropped) and the outline edges, which keep the filled side on the right |
+| `clip` | string | JSON `[x,y,...]`, the convex outline of the `Clip content` frame in node pixels, Figma axes; every piece of the node is cut by it (hard edge); points past 96 are dropped |
+
+A property value that is not valid JSON, nests deeper than 16 levels, holds a number outside the
+finite float range, misses a key or has an array shorter than its format (a color of fewer than 4
+numbers, a transform of fewer than 6, a stop of fewer than 5), or a gradient with more than 64 stops
+is rejected: the engine logs `DefigmaShape '<id>': invalid <property>` and keeps the paints or
+effects read before the bad entry, the editor preview draws nothing for the node. A node whose size
+is not a positive finite number builds no vertices.
+
+Memory: `tools/memcheck/run.sh` runs the geometry and the editor library on every exported node,
+a fuzzer and 8 concurrent threads under AddressSanitizer + UndefinedBehaviorSanitizer,
+ThreadSanitizer and valgrind (0 errors, all heap blocks freed). `tools/memcheck/engine_leak.py`
+runs the node in the engine: load/unload through a proxy, resize every frame, enable toggling,
+`gui.clone_tree` / `gui.delete_node` every 5 frames, layout switches. valgrind (headless engine):
+0 bytes definitely or indirectly lost, no report through the extension; heaptrack diff of 10 vs 40
+release cycles: nothing allocated through `dmDefigma` / `defigma::` stays alive, the growth is the
+NVIDIA driver (shader compilation on every proxy load) and the debug-build clone name table.
 
 ### How it renders
 
@@ -323,27 +339,59 @@ variant (fonts, the round flag mask and the task checks, which are runtime logic
 raster variant in the engine: current 0.21, bg_raster 1.43, vector 2.0 - antialiased edges and the
 blurred tile glints.
 
-Frame time, debug build, milliseconds, 1 layer static / 8 layers moving:
+Frame time, debug build, milliseconds, 1 layer static / 8 layers moving. The Redmi 9C (Helio G35,
+PowerVR GE8320, 3 GB, 720x1600, armeabi-v7a) is a phone on which the home screen already lags; its
+profile columns are for 1 static layer: GPU wait (`OpenGLFlip`), CPU of the GUI render pass
+(`RenderNodes`, of it `DefigmaShape` copying the cached vertices) and the vertex count the engine
+reports.
 
-| Variant | Desktop i5-12400F + RTX 4060, 432x920 |
-|---|---|
-| raster | 0.34 / 1.30 |
-| current | 0.37 / 1.52 |
-| current, plain | 0.37 / 1.46 |
-| bg raster | 0.54 / 3.12 |
-| bg raster, plain | 0.49 / 2.55 |
-| vector | 0.66 / 5.09 |
-| vector, plain | 0.60 / 3.65 |
+| Variant | Desktop i5-12400F + RTX 4060, 432x920 | Redmi 9C | GPU wait | RenderNodes / DefigmaShape | GUI vertices |
+|---|---|---|---|---|---|
+| raster | 0.34 / 1.30 | 23.9 / 150 | 9.1 | 1.09 / - | 312 |
+| current | 0.37 / 1.52 | 24.8 / 157 | 7.6 | 1.48 / 0.14 | 1 266 |
+| current, plain | 0.37 / 1.46 | 24.3 / 153 | 7.5 | 1.50 / 0.13 | 726 |
+| bg raster | 0.54 / 3.12 | 34.8 / 232 | 13.9 | 4.53 / 1.11 | 13 936 |
+| bg raster, plain | 0.49 / 2.55 | 28.3 / 184 | 9.5 | 3.57 / 0.95 | 8 347 |
+| vector | 0.66 / 5.09 | 67.6 / 499 | 33.5 | 9.23 / 2.22 | 23 383 |
+| vector, plain | 0.60 / 3.65 | 42.1 / 293 | 18.2 | 6.19 / 1.68 | 17 794 |
+
+On the weak phone even the raster screen runs at 41 fps (debug build, GPU-bound: full-screen
+background plus translucent panels). `current` costs the same as raster (+4%). Panels as shape
+nodes cost +18% without effects and +45% with their glows and shadows; the whole screen in vector
++76% / +183%. The extra time is both CPU (vertices: 1 ms of GUI work per ~3 000 vertices on this
+phone) and GPU (overdraw of stacked panel layers, blurs).
+
+### Panels: one light master, raster slice9 vs shape node
+
+`tests/panels_screen` isolates the cheapest real case: the `my_profile` background (image) and its
+five `panel_bg` / `panel_bg_small` panels (Figma 3260:43499), one rounded rectangle each with two
+linear fills (2 and 4 stops) and a 3 px linear stroke, 204-216 vertices per panel. Redmi 9C,
+milliseconds, 1 / 4 / 8 layers moving (1 layer static for the first column):
+
+| Variant | Frame time | GUI vertices |
+|---|---|---|
+| raster, slice9 atlas image | 5.6 / 8.3 / 12.9 | 228 |
+| shape nodes | 10.4 / 21.1 / 41.7 | 1 062 |
+| shape nodes, first fill only | 9.4 / 11.9 / 23.6 | 762 |
+| shape nodes, shader without the blur code | 10.6 / 21.1 / 41.6 | 1 062 |
+| both | 10.8 / 11.9 / 23.6 | 762 |
+
+The CPU part is small (0.4 ms of GUI work). The cost is GPU fill: every fill of a node is its own
+pass over the whole node area, so the second fill nearly doubles the time, and even one pass costs
+more than sampling the slice9 image. Removing the blur branches from the shader changes nothing, so
+the shader is not the limit. A large panel with several fills is cheaper as a raster image on weak
+GPUs; `panel_bg` already stretches correctly through slice9.
 
 ### Choosing raster or vector
 
 - **Keep as raster** whatever has image fills, background blur, blend modes, inner shadows, large
   glows or many stacked translucent layers: full-screen backgrounds, big decorated tiles and
   buttons, pack art. A baked image is one quad; the vector version is several blended layers.
-- **Use shape nodes where a raster is wrong or wasteful**: elements that stretch (panels resized
-  per layout, bars, pills, rings), progress bars and rings that change at run time, gradients that
+- **Use shape nodes where a raster is wrong or wasteful**: small elements that stretch in a way
+  slice9 cannot follow (bars, pills, rings), progress bars and rings that change at run time, gradients that
   would otherwise need the material path with Lua refresh, and simple shapes that repeat in many
-  sizes (each size would be another atlas image).
+  sizes (each size would be another atlas image). A large panel that slice9 can stretch stays a
+  raster image: its area, times the number of fills, is what the weak GPU pays for.
 - **Do not vectorize a whole screen.** A decorated panel becomes dozens of nodes and thousands of
   vertices, and on a weak GPU its overdraw and glows cost more than the atlas it replaces. The
   `current` variant - atlases plus shape nodes only for the native shapes - costs the same as full
@@ -355,7 +403,10 @@ Frame time, debug build, milliseconds, 1 layer static / 8 layers moving:
 
 `editor/src/defigma_shape.clj` registers the node type (Add > Defigma Shape), shows the properties
 and renders the preview with the real `shape.material`, getting the vertices from the editor
-library in `plugins/lib/<platform>/` through JNA. Resizing the node rebuilds the shape. After a
+library in `plugins/lib/<platform>/` through JNA: `DefigmaShape_Build` returns the vertex count and
+keeps the vertices in thread-local storage, `DefigmaShape_CopyVertices` copies them out, so both
+must be called on the same thread (the editor evaluates nodes on several threads at once). Resizing
+the node rebuilds the shape. After a
 change in `commonsrc/` or `pluginsrc/` rebuild the libraries for every desktop platform and copy
 them into `plugins/`:
 

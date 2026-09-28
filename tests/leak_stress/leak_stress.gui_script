@@ -1,0 +1,115 @@
+local ROOT = hash("root")
+local STRESS_LAYOUT = hash("stress")
+local DEFAULT_LAYOUT = hash("")
+local SCALES = { 1, 1.03, 0.97, 1.06 }
+local CLONE_PERIOD = 5
+local ENABLE_PERIOD = 3
+local LAYOUT_PERIOD = 50
+local SAMPLE_PERIOD = 100
+
+local function is_shape(node)
+	return gui.get_type(node) == gui.TYPE_CUSTOM
+end
+
+local function collect_shapes(nodes)
+	local shapes = {}
+	for _, node in pairs(nodes) do
+		if is_shape(node) then
+			shapes[#shapes + 1] = { node = node, size = gui.get_size(node) }
+		end
+	end
+	return shapes
+end
+
+local function original_nodes(root)
+	local clones = gui.clone_tree(root)
+	local nodes = {}
+	for id in pairs(clones) do
+		nodes[id] = gui.get_node(id)
+	end
+	gui.delete_node(clones[ROOT])
+	return nodes
+end
+
+local function resize(shapes, frame)
+	for i = 1, #shapes do
+		local shape = shapes[i]
+		gui.set_size(shape.node, shape.size * SCALES[(frame + i) % #SCALES + 1])
+	end
+end
+
+local function toggle(shapes, frame)
+	local enabled = frame % (ENABLE_PERIOD * 2) < ENABLE_PERIOD
+	for i = 2, #shapes, 2 do
+		gui.set_enabled(shapes[i].node, enabled)
+	end
+end
+
+local function replace_clone(self)
+	if self.clone_root then
+		gui.delete_node(self.clone_root)
+	end
+	local clones = gui.clone_tree(self.root)
+	self.clone_root = clones[ROOT]
+	self.clone_shapes = collect_shapes(clones)
+end
+
+local function report(self)
+	local profiler_kb = sys.get_engine_info().is_debug and profiler.get_memory_usage() / 1024 or 0
+	io.stdout:write(string.format("LEAK|FRAME|%d|%d|lua_kb=%.1f|mem_kb=%.0f\n", self.cycle, self.frame, collectgarbage("count"), profiler_kb))
+	io.stdout:flush()
+end
+
+function init(self)
+	self.root = gui.get_node(ROOT)
+	self.shapes = collect_shapes(original_nodes(self.root))
+	self.frames = sys.get_config_int("leak.frames", 300)
+	self.frame = 0
+	self.cycle = 0
+	self.layout_switches = 0
+	self.ops = {}
+	for op in sys.get_config_string("leak.ops", "size,clone,enable,layout"):gmatch("%a+") do
+		self.ops[op] = true
+	end
+end
+
+local function step(self)
+	if self.ops.size then
+		resize(self.shapes, self.frame)
+	end
+	if self.ops.enable then
+		toggle(self.shapes, self.frame)
+	end
+	if self.ops.clone and self.frame % CLONE_PERIOD == 1 then
+		replace_clone(self)
+	end
+	if self.ops.clone and self.ops.size then
+		resize(self.clone_shapes, self.frame + 1)
+	end
+	if self.ops.layout and self.frame % LAYOUT_PERIOD == 0 then
+		if gui.set_layout(gui.get_layout() == STRESS_LAYOUT and DEFAULT_LAYOUT or STRESS_LAYOUT) then
+			self.layout_switches = self.layout_switches + 1
+		end
+	end
+end
+
+function update(self, dt)
+	if not self.runner or self.frame >= self.frames then
+		return
+	end
+	self.frame = self.frame + 1
+	step(self)
+	if self.frame % SAMPLE_PERIOD == 0 then
+		report(self)
+	end
+	if self.frame == self.frames then
+		msg.post(self.runner, "cycle_done", { shapes = #self.shapes, layout_switches = self.layout_switches })
+	end
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("start_cycle") then
+		self.cycle = message.cycle
+		self.runner = sender
+	end
+end

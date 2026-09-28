@@ -16,6 +16,7 @@ sources in `~/figma_plugins/Defigma` (`DEFIGMA` to change).
 | `scenes/build_divisions_gold.js` | Builds `divisions_gold_shapes`: a copy of the draft battle division screen with atlas tiles detached. |
 | `scenes/build_bench_screen.js` | Builds the four `bench_*` store screen frames. |
 | `scenes/build_results_screen.js` | Copies the match result screen (4575:231281) into `results_raster`, `results_current`, `results_bg_raster`, `results_vector` on page `draft`: detaches templates, unlocks locked layers, drops hidden-export metadata; the raster copy replaces the native shapes with instances of components in the section `/tests/results_screen/results_extra.atlas`. |
+| `scenes/panels_screen.js` | Builds `panels_raster` / `panels_vector` on page `draft` (the `my_profile` background and its five visible panels) and exports both; the vector export marks the two panel masters and removes the markers in `finally`. |
 | `scenes/export_results_screen.js` | Adds `{"shape_nodes":true}` markers to the background and the 16 panel masters, exports the vector variant, removes the background marker, exports bg_raster, then removes every marker in `finally` and prints `markers_left` (must be `[]`), and exports current and raster. |
 
 A scenario that changes masters must restore them in `finally` and prove it (`markers_left`):
@@ -52,6 +53,49 @@ both (fonts, runtime logic) and leaves only the shape rendering.
 |---|---|
 | `extract_shapes.py <gui> <out.txt>` | Dumps every `DefigmaShape` node's properties and size. |
 | `vertex_count.cpp` | Builds the geometry of every dumped node with `commonsrc/shape_geometry.cpp` and prints vertices and build time per node and in total. Build: `g++ -O2 -std=c++17 -Idefigma/include tools/geometry/vertex_count.cpp defigma/commonsrc/shape_geometry.cpp -o vc`. |
+
+## `memcheck/` - memory safety of the shape code
+
+`memcheck.cpp` links `commonsrc/shape_geometry.cpp` and `pluginsrc/plugin.cpp` (`stub/dmsdk/sdk.h`
+stands in for the SDK) and drives them with dumps from `geometry/extract_shapes.py`:
+
+| Mode | What it does |
+|---|---|
+| `real <dump>...` | Builds every dumped node directly and through `DefigmaShape_Build` + `DefigmaShape_CopyVertices` into a buffer of exactly the returned size; fails if a node does not parse, the two results differ, or the vertices are not whole finite triangles. |
+| `dump <dump>...` | The same, printing vertex count and a hash of the vertex bytes per node: diff it before and after a geometry change to prove valid output did not move. |
+| `fuzz <iterations> <seed> <dump>...` | Edge cases (truncated and deeply nested JSON, missing keys, short arrays, 1 MB strings) in every JSON property, then random shapes (NaN / inf / negative / huge sizes, radii and stroke widths, up to 3000 stops, pieces and clips over 96 points, hundreds of edges) and byte-level mutations of the real nodes. |
+| `threads <threads> <rounds> <dump>...` | Calls the plugin API from several threads at once and compares every result with a single-threaded build. |
+
+`run.sh` extracts every `.gui` under `tests/` into `build/memcheck/shapes/`, builds three binaries
+into `build/memcheck/` and runs: `real`, `fuzz` and `threads` under AddressSanitizer +
+UndefinedBehaviorSanitizer (with `float-cast-overflow`, any report aborts), `threads` under
+ThreadSanitizer, and `real`, a shorter `fuzz` and `threads` under `valgrind --leak-check=full
+--error-exitcode=1`. It stops at the first failure and prints `memcheck: all passed` at the end.
+`ITERATIONS` (20000), `VALGRIND_ITERATIONS` (1500), `SEED` (1) and `THREADS` (8) override the
+defaults. About two minutes; it does not touch the Defold build.
+
+`engine_leak.py` runs `DefigmaShape` in the engine. `tests/leak_stress` is a copy of
+`results_vector.gui` (168 shape nodes, an empty `stress` layout added) behind a collection proxy;
+every cycle loads it, runs `leak.frames` frames and unloads it. Every frame it resizes all shape
+nodes (geometry rebuild), toggles every second one, every 5 frames deletes the previous
+`gui.clone_tree` copy of the whole screen and clones it again (resizing the copies too), every
+50 frames switches the layout with `gui.set_layout` (`SetNodeDesc` again on every node). After
+each load and unload it prints `LEAK|LOADED|` / `LEAK|CYCLE|<n>|lua_kb|mem_kb|rss_kb` (Lua after
+a full collect, `profiler.get_memory_usage()`, `/proc/self/statm`), then leaves with `sys.exit`.
+
+| Command | What it does |
+|---|---|
+| `build [--root DIR] [--variant debug\|headless\|release]` | Builds into `build/leak/default` and `build/leak/<variant>/x86_64-linux/dmengine`; `build/default` is left alone. |
+| `run [--variant V] [--cycles 40] [--frames 300] [--ops size,clone,enable,layout\|none]` | Runs and prints start, after warm-up (cycle 6), end and the least-squares slope per cycle of each memory column. `--ops` picks the stress operations, `none` only loads and unloads. |
+| `run ... --tool heaptrack\|valgrind [--snapshot-exit]` | Runs the unstripped engine under heaptrack (prints the summary and the leak backtraces through `dmDefigma` / `defigma::`) or `valgrind --leak-check=full` (use `--variant headless --cycles 3 --frames 60`: no GL driver, about 40 s). `--snapshot-exit` leaves with `os.exit`, so heaptrack counts everything alive after the last unload as leaked (static destructors still run). |
+
+`--root` builds and runs a copy of the project (`rsync -a --exclude=build --exclude=.git`), so a
+snapshot can be tested while the sources are being edited. Results on 1.13.1, 60 cycles x 300
+frames: release RSS +62 KB/cycle with every operation, +33 KB/cycle with `none`; debug +1.8 MB
+and +0.39 MB. The debug growth is the engine, not the extension: `dmGui::CloneNode` names every
+clone `__node<N>` and a debug build keeps each name in the reverse hash table, and the basic
+profiler allocates about 295 KB of thread data for every new resource load thread. heaptrack and
+valgrind find nothing left by the extension at exit.
 
 ## `bench/` - performance
 
