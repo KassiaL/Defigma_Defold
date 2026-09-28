@@ -1,10 +1,11 @@
 #version 140
 
 #include "/defigma/materials/linear_text.glsl"
+#include "/defigma/materials/text_shadow.glsl"
 
 in highp vec4 position;
 in mediump vec2 texcoord0;
-in mediump vec4 sdf_params;
+in highp vec4 sdf_params;
 in mediump vec4 face_color;
 in mediump vec4 outline_color;
 in mediump vec4 shadow_color;
@@ -12,28 +13,32 @@ in mediump vec3 layer_mask;
 
 out mediump vec2 var_texcoord0;
 out mediump vec4 var_face_color;
-out mediump vec4 var_outline_color;
 out mediump vec4 var_shadow_color;
 out mediump vec4 var_sdf_params;
 out mediump vec4 var_layer_mask;
 out highp vec2 var_gradient_pos;
+out highp vec3 var_shadow_blur;
 
 uniform vs_uniforms
 {
     highp mat4 view_proj;
     highp mat4 gradient_to_local;
     highp vec4 gradient_bounds;
+    highp vec4 text_shadow;
+    highp vec4 text_shadow2;
 };
 
 void main()
 {
+    highp float world_scale = text_world_scale(sdf_params);
     var_texcoord0 = texcoord0;
     var_face_color = vec4(face_color.xyz * face_color.w, face_color.w);
-    var_outline_color = vec4(outline_color.xyz * outline_color.w, outline_color.w);
-    var_shadow_color = vec4(shadow_color.xyz * shadow_color.w, shadow_color.w);
+    highp vec4 shadow = text_layer_shadow(layer_mask, text_shadow, text_shadow2);
+    var_shadow_color = text_layer_shadow_color(layer_mask, shadow_color, outline_color);
     var_sdf_params = sdf_params;
     var_layer_mask.rgb = layer_mask;
     var_layer_mask.a = layer_mask.r * layer_mask.g * layer_mask.b;
     var_gradient_pos = linear_text_gradient_position(position, gradient_to_local, gradient_bounds);
-    gl_Position = view_proj * vec4(position.x, position.y, position.z, 1.0);
+    var_shadow_blur = text_shadow_blur(sdf_params, world_scale, shadow.z);
+    gl_Position = view_proj * text_shadow_position(position, layer_mask, world_scale, shadow.xy);
 }
