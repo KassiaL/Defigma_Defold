@@ -1,0 +1,27 @@
+local bench = require("tests.bench_common.bench_gui")
+
+function init(self)
+	bench.init(self, "arcs_api")
+	local ring = gui.get_node("ring_round")
+	defigma_shape.set_arc(ring, -90, 25, 86.5)
+	defigma_shape.set_arc(gui.get_node("pie"), 100, 60, 40)
+	local start, sweep, ratio = defigma_shape.get_arc(ring)
+	print(string.format("ARCS|GET|%g|%g|%g", start, sweep, ratio))
+	local ok, message = pcall(defigma_shape.set_arc, gui.get_node("root"), 0, 50, 0)
+	print("ARCS|NOT_SHAPE|" .. tostring(not ok) .. "|" .. tostring(message))
+	local clone = gui.clone(ring)
+	print(string.format("ARCS|CLONE|%g|%g|%g", defigma_shape.get_arc(clone)))
+	gui.delete_node(clone)
+end
+
+function update(self, dt)
+	bench.update(self, dt)
+end
+
+function on_message(self, message_id, message, sender)
+	bench.on_message(self, message_id, message, sender)
+end
+
+function final(self)
+	bench.final(self)
+end

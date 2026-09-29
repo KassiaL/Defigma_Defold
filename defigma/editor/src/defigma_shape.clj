@@ -18,12 +18,13 @@
 (defn- native-function ^Function [name]
   (.getFunction ^NativeLibrary @native-library ^String name))
 
-(defn- build-vertices ^floats [shape corner-radius fills strokes stroke-width stroke-align effects path clip [width height]]
+(defn- build-vertices ^floats [shape corner-radius fills strokes stroke-width stroke-align effects path clip arc-start arc-sweep arc-ratio [width height]]
   (let [[tl tr br bl] corner-radius
         vertex-count (.invokeInt (native-function "DefigmaShape_Build")
                                  (object-array [shape (float tl) (float tr) (float br) (float bl)
                                                 fills strokes (float stroke-width) stroke-align
-                                                effects path clip (float width) (float height)]))]
+                                                effects path clip (float arc-start) (float arc-sweep) (float arc-ratio)
+                                                (float width) (float height)]))]
     (if (pos? vertex-count)
       (let [out (float-array (* vertex-count floats-per-vertex))]
         (.invoke (native-function "DefigmaShape_CopyVertices") Void (object-array [out]))
@@ -86,7 +87,7 @@
      [x1 y1 0.0] [x0 y1 0.0]
      [x0 y1 0.0] [x0 y0 0.0]]))
 
-(g/defnk produce-shape-node-msg [shape-base-node-msg ^:raw shape ^:raw corner-radius ^:raw fills ^:raw strokes ^:raw stroke-width ^:raw stroke-align ^:raw effects ^:raw path ^:raw clip]
+(g/defnk produce-shape-node-msg [shape-base-node-msg ^:raw shape ^:raw corner-radius ^:raw fills ^:raw strokes ^:raw stroke-width ^:raw stroke-align ^:raw effects ^:raw path ^:raw clip ^:raw arc-start ^:raw arc-sweep ^:raw arc-ratio]
   (assoc shape-base-node-msg
          :shape shape
          :corner-radius corner-radius
@@ -96,7 +97,10 @@
          :stroke-align stroke-align
          :effects effects
          :path path
-         :clip clip))
+         :clip clip
+         :arc-start arc-start
+         :arc-sweep arc-sweep
+         :arc-ratio arc-ratio))
 
 (g/defnode DefigmaShapeNode
   (inherits gui/ShapeNode)
@@ -155,16 +159,34 @@
             (dynamic label (g/constantly "Clip"))
             (value (gui/layout-property-getter clip))
             (set (gui/layout-property-setter clip)))
+  (property arc-start g/Num (default 0.0)
+            (static custom-property {:id "arc_start" :protobuf-type :type-number})
+            (dynamic edit-type (gui/layout-property-edit-type arc-start {:type g/Num}))
+            (dynamic label (g/constantly "Arc Start"))
+            (value (gui/layout-property-getter arc-start))
+            (set (gui/layout-property-setter arc-start)))
+  (property arc-sweep g/Num (default 100.0)
+            (static custom-property {:id "arc_sweep" :protobuf-type :type-number})
+            (dynamic edit-type (gui/layout-property-edit-type arc-sweep {:type g/Num}))
+            (dynamic label (g/constantly "Arc Sweep"))
+            (value (gui/layout-property-getter arc-sweep))
+            (set (gui/layout-property-setter arc-sweep)))
+  (property arc-ratio g/Num (default 0.0)
+            (static custom-property {:id "arc_ratio" :protobuf-type :type-number})
+            (dynamic edit-type (gui/layout-property-edit-type arc-ratio {:type g/Num}))
+            (dynamic label (g/constantly "Arc Ratio"))
+            (value (gui/layout-property-getter arc-ratio))
+            (set (gui/layout-property-setter arc-ratio)))
 
   (display-order (into gui/base-display-order
                        [:manual-size :enabled :visible :material :shape :corner-radius :fills :strokes :stroke-width :stroke-align
-                        :effects :path :clip :color :alpha :inherit-alpha :layer :blend-mode :pivot :x-anchor :y-anchor :adjust-mode
+                        :effects :path :clip :arc-start :arc-sweep :arc-ratio :color :alpha :inherit-alpha :layer :blend-mode :pivot :x-anchor :y-anchor :adjust-mode
                         :clipping :visible-clipper :inverted-clipper]))
 
   (output node-msg g/Any :cached produce-shape-node-msg)
   (output shape-vertices g/Any :cached
-          (g/fnk [shape corner-radius fills strokes stroke-width stroke-align effects path clip size]
-            (build-vertices shape corner-radius fills strokes stroke-width stroke-align effects path clip size)))
+          (g/fnk [shape corner-radius fills strokes stroke-width stroke-align effects path clip arc-start arc-sweep arc-ratio size]
+            (build-vertices shape corner-radius fills strokes stroke-width stroke-align effects path clip arc-start arc-sweep arc-ratio size)))
   (output scene-renderable-user-data g/Any :cached
           (g/fnk [pivot size color+alpha shape-vertices clipping-mode clipping-visible clipping-inverted]
             (let [offset (pivot-offset pivot size)]

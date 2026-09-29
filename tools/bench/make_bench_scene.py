@@ -1,7 +1,7 @@
 """Generate a benchmark scene for exported screen variants.
 
     python3 tools/bench/make_bench_scene.py tests/results_screen results_raster results_current ...
-        [--layers 1,2,4]
+        [--layers 1,2,4] [--display 1080x2300]
 
 For every variant <dir>/<variant>.gui it writes <variant>.gui_script (tests/bench_common/bench_gui.lua)
 and <variant>.collection, then bench_scene.collection with tests/bench_common/bench_runner.script
@@ -21,6 +21,11 @@ layers = [1, 4, 8]
 if "--layers" in args:
     index = args.index("--layers")
     layers = [int(v) for v in args[index + 1].split(",")]
+    del args[index:index + 2]
+display = "1080x2300"
+if "--display" in args:
+    index = args.index("--display")
+    display = args[index + 1]
     del args[index:index + 2]
 folder = args[0].rstrip("/")
 variants = args[1:]
@@ -69,8 +74,8 @@ SETTINGS = '''[bootstrap]
 main_collection = {folder}/bench_scene.collectionc
 
 [display]
-width = 1080
-height = 2300
+width = {width}
+height = {height}
 vsync = 0
 update_frequency = 0
 
@@ -109,5 +114,6 @@ scene = 'name: "bench_scene"\nscale_along_z: 0\nembedded_instances {\n  id: "run
 scene += "".join(PROXY.format(variant=v, folder=resource_folder) for v in variants)
 scene += '  ""\n}\n'
 write("bench_scene.collection", scene)
-write("bench_settings.ini", SETTINGS.format(folder=resource_folder))
-write("bench_settings_android.ini", SETTINGS.format(folder=resource_folder) + ASTC)
+width, height = display.split("x")
+write("bench_settings.ini", SETTINGS.format(folder=resource_folder, width=width, height=height))
+write("bench_settings_android.ini", SETTINGS.format(folder=resource_folder, width=width, height=height) + ASTC)

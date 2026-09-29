@@ -26,7 +26,13 @@ highp vec4 decode_params(highp float packed_value)
     highp float mode = mod(packed_data, 4.0) + mode_high;
     highp float data = floor(packed_data / 4.0);
     highp vec4 params = vec4(mode, 0.0, 0.0, 0.0);
-    if (mode > 0.5 && mode < 1.5)
+    if (mode < 0.5 && data > 0.5)
+    {
+        params.y = mod(floor(data / 2.0), 2.0) + 1.0;
+        params.z = mod(floor(data / 4.0), 1024.0) / 1023.0;
+        params.w = floor(data / 4096.0) / 1023.0;
+    }
+    else if (mode > 0.5 && mode < 1.5)
     {
         params.y = mod(data, 4096.0) / 4.0;
         params.z = floor(data / 4096.0) / 4.0;

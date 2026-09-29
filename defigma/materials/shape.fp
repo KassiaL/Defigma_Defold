@@ -114,20 +114,47 @@ mediump float ellipse_stroke(mediump vec2 uv, mediump vec2 axes, mediump float w
     return outer - inner;
 }
 
+mediump float arc_distance(mediump vec2 uv, mediump float kind, mediump float ratio, mediump float cap)
+{
+    mediump float half_width = 0.5 * (1.0 - ratio);
+    mediump float radius = length(uv);
+    mediump float distance = abs(radius - 1.0 + half_width) - half_width;
+    if (kind > 1.5)
+    {
+        return distance;
+    }
+    mediump float rounding = cap * half_width;
+    mediump float wedge = uv.y > 0.0 ? -uv.x : -radius;
+    mediump vec2 q = vec2(distance, wedge) + rounding;
+    return length(max(q, 0.0)) + min(max(q.x, q.y), 0.0) - rounding;
+}
+
+mediump float fill_coverage(mediump float distance)
+{
+    return clamp(0.5 - distance / max(length(vec2(dFdx(distance), dFdy(distance))), 1e-6), 0.0, 1.0);
+}
+
 void main()
 {
     mediump vec2 uv = var_uv;
-    mediump vec2 uv_dx = dFdx(uv);
-    mediump vec2 uv_dy = dFdy(uv);
     mediump float mode = var_params.x;
     mediump float alpha = 1.0;
 
     if (mode < 0.5)
     {
-        alpha = edge_coverage(uv.x, vec2(1.0, 0.0), uv_dx, uv_dy);
+        if (var_params.y > 0.5)
+        {
+            alpha = fill_coverage(arc_distance(uv, var_params.y, var_params.z, var_params.w));
+        }
+        else if (uv.x > -500.0)
+        {
+            alpha = edge_coverage(uv.x, vec2(1.0, 0.0), dFdx(uv), dFdy(uv));
+        }
     }
     else if (mode < 1.5)
     {
+        mediump vec2 uv_dx = dFdx(uv);
+        mediump vec2 uv_dy = dFdy(uv);
         mediump float distance = rrect_distance(uv, var_params.y);
         mediump vec2 gradient = rrect_gradient(uv);
         alpha = edge_coverage(distance, gradient, uv_dx, uv_dy);
@@ -139,7 +166,7 @@ void main()
     else if (mode < 2.5)
     {
         mediump float radius = max(length(uv), 1e-6);
-        alpha = edge_coverage(radius - 1.0, uv / radius, uv_dx, uv_dy);
+        alpha = edge_coverage(radius - 1.0, uv / radius, dFdx(uv), dFdy(uv));
     }
     else if (mode < 3.5)
     {
@@ -151,7 +178,7 @@ void main()
     }
     else
     {
-        alpha = ellipse_stroke(uv, var_params.yz, var_params.w, mode - 5.0, uv_dx, uv_dy);
+        alpha = ellipse_stroke(uv, var_params.yz, var_params.w, mode - 5.0, dFdx(uv), dFdy(uv));
     }
 
     mediump float coverage = clamp(alpha, 0.0, 1.0) * var_color.a * texture(texture_sampler, vec2(0.5)).a;

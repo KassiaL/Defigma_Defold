@@ -16,7 +16,7 @@ int main(int argc, char** argv)
     {
         std::string id = read_line(f);
         if (id.empty()) break;
-        std::string shape = read_line(f), radius = read_line(f), fills = read_line(f), strokes = read_line(f), width = read_line(f), align = read_line(f), effects = read_line(f), path = read_line(f), clip = read_line(f), size = read_line(f);
+        std::string shape = read_line(f), radius = read_line(f), fills = read_line(f), strokes = read_line(f), width = read_line(f), align = read_line(f), effects = read_line(f), path = read_line(f), clip = read_line(f), size = read_line(f), arc = read_line(f);
         defigma::ShapeDesc desc;
         defigma::ResetShapeDesc(desc);
         desc.kind = defigma::ParseShapeKind(shape.c_str());
@@ -28,6 +28,7 @@ int main(int argc, char** argv)
         defigma::ParseEffects(effects.c_str(), desc);
         defigma::ParsePath(path.c_str(), desc);
         defigma::ParseClip(clip.c_str(), desc);
+        sscanf(arc.c_str(), "%f %f %f", &desc.arc_start, &desc.arc_sweep, &desc.arc_ratio);
         float w, h; sscanf(size.c_str(), "%f %f", &w, &h);
         std::vector<defigma::ShapeVertex> out;
         auto t0 = std::chrono::high_resolution_clock::now();

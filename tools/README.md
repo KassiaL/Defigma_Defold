@@ -16,6 +16,7 @@ sources in `~/figma_plugins/Defigma` (`DEFIGMA` to change).
 | `scenes/build_divisions_gold.js` | Builds `divisions_gold_shapes`: a copy of the draft battle division screen with atlas tiles detached. |
 | `scenes/build_bench_screen.js` | Builds the four `bench_*` store screen frames. |
 | `scenes/build_results_screen.js` | Copies the match result screen (4575:231281) into `results_raster`, `results_current`, `results_bg_raster`, `results_vector` on page `draft`: detaches templates, unlocks locked layers, drops hidden-export metadata; the raster copy replaces the native shapes with instances of components in the section `/tests/results_screen/results_extra.atlas`. |
+| `scenes/arcs_test.js` | Builds `arcs_test` on page `draft` (round and square ends, pies, donut, partial corner radius, tiny and wide sweeps, elliptical and translucent arcs) and exports it as shape nodes. |
 | `scenes/panels_screen.js` | Builds `panels_raster` / `panels_vector` on page `draft` (the `my_profile` background and its five visible panels) and exports both; the vector export marks the two panel masters and removes the markers in `finally`. |
 | `scenes/export_results_screen.js` | Adds `{"shape_nodes":true}` markers to the background and the 16 panel masters, exports the vector variant, removes the background marker, exports bg_raster, then removes every marker in `finally` and prints `markers_left` (must be `[]`), and exports current and raster. |
 
@@ -101,7 +102,7 @@ valgrind find nothing left by the extension at exit.
 
 | Script | What it does |
 |---|---|
-| `make_bench_scene.py <dir> <variant>... [--layers 1,4,8]` | Generates the variant collections and scripts, `bench_scene.collection` with one collection proxy per variant, and `bench_settings.ini` / `bench_settings_android.ini` (ASTC 4x4 like Dexfut). |
+| `make_bench_scene.py <dir> <variant>... [--layers 1,4,8] [--display 1080x2300]` | Generates the variant collections and scripts, `bench_scene.collection` with one collection proxy per variant, and `bench_settings.ini` / `bench_settings_android.ini` (ASTC 4x4 like Dexfut); `--display` sets the window and GUI reference size (the exported frame size). |
 | `desktop.py build <settings>` | Builds the scene into `build/default` (debug engine). |
 | `desktop.py run [--size WxH] [--out file]` | Runs the benchmark: every variant, static and moving, 1/4/8 stacked layers; prints `BENCH|CASE|...` lines (avg, p95, p99 frame time measured in Lua with `socket.gettime`). |
 | `desktop.py shot <variant> <W>x<H> <out.png>` | Keeps one variant on screen and saves a screenshot at that window size. |

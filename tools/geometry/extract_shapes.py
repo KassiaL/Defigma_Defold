@@ -15,5 +15,5 @@ for n in t.split("\nnodes {")[1:]:
             props[pid] = re.search(r'number: ([\d.e-]+)', body).group(1)
         else:
             props[pid] = " ".join(re.findall(r'[xyzw]: ([\d.e-]+)', body))
-    out += [nid, props.get("shape", "rect"), props.get("corner_radius", "0 0 0 0"), props.get("fills", ""), props.get("strokes", ""), props.get("stroke_width", "0"), props.get("stroke_align", "inside"), props.get("effects", ""), props.get("path", ""), props.get("clip", ""), "%s %s" % size.groups()]
+    out += [nid, props.get("shape", "rect"), props.get("corner_radius", "0 0 0 0"), props.get("fills", ""), props.get("strokes", ""), props.get("stroke_width", "0"), props.get("stroke_align", "inside"), props.get("effects", ""), props.get("path", ""), props.get("clip", ""), "%s %s" % size.groups(), "%s %s %s" % (props.get("arc_start", "0"), props.get("arc_sweep", "100"), props.get("arc_ratio", "0"))]
 open(sys.argv[2], "w").write("\n".join(out) + "\n")

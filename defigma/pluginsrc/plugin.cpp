@@ -8,7 +8,8 @@ static thread_local std::vector<defigma::ShapeVertex> g_Vertices;
 
 extern "C" DM_DLLEXPORT int DefigmaShape_Build(const char* shape, float radius_tl, float radius_tr, float radius_br, float radius_bl,
                                                const char* fills, const char* strokes, float stroke_width, const char* stroke_align,
-                                               const char* effects, const char* path, const char* clip, float width, float height)
+                                               const char* effects, const char* path, const char* clip, float arc_start, float arc_sweep,
+                                               float arc_ratio, float width, float height)
 {
     defigma::ShapeDesc desc;
     defigma::ResetShapeDesc(desc);
@@ -19,6 +20,9 @@ extern "C" DM_DLLEXPORT int DefigmaShape_Build(const char* shape, float radius_t
     desc.corner_radius[3] = radius_bl;
     desc.stroke_width = stroke_width;
     desc.stroke_align = defigma::ParseStrokeAlign(stroke_align);
+    desc.arc_start = arc_start;
+    desc.arc_sweep = arc_sweep;
+    desc.arc_ratio = arc_ratio;
     if (!defigma::ParsePaints(fills, desc.fills) || !defigma::ParsePaints(strokes, desc.strokes) ||
         !defigma::ParseEffects(effects, desc) || !defigma::ParsePath(path, desc) || !defigma::ParseClip(clip, desc))
     {

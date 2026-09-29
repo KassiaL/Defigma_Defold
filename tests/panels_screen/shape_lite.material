@@ -1,8 +1,0 @@
-name: "shape_lite"
-tags: "gui"
-vertex_program: "/defigma/materials/shape.vp"
-fragment_program: "/tests/panels_screen/shape_lite.fp"
-vertex_constants {
-  name: "view_proj"
-  type: CONSTANT_TYPE_VIEWPROJ
-}

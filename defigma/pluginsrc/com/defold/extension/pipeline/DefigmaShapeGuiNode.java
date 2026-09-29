@@ -18,5 +18,8 @@ public class DefigmaShapeGuiNode implements IGuiCustomNode {
         type.addProperty("effects", "", PropertyType.TYPE_STRING, IGuiCustomType.EDIT_TYPE_DEFAULT);
         type.addProperty("path", "", PropertyType.TYPE_STRING, IGuiCustomType.EDIT_TYPE_DEFAULT);
         type.addProperty("clip", "", PropertyType.TYPE_STRING, IGuiCustomType.EDIT_TYPE_DEFAULT);
+        type.addProperty("arc_start", 0.0f, PropertyType.TYPE_NUMBER, IGuiCustomType.EDIT_TYPE_DEFAULT);
+        type.addProperty("arc_sweep", 100.0f, PropertyType.TYPE_NUMBER, IGuiCustomType.EDIT_TYPE_DEFAULT);
+        type.addProperty("arc_ratio", 0.0f, PropertyType.TYPE_NUMBER, IGuiCustomType.EDIT_TYPE_DEFAULT);
     }
 }

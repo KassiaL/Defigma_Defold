@@ -21,6 +21,7 @@ Script generation: `python/sync_defigma.py`, documented in `python/sync_defigma.
 | `commonsrc/`, `include/defigma/` | Shape geometry and property parsing, shared by the engine and the editor library. |
 | `pluginsrc/` | Editor library entry points (`DefigmaShape_Build`) and the bob plugin that registers the custom type. |
 | `plugins/` | Built editor libraries per platform and the bob plugin jar. |
+| `api/` | `defigma_shape` Lua API description: `.script_api` for the editor, `---@meta` file for LuaLS. |
 | `editor/src/defigma_shape.clj` | Editor node type: properties, save format and the preview. |
 
 ## The data node
@@ -215,6 +216,7 @@ properties, so it needs no `defigma_data` entry and no Lua:
 | `stroke_width`, `stroke_align` | number, string | `inside` (default), `center`, `outside` |
 | `effects` | string | JSON array: `{"type":"drop_shadow","offset":[x,y],"radius","spread","color","show_behind"}`, `{"type":"layer_blur","radius"}` |
 | `path` | string | `{"fill":{"polygons":[[x,y,...],...],"edges":[...]},"stroke":{...}}` in node pixels, Figma axes: convex pieces (the exporter writes at most 60 points, points past 96 are dropped) and the outline edges, which keep the filled side on the right |
+| `arc_start`, `arc_sweep`, `arc_ratio` | number | an ellipse arc with the Figma arc controls: start in degrees (clockwise from the right, as in Figma), sweep and ratio in percent; defaults 0 / 100 / 0 (a full ellipse). `corner_radius.x` rounds the arc corners like the Figma corner radius |
 | `clip` | string | JSON `[x,y,...]`, the convex outline of the `Clip content` frame in node pixels, Figma axes; every piece of the node is cut by it (hard edge); points past 96 are dropped |
 
 A property value that is not valid JSON, nests deeper than 16 levels, holds a number outside the
@@ -247,10 +249,50 @@ Everything a pixel needs travels in the standard GUI vertex:
   interpolated color is the gradient. The antialiasing fringe of a path is not cut.
 - `texcoord0` - the distance field coordinate: for a rounded rectangle the position folded into
   one quadrant minus the inner corner box, for an ellipse the position over the half size, for a
-  blur the same in units of sigma, for a path edge the signed distance to the edge.
+  blur the same in units of sigma, for a path edge the signed distance to the edge, for an arc the
+  position over the half size, turned so that the nearer arc end lies on the +y axis.
 - `page_index` - a packed integer: the mode (rounded rect, ellipse, their blurs, three ellipse
-  stroke alignments, path edge) and its constants (radius, stroke width, radius and inner box over
-  sigma, axis ratio). `shape.vp` decodes it.
+  stroke alignments, path edge or arc) and its constants (radius, stroke width, radius and inner box
+  over sigma, axis ratio, arc ratio and corner). `shape.vp` decodes it.
+
+The inside of a rounded rectangle or ellipse fill, away from its edge, is a separate flat piece:
+the fragment shader returns the vertex color there without any distance math or derivatives, so
+only the thin border band pays for the antialiasing.
+
+### Arcs
+
+An ellipse with `arc_sweep` below 100 or `arc_ratio` above 0 is an arc, exported from the Figma
+`arcData` and `cornerRadius` of the ellipse. It is drawn in two halves split at the middle of the
+sweep; each half is covered by ring sectors of at most 30 degrees plus the corner overhang and
+evaluates one analytic distance: the ring (inner radius = ratio, outer = 1 in half-size units)
+intersected with the half-plane of its own end, the corner rounded with the rounded-box formula.
+A progress ring is 60 vertices whatever the sweep, a full donut 96. Fills (solid, linear, radial)
+work; strokes, shadows and blur are ignored on an arc.
+
+Against the Figma export of `tests/arcs_test` (round and square ends, pies, a donut, partial corner
+radius, tiny and wide sweeps, an elliptical arc, translucent fill) the mean difference is 0.2/255.
+Two known differences: the corners of a non-circular arc are rounded in the ellipse's own scaled
+space (Figma rounds in pixels), and a partial corner radius on a thick arc rounds the inner corners
+a little less than Figma. A sweep shorter than the corner radius (a dot) is slightly flattened.
+
+### Lua API
+
+The extension registers the `defigma_shape` module (implemented in C++, `src/gui_node_shape.cpp`),
+callable from a gui_script on a `DefigmaShape` node:
+
+```lua
+defigma_shape.set_arc(node, start, sweep, ratio)          -- degrees, percent, percent
+local start, sweep, ratio = defigma_shape.get_arc(node)
+```
+
+`set_arc` replaces the node's arc (a full ellipse node becomes an arc) and rebuilds only that node's
+vertices on the next frame, so animating a progress ring every frame costs a few microseconds. The
+values are also written into the node's custom properties, so `gui.clone` / `gui.clone_tree`
+copies keep them; a layout change restores the values of the layout, like every other static
+property. Any other node raises `not a DefigmaShape node`. `tests/arcs_test/arcs_api.gui_script`
+exercises it. `api/defigma_shape.script_api` gives the editor completion, `api/defigma_shape.lua`
+the LuaLS annotations (`---@meta`).
+
 
 Antialiasing uses the screen derivatives of the distance (`GL_OES_standard_derivatives` on GLES2);
 the fragment shader is `mediump`. Blurs are Gaussian: sigma is `0.43 * radius` for shadows and layer
@@ -297,12 +339,13 @@ Vertex counts for a 300x120 rounded rectangle (`tools/geometry/vertex_count.cpp`
 
 | Operation | Vertices | Pixel cost | Use |
 |---|---|---|---|
-| solid fill, rect or rounded rect | 24 | 1x area, one distance | freely |
-| solid ellipse | 6 | 1x area | freely |
-| linear gradient | +8 per stop | same as solid | freely |
-| stroke on rect / ellipse (any alignment) | 48-96 (the hole is cut only when it is at least 32x32 px) | ring area | freely |
-| drop shadow, small radius (up to ~16) | ~200 (shape knocked out of the shadow) | (w + 6 sigma)(h + 6 sigma), 4-sample integral | a few per screen |
-| radial gradient | 190-290 (rings at the stops x 12-32 sectors) | same as solid | small shapes; not on dozens of instances |
+| solid fill, rect or rounded rect | 54 (flat inside + antialiased border band) | flat inside, distance only in the border band | freely |
+| solid ellipse | 30 | flat inscribed rectangle, distance around it | freely |
+| linear gradient | +12 per stop | same as solid | freely |
+| stroke on rect / ellipse (any alignment) | 48-126 (the hole is cut only when it is at least 32x32 px) | ring area | freely |
+| drop shadow, small radius (up to ~16) | ~180 (shape knocked out of the shadow) | (w + 6 sigma)(h + 6 sigma), 4-sample integral | a few per screen |
+| radial gradient | 330-430 (rings at the stops x 12-32 sectors) | same as solid | small shapes; not on dozens of instances |
+| arc (progress ring, pie, donut) | 60 for a ring of any sweep, 24 for a pie, 96 for a full donut | ring sector area | freely; animate with `defigma_shape.set_arc` |
 | `path` (vectors, boolean ops) | convex pieces + 2 per outline edge; curves flattened every 6 px | 1x area | icons with few points; a round-cap stroke of a small check mark is already ~360 |
 | `clip` (child crossing a `Clip content` frame) | every piece cut by the outline | - | fine; hard edge |
 | large drop shadow / glow (radius 24+) | ~200 | a quad of (w + 6 sigma)(h + 6 sigma), 4-sample integral | avoid on big nodes; bake into the image |
@@ -376,10 +419,20 @@ milliseconds, 1 / 4 / 8 layers moving (1 layer static for the first column):
 | shape nodes, shader without the blur code | 10.6 / 21.1 / 41.6 | 1 062 |
 | both | 10.8 / 11.9 / 23.6 | 762 |
 
+After the flat interior (the inside of a fill skips the distance math, see *How it renders*), in a
+new run of the same phone (runs differ by up to 30%, compare within one run):
+
+| Variant | Frame time |
+|---|---|
+| raster, slice9 atlas image | 6.8 / 10.9 / 16.3 |
+| shape nodes | 10.9 / 16.2 / 31.1 |
+| shape nodes, first fill only | 8.8 / 13.3 / 18.8 |
+
 The CPU part is small (0.4 ms of GUI work). The cost is GPU fill: every fill of a node is its own
-pass over the whole node area, so the second fill nearly doubles the time, and even one pass costs
-more than sampling the slice9 image. Removing the blur branches from the shader changes nothing, so
-the shader is not the limit. A large panel with several fills is cheaper as a raster image on weak
+pass over the whole node area, so the second fill nearly doubles the time. Removing the blur
+branches changed nothing, but computing the distance and its screen derivatives for every pixel did
+cost: with the flat interior one fill is within 16% of the slice9 image at 8 layers (was 1.8x), and
+two fills 1.9x (was 3.2x). A large panel with several fills is cheaper as a raster image on weak
 GPUs; `panel_bg` already stretches correctly through slice9.
 
 ### Choosing raster or vector

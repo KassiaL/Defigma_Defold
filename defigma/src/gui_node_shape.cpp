@@ -1,6 +1,7 @@
 #include <string.h>
 #include <memory>
 
+#include <assert.h>
 #include <dmsdk/dlib/buffer.h>
 #include <dmsdk/dlib/hash.h>
 #include <dmsdk/dlib/log.h>
@@ -8,6 +9,7 @@
 #include <dmsdk/gameobject/gameobject.h>
 #include <dmsdk/gamesys/gui.h>
 #include <dmsdk/gui/gui.h>
+#include <dmsdk/script/script.h>
 
 #include <defigma/shape_geometry.h>
 
@@ -22,6 +24,9 @@ namespace dmDefigma
     static const dmhash_t PROPERTY_EFFECTS       = dmHashString64("effects");
     static const dmhash_t PROPERTY_PATH          = dmHashString64("path");
     static const dmhash_t PROPERTY_CLIP          = dmHashString64("clip");
+    static const dmhash_t PROPERTY_ARC_START     = dmHashString64("arc_start");
+    static const dmhash_t PROPERTY_ARC_SWEEP     = dmHashString64("arc_sweep");
+    static const dmhash_t PROPERTY_ARC_RATIO     = dmHashString64("arc_ratio");
 
     typedef std::vector<defigma::ShapeVertex> ShapeVertices;
 
@@ -41,12 +46,20 @@ namespace dmDefigma
         return property.m_String;
     }
 
-    static float GetNumberProperty(dmGui::HScene scene, dmGui::HNode node, dmhash_t key)
+    static float GetNumberProperty(dmGui::HScene scene, dmGui::HNode node, dmhash_t key, float fallback)
     {
         dmGui::CustomProperty property;
         if (dmGui::GetNodeCustomProperty(scene, node, key, &property) != dmGui::RESULT_OK || property.m_Type != dmGui::CUSTOM_PROPERTY_TYPE_NUMBER)
-            return 0.0f;
+            return fallback;
         return property.m_Number;
+    }
+
+    static void SetNumberProperty(dmGui::HScene scene, dmGui::HNode node, dmhash_t key, float value)
+    {
+        dmGui::CustomProperty property;
+        property.m_Type = dmGui::CUSTOM_PROPERTY_TYPE_NUMBER;
+        property.m_Number = value;
+        dmGui::SetNodeCustomProperty(scene, node, key, &property);
     }
 
     static dmVMath::Vector4 GetVector4Property(dmGui::HScene scene, dmGui::HNode node, dmhash_t key)
@@ -67,7 +80,10 @@ namespace dmDefigma
         desc->corner_radius[1] = radius.getY();
         desc->corner_radius[2] = radius.getZ();
         desc->corner_radius[3] = radius.getW();
-        desc->stroke_width = GetNumberProperty(scene, node, PROPERTY_STROKE_WIDTH);
+        desc->stroke_width = GetNumberProperty(scene, node, PROPERTY_STROKE_WIDTH, 0.0f);
+        desc->arc_start = GetNumberProperty(scene, node, PROPERTY_ARC_START, desc->arc_start);
+        desc->arc_sweep = GetNumberProperty(scene, node, PROPERTY_ARC_SWEEP, desc->arc_sweep);
+        desc->arc_ratio = GetNumberProperty(scene, node, PROPERTY_ARC_RATIO, desc->arc_ratio);
         desc->stroke_align = defigma::ParseStrokeAlign(GetStringProperty(scene, node, PROPERTY_STROKE_ALIGN));
         if (!defigma::ParsePaints(GetStringProperty(scene, node, PROPERTY_FILLS), desc->fills))
             dmLogError("DefigmaShape '%s': invalid fills", node_id);
@@ -85,8 +101,11 @@ namespace dmDefigma
         shape->m_BuiltHeight = -1.0f;
     }
 
+    static uint32_t g_CustomType = 0;
+
     static void* GuiCreate(const dmGameSystem::CompGuiNodeContext* ctx, void* context, dmGui::HScene scene, dmGui::HNode node, uint32_t custom_type)
     {
+        g_CustomType = custom_type;
         ShapeNode* shape = new ShapeNode();
         std::shared_ptr<defigma::ShapeDesc> desc = std::make_shared<defigma::ShapeDesc>();
         defigma::ResetShapeDesc(*desc);
@@ -141,6 +160,60 @@ namespace dmDefigma
 
     static void GuiUpdate(const dmGameSystem::CustomNodeCtx* nodectx, float dt)
     {
+    }
+
+    static ShapeNode* CheckShapeNode(lua_State* L, dmGui::HScene* out_scene, dmGui::HNode* out_node)
+    {
+        dmGui::HScene scene = dmGui::LuaCheckScene(L);
+        dmGui::HNode node = dmGui::LuaCheckNode(L, 1);
+        if (g_CustomType == 0 || dmGui::GetNodeCustomType(scene, node) != g_CustomType)
+            luaL_argerror(L, 1, "not a DefigmaShape node");
+        *out_scene = scene;
+        *out_node = node;
+        return (ShapeNode*)dmGui::GetNodeCustomData(scene, node);
+    }
+
+    static int LuaSetArc(lua_State* L)
+    {
+        dmGui::HScene scene;
+        dmGui::HNode node;
+        ShapeNode* shape = CheckShapeNode(L, &scene, &node);
+        std::shared_ptr<defigma::ShapeDesc> desc = std::make_shared<defigma::ShapeDesc>(*shape->m_Desc);
+        desc->arc_start = (float)luaL_checknumber(L, 2);
+        desc->arc_sweep = (float)luaL_checknumber(L, 3);
+        desc->arc_ratio = (float)luaL_checknumber(L, 4);
+        SetNumberProperty(scene, node, PROPERTY_ARC_START, desc->arc_start);
+        SetNumberProperty(scene, node, PROPERTY_ARC_SWEEP, desc->arc_sweep);
+        SetNumberProperty(scene, node, PROPERTY_ARC_RATIO, desc->arc_ratio);
+        shape->m_Desc = desc;
+        shape->m_Vertices.reset();
+        return 0;
+    }
+
+    static int LuaGetArc(lua_State* L)
+    {
+        dmGui::HScene scene;
+        dmGui::HNode node;
+        const defigma::ShapeDesc& desc = *CheckShapeNode(L, &scene, &node)->m_Desc;
+        lua_pushnumber(L, desc.arc_start);
+        lua_pushnumber(L, desc.arc_sweep);
+        lua_pushnumber(L, desc.arc_ratio);
+        return 3;
+    }
+
+    static const luaL_reg LUA_FUNCTIONS[] =
+    {
+        { "set_arc", LuaSetArc },
+        { "get_arc", LuaGetArc },
+        { 0, 0 }
+    };
+
+    void RegisterLuaApi(lua_State* L)
+    {
+        int top = lua_gettop(L);
+        luaL_register(L, "defigma_shape", LUA_FUNCTIONS);
+        lua_pop(L, 1);
+        assert(top == lua_gettop(L));
     }
 
     static dmGameObject::Result GuiNodeTypeCreate(const dmGameSystem::CompGuiNodeTypeCtx* ctx, dmGameSystem::CompGuiNodeType* type)

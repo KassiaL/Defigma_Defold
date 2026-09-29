@@ -16,7 +16,8 @@
 
 extern "C" int DefigmaShape_Build(const char* shape, float radius_tl, float radius_tr, float radius_br, float radius_bl,
                                   const char* fills, const char* strokes, float stroke_width, const char* stroke_align,
-                                  const char* effects, const char* path, const char* clip, float width, float height);
+                                  const char* effects, const char* path, const char* clip, float arc_start, float arc_sweep,
+                                  float arc_ratio, float width, float height);
 extern "C" void DefigmaShape_CopyVertices(float* out);
 
 static const size_t FLOATS_PER_VERTEX = sizeof(defigma::ShapeVertex) / sizeof(float);
@@ -33,6 +34,7 @@ struct ShapeInput
     std::string effects;
     std::string path;
     std::string clip;
+    float       arc[3];
     float       width;
     float       height;
 };
@@ -60,12 +62,12 @@ static void ReadDump(const char* path, std::vector<ShapeInput>& shapes)
         fprintf(stderr, "cannot open %s\n", path);
         exit(2);
     }
-    std::string lines[11];
+    std::string lines[12];
     for (;;)
     {
         if (!ReadLine(file, lines[0]) || lines[0].empty())
             break;
-        for (int i = 1; i < 11; ++i)
+        for (int i = 1; i < 12; ++i)
             ReadLine(file, lines[i]);
         ShapeInput input;
         input.id = lines[0];
@@ -79,6 +81,7 @@ static void ReadDump(const char* path, std::vector<ShapeInput>& shapes)
         input.path = lines[8];
         input.clip = lines[9];
         sscanf(lines[10].c_str(), "%f %f", &input.width, &input.height);
+        sscanf(lines[11].c_str(), "%f %f %f", &input.arc[0], &input.arc[1], &input.arc[2]);
         shapes.push_back(input);
     }
     fclose(file);
@@ -98,7 +101,8 @@ static BuildResult BuildThroughPlugin(const ShapeInput& input)
     BuildResult result;
     result.count = DefigmaShape_Build(input.shape.c_str(), input.radius[0], input.radius[1], input.radius[2], input.radius[3],
                                       input.fills.c_str(), input.strokes.c_str(), input.stroke_width, input.stroke_align.c_str(),
-                                      input.effects.c_str(), input.path.c_str(), input.clip.c_str(), input.width, input.height);
+                                      input.effects.c_str(), input.path.c_str(), input.clip.c_str(), input.arc[0], input.arc[1], input.arc[2],
+                                      input.width, input.height);
     result.hash = 0;
     if (result.count <= 0)
         return result;
@@ -117,6 +121,9 @@ static bool ParseDesc(const ShapeInput& input, defigma::ShapeDesc& desc)
         desc.corner_radius[i] = input.radius[i];
     desc.stroke_width = input.stroke_width;
     desc.stroke_align = defigma::ParseStrokeAlign(input.stroke_align.c_str());
+    desc.arc_start = input.arc[0];
+    desc.arc_sweep = input.arc[1];
+    desc.arc_ratio = input.arc[2];
     bool fills = defigma::ParsePaints(input.fills.c_str(), desc.fills);
     bool strokes = defigma::ParsePaints(input.strokes.c_str(), desc.strokes);
     bool effects = defigma::ParseEffects(input.effects.c_str(), desc);
@@ -499,6 +506,9 @@ struct Fuzzer
         input.effects = Text(Effects());
         input.path = input.shape == "path" || Chance(10) ? Text(Path(input.width, input.height)) : std::string();
         input.clip = Chance(40) ? Text(Clip(input.width, input.height)) : std::string();
+        input.arc[0] = Chance(80) ? Uniform(-720.0f, 720.0f) : SpecialFloat();
+        input.arc[1] = Chance(30) ? 100.0f : (Chance(80) ? Uniform(-10.0f, 110.0f) : SpecialFloat());
+        input.arc[2] = Chance(40) ? 0.0f : (Chance(80) ? Uniform(-10.0f, 110.0f) : SpecialFloat());
         return input;
     }
 

@@ -1,4 +1,4 @@
-local VARIANTS = { "panels_raster", "panels_vector", "panels_vector_onefill", "panels_vector_lite", "panels_vector_lite_onefill" }
+local VARIANTS = { "panels_raster", "panels_vector", "panels_vector_onefill" }
 local CASES = {
 	{ layers = 1, moving = false },
 	{ layers = 1, moving = true },

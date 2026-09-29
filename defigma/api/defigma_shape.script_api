@@ -1,0 +1,34 @@
+- name: defigma_shape
+  type: table
+  desc: DefigmaShape custom GUI node functions (native, call from a gui_script)
+  members:
+  - name: set_arc
+    type: function
+    desc: Sets the Figma arc of a DefigmaShape ellipse node and rebuilds its vertices on the next frame.
+    parameters:
+    - name: node
+      type: node
+      desc: DefigmaShape node
+    - name: start
+      type: number
+      desc: arc start in degrees, clockwise from the right (Figma Start)
+    - name: sweep
+      type: number
+      desc: sweep in percent, 0-100 (Figma Sweep)
+    - name: ratio
+      type: number
+      desc: inner radius in percent of the outer radius, 0-100 (Figma Ratio)
+  - name: get_arc
+    type: function
+    desc: Returns the arc of a DefigmaShape node.
+    parameters:
+    - name: node
+      type: node
+      desc: DefigmaShape node
+    returns:
+    - name: start
+      type: number
+    - name: sweep
+      type: number
+    - name: ratio
+      type: number

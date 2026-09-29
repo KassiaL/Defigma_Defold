@@ -1,0 +1,17 @@
+local bench = require("tests.bench_common.bench_gui")
+
+function init(self)
+	bench.init(self, "arcs_test")
+end
+
+function update(self, dt)
+	bench.update(self, dt)
+end
+
+function on_message(self, message_id, message, sender)
+	bench.on_message(self, message_id, message, sender)
+end
+
+function final(self)
+	bench.final(self)
+end

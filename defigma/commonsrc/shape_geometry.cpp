@@ -23,6 +23,8 @@ namespace defigma
     static const int   HOLE_CORNER_SEGMENTS = 2;
     static const int   HOLE_SECTORS     = 12;
     static const float MIN_HOLE_AREA    = 1024.0f;
+    static const float ARC_SEGMENT      = (float)(PI / 6.0);
+    static const float SQRT_HALF        = 0.70710678f;
     static const float KNOCKOUT_INSET   = 1.0f;
     static const int   MAX_JSON_DEPTH   = 16;
     static const size_t MAX_GRADIENT_STOPS = 64;
@@ -330,6 +332,9 @@ namespace defigma
         desc.stroke_path.polygons.clear();
         desc.stroke_path.edges.clear();
         desc.clip.clear();
+        desc.arc_start = 0.0f;
+        desc.arc_sweep = 100.0f;
+        desc.arc_ratio = 0.0f;
     }
 
     static void ReadNumbers(const JsonValue* value, std::vector<float>& out)
@@ -1079,6 +1084,144 @@ namespace defigma
         EmitPieces(builder, primitive, paint, pieces);
     }
 
+    static bool IsArc(const ShapeDesc& desc)
+    {
+        return desc.kind == SHAPE_ELLIPSE && (desc.arc_sweep < 100.0f || desc.arc_ratio > 0.0f);
+    }
+
+    static Vec2 ArcPoint(const Outline& shape, float angle, float radius)
+    {
+        Vec2 p = { shape.center_x + shape.half_x * radius * cosf(angle), shape.center_y - shape.half_y * radius * sinf(angle) };
+        return p;
+    }
+
+    static void ArcCells(const Outline& shape, float from, float to, float inner, float outer, std::vector<Poly>& pieces)
+    {
+        int segments = (int)fmaxf(ceilf((to - from) / ARC_SEGMENT), 1.0f);
+        float step = (to - from) / (float)segments;
+        float grown = outer / cosf(step * 0.5f);
+        for (int s = 0; s < segments; ++s)
+        {
+            float a0 = from + step * (float)s;
+            float a1 = a0 + step;
+            Poly cell;
+            cell.count = 0;
+            if (inner > 0.0f)
+            {
+                cell.points[cell.count++] = ArcPoint(shape, a0, inner);
+                cell.points[cell.count++] = ArcPoint(shape, a1, inner);
+            }
+            else
+                cell.points[cell.count++] = ArcPoint(shape, a0, 0.0f);
+            cell.points[cell.count++] = ArcPoint(shape, a1, grown);
+            cell.points[cell.count++] = ArcPoint(shape, a0, grown);
+            pieces.push_back(cell);
+        }
+    }
+
+    static void ArcFrame(const Outline& shape, float angle, bool mirror, float page, Primitive& primitive)
+    {
+        float rotation = (float)(0.5 * PI) + angle;
+        float c = cosf(rotation);
+        float s = sinf(rotation);
+        float m = mirror ? -1.0f : 1.0f;
+        float ix = 1.0f / shape.half_x;
+        float iy = 1.0f / shape.half_y;
+        primitive.folded = false;
+        primitive.center_x = shape.center_x;
+        primitive.center_y = shape.center_y;
+        primitive.uv_x.a = m * c * ix;
+        primitive.uv_x.b = -m * s * iy;
+        primitive.uv_x.c = -m * (c * shape.center_x * ix - s * shape.center_y * iy);
+        primitive.uv_y.a = s * ix;
+        primitive.uv_y.b = c * iy;
+        primitive.uv_y.c = -(s * shape.center_x * ix + c * shape.center_y * iy);
+        UniformPage(primitive, page);
+    }
+
+    static void BuildArc(const Builder& builder, const ShapeDesc& desc, const Outline& shape, const Paint& paint)
+    {
+        float ratio = fminf(fmaxf(desc.arc_ratio, 0.0f), 100.0f) * 0.01f;
+        float sweep = fminf(fmaxf(desc.arc_sweep, 0.0f), 100.0f) * 0.01f * (float)(2.0 * PI);
+        float start = fmodf(desc.arc_start, 360.0f) * (float)(PI / 180.0);
+        float minor = fminf(shape.half_x, shape.half_y);
+        if (ratio >= 1.0f || !(minor > 0.0f) || !isfinite(start))
+            return;
+        float half_width = 0.5f * (1.0f - ratio);
+        float cap = fminf(fmaxf(desc.corner_radius[0], 0.0f) / minor, half_width);
+        float margin = AA_MARGIN / minor;
+        float inner = ratio - margin;
+        float outer = 1.0f + margin;
+        bool full = sweep >= (float)(2.0 * PI);
+        uint32_t data = 1u | ((full ? 1u : 0u) << 1) | (Quantize(ratio, 1023.0f, 1023) << 2) | (Quantize(cap / half_width, 1023.0f, 1023) << 12);
+        float page = PackPage(MODE_EDGE, data);
+        Primitive primitive;
+        std::vector<Poly> pieces;
+        if (full)
+        {
+            ArcFrame(shape, 0.0f, false, page, primitive);
+            ArcCells(shape, 0.0f, (float)(2.0 * PI), inner, outer, pieces);
+            EmitPieces(builder, primitive, paint, pieces);
+            return;
+        }
+        float reach = cap + margin;
+        float overhang = fminf((float)(0.5 * PI), reach / fmaxf(ratio, reach));
+        float middle = start + sweep * 0.5f;
+        ArcFrame(shape, start, false, page, primitive);
+        ArcCells(shape, start - overhang, middle, inner, outer, pieces);
+        EmitPieces(builder, primitive, paint, pieces);
+        pieces.clear();
+        ArcFrame(shape, start + sweep, true, page, primitive);
+        ArcCells(shape, middle, start + sweep + overhang, inner, outer, pieces);
+        EmitPieces(builder, primitive, paint, pieces);
+    }
+
+    static const float PATH_INTERIOR = -1000.0f;
+
+    static void EdgePrimitive(Primitive& primitive, float a, float b, float c)
+    {
+        primitive.folded = false;
+        primitive.center_x = 0.0f;
+        primitive.center_y = 0.0f;
+        primitive.uv_x.a = a;
+        primitive.uv_x.b = b;
+        primitive.uv_x.c = c;
+        primitive.uv_y.a = 0.0f;
+        primitive.uv_y.b = 0.0f;
+        primitive.uv_y.c = 0.0f;
+        UniformPage(primitive, PackPage(MODE_EDGE, 0));
+    }
+
+    static void EmitFlat(const Builder& builder, const Paint& paint, const Poly& interior)
+    {
+        Primitive primitive;
+        EdgePrimitive(primitive, 0.0f, 0.0f, PATH_INTERIOR);
+        std::vector<Poly> pieces(1, interior);
+        EmitPieces(builder, primitive, paint, pieces);
+    }
+
+    static void FilledInterior(const ShapeDesc& desc, const Outline& shape, Poly& interior)
+    {
+        interior.count = 0;
+        float inset_x, inset_y;
+        if (desc.kind == SHAPE_ELLIPSE)
+        {
+            inset_x = shape.half_x * (1.0f - SQRT_HALF) + AA_MARGIN;
+            inset_y = shape.half_y * (1.0f - SQRT_HALF) + AA_MARGIN;
+        }
+        else
+        {
+            float radius = fmaxf(fmaxf(shape.radius[0], shape.radius[1]), fmaxf(shape.radius[2], shape.radius[3]));
+            inset_x = radius + AA_MARGIN;
+            inset_y = radius + AA_MARGIN;
+        }
+        float half_x = shape.half_x - inset_x;
+        float half_y = shape.half_y - inset_y;
+        if (4.0f * half_x * half_y < MIN_HOLE_AREA || half_x <= 0.0f || half_y <= 0.0f)
+            return;
+        MakeRect(shape.center_x - half_x, shape.center_y - half_y, shape.center_x + half_x, shape.center_y + half_y, interior);
+    }
+
     static void BuildFill(const Builder& builder, const ShapeDesc& desc, const Outline& shape, const Paint& paint)
     {
         std::vector<Poly> pieces;
@@ -1095,7 +1238,15 @@ namespace defigma
                 EllipsePrimitive(shape, primitive);
             else
                 RRectPrimitive(shape, 0.0f, primitive);
-            CoverRect(shape, AA_MARGIN, pieces);
+            Poly interior;
+            FilledInterior(desc, shape, interior);
+            if (IsUsable(interior))
+            {
+                CoverRing(shape, AA_MARGIN, interior, pieces);
+                EmitFlat(builder, paint, interior);
+            }
+            else
+                CoverRect(shape, AA_MARGIN, pieces);
         }
         EmitPieces(builder, primitive, paint, pieces);
     }
@@ -1126,7 +1277,6 @@ namespace defigma
         EmitPieces(builder, primitive, paint, pieces);
     }
 
-    static const float PATH_INTERIOR = -1000.0f;
 
     static Vec2 PathPoint(const Builder& builder, const std::vector<float>& values, size_t index)
     {
@@ -1141,20 +1291,6 @@ namespace defigma
         float length = sqrtf(dx * dx + dy * dy);
         Vec2 n = { dy / length, -dx / length };
         return n;
-    }
-
-    static void EdgePrimitive(Primitive& primitive, float a, float b, float c)
-    {
-        primitive.folded = false;
-        primitive.center_x = 0.0f;
-        primitive.center_y = 0.0f;
-        primitive.uv_x.a = a;
-        primitive.uv_x.b = b;
-        primitive.uv_x.c = c;
-        primitive.uv_y.a = 0.0f;
-        primitive.uv_y.b = 0.0f;
-        primitive.uv_y.c = 0.0f;
-        UniformPage(primitive, PackPage(MODE_EDGE, 0));
     }
 
     static void EmitPolygon(const Builder& builder, const Primitive& primitive, const Paint& paint, const Vec2* points, int count, bool split_paint)
@@ -1275,6 +1411,12 @@ namespace defigma
         }
 
         Outline shape = ShapeOutline(desc, width, height);
+        if (IsArc(desc))
+        {
+            for (size_t i = 0; i < desc.fills.size(); ++i)
+                BuildArc(builder, desc, shape, desc.fills[i]);
+            return;
+        }
 
         for (size_t i = 0; i < desc.shadows.size(); ++i)
             BuildShadow(builder, desc, shape, desc.shadows[i]);

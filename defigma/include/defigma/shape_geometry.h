@@ -74,6 +74,9 @@ namespace defigma
         PathGeometry            fill_path;
         PathGeometry            stroke_path;
         std::vector<float>      clip;
+        float                   arc_start;
+        float                   arc_sweep;
+        float                   arc_ratio;
     };
 
     struct ShapeVertex

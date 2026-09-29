@@ -1,0 +1,10 @@
+name: "arcs_test"
+scale_along_z: 0
+embedded_instances {
+  id: "screen"
+  data: "components {\n"
+  "  id: \"gui\"\n"
+  "  component: \"/tests/arcs_test/arcs_test.gui\"\n"
+  "}\n"
+  ""
+}
