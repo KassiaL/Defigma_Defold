@@ -533,8 +533,8 @@ which the home screen already lags). Tools: `tools/` (see `tools/README.md`).
   Android). The shader needs screen derivatives (`GL_OES_standard_derivatives` on GLES2): after a
   shader change build for `arm64-android` and read the `SHADERC` lines.
 - **Data format.** The runtime reads the shape properties and the text gradient data from the `.gui`.
-  A change of either format means exporting every `.gui` again from Figma
-  (`tools/automation/defigma_export_all.py` in Dexfut); a `.gui` from before the migration that
+  A change of either format means exporting every `.gui` again from Figma; a `.gui` from before
+  the migration that
   still names the removed `linear` / `radial` / `drop_shadow` materials does not load. Every
   `TYPE_CUSTOM` override (a template child recolored by an instance, a layout override) must
   carry `custom_type`: bob and the engine take the type from the template and build it, but the
@@ -542,9 +542,11 @@ which the home screen already lags). Tools: `tools/` (see `tools/README.md`).
   `.gui`. Open the project in the editor after an export, a green bob build does not prove it.
 - **Editor.** The editor loads the libraries in `plugins/lib/<platform>/` once: restart it after
   replacing them, and rebuild all four platforms after any change in `commonsrc/` or `pluginsrc/`.
-- **Export.** The placeholder atlas sections `clubs`, `nations`, `leagues` and `card_fons_out` must
-  never be exported over the game atlases (hundreds of images vs a few placeholders);
-  `defigma_export_all.py` skips them.
+- **Export.** An atlas section that only holds preview placeholders (Dexfut `clubs`, `nations`,
+  `leagues`, `card_fons_out`) must never be exported over the game atlas (hundreds of images vs a
+  few placeholders), and a `.gui` whose nodes a script or a person sets up in Defold (spine
+  placeholders, texture lists written by a script) must not be exported over; each project lists
+  them in its `md/FIGMA_BRIDGE.md`.
 
 ## Features
 
