@@ -2,12 +2,6 @@
 ---@field color vector4
 ---@field position number
 
----@class defigma_linear_gradient_data: [vector3, vector3]
-
----@class defigma_radial_gradient_data: [vector3, vector3, number]
-
----@class defigma_drop_shadow_data: [number, number]
-
 ---@class defigma_text_bounds_cache
 ---@field text string
 ---@field font hash
@@ -19,45 +13,30 @@
 ---@field pivot unknown
 ---@field bounds vector4
 
----@class defigma_linear_gradient
----@field type "linear"
----@field data defigma_linear_gradient_data
+---A linear gradient over the face of a text node (`linear_text` material): start and end in
+---normalized text bounds, two stops.
+---@class defigma_gradient
+---@field data [vector3, vector3]
 ---@field stops defigma_gradient_stop[]
----@field is_text boolean?
 ---@field text_bounds_cache defigma_text_bounds_cache?
-
----@class defigma_radial_gradient
----@field type "radial"
----@field data defigma_radial_gradient_data
----@field stops defigma_gradient_stop[]
-
----@class defigma_drop_shadow
----@field type "drop_shadow"
----@field data defigma_drop_shadow_data
----@field stops defigma_gradient_stop[]
-
----@alias defigma_gradient defigma_linear_gradient|defigma_radial_gradient|defigma_drop_shadow
 
 ---@alias defigma_gradients table<string, defigma_gradient>
 
 local M = {}
 
-local NODE_TRANSFORM = hash("node_transform")
 local GRADIENT_TO_LOCAL = hash("gradient_to_local")
 local GRADIENT_BOUNDS = hash("gradient_bounds")
 local GRAD_DATA = hash("grad_data")
-local GRAD_DATA2 = hash("grad_data2")
 local GRADIENT_STOP0 = hash("gradient_stop0")
 local GRADIENT_STOP1 = hash("gradient_stop1")
 local PROBE_SPAN = 100
 local DEG_TO_RAD = math.pi / 180
 
----Every per-node value the shaders need is written through these three. `gui.screen_to_local` only
+---Every per-node value the shader needs is written through these two. `gui.screen_to_local` only
 ---reads its argument and `gui.set` copies what it is given, so one instance of each is reused
 ---instead of allocating a fresh vector or matrix for every node on every refresh.
 local probe_point = vmath.vector3()
 local screen_to_local_value = vmath.matrix4()
-local node_transform_value = vmath.vector4()
 
 ---@param node node
 ---@return number offset_x, number offset_y
@@ -135,7 +114,7 @@ local function screen_to_node(node)
 end
 
 ---@param node node
----@param gradient defigma_linear_gradient
+---@param gradient defigma_gradient
 ---@return vector4
 local function text_bounds(node, gradient)
 	local width = gui.get(node, "size.x") --[[@as number]]
@@ -196,7 +175,7 @@ local function text_bounds(node, gradient)
 end
 
 ---@param node node
----@param gradient defigma_linear_gradient
+---@param gradient defigma_gradient
 local function apply_text_transform(node, gradient)
 	local m00, m01, m10, m11, x, y = screen_to_node(node)
 	if not (m00 and m01 and m10 and m11 and x and y) then
@@ -213,95 +192,25 @@ local function apply_text_transform(node, gradient)
 	gui.set(node, GRADIENT_BOUNDS, text_bounds(node, gradient))
 end
 
----@param node node
-local function apply_image_transform(node)
-	local m00, m01, m10, m11, x, y = screen_to_node(node)
-	if not (m00 and m01 and m10 and m11 and x and y) then
-		return
-	end
-	local determinant = m00 * m11 - m01 * m10
-	local i00 = m11 / determinant
-	local i01 = -m01 / determinant
-	local i10 = -m10 / determinant
-	local i11 = m00 / determinant
-	local width = gui.get(node, "size.x")
-	local height = gui.get(node, "size.y")
-	node_transform_value.x = -(i00 * x + i01 * y)
-	node_transform_value.y = -(i10 * x + i11 * y)
-	node_transform_value.z = i00 * width + i01 * height
-	node_transform_value.w = i10 * width + i11 * height
-	gui.set(node, NODE_TRANSFORM, node_transform_value)
-end
-
----@param node node
----@param gradient defigma_linear_gradient
-local function apply_linear_transform(node, gradient)
-	if gradient.is_text then
-		apply_text_transform(node, gradient)
-	else
-		apply_image_transform(node)
-	end
-end
-
----@param node node
----@param gradient defigma_linear_gradient|defigma_radial_gradient
-local function apply_gradient_stops(node, gradient)
-	gui.set(node, GRADIENT_STOP0, gradient.stops[1].color)
-	gui.set(node, GRADIENT_STOP1, gradient.stops[2].color)
-end
-
----@param node node
----@param gradient defigma_linear_gradient
-local function apply_linear(node, gradient)
-	apply_gradient_stops(node, gradient)
-	local start = gradient.data[1]
-	local finish = gradient.data[2]
-	if gradient.is_text then
-		gui.set(node, GRAD_DATA, vmath.vector4(start.x, start.y, finish.x, finish.y))
-	else
-		gui.set(node, GRAD_DATA, vmath.vector4(start.x, 1 - start.y, finish.x, 1 - finish.y))
-	end
-	apply_linear_transform(node, gradient)
-end
-
----@param node node
----@param gradient defigma_radial_gradient
-local function apply_radial(node, gradient)
-	apply_gradient_stops(node, gradient)
-	local center = gradient.data[1]
-	local radius = gradient.data[2]
-	local rotation = gradient.data[3]
-	gui.set(node, GRAD_DATA, vmath.vector4(center.x, 1 - center.y, radius.x, radius.y))
-	gui.set(node, GRAD_DATA2, vmath.vector4(rotation / 180 * math.pi, 0, 0, 0))
-	apply_image_transform(node)
-end
-
 ---@param node_name string
 ---@param gradients defigma_gradients
 ---@param node node?
 function M.apply(node_name, gradients, node)
 	local gradient = gradients[node_name]
 	local node = node or gui.get_node(node_name)
-	if gradient.type == "linear" then
-		apply_linear(node, gradient)
-	elseif gradient.type == "radial" then
-		apply_radial(node, gradient)
-	elseif gradient.type == "drop_shadow" then
-		apply_image_transform(node)
-	end
+	local start = gradient.data[1]
+	local finish = gradient.data[2]
+	gui.set(node, GRADIENT_STOP0, gradient.stops[1].color)
+	gui.set(node, GRADIENT_STOP1, gradient.stops[2].color)
+	gui.set(node, GRAD_DATA, vmath.vector4(start.x, start.y, finish.x, finish.y))
+	apply_text_transform(node, gradient)
 end
 
 ---@param node_name string
 ---@param gradients defigma_gradients
 ---@param node node?
 function M.apply_transform(node_name, gradients, node)
-	local gradient = gradients[node_name]
-	local node = node or gui.get_node(node_name)
-	if gradient.type == "linear" then
-		apply_linear_transform(node, gradient)
-	else
-		apply_image_transform(node)
-	end
+	apply_text_transform(node or gui.get_node(node_name), gradients[node_name])
 end
 
 return M

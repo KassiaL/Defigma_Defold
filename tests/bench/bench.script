@@ -1,4 +1,0 @@
-function init(self)
-	local mode = sys.get_config_string("bench.mode", "new")
-	msg.post(mode == "new" and "old#gui" or "new#gui", "disable")
-end

@@ -1,8 +1,0 @@
-name: "gui"
-tags: "gui"
-vertex_program: "/defigma/materials/linear.vp"
-fragment_program: "/defigma/materials/drop_shadow.fp"
-vertex_constants {
-  name: "view_proj"
-  type: CONSTANT_TYPE_VIEWPROJ
-}

@@ -173,21 +173,80 @@ namespace dmDefigma
         return (ShapeNode*)dmGui::GetNodeCustomData(scene, node);
     }
 
+    static defigma::ShapeDesc& WritableDesc(ShapeNode* shape)
+    {
+        if (shape->m_Desc.use_count() != 1)
+            shape->m_Desc = std::make_shared<defigma::ShapeDesc>(*shape->m_Desc);
+        shape->m_Vertices.reset();
+        return const_cast<defigma::ShapeDesc&>(*shape->m_Desc);
+    }
+
+    static void StoreArc(dmGui::HScene scene, dmGui::HNode node, ShapeNode* shape, float start, float sweep, float ratio)
+    {
+        defigma::ShapeDesc& desc = WritableDesc(shape);
+        desc.arc_start = start;
+        desc.arc_sweep = sweep;
+        desc.arc_ratio = ratio;
+        SetNumberProperty(scene, node, PROPERTY_ARC_START, start);
+        SetNumberProperty(scene, node, PROPERTY_ARC_SWEEP, sweep);
+        SetNumberProperty(scene, node, PROPERTY_ARC_RATIO, ratio);
+    }
+
     static int LuaSetArc(lua_State* L)
     {
         dmGui::HScene scene;
         dmGui::HNode node;
         ShapeNode* shape = CheckShapeNode(L, &scene, &node);
-        std::shared_ptr<defigma::ShapeDesc> desc = std::make_shared<defigma::ShapeDesc>(*shape->m_Desc);
-        desc->arc_start = (float)luaL_checknumber(L, 2);
-        desc->arc_sweep = (float)luaL_checknumber(L, 3);
-        desc->arc_ratio = (float)luaL_checknumber(L, 4);
-        SetNumberProperty(scene, node, PROPERTY_ARC_START, desc->arc_start);
-        SetNumberProperty(scene, node, PROPERTY_ARC_SWEEP, desc->arc_sweep);
-        SetNumberProperty(scene, node, PROPERTY_ARC_RATIO, desc->arc_ratio);
-        shape->m_Desc = desc;
-        shape->m_Vertices.reset();
+        StoreArc(scene, node, shape, (float)luaL_checknumber(L, 2), (float)luaL_checknumber(L, 3), (float)luaL_checknumber(L, 4));
         return 0;
+    }
+
+    static int LuaSetSweep(lua_State* L)
+    {
+        dmGui::HScene scene;
+        dmGui::HNode node;
+        ShapeNode* shape = CheckShapeNode(L, &scene, &node);
+        StoreArc(scene, node, shape, shape->m_Desc->arc_start, (float)luaL_checknumber(L, 2), shape->m_Desc->arc_ratio);
+        return 0;
+    }
+
+    static void SetStringProperty(dmGui::HScene scene, dmGui::HNode node, dmhash_t key, const char* value)
+    {
+        dmGui::CustomProperty property;
+        property.m_Type = dmGui::CUSTOM_PROPERTY_TYPE_STRING;
+        property.m_String = value;
+        dmGui::SetNodeCustomProperty(scene, node, key, &property);
+    }
+
+    static int LuaSetPaints(lua_State* L)
+    {
+        dmGui::HScene scene;
+        dmGui::HNode node;
+        ShapeNode* shape = CheckShapeNode(L, &scene, &node);
+        const char* fills = luaL_checkstring(L, 2);
+        const char* strokes = luaL_checkstring(L, 3);
+        std::vector<defigma::Paint> fill_paints;
+        std::vector<defigma::Paint> stroke_paints;
+        if (!defigma::ParsePaints(fills, fill_paints))
+            return luaL_argerror(L, 2, "invalid fills");
+        if (!defigma::ParsePaints(strokes, stroke_paints))
+            return luaL_argerror(L, 3, "invalid strokes");
+        defigma::ShapeDesc& desc = WritableDesc(shape);
+        desc.fills.swap(fill_paints);
+        desc.strokes.swap(stroke_paints);
+        SetStringProperty(scene, node, PROPERTY_FILLS, fills);
+        SetStringProperty(scene, node, PROPERTY_STROKES, strokes);
+        return 0;
+    }
+
+    static int LuaGetPaints(lua_State* L)
+    {
+        dmGui::HScene scene;
+        dmGui::HNode node;
+        CheckShapeNode(L, &scene, &node);
+        lua_pushstring(L, GetStringProperty(scene, node, PROPERTY_FILLS));
+        lua_pushstring(L, GetStringProperty(scene, node, PROPERTY_STROKES));
+        return 2;
     }
 
     static int LuaGetArc(lua_State* L)
@@ -204,7 +263,10 @@ namespace dmDefigma
     static const luaL_reg LUA_FUNCTIONS[] =
     {
         { "set_arc", LuaSetArc },
+        { "set_sweep", LuaSetSweep },
         { "get_arc", LuaGetArc },
+        { "set_paints", LuaSetPaints },
+        { "get_paints", LuaGetPaints },
         { 0, 0 }
     };
 

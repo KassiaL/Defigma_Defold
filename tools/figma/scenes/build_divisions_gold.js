@@ -30,5 +30,4 @@ for (const child of [...frame.children]) {
   if (child.name.includes("od_promotion_light")) child.remove()
 }
 for (const node of frame.findAll(n => n.name.includes("need_export"))) node.remove()
-const flag = figma.createRectangle(); frame.appendChild(flag); flag.name = '{"shape_nodes":true}'; flag.resize(8, 8); flag.visible = false
 return JSON.stringify({ frame: frame.id, detached, removed, meta: frame.children.filter(c => c.name.startsWith("{")).map(c => c.name) })

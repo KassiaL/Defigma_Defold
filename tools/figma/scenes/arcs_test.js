@@ -42,6 +42,5 @@ for (const [name, x, y, w, h, start, sweep, ratio, corner, fills] of arcs) {
 }
 const meta = name => { const r = figma.createRectangle(); frame.appendChild(r); r.name = name; r.resize(8, 8); r.visible = false }
 meta('{"path_to_screen":"/tests/arcs_test"}')
-meta('{"shape_nodes":true}')
 const files = await exportNode(frame.id)
 return { files, frame: frame.id }

@@ -18,6 +18,16 @@
     - name: ratio
       type: number
       desc: inner radius in percent of the outer radius, 0-100 (Figma Ratio)
+  - name: set_sweep
+    type: function
+    desc: Sets only the sweep of the arc, keeping its start and ratio (a progress ring).
+    parameters:
+    - name: node
+      type: node
+      desc: DefigmaShape node
+    - name: sweep
+      type: number
+      desc: sweep in percent, 0-100
   - name: get_arc
     type: function
     desc: Returns the arc of a DefigmaShape node.
@@ -32,3 +42,28 @@
       type: number
     - name: ratio
       type: number
+  - name: set_paints
+    type: function
+    desc: Replaces the fills and the strokes of a DefigmaShape node (JSON arrays in the format of its fills and strokes properties) and rebuilds it on the next frame.
+    parameters:
+    - name: node
+      type: node
+      desc: DefigmaShape node
+    - name: fills
+      type: string
+      desc: JSON array of paints, e.g. [{"type":"solid","color":[1,1,1,1]}]
+    - name: strokes
+      type: string
+      desc: JSON array of paints
+  - name: get_paints
+    type: function
+    desc: Returns the fills and the strokes of a DefigmaShape node as JSON arrays.
+    parameters:
+    - name: node
+      type: node
+      desc: DefigmaShape node
+    returns:
+    - name: fills
+      type: string
+    - name: strokes
+      type: string

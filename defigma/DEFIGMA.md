@@ -13,10 +13,10 @@ Script generation: `python/sync_defigma.py`, documented in `python/sync_defigma.
 | `data.lua` | Decodes the `defigma_data` node into `{ gradients, text_shadows, params }`. |
 | `screen.lua` | Hook dispatcher used by every generated `.gui_script`. Knows nothing about concrete features. |
 | `rtl.lua` | Feature: horizontal mirroring for right-to-left locales. |
-| `gradient.lua` | Linear / radial / drop-shadow application and transform math. |
-| `gradient_nodes.lua` | Registry of gradient nodes owned by one screen or widget: what is refreshed every frame and what on demand. |
+| `gradient.lua` | Text gradient (`linear_text`) application and transform math. |
+| `gradient_nodes.lua` | Registry of text gradient and text shadow nodes owned by one screen or widget: what is refreshed every frame and what on demand. |
 | `text_shadow.lua` | Writes the offset and the blur of every text shadow into its node. |
-| `materials/` | Matching materials and shaders; `*.glsl` are the parts they share through `#include`. |
+| `materials/` | `shape` (every shape node) and the text materials `linear_text`, `text_shadow`, `linear_text_shadow`; `*.glsl` are the parts they share through `#include`. There is no box gradient or shadow material any more. |
 | `ext.manifest`, `src/` | Native extension: the `DefigmaShape` custom GUI node type. |
 | `commonsrc/`, `include/defigma/` | Shape geometry and property parsing, shared by the engine and the editor library. |
 | `pluginsrc/` | Editor library entry points (`DefigmaShape_Build`) and the bob plugin that registers the custom type. |
@@ -87,10 +87,11 @@ Also exposes:
 
 ## Gradients
 
-The gradient shaders need the node rect (image gradients) or the inverse node transform (text
-gradients) as a per-node material constant. Both are functions of the node's **world transform**, so
-they have to be re-applied whenever that transform changes — a node moved by a scroll, an animation,
-a window resize or a layout change would otherwise keep rendering with a stale gradient.
+Only text has gradients here: every other node is a shape node and carries its gradients in its own
+geometry. The `linear_text` shader needs the inverse node transform and the text bounds as per-node
+material constants. Both are functions of the node's **world transform**, so they have to be
+re-applied whenever that transform changes — a text moved by a scroll, an animation, a window resize
+or a layout change would otherwise keep rendering with a stale gradient.
 
 ### The node transform
 
@@ -126,7 +127,7 @@ dozens of widget instances — each refresh queries the transform of every node 
 opt out:
 
 ```lua
-defigma.set_node_updating(self, "bar_fill", false)  -- one screen node
+defigma.set_node_updating(self, "title", false)     -- one screen node
 defigma.set_all_nodes_updating(self, false)         -- the whole screen
 
 gradient_nodes.set_updating(state, node_name, false) -- one widget node
@@ -204,9 +205,10 @@ Limits:
 
 ## Shape nodes
 
-A Figma rectangle, ellipse, vector or frame visual exported with `{"shape_nodes":true}` is one
-`TYPE_CUSTOM` node, `custom_type_name: "DefigmaShape"`, material `shape`. Its look lives in custom
-properties, so it needs no `defigma_data` entry and no Lua:
+Every Figma rectangle, ellipse, arc, vector and frame fill or stroke outside an atlas section is one
+`TYPE_CUSTOM` node, `custom_type_name: "DefigmaShape"`, material `shape` (there is no metadata that
+switches it on or off). Its look lives in custom properties, so it needs no `defigma_data` entry and
+no Lua:
 
 | Property | Type | Meaning |
 |---|---|---|
@@ -218,6 +220,14 @@ properties, so it needs no `defigma_data` entry and no Lua:
 | `path` | string | `{"fill":{"polygons":[[x,y,...],...],"edges":[...]},"stroke":{...}}` in node pixels, Figma axes: convex pieces (the exporter writes at most 60 points, points past 96 are dropped) and the outline edges, which keep the filled side on the right |
 | `arc_start`, `arc_sweep`, `arc_ratio` | number | an ellipse arc with the Figma arc controls: start in degrees (clockwise from the right, as in Figma), sweep and ratio in percent; defaults 0 / 100 / 0 (a full ellipse). `corner_radius.x` rounds the arc corners like the Figma corner radius |
 | `clip` | string | JSON `[x,y,...]`, the convex outline of the `Clip content` frame in node pixels, Figma axes; every piece of the node is cut by it (hard edge); points past 96 are dropped |
+
+A shape filled with one solid color is exported like a box: the fill color and its opacity are the
+node color and alpha, and `fills` is plain white. A stroke or a drop shadow of the same color (a rim,
+a glow) follows it: it is written white with its alpha relative to the fill, so recoloring the node
+recolors the glow too. `gui.get_color`,
+`gui.set_color` and `color.w` tweens then read and change the fill exactly as they did on the atlas
+boxes before. Any other shape keeps its colors in `fills` / `strokes` and a white node color, which
+tints everything the node draws; change such colors with `defigma_shape.set_paints`.
 
 A property value that is not valid JSON, nests deeper than 16 levels, holds a number outside the
 finite float range, misses a key or has an array shorter than its format (a color of fewer than 4
@@ -281,12 +291,18 @@ The extension registers the `defigma_shape` module (implemented in C++, `src/gui
 callable from a gui_script on a `DefigmaShape` node:
 
 ```lua
+defigma_shape.set_sweep(node, sweep)                      -- percent, keeps start and ratio
 defigma_shape.set_arc(node, start, sweep, ratio)          -- degrees, percent, percent
 local start, sweep, ratio = defigma_shape.get_arc(node)
+defigma_shape.set_paints(node, fills, strokes)            -- JSON arrays, the fills / strokes format
+local fills, strokes = defigma_shape.get_paints(node)
 ```
 
-`set_arc` replaces the node's arc (a full ellipse node becomes an arc) and rebuilds only that node's
-vertices on the next frame, so animating a progress ring every frame costs a few microseconds. The
+`set_arc` / `set_sweep` replace the node's arc (a full ellipse node becomes an arc) and rebuild only
+that node's vertices on the next frame, so animating a progress ring every frame costs a few
+microseconds; the description is changed in place when no clone shares it, so a tween allocates
+nothing. `set_paints` replaces the fills and strokes (for example a stroke recolored by state, or
+the look of one node copied to another with `get_paints`); an invalid JSON raises an error. The
 values are also written into the node's custom properties, so `gui.clone` / `gui.clone_tree`
 copies keep them; a layout change restores the values of the layout, like every other static
 property. Any other node raises `not a DefigmaShape node`. `tests/arcs_test/arcs_api.gui_script`
@@ -320,7 +336,7 @@ build, milliseconds per frame, one layer / eight stacked layers moving:
 | Variant | Desktop i5-12400F + RTX 4060, 486x1035 | Redmi Note 10 Pro (SD 732G, Adreno 618), 1080x2400 | Draw calls | Vertices |
 |---|---|---|---|---|
 | raster atlas (ASTC 4x4) | 0.21 / 0.55 | 2.15 / 10.2 | 32 | 72 |
-| material gradients + Lua refresh | 0.62 / 4.03 | 4.96 / 37.6 | 94 | 1116 |
+| material gradients + Lua refresh (the removed path) | 0.62 / 4.03 | 4.96 / 37.6 | 94 | 1116 |
 | shape nodes | 0.37 / 2.14 | 8.55 / 64.4 | 32 | 14622 |
 | shape nodes, background as image | 0.36 / 1.98 | 4.40 / 29.8 | 33 | 13290 |
 
@@ -363,7 +379,7 @@ corners; use a box clipper.
 ### Results screen: four ways to export one real screen
 
 `tests/results_screen` is the Dexfut match result screen (Figma 4575:231281) exported four ways
-from the same masters, marked with `{"shape_nodes":true}` only for the export:
+from the same masters; the vector copies detach the master instances, so they export as shape nodes:
 
 | Variant | What is raster | Shape nodes | Shape vertices | Effects in shape nodes |
 |---|---|---|---|---|
@@ -441,9 +457,8 @@ GPUs; `panel_bg` already stretches correctly through slice9.
   glows or many stacked translucent layers: full-screen backgrounds, big decorated tiles and
   buttons, pack art. A baked image is one quad; the vector version is several blended layers.
 - **Use shape nodes where a raster is wrong or wasteful**: small elements that stretch in a way
-  slice9 cannot follow (bars, pills, rings), progress bars and rings that change at run time, gradients that
-  would otherwise need the material path with Lua refresh, and simple shapes that repeat in many
-  sizes (each size would be another atlas image). A large panel that slice9 can stretch stays a
+  slice9 cannot follow (bars, pills, rings), progress bars and rings that change at run time, and
+  simple shapes that repeat in many sizes (each size would be another atlas image). A large panel that slice9 can stretch stays a
   raster image: its area, times the number of fills, is what the weak GPU pays for.
 - **Do not vectorize a whole screen.** A decorated panel becomes dozens of nodes and thousands of
   vertices, and on a weak GPU its overdraw and glows cost more than the atlas it replaces. The
@@ -467,7 +482,69 @@ them into `plugins/`:
 java -jar bob.jar --platform x86_64-linux --variant headless --build-artifacts=plugins build
 ```
 
-(`x86_64-macos`, `arm64-macos`, `x86_64-win32` the same; results land in `build/<platform>/defigma/`.)
+(`x86_64-macos`, `arm64-macos`, `x86_64-win32` the same; results land in `build/<platform>/defigma/`,
+the bob plugin jar in `build/x86_64-linux/defigma/pluginDefigmaShape.jar` goes to `plugins/share/`.)
+The editor loads the libraries once: restart it after replacing them.
+
+## Risks and measured numbers
+
+Everything measured while the shape nodes were built, in one place. Debug builds unless noted; frame
+times in milliseconds. Devices: desktop i5-12400F + RTX 4060; Redmi Note 10 Pro (Snapdragon 732G,
+Adreno 618, 1080x2400); Redmi 9C (Helio G35, PowerVR GE8320, 3 GB, 720x1600, armeabi-v7a - a phone on
+which the home screen already lags). Tools: `tools/` (see `tools/README.md`).
+
+### Numbers
+
+| What | Result |
+|---|---|
+| Accuracy against the Figma export | shapes under 1/255 mean (`shapes_test` 0.72), arcs 0.2/255 (`arcs_test`); a real screen as vector vs as raster in the engine 1.4-2.0/255, all of it antialiased edges |
+| Results screen, Redmi 9C, 1 layer | raster 23.9, atlases + native shapes 24.8, panels as shapes 34.8 (28.3 without effects), everything as shapes 67.6 (42.1 without effects) |
+| Results screen, desktop, 1 / 8 layers | raster 0.34 / 1.30, current 0.37 / 1.52, panels as shapes 0.54 / 3.12, everything 0.66 / 5.09 |
+| Store screen, Redmi Note 10 Pro, 1 / 8 layers | raster 2.15 / 10.2, shapes 8.55 / 64.4, shapes with the background as an image 4.40 / 29.8, the removed material path 4.96 / 37.6 |
+| Five `panel_bg` panels, Redmi 9C, 1 / 4 / 8 layers (same run) | slice9 image 6.8 / 10.9 / 16.3; shape nodes (two fills + stroke) 10.9 / 16.2 / 31.1; one fill 8.8 / 13.3 / 18.8 |
+| Vertex cost on the CPU, Redmi 9C | about 1 ms of GUI work per 3 000-4 000 vertices, every frame (no static buffer, see *Cost*) |
+| Vertices per node | solid rounded rect 54, linear +12 per stop, radial 330-430, stroke 48-126, small shadow ~180, ring or pie arc 60 / 24, donut 96, a real decorated panel 200-300 |
+| Dexfut on the Redmi 9C (before the migration, debug) | 30-50 fps; the main thread is the limit: a draw call costs 40-65 us in the PowerVR driver (draft screens 250-275 calls = 18-19 ms), ~12-14 ms fixed per frame; GPU time only 3.5-8.6 ms (Draft Battle divisions 12-17) |
+| Memory | sanitizers, TSan, valgrind and a fuzzer on the geometry and the editor library: 0 errors, 0 leaks; engine stress (load/unload, clone/delete, resize, layouts) under valgrind and heaptrack: nothing through the extension stays alive |
+
+### Risks
+
+- **Fill cost on weak GPUs.** Every fill of a shape is its own pass over the node area, so a big
+  panel with several fills costs a multiple of its slice9 image (1.9x for `panel_bg` on the
+  Redmi 9C). Glows, large shadows and layer blur run a 4-sample integral over the blurred area.
+  Keep big decorated panels, glows and backgrounds in atlases.
+- **Vertex cost on the CPU.** The engine transforms and uploads every vertex every frame. Radial
+  gradients, round-cap path strokes and long lists of cloned shapes multiply it. Count before a
+  list of dozens of shapes goes into a scroll (`tools/geometry/vertex_count.cpp`).
+- **Not drawn by a shape**: image fills, background blur, inner shadow, blend modes, angular and
+  diamond gradients, strokes and effects of an arc, blur and shadows of a `path`. They silently
+  disappear from the node: put such elements into an atlas.
+- **Stencil.** A shape node is a rectangle rounded by the shader, so as a stencil clipper it cuts a
+  square. Round masks stay `TYPE_PIE` (metadata, `Defigma_EN.md` "Pie Nodes"). The `clip` property
+  of a shape cut by a `Clip content` frame has a hard, not antialiased edge.
+- **Arcs.** A non-circular arc rounds its corners in the scaled ellipse space (Figma rounds in
+  pixels); a partial corner radius on a thick arc rounds the inner corners a little less than
+  Figma; a sweep shorter than the corner radius is slightly flattened. The Figma start angle is in
+  the rotated frame of the ellipse: top is `-90 + rotation`. `gui.animate` cannot animate a custom
+  property: tween in Lua and call `defigma_shape.set_sweep`. A layout change restores the layout's
+  arc values.
+- **Engine and build.** Needs Defold 1.13.1+ (custom node properties) and the native build server.
+  Every `CompGuiNodeTypeSet*Fn` and the context must be set (an unset update callback crashed
+  Android). The shader needs screen derivatives (`GL_OES_standard_derivatives` on GLES2): after a
+  shader change build for `arm64-android` and read the `SHADERC` lines.
+- **Data format.** The runtime reads the shape properties and the text gradient data from the `.gui`.
+  A change of either format means exporting every `.gui` again from Figma
+  (`tools/automation/defigma_export_all.py` in Dexfut); a `.gui` from before the migration that
+  still names the removed `linear` / `radial` / `drop_shadow` materials does not load. Every
+  `TYPE_CUSTOM` override (a template child recolored by an instance, a layout override) must
+  carry `custom_type`: bob and the engine take the type from the template and build it, but the
+  editor fails with `Unable to locate GUI node type info ... custom-type=0` and cannot open the
+  `.gui`. Open the project in the editor after an export, a green bob build does not prove it.
+- **Editor.** The editor loads the libraries in `plugins/lib/<platform>/` once: restart it after
+  replacing them, and rebuild all four platforms after any change in `commonsrc/` or `pluginsrc/`.
+- **Export.** The placeholder atlas sections `clubs`, `nations`, `leagues` and `card_fons_out` must
+  never be exported over the game atlases (hundreds of images vs a few placeholders);
+  `defigma_export_all.py` skips them.
 
 ## Features
 

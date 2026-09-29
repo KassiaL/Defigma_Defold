@@ -17,11 +17,11 @@ sources in `~/figma_plugins/Defigma` (`DEFIGMA` to change).
 | `scenes/build_bench_screen.js` | Builds the four `bench_*` store screen frames. |
 | `scenes/build_results_screen.js` | Copies the match result screen (4575:231281) into `results_raster`, `results_current`, `results_bg_raster`, `results_vector` on page `draft`: detaches templates, unlocks locked layers, drops hidden-export metadata; the raster copy replaces the native shapes with instances of components in the section `/tests/results_screen/results_extra.atlas`. |
 | `scenes/arcs_test.js` | Builds `arcs_test` on page `draft` (round and square ends, pies, donut, partial corner radius, tiny and wide sweeps, elliptical and translucent arcs) and exports it as shape nodes. |
-| `scenes/panels_screen.js` | Builds `panels_raster` / `panels_vector` on page `draft` (the `my_profile` background and its five visible panels) and exports both; the vector export marks the two panel masters and removes the markers in `finally`. |
-| `scenes/export_results_screen.js` | Adds `{"shape_nodes":true}` markers to the background and the 16 panel masters, exports the vector variant, removes the background marker, exports bg_raster, then removes every marker in `finally` and prints `markers_left` (must be `[]`), and exports current and raster. |
+| `scenes/panels_screen.js` | Builds `panels_raster` / `panels_vector` on page `draft` (the `my_profile` background and its five visible panels) and exports both; `panels_vector` detaches its panel instances. |
+| `scenes/export_results_screen.js` | Detaches the instances of the 16 panel masters (and of the background for `results_vector`) inside the vector copies, so they export as shape nodes while the masters stay untouched, then exports vector, bg_raster, current, raster and the extra atlas. |
 
-A scenario that changes masters must restore them in `finally` and prove it (`markers_left`):
-other people work in the same Figma file.
+A scenario never changes masters: other people work in the same Figma file. Detach instances in
+the scenario's own copies instead.
 
 ## `test/` - make an export load here
 

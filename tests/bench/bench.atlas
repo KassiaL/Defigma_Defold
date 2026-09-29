@@ -1,4 +1,0 @@
-images {
-  image: "/tests/bench/round12.png"
-}
-extrude_borders: 2

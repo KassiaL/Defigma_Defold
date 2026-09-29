@@ -1,6 +1,7 @@
-local VARIANTS = { "bench_raster", "bench_material", "bench_vector", "bench_hybrid" }
+local VARIANTS = { "bench_raster", "bench_vector", "bench_hybrid" }
 local CASES = {
 	{ layers = 1, moving = false },
+	{ layers = 1, moving = true },
 	{ layers = 4, moving = true },
 	{ layers = 8, moving = true },
 }

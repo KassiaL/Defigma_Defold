@@ -49,5 +49,4 @@ ellipse("ellipse_linear", 420, 880, 160, 90, [{ type: "GRADIENT_LINEAR", gradien
 rect("center_stroke", 250, 880, 140, 80, [solid("#120e05")], { cornerRadius: 16, strokes: [solid("#e8c65a", 0.8)], strokeWeight: 8, strokeAlign: "CENTER" })
 
 meta('{"path_to_screen":"/tests/shapes_test"}')
-meta('{"shape_nodes":true}')
 return JSON.stringify({ page: page.id, frame: frame.id, kids: frame.children.map(c => c.name) })

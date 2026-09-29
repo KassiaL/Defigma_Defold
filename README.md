@@ -1,6 +1,8 @@
 # Defigma Extension for Defold
 
-Defigma Extension adds advanced linear and radial gradient support to Defold projects using assets exported from the Defigma Figma Plugin.
+Runtime half of the Defigma Figma plugin: the `DefigmaShape` custom GUI node (vector rectangles,
+ellipses, arcs and paths with gradients, strokes, shadows and blur), the `defigma_shape` Lua API,
+text gradients and text shadows, and right-to-left mirroring.
 
 ## Installation
 
@@ -10,45 +12,37 @@ Add this dependency to your game.project file:
 https://github.com/KassiaL/Defigma/archive/master.zip
 ```
 
-Make sure you've installed the Defigma Figma Plugin and have exported your design to your Defold project.
+Install the Defigma Figma plugin and export your screens into the project.
 
 ## Usage
 
-Follow these steps to integrate gradients in your Defold project:
+Shapes need no code: every exported rectangle, ellipse, arc and vector is drawn by the extension from
+its custom properties. The generated `.gui_script` of a screen calls `defigma.screen`, which applies
+the text gradients and text shadows of the `defigma_data` node:
 
 ```lua
+local defigma = require("defigma.screen")
+
 function init(self)
-    -- 1. Import Defigma-generated data
-    local menu_defigma_data = require("collections.menu.menu_defigma")
-
-    -- 2. Import Defigma extension module
-    local gradient = require("defigma.gradient")
-
-    -- 3. Apply gradients (call in init)
-    gradient.apply_all(menu_defigma_data)
+    defigma.init(self, "menu")
 end
 
 function update(self, dt)
-    -- 4. Update gradient transformations (call in update)
-    gradient.apply_all_transform(menu_defigma_data)
+    defigma.update(self, dt)
 end
 ```
 
-## Advanced Usage
-
-For static elements that don't change position, you can optimize by calling the transform function only when needed:
+A progress ring is a Figma arc ellipse; the game changes its sweep:
 
 ```lua
-function on_position_changed(self)
-    local gradient = require("defigma.gradient")
-    local menu_defigma_data = require("collections.menu.menu_defigma")
-    gradient.apply_all_transform(menu_defigma_data)
-end
+defigma_shape.set_sweep(gui.get_node("progress"), 100 * completed / total)
 ```
+
+The whole runtime, the measured costs and the risks: [defigma/DEFIGMA.md](defigma/DEFIGMA.md).
 
 ## Shape Nodes
 
-Export a screen (or mark any frame or master component inside it) with `{"shape_nodes":true}` and every rectangle, ellipse, vector and frame visual
+Every rectangle, ellipse, arc, vector and frame visual outside an atlas section
 becomes a `DefigmaShape` custom GUI node: gradients with up to 64 stops, strokes, per-corner
 radii, drop shadows, layer blur and Figma arcs (start, sweep, ratio, rounded ends; changed at run
 time with `defigma_shape.set_arc`) in one node, drawn by the native extension without any Lua and
@@ -78,8 +72,7 @@ This repository is also the test bed for the shape nodes:
   `results_raster` (atlases only, no shape node), `results_current` (atlases as in Dexfut, the
   native shapes as shape nodes), `results_bg_raster` (background image, panels as shape nodes),
   `results_vector` (everything but the emblems as shape nodes) and their `_plain` copies without
-  effects. Built from masters marked with `{"shape_nodes":true}` for the export only; the markers
-  are removed from Figma afterwards;
+  effects. The vector copies detach the instances of the panel masters, the masters stay untouched;
 - `tests/arcs_test/` - every Figma arc variant (`tools/figma/scenes/arcs_test.js`) and `arcs_api`, the
   same screen driven through `defigma_shape.set_arc` / `get_arc`;
 - `tests/panels_screen/` - the `my_profile` background with its five panels as slice9 images and as

@@ -47,7 +47,6 @@ async function makeCopy(name, x) {
   }
   const meta = (value) => { const r = figma.createRectangle(); frame.appendChild(r); r.name = value; r.resize(8, 8); r.visible = false }
   meta('{"allow_identical_names":["*"]}')
-  if (name !== "results_raster") meta('{"shape_nodes":true}')
   return frame
 }
 

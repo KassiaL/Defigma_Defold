@@ -66,7 +66,7 @@ rect(button, "base", 30, 30, 800, 160, { cornerRadius: 80, fills: [linear([[0, "
   strokes: [solid("#fff2c4")], strokeWeight: 3, strokeAlign: "INSIDE", effects: [shadow(0, 16, 30, "#000000", 0.5)] })
 ellipse(button, "gloss", 80, 36, 700, 60, { fills: [radial([[0, "#ffffff", 0.45], [1, "#ffffff", 0]])] })
 
-const variants = [["bench_vector", -33500, false], ["bench_material", -32300, false], ["bench_raster", -31100, true]]
+const variants = [["bench_vector", -33500, false], ["bench_raster", -31100, true]]
 const result = {}
 for (const [name, x, raster] of variants) {
   const screen = figma.createFrame(); page.appendChild(screen); screen.name = name; screen.x = x; screen.y = -15000; screen.resize(1080, 2300); screen.fills = [solid("#06060c")]; screen.clipsContent = true
@@ -96,7 +96,6 @@ for (const [name, x, raster] of variants) {
   const meta = (value) => { const r = figma.createRectangle(); screen.appendChild(r); r.name = value; r.resize(8, 8); r.visible = false }
   meta('{"path_to_screen":"/tests/bench_screen"}')
   meta('{"max_nodes":1024}')
-  if (name === "bench_vector") meta('{"shape_nodes":true}')
   result[name] = screen.id
 }
 result.section = section.id

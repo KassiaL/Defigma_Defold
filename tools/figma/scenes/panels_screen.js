@@ -1,13 +1,12 @@
 // Builds panels_raster and panels_vector on page draft: the my_profile background (3260:43499) with
 // the five panel_bg / panel_bg_small instances visible on its first screen, at their positions and
-// sizes, and exports both. panels_vector gets {"shape_nodes":true} inside the two panel masters
-// for its export only; the markers are always removed before the job returns.
+// sizes, and exports both. panels_vector detaches its panel instances, so they export as shape
+// nodes while the masters stay untouched.
 const page = figma.root.children.find(p => p.name === "draft")
 await page.loadAsync()
 await figma.setCurrentPageAsync(page)
 const SCREEN = "3260:43499"
 const PANELS = ["profile_info", "account_block", "market_panel", "draft_panel", "sim_scorers"]
-const MARKER = '{"shape_nodes":true}'
 const screen = await figma.getNodeByIdAsync(SCREEN)
 const origin = screen.absoluteTransform
 const sources = []
@@ -51,19 +50,9 @@ const raster = build("panels_raster", -24000)
 const vector = build("panels_vector", -22800)
 const files = []
 files.push(...await exportNode(raster.id))
-const markers = []
-try {
-  for (const master of masters.values()) {
-    const marker = figma.createRectangle()
-    master.appendChild(marker)
-    marker.name = MARKER
-    marker.resize(8, 8)
-    marker.visible = false
-    markers.push(marker)
-  }
-  files.push(...await exportNode(vector.id))
-} finally {
-  for (const marker of markers) if (!marker.removed) marker.remove()
+for (const instance of vector.findAll(n => n.type === "INSTANCE")) {
+  const master = await instance.getMainComponentAsync()
+  if (master && masters.has(master.id)) instance.detachInstance()
 }
-const left = [...masters.values()].filter(m => m.children.some(c => c.name === MARKER)).map(m => m.name)
-return { files, markers_left: left, panels: sources.map(s => [s.node.parent.name, s.master.name, Math.round(s.node.width), Math.round(s.node.height)]) }
+files.push(...await exportNode(vector.id))
+return { files, panels: sources.map(s => [s.node.parent.name, s.master.name, Math.round(s.node.width), Math.round(s.node.height)]) }
