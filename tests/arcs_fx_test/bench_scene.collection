@@ -1,0 +1,22 @@
+name: "bench_scene"
+scale_along_z: 0
+embedded_instances {
+  id: "runner"
+  data: "components {\n"
+  "  id: \"script\"\n"
+  "  component: \"/tests/arcs_fx_test/bench_runner.script\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"arcs_fx_test\"\n"
+  "  type: \"collectionproxy\"\n"
+  "  data: \"collection: \\\"/tests/arcs_fx_test/arcs_fx_test.collection\\\"\\n"
+  "\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"arcs_fx_plain\"\n"
+  "  type: \"collectionproxy\"\n"
+  "  data: \"collection: \\\"/tests/arcs_fx_test/arcs_fx_plain.collection\\\"\\n"
+  "\"\n"
+  "}\n"
+  ""
+}

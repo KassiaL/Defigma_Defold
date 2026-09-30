@@ -1,5 +1,6 @@
 #include <defigma/shape_geometry.h>
 
+#include <algorithm>
 #include <float.h>
 #include <math.h>
 #include <stdlib.h>
@@ -65,8 +66,29 @@ namespace defigma
         float a, b, c;
     };
 
+    struct ArcWarp
+    {
+        float center_x;
+        float center_y;
+        float half_x;
+        float half_y;
+        float scale;
+        float middle;
+        float half_sweep;
+        bool  full;
+        float center_radius;
+        float half_width;
+        float corner;
+        float grow;
+        float shift_x;
+        float shift_y;
+        float uv_scale;
+    };
+
     struct Primitive
     {
+        bool  warped = false;
+        ArcWarp warp;
         bool  folded;
         float center_x;
         float center_y;
@@ -832,13 +854,41 @@ namespace defigma
         return p.x < primitive.center_x ? QUADRANT_BOTTOM_LEFT : QUADRANT_BOTTOM_RIGHT;
     }
 
+    static const float WARP_FAR = -4096.0f;
+
+    // The arc as a rounded rectangle unrolled along its centerline: x runs along the arc from its
+    // middle, y across the ring from the centerline, both folded to the corner of the rectangle the
+    // way the rrect modes of the shader expect them.
+    static Vec2 WarpUv(const ArcWarp& warp, const Vec2& p)
+    {
+        float nx = (p.x - warp.shift_x - warp.center_x) / warp.half_x;
+        float ny = (warp.center_y - (p.y - warp.shift_y)) / warp.half_y;
+        float radius = sqrtf(nx * nx + ny * ny);
+        float across = fabsf((radius - warp.center_radius) * warp.scale) - (warp.half_width + warp.grow - warp.corner);
+        float along = WARP_FAR;
+        if (!warp.full)
+        {
+            float delta = atan2f(ny, nx) - warp.middle;
+            delta -= (float)(2.0 * PI) * floorf(delta / (float)(2.0 * PI) + 0.5f);
+            along = warp.corner - (warp.half_sweep - fabsf(delta)) * radius * warp.scale - warp.grow;
+        }
+        Vec2 uv = { along * warp.uv_scale, across * warp.uv_scale };
+        return uv;
+    }
+
     static void EmitVertex(const Builder& builder, const Primitive& primitive, int quadrant, const Paint& paint, const Vec2& p)
     {
         ShapeVertex v;
         v.position[0] = p.x / builder.width;
         v.position[1] = p.y / builder.height;
         v.position[2] = 0.0f;
-        if (primitive.folded)
+        if (primitive.warped)
+        {
+            Vec2 uv = WarpUv(primitive.warp, p);
+            v.uv[0] = uv.x;
+            v.uv[1] = uv.y;
+        }
+        else if (primitive.folded)
         {
             v.uv[0] = (fabsf(p.x - primitive.center_x) - primitive.inner_x[quadrant]) * primitive.uv_scale_x;
             v.uv[1] = (fabsf(p.y - primitive.center_y) - primitive.inner_y[quadrant]) * primitive.uv_scale_y;
@@ -1139,9 +1189,15 @@ namespace defigma
         UniformPage(primitive, page);
     }
 
-    static void BuildArc(const Builder& builder, const ShapeDesc& desc, const Outline& shape, const Paint& paint)
+    static void BuildArc(const Builder& builder, const ShapeDesc& desc, const Outline& outline, const Paint& paint, float grow)
     {
+        Outline shape = outline;
+        shape.half_x += grow;
+        shape.half_y += grow;
+        float minor_axis = fminf(outline.half_x, outline.half_y);
         float ratio = fminf(fmaxf(desc.arc_ratio, 0.0f), 100.0f) * 0.01f;
+        if (grow > 0.0f && ratio > 0.0f)
+            ratio = fmaxf((ratio * minor_axis - grow) / (minor_axis + grow), 0.0f);
         float sweep = fminf(fmaxf(desc.arc_sweep, 0.0f), 100.0f) * 0.01f * (float)(2.0 * PI);
         float start = fmodf(desc.arc_start, 360.0f) * (float)(PI / 180.0);
         float minor = fminf(shape.half_x, shape.half_y);
@@ -1173,6 +1229,298 @@ namespace defigma
         pieces.clear();
         ArcFrame(shape, start + sweep, true, page, primitive);
         ArcCells(shape, middle, start + sweep + overhang, inner, outer, pieces);
+        EmitPieces(builder, primitive, paint, pieces);
+    }
+
+    struct ArcShape
+    {
+        bool  valid;
+        bool  full;
+        float middle;
+        float half_sweep;
+        float scale;
+        float center_radius;
+        float half_width;
+        float corner;
+    };
+
+    static const float BLUR_WARP_TOLERANCE = 0.5f;
+    static const float EDGE_WARP_TOLERANCE = 0.2f;
+    static const float WARP_MIN_STEP  = (float)(PI / 90.0);
+
+    static ArcShape MakeArcShape(const ShapeDesc& desc, const Outline& shape)
+    {
+        ArcShape arc;
+        float ratio = fminf(fmaxf(desc.arc_ratio, 0.0f), 100.0f) * 0.01f;
+        float sweep = fminf(fmaxf(desc.arc_sweep, 0.0f), 100.0f) * 0.01f * (float)(2.0 * PI);
+        float start = fmodf(desc.arc_start, 360.0f) * (float)(PI / 180.0);
+        arc.scale = 0.5f * (shape.half_x + shape.half_y);
+        arc.valid = ratio < 1.0f && fminf(shape.half_x, shape.half_y) > 0.0f && isfinite(start) && sweep > 0.0f;
+        arc.full = sweep >= (float)(2.0 * PI);
+        arc.middle = start + sweep * 0.5f;
+        arc.half_sweep = sweep * 0.5f;
+        arc.center_radius = 0.5f * (1.0f + ratio);
+        arc.half_width = 0.5f * (1.0f - ratio) * arc.scale;
+        arc.corner = fminf(fmaxf(desc.corner_radius[0], 0.0f), arc.half_width);
+        return arc;
+    }
+
+    static float GrownHalfWidth(const ArcShape& arc, float grow)
+    {
+        return fmaxf(arc.half_width + grow, 0.0f);
+    }
+
+    static float GrownCorner(const ArcShape& arc, float grow)
+    {
+        return arc.corner > 0.0f ? fminf(fmaxf(arc.corner + grow, 0.0f), GrownHalfWidth(arc, grow)) : 0.0f;
+    }
+
+    static void WarpPrimitive(const Outline& shape, const ArcShape& arc, float grow, float sigma, float shift_x, float shift_y, float page, Primitive& primitive)
+    {
+        primitive.warped = true;
+        primitive.folded = false;
+        primitive.center_x = shape.center_x;
+        primitive.center_y = shape.center_y;
+        ArcWarp& warp = primitive.warp;
+        warp.center_x = shape.center_x;
+        warp.center_y = shape.center_y;
+        warp.half_x = shape.half_x;
+        warp.half_y = shape.half_y;
+        warp.scale = arc.scale;
+        warp.middle = arc.middle;
+        warp.half_sweep = arc.half_sweep;
+        warp.full = arc.full;
+        warp.center_radius = arc.center_radius;
+        warp.half_width = arc.half_width;
+        warp.corner = GrownCorner(arc, grow);
+        warp.grow = grow;
+        warp.shift_x = shift_x;
+        warp.shift_y = shift_y;
+        warp.uv_scale = sigma > 0.0f ? 1.0f / sigma : 1.0f;
+        UniformPage(primitive, page);
+    }
+
+    static void AddBreak(std::vector<float>& breaks, float value, float low, float high)
+    {
+        if (value > low && value < high)
+            breaks.push_back(value);
+    }
+
+    static void AngularBreaks(float from, float to, float step, std::vector<float>& out)
+    {
+        int segments = (int)fmaxf(ceilf((to - from) / step), 1.0f);
+        for (int i = 0; i < segments; ++i)
+            out.push_back(from + (to - from) * (float)i / (float)segments);
+    }
+
+    // The radial line through the start (or the end) of the arc, moved by inset towards the middle:
+    // the line is negative on the side away from the arc body.
+    static Line EndLine(const Outline& shape, const ArcShape& arc, bool at_start, float inset)
+    {
+        float angle = at_start ? arc.middle - arc.half_sweep : arc.middle + arc.half_sweep;
+        float dx = shape.half_x * cosf(angle);
+        float dy = -shape.half_y * sinf(angle);
+        float length = sqrtf(dx * dx + dy * dy);
+        float nx = -dy / length;
+        float ny = dx / length;
+        Vec2 middle = ArcPoint(shape, arc.middle, arc.center_radius);
+        if ((middle.x - shape.center_x) * nx + (middle.y - shape.center_y) * ny < 0.0f)
+        {
+            nx = -nx;
+            ny = -ny;
+        }
+        Line line = { nx, ny, -(nx * shape.center_x + ny * shape.center_y) - inset };
+        return line;
+    }
+
+    // The part of the ring the cells leave out: a rounded rectangle in the unrolled coordinates,
+    // centered at `center` px from the ellipse center, `half` px across, with its ends `end_inset` px
+    // inside the ends of the arc.
+    struct ArcInterior
+    {
+        float center;
+        float half;
+        float corner;
+        float end_inset;
+    };
+
+    static const int   MAX_CORNER_ROWS = 4;
+    static const float CORNER_ROW_PIXELS = 6.0f;
+
+    // Cells of the ring around the arc in angle and radius. The cuts at the centerline and at the
+    // middle of the arc keep every cell on one side of the fold; the angular step keeps the chord of
+    // a cell within `tolerance` px of the circle, so the unrolled coordinates stay exact. The cells
+    // inside `interior` are cut away along the radial lines of the arc ends.
+    static void WarpCells(const Outline& shape, const ArcShape& arc, float grow, float extent, float tolerance, float shift_x, float shift_y, const ArcInterior* interior, std::vector<Poly>& pieces)
+    {
+        float half_width = GrownHalfWidth(arc, grow);
+        float corner = GrownCorner(arc, grow);
+        float center = arc.center_radius * arc.scale;
+        float low = fmaxf(center - half_width - extent, 0.0f) / arc.scale;
+        float high = (center + half_width + extent) / arc.scale;
+        std::vector<float> radii;
+        radii.push_back(low);
+        AddBreak(radii, arc.center_radius, low, high);
+        bool cut = interior && interior->half > 0.0f;
+        if (cut)
+        {
+            float straight = interior->half - interior->corner;
+            for (int side = -1; side <= 1; side += 2)
+            {
+                AddBreak(radii, (interior->center + side * interior->half) / arc.scale, low, high);
+                int rows = (int)fminf(ceilf(interior->corner / CORNER_ROW_PIXELS), (float)MAX_CORNER_ROWS);
+                for (int j = 0; j < rows; ++j)
+                    AddBreak(radii, (interior->center + side * (straight + interior->corner * (float)j / (float)rows)) / arc.scale, low, high);
+            }
+        }
+        radii.push_back(high);
+        std::sort(radii.begin(), radii.end());
+
+        float step = fminf(fmaxf(2.0f * acosf(fmaxf(1.0f - tolerance / (high * arc.scale), -1.0f)), WARP_MIN_STEP), ARC_SEGMENT);
+        std::vector<float> angles;
+        float span_to;
+        if (arc.full)
+        {
+            span_to = (float)(2.0 * PI);
+            AngularBreaks(0.0f, span_to, step, angles);
+        }
+        else
+        {
+            float reach = low > 0.0f ? (extent + grow + corner) / (low * arc.scale) : (float)PI;
+            float half_span = fminf(arc.half_sweep + fmaxf(reach, 0.0f), (float)PI);
+            span_to = arc.middle + half_span;
+            AngularBreaks(arc.middle - half_span, arc.middle, step, angles);
+            AngularBreaks(arc.middle, span_to, step, angles);
+        }
+        angles.push_back(span_to);
+
+        for (size_t r = 0; r + 1 < radii.size(); ++r)
+        {
+            float r0 = radii[r];
+            float r1 = radii[r + 1];
+            float u0 = fabsf(r0 * arc.scale - (cut ? interior->center : center));
+            float u1 = fabsf(r1 * arc.scale - (cut ? interior->center : center));
+            float across = fmaxf(u0, u1);
+            bool inside = cut && u0 <= interior->half + 1e-3f && u1 <= interior->half + 1e-3f;
+            float end_inset = 0.0f;
+            if (inside)
+            {
+                float into_corner = across - (interior->half - interior->corner);
+                end_inset = interior->end_inset;
+                if (into_corner > 0.0f)
+                    end_inset += interior->corner - sqrtf(fmaxf(interior->corner * interior->corner - into_corner * into_corner, 0.0f));
+            }
+            for (size_t a = 0; a + 1 < angles.size(); ++a)
+            {
+                float a0 = angles[a];
+                float a1 = angles[a + 1];
+                if (inside && arc.full)
+                    continue;
+                Poly cell;
+                cell.count = 0;
+                if (r0 > 0.0f)
+                {
+                    cell.points[cell.count++] = ArcPoint(shape, a0, r0);
+                    cell.points[cell.count++] = ArcPoint(shape, a1, r0);
+                }
+                else
+                    cell.points[cell.count++] = ArcPoint(shape, a0, 0.0f);
+                cell.points[cell.count++] = ArcPoint(shape, a1, r1);
+                cell.points[cell.count++] = ArcPoint(shape, a0, r1);
+                if (inside)
+                {
+                    Poly outside;
+                    ClipKeepNegative(cell, EndLine(shape, arc, 0.5f * (a0 + a1) < arc.middle, end_inset), outside);
+                    if (!IsUsable(outside))
+                        continue;
+                    cell = outside;
+                }
+                for (int i = 0; i < cell.count; ++i)
+                {
+                    cell.points[i].x += shift_x;
+                    cell.points[i].y += shift_y;
+                }
+                pieces.push_back(cell);
+            }
+        }
+    }
+
+    static float ArcBlurSigma(float radius, float corner)
+    {
+        return fmaxf(fmaxf(radius * SHADOW_SIGMA_PER_RADIUS, MIN_SIGMA), corner / 63.9375f);
+    }
+
+    static float ArcBlurPage(const ArcShape& arc, float grow, float sigma)
+    {
+        float half_width = GrownHalfWidth(arc, grow);
+        float corner = GrownCorner(arc, grow);
+        float along = arc.full ? 1e6f : fmaxf(arc.half_sweep * arc.center_radius * arc.scale + grow - corner, 0.0f);
+        uint32_t data = Quantize(corner / sigma, 16.0f, 1023) | (Quantize(along / sigma, 8.0f, 63) << 10) | (Quantize((half_width - corner) / sigma, 8.0f, 63) << 16);
+        return PackPage(MODE_RRECT_BLUR, data);
+    }
+
+    // Figma spreads the shadow of an arc by growing the ellipse: the ratio and the angles stay, so
+    // the inner edge moves out with the outer one and the ends do not move.
+    static void BuildArcShadow(const Builder& builder, const ShapeDesc& desc, const Outline& shape, const DropShadow& shadow)
+    {
+        ArcShape body = MakeArcShape(desc, shape);
+        Outline cast_shape = shape;
+        cast_shape.half_x = fmaxf(shape.half_x + shadow.spread, 0.0f);
+        cast_shape.half_y = fmaxf(shape.half_y + shadow.spread, 0.0f);
+        ArcShape cast = MakeArcShape(desc, cast_shape);
+        if (!body.valid || !cast.valid)
+            return;
+        float grow = StrokeOutset(desc);
+        float sigma = ArcBlurSigma(shadow.radius, GrownCorner(cast, grow));
+        float shift_x = shadow.offset_x;
+        float shift_y = -shadow.offset_y;
+        ArcInterior hole;
+        hole.center = body.center_radius * body.scale;
+        hole.half = GrownHalfWidth(body, grow) - KNOCKOUT_INSET;
+        hole.corner = fmaxf(GrownCorner(body, grow) - KNOCKOUT_INSET, 0.0f);
+        hole.end_inset = KNOCKOUT_INSET - grow;
+        bool knockout = !shadow.show_behind && shift_x == 0.0f && shift_y == 0.0f;
+        Primitive primitive;
+        WarpPrimitive(cast_shape, cast, grow, sigma, shift_x, shift_y, ArcBlurPage(cast, grow, sigma), primitive);
+        std::vector<Poly> pieces;
+        WarpCells(cast_shape, cast, grow, sigma * BLUR_EXTENT, BLUR_WARP_TOLERANCE, shift_x, shift_y, knockout ? &hole : 0, pieces);
+        Paint paint;
+        paint.type = PAINT_SOLID;
+        paint.color = shadow.color;
+        EmitPieces(builder, primitive, paint, pieces);
+    }
+
+    static void BuildArcBlurredFill(const Builder& builder, const ShapeDesc& desc, const Outline& shape, const Paint& paint)
+    {
+        ArcShape arc = MakeArcShape(desc, shape);
+        if (!arc.valid)
+            return;
+        float sigma = ArcBlurSigma(desc.layer_blur * BLUR_SIGMA_PER_RADIUS / SHADOW_SIGMA_PER_RADIUS, arc.corner);
+        Primitive primitive;
+        WarpPrimitive(shape, arc, 0.0f, sigma, 0.0f, 0.0f, ArcBlurPage(arc, 0.0f, sigma), primitive);
+        std::vector<Poly> pieces;
+        WarpCells(shape, arc, 0.0f, sigma * BLUR_EXTENT, BLUR_WARP_TOLERANCE, 0.0f, 0.0f, 0, pieces);
+        EmitPieces(builder, primitive, paint, pieces);
+    }
+
+    static void BuildArcStroke(const Builder& builder, const ShapeDesc& desc, const Outline& shape, const Paint& paint)
+    {
+        ArcShape arc = MakeArcShape(desc, shape);
+        if (!arc.valid)
+            return;
+        float grow = StrokeOutset(desc);
+        float width = desc.stroke_width;
+        uint32_t data = Quantize(GrownCorner(arc, grow), 4.0f, 4095) | (Quantize(width, 4.0f, 1023) << 12);
+        Primitive primitive;
+        WarpPrimitive(shape, arc, grow, 0.0f, 0.0f, 0.0f, PackPage(MODE_RRECT, data), primitive);
+        std::vector<Poly> pieces;
+        float inset = width + AA_MARGIN;
+        ArcInterior hole;
+        hole.center = arc.center_radius * arc.scale;
+        hole.half = GrownHalfWidth(arc, grow) - inset;
+        hole.corner = fmaxf(GrownCorner(arc, grow) - inset, 0.0f);
+        hole.end_inset = inset - grow;
+        WarpCells(shape, arc, grow, AA_MARGIN, EDGE_WARP_TOLERANCE, 0.0f, 0.0f, &hole, pieces);
         EmitPieces(builder, primitive, paint, pieces);
     }
 
@@ -1411,16 +1759,28 @@ namespace defigma
         }
 
         Outline shape = ShapeOutline(desc, width, height);
+        bool outside_stroke = desc.stroke_align == STROKE_OUTSIDE && StrokeOutset(desc) > 0.0f;
         if (IsArc(desc))
         {
+            for (size_t i = 0; i < desc.shadows.size(); ++i)
+                BuildArcShadow(builder, desc, shape, desc.shadows[i]);
             for (size_t i = 0; i < desc.fills.size(); ++i)
-                BuildArc(builder, desc, shape, desc.fills[i]);
+            {
+                if (desc.layer_blur > 0.0f)
+                    BuildArcBlurredFill(builder, desc, shape, desc.fills[i]);
+                else
+                    BuildArc(builder, desc, shape, desc.fills[i], outside_stroke ? OUTSIDE_STROKE_UNDERLAP : 0.0f);
+            }
+            if (desc.stroke_width > 0.0f)
+            {
+                for (size_t i = 0; i < desc.strokes.size(); ++i)
+                    BuildArcStroke(builder, desc, shape, desc.strokes[i]);
+            }
             return;
         }
 
         for (size_t i = 0; i < desc.shadows.size(); ++i)
             BuildShadow(builder, desc, shape, desc.shadows[i]);
-        bool outside_stroke = desc.stroke_align == STROKE_OUTSIDE && StrokeOutset(desc) > 0.0f;
         Outline fill = outside_stroke ? Grow(shape, OUTSIDE_STROKE_UNDERLAP) : shape;
         for (size_t i = 0; i < desc.fills.size(); ++i)
             BuildFill(builder, desc, fill, desc.fills[i]);

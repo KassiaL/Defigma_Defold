@@ -277,13 +277,33 @@ sweep; each half is covered by ring sectors of at most 30 degrees plus the corne
 evaluates one analytic distance: the ring (inner radius = ratio, outer = 1 in half-size units)
 intersected with the half-plane of its own end, the corner rounded with the rounded-box formula.
 A progress ring is 60 vertices whatever the sweep, a full donut 96. Fills (solid, linear, radial)
-work; strokes, shadows and blur are ignored on an arc.
+work, and so do strokes (all three alignments), drop shadows and layer blur.
+
+Strokes, shadows and blur of an arc reuse the rounded-rectangle modes: the geometry is cut into an
+angle x radius grid (a chord deviates at most 0.2 px from the curve for a stroke, 0.5 px for a
+blur, cut at the centre line and at the middle of the sweep) and every vertex gets a "warped"
+distance coordinate, the arc unrolled into a straight rounded bar: along = distance from the nearer
+end along the centre line, across = distance from the centre line. `shape.fp` evaluates it as an
+ordinary rounded rectangle or its Gaussian blur, so the shader did not change and an arc without
+these effects costs exactly what it did. The effects follow `arc_start` / `arc_sweep` /
+`arc_ratio`, so `set_arc` / `set_sweep` move them too. Figma semantics kept: an arc shadow's spread
+grows the whole ellipse (the inner edge moves out, the ends stay on their radial lines), sigma is
+0.43 x the Figma radius, a shadow without offset and without `show behind` is knocked out under the
+fill, an outside stroke underlaps the fill by one antialiasing step like on rectangles.
 
 Against the Figma export of `tests/arcs_test` (round and square ends, pies, a donut, partial corner
 radius, tiny and wide sweeps, an elliptical arc, translucent fill) the mean difference is 0.2/255.
 Two known differences: the corners of a non-circular arc are rounded in the ellipse's own scaled
 space (Figma rounds in pixels), and a partial corner radius on a thick arc rounds the inner corners
 a little less than Figma. A sweep shorter than the corner radius (a dot) is slightly flattened.
+
+Effects against the Figma export of `tests/arcs_fx_test` (glow, offset and spread shadows, a pie
+shadow, the three stroke alignments, layer blur, an elliptical arc with everything, a translucent
+arc, a full ring): under 1/255 mean per region, the elliptical arc 1.8/255. Known differences:
+stroke, shadow and blur of an elliptical arc use the average radius of the ellipse (the inner edge
+of the effect can sit ~1 px off on a strongly elliptical arc); a shadow with an offset is not
+knocked out (visible only under a translucent fill); layer blur blurs the fills only, as on
+rectangles.
 
 ### Lua API
 
@@ -362,6 +382,7 @@ Vertex counts for a 300x120 rounded rectangle (`tools/geometry/vertex_count.cpp`
 | drop shadow, small radius (up to ~16) | ~180 (shape knocked out of the shadow) | (w + 6 sigma)(h + 6 sigma), 4-sample integral | a few per screen |
 | radial gradient | 330-430 (rings at the stops x 12-32 sectors) | same as solid | small shapes; not on dozens of instances |
 | arc (progress ring, pie, donut) | 60 for a ring of any sweep, 24 for a pie, 96 for a full donut | ring sector area | freely; animate with `defigma_shape.set_arc` |
+| arc stroke / shadow / layer blur | stroke 580-850, shadow or glow 290-420 (knocked-out translucent arc ~1 600), blur ~220 | stroke: ring area; shadow: the blurred ring band, 4-sample integral | a few per screen; the arc without them keeps its 60 vertices |
 | `path` (vectors, boolean ops) | convex pieces + 2 per outline edge; curves flattened every 6 px | 1x area | icons with few points; a round-cap stroke of a small check mark is already ~360 |
 | `clip` (child crossing a `Clip content` frame) | every piece cut by the outline | - | fine; hard edge |
 | large drop shadow / glow (radius 24+) | ~200 | a quad of (w + 6 sigma)(h + 6 sigma), 4-sample integral | avoid on big nodes; bake into the image |
@@ -503,7 +524,8 @@ which the home screen already lags). Tools: `tools/` (see `tools/README.md`).
 | Store screen, Redmi Note 10 Pro, 1 / 8 layers | raster 2.15 / 10.2, shapes 8.55 / 64.4, shapes with the background as an image 4.40 / 29.8, the removed material path 4.96 / 37.6 |
 | Five `panel_bg` panels, Redmi 9C, 1 / 4 / 8 layers (same run) | slice9 image 6.8 / 10.9 / 16.3; shape nodes (two fills + stroke) 10.9 / 16.2 / 31.1; one fill 8.8 / 13.3 / 18.8 |
 | Vertex cost on the CPU, Redmi 9C | about 1 ms of GUI work per 3 000-4 000 vertices, every frame (no static buffer, see *Cost*) |
-| Vertices per node | solid rounded rect 54, linear +12 per stop, radial 330-430, stroke 48-126, small shadow ~180, ring or pie arc 60 / 24, donut 96, a real decorated panel 200-300 |
+| Vertices per node | solid rounded rect 54, linear +12 per stop, radial 330-430, stroke 48-126, small shadow ~180, ring or pie arc 60 / 24, donut 96, arc stroke 580-850, arc shadow 290-420, a real decorated panel 200-300 |
+| Arc effects, Redmi 9C, 1000x760 scene of 11 arcs, 1 / 4 / 8 layers | with shadows, glows and blur 12.2 / 22.4 / 44.3; same arcs with effects stripped 8.5 / 13.3 / 17.8 (large glows dominate: cost follows the blurred area) |
 | Dexfut on the Redmi 9C (before the migration, debug) | 30-50 fps; the main thread is the limit: a draw call costs 40-65 us in the PowerVR driver (draft screens 250-275 calls = 18-19 ms), ~12-14 ms fixed per frame; GPU time only 3.5-8.6 ms (Draft Battle divisions 12-17) |
 | Memory | sanitizers, TSan, valgrind and a fuzzer on the geometry and the editor library: 0 errors, 0 leaks; engine stress (load/unload, clone/delete, resize, layouts) under valgrind and heaptrack: nothing through the extension stays alive |
 
@@ -517,13 +539,13 @@ which the home screen already lags). Tools: `tools/` (see `tools/README.md`).
   gradients, round-cap path strokes and long lists of cloned shapes multiply it. Count before a
   list of dozens of shapes goes into a scroll (`tools/geometry/vertex_count.cpp`).
 - **Not drawn by a shape**: image fills, background blur, inner shadow, blend modes, angular and
-  diamond gradients, strokes and effects of an arc, blur and shadows of a `path`. They silently
+  diamond gradients, blur and shadows of a `path`. They silently
   disappear from the node: put such elements into an atlas.
 - **Stencil.** A shape node is a rectangle rounded by the shader, so as a stencil clipper it cuts a
   square. Round masks stay `TYPE_PIE` (metadata, `Defigma_EN.md` "Pie Nodes"). The `clip` property
   of a shape cut by a `Clip content` frame has a hard, not antialiased edge.
 - **Arcs.** A non-circular arc rounds its corners in the scaled ellipse space (Figma rounds in
-  pixels); a partial corner radius on a thick arc rounds the inner corners a little less than
+  pixels), and its stroke, shadow and blur follow the average radius; a partial corner radius on a thick arc rounds the inner corners a little less than
   Figma; a sweep shorter than the corner radius is slightly flattened. The Figma start angle is in
   the rotated frame of the ellipse: top is `-90 + rotation`. `gui.animate` cannot animate a custom
   property: tween in Lua and call `defigma_shape.set_sweep`. A layout change restores the layout's

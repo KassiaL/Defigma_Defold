@@ -6,6 +6,8 @@
 Thumbs.db
 .lock-wscript
 *.pyc
+*.log
 .project
 .cproject
 builtins/bench_bundles
+/bench_bundles

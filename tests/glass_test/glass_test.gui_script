@@ -1,0 +1,9 @@
+local glass_fx = require("tests.glass_test.glass_fx")
+
+function init(self)
+	glass_fx.init(self)
+end
+
+function update(self, dt)
+	glass_fx.update(self, dt)
+end

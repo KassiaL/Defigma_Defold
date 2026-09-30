@@ -1,0 +1,925 @@
+script: "/tests/glass_test/glass_test.gui_script"
+fonts {
+  name: "defigma_data"
+  font: "/builtins/fonts/default.font"
+}
+background_color {
+  x: 0.0
+  y: 0.0
+  z: 0.0
+  w: 0.0
+}
+nodes {
+  position {
+    x: 540
+    y: 500
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1080
+    y: 1000
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  id: "root"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_STRETCH
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1
+  template_node_child: false
+  size_mode: SIZE_MODE_MANUAL
+  enabled: true
+  visible: false
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1080
+    y: 1000
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "background"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "root"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"radial\",\"transform\":[1,0,0,0,1.4,-0.35],\"stops\":[[0,0.07,0.24,0.27,1],[1,0.02,0.06,0.09,1]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1000
+    y: 860
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "tile_glass"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "root"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 40
+      y: 40
+      z: 40
+      w: 40
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"drop_shadow\",\"offset\":[0,14],\"radius\":28,\"spread\":0,\"color\":[0,0,0,0.4],\"show_behind\":false}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[0,1,0,-1,0,1],\"stops\":[[0,0.1,0.2,0.25,0.92],[1,0.12,0.34,0.38,0.92]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 0
+    y: -105
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 940
+    y: 250
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "stats_panel"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "root"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 30
+      y: 30
+      z: 30
+      w: 30
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"solid\",\"color\":[0.12,0.26,0.3,0.55]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 2
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,0.7745,0.9843,1,0.5],[0.5,0.7745,0.9843,1,0.15],[1,0.7745,0.9843,1,0.5]]}]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1000
+    y: 860
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "glass_sheen"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "root"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 40
+      y: 40
+      z: 40
+      w: 40
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"solid\",\"color\":[1,1,1,0]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 1000
+    y: 860
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "tile_rim"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "root"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 40
+      y: 40
+      z: 40
+      w: 40
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "rect"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 3
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[0,1,0,-1,0,1],\"stops\":[[0,0.7745,0.9843,1,0.12],[0.55,0.7745,0.9843,1,0.2],[1,0.7745,0.9843,1,1]]}]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 0
+    y: 300
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 140
+    y: 140
+    z: 0
+    w: 1
+  }
+  color {
+    x: 0.2157
+    y: 0.9529
+    z: 0.8235
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "spinner"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "root"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "arc_ratio"
+    type: TYPE_NUMBER
+    number: 86
+  }
+  custom_properties {
+    id: "arc_start"
+    type: TYPE_NUMBER
+    number: -90
+  }
+  custom_properties {
+    id: "arc_sweep"
+    type: TYPE_NUMBER
+    number: 45
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 5
+      y: 5
+      z: 5
+      w: 5
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"drop_shadow\",\"offset\":[0,0],\"radius\":14,\"spread\":0,\"color\":[1,1,1,0.8],\"show_behind\":false}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"solid\",\"color\":[1,1,1,1]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "ellipse"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: -280
+    y: 429.5
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 220
+    y: 7
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "glint_1"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "root"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"layer_blur\",\"radius\":2}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"radial\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,0.7745,0.9843,1,1],[1,0.7745,0.9843,1,0]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "ellipse"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: -220
+    y: 429.5
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 220
+    y: 7
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "glint_2"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "root"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"layer_blur\",\"radius\":2}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"radial\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,0.7745,0.9843,1,1],[1,0.7745,0.9843,1,0]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "ellipse"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: -160
+    y: 429.5
+    z: 0
+    w: 1
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 1
+  }
+  scale {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  size {
+    x: 220
+    y: 7
+    z: 0
+    w: 1
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "glint_3"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "root"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[{\"type\":\"layer_blur\",\"radius\":2}]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"radial\",\"transform\":[1,0,0,0,1,0],\"stops\":[[0,0.7745,0.9843,1,1],[1,0.7745,0.9843,1,0]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "ellipse"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  alpha: 1
+  template_node_child: false
+  custom_type: 1816843757
+  enabled: true
+  visible: true
+  material: "shape"
+}
+nodes {
+  position {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  rotation {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  size {
+    x: 0
+    y: 0
+    z: 0
+    w: 0
+  }
+  color {
+    x: 1
+    y: 1
+    z: 1
+    w: 1
+  }
+  type: TYPE_TEXT
+  text: "{\"gradients\":{},\"params\":{}}"
+  font: "defigma_data"
+  id: "defigma_data"
+  parent: "root"
+  layer: ""
+  inherit_alpha: true
+  line_break: false
+  alpha: 1
+  enabled: false
+}
+material: "/builtins/materials/gui.material"
+adjust_reference: ADJUST_REFERENCE_PARENT
+max_nodes: 512
+materials {
+  name: "shape"
+  material: "/defigma/materials/shape.material"
+}

@@ -1,0 +1,10 @@
+name: "glass_test"
+scale_along_z: 0
+embedded_instances {
+  id: "screen"
+  data: "components {\n"
+  "  id: \"gui\"\n"
+  "  component: \"/tests/glass_test/glass_test.gui\"\n"
+  "}\n"
+  ""
+}
