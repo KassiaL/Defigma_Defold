@@ -563,6 +563,9 @@ which the home screen already lags). Tools: `tools/` (see `tools/README.md`).
   Cost on that phone: 30 overlapping 900x900 blurred ellipses, 27.1 ms per frame in `mediump`
   vs 31.8 ms in `highp` (+17 %, fragment-bound worst case). Do not bring `mediump` back into the
   shape shaders. After a shader change compare an ellipse on a Mali phone with the desktop.
+  The same phone draws the `linear_text` gradient right in all four directions in `mediump` (its
+  position arrives as a `highp` varying, the direction comes from a uniform), and so do the
+  `linear` / `radial` materials of the pre-shape Defigma, so those stay `mediump`.
 - **Data format.** The runtime reads the shape properties and the text gradient data from the `.gui`.
   A change of either format means exporting every `.gui` again from Figma; a `.gui` from before
   the migration that
