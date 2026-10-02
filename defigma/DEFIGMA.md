@@ -554,12 +554,15 @@ which the home screen already lags). Tools: `tools/` (see `tools/README.md`).
   Every `CompGuiNodeTypeSet*Fn` and the context must be set (an unset update callback crashed
   Android). The shader needs screen derivatives (`GL_OES_standard_derivatives` on GLES2): after a
   shader change build for `arm64-android` and read the `SHADERC` lines.
-- **`mediump` in `shape.fp`.** On a Mali-G68 (driver r32p1) `length(uv)` and `sqrt(dot(uv, uv))`
-  in `mediump` treat negative components of `uv` as 0. The distance is then right only where both
-  components are positive, so ellipses, ellipse strokes, arcs and blurred shadows came out square
-  everywhere but their top-right corner. A `highp` varying alone did not fix it; the math has to be
-  `highp`. Do not bring `mediump` back into the shape shaders. After a shader change compare an
-  ellipse on a Mali phone with the desktop.
+- **`mediump` in `shape.fp`.** On a Mali-G68 (driver r32p1) the fp16 vector operations are wrong
+  for negative components: `abs(vec2)` returns `max(v, 0)`, and `max(v, -v)`, `dot(v, v)` and
+  `length(v)` break the same way, while the scalar `abs(v.x)` and `v.x * v.x` are right. Ellipses,
+  ellipse strokes, arcs and blurred shadows came out square everywhere but their top-right corner.
+  A `highp` varying alone or a scalar rewrite of `length` does not fix it (the strokes and the blurs
+  keep vector math, and a compiler may vectorize scalar code again); the shader math is `highp`.
+  Cost on that phone: 30 overlapping 900x900 blurred ellipses, 27.1 ms per frame in `mediump`
+  vs 31.8 ms in `highp` (+17 %, fragment-bound worst case). Do not bring `mediump` back into the
+  shape shaders. After a shader change compare an ellipse on a Mali phone with the desktop.
 - **Data format.** The runtime reads the shape properties and the text gradient data from the `.gui`.
   A change of either format means exporting every `.gui` again from Figma; a `.gui` from before
   the migration that
