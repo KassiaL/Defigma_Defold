@@ -331,7 +331,7 @@ the LuaLS annotations (`---@meta`).
 
 
 Antialiasing uses the screen derivatives of the distance (`GL_OES_standard_derivatives` on GLES2);
-the fragment shader is `mediump`. Blurs are Gaussian: sigma is `0.43 * radius` for shadows and layer
+`shape.vp` and `shape.fp` are `highp` throughout. Blurs are Gaussian: sigma is `0.43 * radius` for shadows and layer
 blur, a rounded rectangle uses the Evan Wallace integration, an ellipse the same integration over
 its chords. A drop shadow is cut out under the shape unless `show_behind` is set.
 
@@ -554,6 +554,12 @@ which the home screen already lags). Tools: `tools/` (see `tools/README.md`).
   Every `CompGuiNodeTypeSet*Fn` and the context must be set (an unset update callback crashed
   Android). The shader needs screen derivatives (`GL_OES_standard_derivatives` on GLES2): after a
   shader change build for `arm64-android` and read the `SHADERC` lines.
+- **`mediump` in `shape.fp`.** On a Mali-G68 (driver r32p1) `length(uv)` and `sqrt(dot(uv, uv))`
+  in `mediump` treat negative components of `uv` as 0. The distance is then right only where both
+  components are positive, so ellipses, ellipse strokes, arcs and blurred shadows came out square
+  everywhere but their top-right corner. A `highp` varying alone did not fix it; the math has to be
+  `highp`. Do not bring `mediump` back into the shape shaders. After a shader change compare an
+  ellipse on a Mali phone with the desktop.
 - **Data format.** The runtime reads the shape properties and the text gradient data from the `.gui`.
   A change of either format means exporting every `.gui` again from Figma; a `.gui` from before
   the migration that
