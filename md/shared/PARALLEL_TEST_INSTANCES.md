@@ -28,8 +28,12 @@ build_shell/linux_test.sh
 ```
 
 - Bundles the `x86_64-linux` debug build with the automation bridge extension and starts it.
-- Prints `ENGINE_PORT=<port>` and `ENGINE_LOG=<path>`. The log is `<worktree>/.internal/linux_test/engine.log`.
+- Prints `ENGINE_PORT=<port>`, `ENGINE_LOG=<path>` and `ENGINE_DISPLAY=:<n>`. The log is `<worktree>/.internal/linux_test/engine.log`.
 - The engine service port is dynamic, the pid is kept in `<worktree>/.internal/linux_test/engine.pid`, so starting an instance stops the previous engine of that checkout only and never touches the engine of another agent.
+- The game never appears on my desktop: the engine is started through `build_shell/run-test-env`, which gives every instance its own invisible X display - an Xvfb server named after the instance - and renders OpenGL on the GPU through VirtualGL. The game runs at full frame rate there, and bridge input and screenshots work as usual. The display closes by itself when the engine exits. `LINUX_ON_DESKTOP=1` starts the engine on my real display instead; use it only when I ask to watch the game.
+- Anything else that talks to X for the instance (`xdotool`, `xwininfo`, `ffmpeg -f x11grab`, a recording tool) must run with `DISPLAY=<ENGINE_DISPLAY>`; never move an engine window to `:0`. Another process that has to run in the same environment - a second engine for a two-account test - is started as `build_shell/run-test-env --name <instance> <command>` with a name of its own; `build_shell/run-test-env --list` shows the running environments, `--stop <name>` closes one.
+- The machine needs Xvfb and VirtualGL; how to install them, and why this setup, is written at the top of `build_shell/run-test-env`. When the script reports that one of them is missing, stop and tell me instead of falling back to the desktop display.
+- Start the instance muted unless the task checks sound. Arguments after `linux_test.sh` go to the engine, so `build_shell/linux_test.sh --config=sound.gain=0` mutes the Defold mixer; when `Project Settings` names another way for this project, use that one instead.
 
 Environment switches every project has (the project-specific ones are in `Project Settings`):
 
