@@ -1,0 +1,162 @@
+#!/usr/bin/env bash
+# run-test-env - runs a command inside an isolated, invisible X11 display.
+#
+# WHY
+#   Agents build and launch the game for automated tests (build_shell/linux_test.sh). On the
+#   desktop display (:0) every test window pops up, steals focus and keyboard input from the person
+#   working there. This script gives every test instance its own X server instead, so the game never
+#   exists on the desktop at all: no window, no focus change, no input stealing.
+#
+# HOW IT WORKS
+#   - Each environment NAME is one Xvfb server (a virtual X display living only in memory). The
+#     display number is picked by Xvfb itself (-displayfd), so parallel instances never collide.
+#   - Xvfb alone only offers Mesa llvmpipe (software OpenGL): Dexfut ran at 14-19 fps there with
+#     ~630% CPU per instance. So OpenGL is redirected to the real GPU with VirtualGL's EGL back end
+#     (`vglrun -d egl`): the game renders on the GPU off-screen and VirtualGL copies every frame
+#     into the Xvfb window. It does not need access to :0 and changes no X configuration. Measured:
+#     60 fps and the same CPU load as a normal desktop run.
+#   - Xvfb runs with -terminate: it exits by itself when its last client (the game) disconnects.
+#   - The automation bridge drives the game over its HTTP port, so input and screenshots work
+#     without any window manager or focus. Tools that talk to X for an instance (xdotool, ffmpeg
+#     x11grab, tools/motion/capture.py) must use that instance's DISPLAY (see --display).
+#   - Do not minimize or hide a desktop window instead: Defold stops rendering an iconified window,
+#     so bridge screenshots never complete.
+#
+# INSTALL (Ubuntu 24.04, X11 session; the GPU path is tested on NVIDIA with the proprietary driver)
+#   1. Xvfb from the Ubuntu repository:
+#        sudo apt install xvfb
+#   2. VirtualGL 3.x from the official releases (https://github.com/VirtualGL/virtualgl/releases),
+#      it installs into /opt/VirtualGL:
+#        curl -LO https://github.com/VirtualGL/virtualgl/releases/download/3.1.5/virtualgl_3.1.5_amd64.deb
+#        sudo apt install ./virtualgl_3.1.5_amd64.deb
+#      Do NOT run vglserver_config: the EGL back end needs no X server changes. The user must be
+#      able to open the GPU render node (/dev/dri/renderD128, group `render`, which a desktop user
+#      normally has).
+#   3. Check the GPU path:
+#        build_shell/run-test-env --name check /opt/VirtualGL/bin/glxinfo -B | grep renderer
+#      It must print the real GPU, not llvmpipe.
+#   Uninstall: sudo apt remove xvfb virtualgl
+#
+# USAGE
+#   build_shell/run-test-env [--name NAME] [--size WxH] [--software] command [args...]
+#   build_shell/run-test-env --display [NAME]   print the DISPLAY of a running environment
+#   build_shell/run-test-env --list             list running environments
+#   build_shell/run-test-env --stop [NAME]      stop one environment (kills its game too)
+#   build_shell/run-test-env --stop-all         stop every environment
+#
+#   NAME defaults to "default"; every parallel instance needs its own NAME so the windows never
+#   share a screen (linux_test.sh uses the checkout folder name). The default 2300x2300 screen
+#   holds a 1080x2300 portrait window for recordings. --software skips VirtualGL (llvmpipe).
+#   This file is shared between the Defold projects and synced by sync_defold_docs.py.
+set -euo pipefail
+
+state_dir="${XDG_RUNTIME_DIR:-/tmp/run-test-env-$UID}/run-test-env"
+vglrun_path=/opt/VirtualGL/bin/vglrun
+name=default
+size=2300x2300
+software=0
+
+die() {
+	echo "run-test-env: $*" >&2
+	exit 1
+}
+
+pid_file() { echo "$state_dir/$1.pid"; }
+display_file() { echo "$state_dir/$1.display"; }
+
+running_display() {
+	local env_name=$1 pid
+	[ -f "$(pid_file "$env_name")" ] || return 1
+	pid=$(cat "$(pid_file "$env_name")")
+	kill -0 "$pid" 2>/dev/null || return 1
+	[ "$(cat "/proc/$pid/comm" 2>/dev/null)" = "Xvfb" ] || return 1
+	echo ":$(cat "$(display_file "$env_name")")"
+}
+
+start_display() {
+	local env_name=$1 ready
+	command -v Xvfb >/dev/null || die "Xvfb is not installed, see INSTALL at the top of $0"
+	ready=$(mktemp "$state_dir/$env_name.ready.XXXXXX")
+	setsid Xvfb -displayfd 3 -screen 0 "${size}x24" -nolisten tcp -terminate \
+		3>"$ready" </dev/null >"$state_dir/$env_name.log" 2>&1 &
+	echo $! >"$(pid_file "$env_name")"
+	for _ in $(seq 1 100); do
+		if [ -s "$ready" ]; then
+			tr -d '\n' <"$ready" >"$(display_file "$env_name")"
+			rm -f "$ready"
+			return 0
+		fi
+		sleep 0.05
+	done
+	rm -f "$ready"
+	die "Xvfb did not start, see $state_dir/$env_name.log"
+}
+
+ensure_display() {
+	local env_name=$1
+	mkdir -p "$state_dir"
+	exec 9>"$state_dir/$env_name.lock"
+	flock 9
+	running_display "$env_name" >/dev/null || start_display "$env_name"
+	running_display "$env_name"
+	flock -u 9
+}
+
+stop_env() {
+	local env_name=$1
+	if running_display "$env_name" >/dev/null; then
+		kill "$(cat "$(pid_file "$env_name")")"
+	fi
+	rm -f "$(pid_file "$env_name")" "$(display_file "$env_name")" "$state_dir/$env_name.lock" "$state_dir/$env_name.log"
+}
+
+env_names() {
+	[ -d "$state_dir" ] || return 0
+	find "$state_dir" -maxdepth 1 -name '*.pid' -printf '%f\n' | sed 's/\.pid$//'
+}
+
+case "${1:-}" in
+--display)
+	running_display "${2:-$name}" || die "environment '${2:-$name}' is not running"
+	exit 0
+	;;
+--list)
+	for env_name in $(env_names); do
+		if display=$(running_display "$env_name"); then
+			echo "$env_name $display"
+		fi
+	done
+	exit 0
+	;;
+--stop)
+	stop_env "${2:-$name}"
+	exit 0
+	;;
+--stop-all)
+	for env_name in $(env_names); do
+		stop_env "$env_name"
+	done
+	exit 0
+	;;
+esac
+
+while [ $# -gt 0 ]; do
+	case "$1" in
+	--name) name=$2; shift 2 ;;
+	--size) size=$2; shift 2 ;;
+	--software) software=1; shift ;;
+	--) shift; break ;;
+	-*) die "unknown option $1" ;;
+	*) break ;;
+	esac
+done
+[ $# -gt 0 ] || die "no command given"
+[ "$software" = "1" ] || [ -x "$vglrun_path" ] || die "VirtualGL is not installed, see INSTALL at the top of $0 (or pass --software)"
+
+display=$(ensure_display "$name")
+export DISPLAY=$display
+unset WAYLAND_DISPLAY XAUTHORITY
+if [ "$software" = "1" ]; then
+	exec "$@"
+fi
+exec "$vglrun_path" -d egl "$@"

@@ -67,7 +67,7 @@ Call `gradient_nodes.create_for_widget` from the widget that owns the nodes, but
 
 Project structure note: see `m/PROJECT_STRUCTURE.md`.
 
-`AGENTS.md`, every file in `md/shared/` and `build_shell/run-test-env` are shared by all Defold projects: `$HOME/my_shell/sync_defold_docs.py` copies the newest edited version into every project. Keep project-specific content out of them, except a trailing `## Project Settings` section, which the sync keeps per project.
+`AGENTS.md`, every file in `md/shared/` and the test scripts `build_shell/linux_test.sh`, `build_quiet.sh`, `run-test-env`, `agent_worktree.sh`, `agent_worktree_clean.sh` are shared by all Defold projects: `$HOME/my_shell/sync_defold_docs.py` copies the newest edited version into every project. Keep project-specific content out of them, except a trailing `## Project Settings` section, which the sync keeps per project; project-specific script behaviour goes to `build_shell/linux_test_project.sh`, which the sync never touches.
 
 ## Worktree
 
