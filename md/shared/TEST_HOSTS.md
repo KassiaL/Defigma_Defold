@@ -1,153 +1,154 @@
-# Тестовые хосты: установка и проверка
+# Тестовая сеть компьютеров
 
-Когда на основном ПК остаётся меньше 6144 MB свободной RAM, `build_shell/test/linux_test.sh` сам переносит
-сборку и запуск игры на другой компьютер локальной сети — тестовый хост. Как это работает, описано в разделе
-`Test hosts` файла `md/shared/PARALLEL_TEST_INSTANCES.md`. Здесь — только установка.
+Все компьютеры дома (Linux и Mac) объединены в одну сеть:
 
-Адреса нигде настраивать не нужно: основной ПК находит хосты широковещанием (UDP 47800), так что смена IP
-ничего не ломает. Хост принимает запросы только из локальной сети.
+- сборка `build_shell/test/linux_test.sh` уходит на свободный компьютер, когда на текущем меньше 6144 MB
+  свободной RAM (подробности — раздел `Test hosts` в `md/shared/PARALLEL_TEST_INSTANCES.md`);
+- с любого компьютера на любой другой можно зайти по SSH по его имени: `ssh macbookair`, `ssh sergey`,
+  `ssh likanion-computer` — без пароля и без IP-адресов.
 
-Поддерживаются Linux (Ubuntu 22.04+) и macOS. Windows пока не поддерживается.
+Работать можно с любого компьютера сети: каждый одновременно и «основной», и хост для чужих сборок.
+Windows пока не поддерживается.
 
-## 1. Основной ПК: раздать установщик
+## Как это устроено
 
-```bash
-python3 build_shell/test/test_host.py share
-```
+- На каждом компьютере одна копия `~/defold_test_host/test_host.py` на все проекты. Она запущена как
+  агент (TCP и UDP порт 47800) и стартует сама: на Linux — пользовательский сервис systemd, работающий с
+  включения компьютера, на Mac — LaunchAgent при входе в систему.
+- IP-адреса нигде не записаны. Компьютеры находят друг друга широковещательным запросом в локальной сети,
+  и каждый отвечает своим именем, свободной RAM и версией агента. Поэтому смена IP ничего не ломает.
+- Имя компьютера в сети (алиас) — его hostname до первой точки в нижнем регистре: `MacBookAir.Dlink` →
+  `macbookair`. `python3 ~/defold_test_host/test_host.py hosts` показывает все алиасы.
+- SSH: при установке компьютер создаёт ключ `~/.ssh/lan_hosts`, кладёт его в `authorized_keys` всех
+  найденных компьютеров и забирает их ключи себе. Каждый компьютер сам дописывает в `~/.ssh/config`
+  блок `# >>> defold_test_host` с записью `Host <алиас>` на каждый компьютер. Вместо адреса там
+  `ProxyCommand test_host.py connect <алиас>`: IP ищется широковещанием в момент подключения.
+- Обновления: в скрипте есть номер `VERSION`. При удалённой сборке компьютеры сравнивают версии, и более
+  новая копия переходит на другой компьютер (в любую сторону). Агент перезапускается сам, запущенные им
+  игры при этом не закрываются. Чтобы изменить скрипт, правь `~/defold_test_host/test_host.py` и увеличь
+  `VERSION`.
+- Безопасность: агент отвечает только адресам локальной сети и не спрашивает пароль. Любое устройство,
+  подключённое к домашней сети, может запустить сборку или добавить свой ключ SSH. Гостей пускай в
+  гостевую сеть Wi-Fi.
 
-Команда печатает по одной строке установки для Linux и для Mac и раздаёт по сети файл `test_host.py`, пока не
-нажат Ctrl+C. В строках стоит текущий IP основного ПК: он нужен только для скачивания файла в момент установки,
-дальше хосты находятся широковещанием, и смена IP ничего не ломает.
+## Добавить компьютер
 
-## 2. Тестовый хост: вставить одну строку
-
-### Linux
-
-Открой терминал на рабочем столе (не по ssh) и вставь строку `Run on a Linux test host` из шага 1. Она:
-- ставит git, Python, JDK 25, Xvfb и VirtualGL;
-- включает запуск пользовательских сервисов без входа в систему;
-- скачивает `test_host.py` в `~/test_host.py`;
-- устанавливает агент с автозапуском и сразу выводит проверку.
-
-### Mac
-
-1. Один раз нужен Homebrew. Если его нет:
+1. Mac: один раз нужен Homebrew. Если его нет:
 
    ```bash
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
    ```
 
-   В конце установщик Homebrew пишет «Next steps» с двумя командами `echo ... >> ~/.zprofile` и `eval ...` —
-   выполни их и открой новое окно терминала.
-2. Вставь строку `Run on a Mac test host` из шага 1. Она:
-   - ставит bash 5, JDK 25 (`openjdk`), Python и git;
-   - отключает сон при питании от сети;
-   - скачивает и устанавливает агент, затем выводит проверку.
+   В конце установщик Homebrew пишет «Next steps» с двумя командами (`echo ... >> ~/.zprofile` и
+   `eval ...`) — выполни их и открой новое окно терминала.
+2. На любом компьютере, который уже в сети, узнай строку установки — её печатает последней строкой:
 
-   Пароль спросят для `sudo`. Если macOS спросит «Разрешить Python принимать входящие подключения?», нажми
-   «Разрешить».
+   ```bash
+   python3 ~/defold_test_host/test_host.py hosts
+   ```
 
-После установки агент запускается сам после каждого входа в систему. Больше ничего запускать не нужно.
+   Она выглядит так (IP — того компьютера, где ты её взял):
 
-## 3. Тестовый хост: проверка
+   ```bash
+   bash -c "$(curl -fsSL http://192.168.0.33:47800/install.sh)"
+   ```
 
-Установка сама печатает проверку. Повторить её можно в любой момент:
+3. Вставь эту строку в терминал нового компьютера (на Linux — в терминал рабочего стола, не по ssh).
+   Она спросит пароль `sudo` и:
+   - ставит git, Python, JDK 25, на Linux ещё Xvfb, VirtualGL и SSH-сервер, на Mac — bash 5 и отключает
+     сон при питании от сети;
+   - включает SSH-сервер;
+   - скачивает `test_host.py` в `~/defold_test_host`, ставит агента с автозапуском;
+   - обменивается SSH-ключами со всеми компьютерами сети и прописывает алиасы;
+   - печатает проверку.
+4. Mac: если в проверке `FAIL ssh server`, включи «Системные настройки → Основные → Общий доступ →
+   Удалённый вход» (без полного доступа к диску у Терминала macOS не даёт включить его командой).
+   Если macOS спросит «Разрешить Python принимать входящие подключения?» — «Разрешить».
+
+Если в сети ещё нет ни одного компьютера, первый ставится из копии в Git: `python3 test_host.py install`
+(последняя версия хранится в истории проекта Dexfut, `build_shell/test/test_host.py`, коммит перед её
+переездом в `~/defold_test_host`).
+
+## Проверка
 
 ```bash
-python3 ~/test_host.py check
+python3 ~/defold_test_host/test_host.py check
 ```
 
-На Mac — `"$(brew --prefix)/bin/python3" ~/test_host.py check`.
-
-Каждая строка помечена `OK` или `FAIL`. Последняя строка должна быть `READY: this computer can take test builds`.
+(на Mac — `"$(brew --prefix)/bin/python3"` вместо `python3`). Последняя строка должна быть
+`READY: this computer can take test builds`.
 
 | Строка | Что должно быть |
 | --- | --- |
 | `host` | имя компьютера, `Linux x86_64` или `Darwin arm64` / `Darwin x86_64` |
-| `free RAM` | не меньше 6144 MB свободно. Если меньше, хост виден, но сборки на него не уходят |
+| `free RAM` | не меньше 6144 MB свободно. Если меньше, компьютер виден, но сборки на него не уходят |
 | `python` | 3.9 или новее |
 | `git` | любая версия |
 | `java` | 25 или новее: этого требует `bob.jar` Defold 1.13 |
-| `bash` | 4 или новее. На Mac это должен быть `/opt/homebrew/bin/bash` (или `/usr/local/bin/bash`), а не `/bin/bash` 3.2 |
+| `bash` | 4 или новее. На Mac это `/opt/homebrew/bin/bash` (или `/usr/local/bin/bash`), не `/bin/bash` 3.2 |
 | `Xvfb`, `VirtualGL` | только Linux: путь найден |
 | `GPU` | настоящая видеокарта (на Linux — `OpenGL renderer` через VirtualGL), не `llvmpipe` и не `not found` |
 | `agent` | `running on TCP 47800` |
+| `ssh server` | `on` |
+| `ssh key` | `~/.ssh/lan_hosts` |
 | `broadcast` | `answers UDP 47800` |
 
-## 4. Основной ПК: хост виден
+Со всех остальных компьютеров:
 
 ```bash
-python3 build_shell/test/test_host.py hosts
+python3 ~/defold_test_host/test_host.py hosts
 ```
 
-Должна быть строка с каждым хостом: имя, IP, ОС, свободная и общая RAM, под ней — какие программы занимают
-больше всего памяти. Пример:
+Пример вывода:
 
 ```text
-this PC: 14133 of 31943 MB free, a test host is used below 6144 MB
-macbook (192.168.0.57, Darwin) 9120 MB free of 16384 MB
-    most memory: Google Chrome Helper 2410 MB, Figma 1320 MB, java 980 MB, WindowServer 610 MB, Finder 120 MB
+this computer (sergey): 11631 of 31943 MB free, a build moves away below 6144 MB
+macbookair: MacBookAir.Dlink (192.168.0.32, Darwin) 10297 MB free of 16384 MB, version 3
+    most memory: com.apple.WebKit.WebContent 396 MB, Telegram 265 MB, Finder 124 MB
+likanion-computer: likanion-computer (192.168.0.93, Linux) 10783 MB free of 31833 MB, version 3
+    most memory: cursor 3704 MB, Isolated Web Co 3605 MB, figma-linux 3418 MB
+
+add a computer: bash -c "$(curl -fsSL http://192.168.0.33:47800/install.sh)"
 ```
 
-`OLD AGENT` в строке означает агента, который ещё не умеет обновляться сам: один раз повтори на нём шаги 1 и 2.
+И SSH: `ssh macbookair uname -a` отвечает без пароля.
 
-## 5. Пробная сборка на хосте
-
-Сборку можно принудительно отправить на хост, не дожидаясь нехватки RAM. Запускать из worktree:
+Пробная сборка на конкретном компьютере (из worktree):
 
 ```bash
-LINUX_TEST_HOST=<IP хоста> build_shell/test/linux_test.sh --config=sound.gain=0
+LINUX_TEST_HOST=<IP компьютера> build_shell/test/linux_test.sh --config=sound.gain=0
 ```
 
-В выводе должны быть `ENGINE_PORT=...`, `ENGINE_LOG=...` и `ENGINE_HOST=<IP хоста>`. Первая сборка дольше
-обычной: на хост один раз уходят весь проект и `bob.jar`.
+В выводе должны быть `ENGINE_PORT=...`, `ENGINE_LOG=...` и `ENGINE_HOST=<IP>`. Первая сборка дольше
+обычной: на компьютер один раз уходят весь проект и `bob.jar`.
 
-## SSH на тестовые хосты
+## Удалить компьютер из сети
 
-Для работы на хосте вне сборок (например, iOS-сборка на Mac) этот ПК заходит на него по SSH с ключом
-`~/.ssh/lan_hosts`. В `~/.ssh/config` основного ПК записи `mac` и `linux` находят текущий IP хоста через
-`test_host.py address <начало имени>`, поэтому смена IP ничего не ломает (агент на хосте должен работать):
-
-```text
-Host mac
-    User <пользователь на Mac>
-    IdentityFile ~/.ssh/lan_hosts
-    IdentitiesOnly yes
-    ProxyCommand sh -c 'nc "$(python3 ~/defold_projects/Dexfut/build_shell/test/test_host.py address macbookair)" %p'
-```
-
-Включить один раз:
-- Mac: «Системные настройки → Основные → Общий доступ → Удалённый вход» — включить.
-- Linux: `sudo apt install -y openssh-server && sudo systemctl enable --now ssh`.
-- Основной ПК, в обычном терминале (спросит пароль хоста один раз):
-  `ssh-copy-id -i ~/.ssh/lan_hosts.pub mac` и `ssh-copy-id -i ~/.ssh/lan_hosts.pub linux`.
-
-Проверка: `ssh mac uname -a` и `ssh linux uname -a` отвечают без пароля.
-
-## Обновить или удалить агент
-
-- Обновлять не нужно: перед каждой удалённой сборкой основной ПК сам отправляет агенту свой `test_host.py`, если
-  тот отличается, и агент перезапускается с ним (запущенные игры при этом не закрываются). Переустановка (шаги 1 и
-  2) нужна, только если `hosts` пишет `OLD AGENT`.
-- Удалить на Linux:
+- Linux:
 
   ```bash
-  systemctl --user disable --now defold-test-host.service && rm -rf ~/.config/systemd/user/defold-test-host.service ~/defold_test_host ~/test_host.py
+  systemctl --user disable --now defold-test-host.service && rm -rf ~/.config/systemd/user/defold-test-host.service ~/defold_test_host
   ```
 
-- Удалить на Mac:
+- Mac:
 
   ```bash
-  launchctl bootout gui/$(id -u) ~/Library/LaunchAgents/defold.test-host.plist; rm -rf ~/Library/LaunchAgents/defold.test-host.plist ~/defold_test_host ~/test_host.py
+  launchctl bootout gui/$(id -u) ~/Library/LaunchAgents/defold.test-host.plist; rm -rf ~/Library/LaunchAgents/defold.test-host.plist ~/defold_test_host
   ```
+
+На остальных компьютерах его ключ остаётся в `~/.ssh/authorized_keys` (строка с `defold_test_host <алиас>`),
+а алиас — в `~/defold_test_host/known_hosts.json`; удали их там, если компьютер уходит насовсем.
 
 ## Если не работает
 
-- `hosts` не видит хост, а `check` на хосте пишет `OK` для `agent`. Широковещание не проходит между
-  устройствами: часто это «изоляция клиентов» или гостевая сеть Wi-Fi в роутере. Подключи оба компьютера к одной
-  обычной сети. Ещё одна причина — включённый файрвол macOS: разреши Python входящие подключения.
-- `broadcast: no answer` на самом хосте — агент не запущен или порт 47800 занят. Повтори строку установки и
-  посмотри `~/defold_test_host/agent.log` (Mac) или `journalctl --user -u defold-test-host` (Linux).
-- Mac пропадает из списка — он уснул. Строка установки отключает сон только при питании от сети.
-- Ошибка сборки на хосте — её вывод печатается в терминал основного ПК. Логи заданий лежат в
-  `~/defold_test_host/jobs` на хосте.
+- `hosts` не видит компьютер, а `check` на нём пишет `OK` для `agent`. Широковещание не проходит между
+  устройствами: «изоляция клиентов» или гостевая сеть Wi-Fi в роутере. Подключи их к одной обычной сети.
+- На компьютере работает VPN или прокси (Proxifier, Hiddify, Happ и т. п.): он перехватывает соединения в
+  локальную сеть, `curl` до других компьютеров получает таймаут или `Broken pipe`, хотя `ping` проходит.
+  Добавь в нём правило «192.168.0.0/16 напрямую» (Bypass LAN). Выключать VPN совсем не нужно: без него
+  GitHub может не отдавать архивы зависимостей (`HTTP 500` при сборке).
+- `broadcast: no answer` — агент не запущен или порт 47800 занят. Повтори строку установки и посмотри
+  `~/defold_test_host/agent.log` (Mac) или `journalctl --user -u defold-test-host` (Linux).
+- Mac пропадает из списка — он уснул. Установка отключает сон только при питании от сети.
+- Ошибка удалённой сборки печатается в терминал того компьютера, где её запустили. Логи заданий — в
+  `~/defold_test_host/jobs` компьютера, где шла сборка.

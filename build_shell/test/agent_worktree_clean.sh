@@ -4,7 +4,7 @@
 # directory the script lives in; save_root/save_name and worktree_output_dirs() of
 # build_shell/test/linux_test_project.sh name the save folders and the test output a worktree leaves
 # behind (none without that file). The engine a worktree still runs is stopped first, also on a test
-# host, and the checkout build_shell/test/test_host.py made of it on every test host is removed.
+# host, and the checkout ~/defold_test_host/test_host.py made of it on every other computer is removed.
 #
 # usage: agent_worktree_clean.sh [-n] [-y] [-f] [--include-main-save] [<name> ...]
 #   <name>               clean only these agents (the <name> of agent_worktree.sh); all when omitted
@@ -142,7 +142,7 @@ for path in "${worktree_paths[@]+"${worktree_paths[@]}"}"; do
 	# work that --force is meant to protect is checked above.
 	git -C "$main_checkout" worktree remove --force "$path"
 	echo "removed worktree $path"
-	python3 "$root/build_shell/test/test_host.py" remove --root "$main_checkout" --instance "$(basename "$path")"
+	python3 "$HOME/defold_test_host/test_host.py" remove --root "$main_checkout" --instance "$(basename "$path")"
 	if [ "$force" = yes ]; then
 		git -C "$main_checkout" branch -D "$branch"
 	elif ! git -C "$main_checkout" branch -d "$branch" 2>/dev/null; then

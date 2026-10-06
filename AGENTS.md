@@ -69,7 +69,7 @@ Call `gradient_nodes.create_for_widget` from the widget that owns the nodes, but
 
 Project structure note: see `m/PROJECT_STRUCTURE.md`.
 
-`AGENTS.md`, every file in `md/shared/` and the test scripts `build_shell/test/linux_test.sh`, `build_quiet.sh`, `run-test-env`, `test_host.py`, `agent_worktree.sh`, `agent_worktree_clean.sh` are shared by all Defold projects: `$HOME/my_shell/sync_defold_docs.py` copies the newest edited version into every project. Keep project-specific content out of them, except a trailing `## Project Settings` section, which the sync keeps per project; project-specific script behaviour goes to `build_shell/test/linux_test_project.sh`, which the sync never touches.
+`AGENTS.md`, every file in `md/shared/` and the test scripts `build_shell/test/linux_test.sh`, `build_quiet.sh`, `run-test-env`, `agent_worktree.sh`, `agent_worktree_clean.sh` are shared by all Defold projects: `$HOME/my_shell/sync_defold_docs.py` copies the newest edited version into every project. Keep project-specific content out of them, except a trailing `## Project Settings` section, which the sync keeps per project; project-specific script behaviour goes to `build_shell/test/linux_test_project.sh`, which the sync never touches.
 
 `bridge/` (the SDK bridge) is identical in every project that has it and is synced by `$HOME/my_shell/sync_defold_bridge.py` (the edited copy wins). Nothing in it may require project code: project-specific behaviour is set from the project's bridge setup (for example `bridge.mock` `set_save_appname` / `set_save_writer`). A change of its API means updating the callers in every project that has the folder.
 

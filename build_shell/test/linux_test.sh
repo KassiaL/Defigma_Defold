@@ -3,7 +3,7 @@
 # invisible X display (build_shell/test/run-test-env), so it never shows up on the desktop.
 # Prints ENGINE_PORT=<port>, ENGINE_LOG=<path> and ENGINE_DISPLAY=:<n>; arguments go to the engine.
 # When this PC is short of RAM the build and the engine move to a test host of the LAN through
-# build_shell/test/test_host.py: the output is then ENGINE_PORT (a local port), ENGINE_LOG (a local mirror)
+# ~/defold_test_host/test_host.py (md/shared/TEST_HOSTS.md): the output is then ENGINE_PORT (a local port), ENGINE_LOG (a local mirror)
 # and ENGINE_HOST=<host>; exit code 3 means neither this PC nor a test host has enough free RAM.
 # On a test host the same script runs on Linux, macOS (bash 4+) and Windows (Git Bash).
 # Shared by every Defold project and synced by sync_defold_docs.py. What differs per project lives
@@ -81,10 +81,11 @@ if [ -f "$pid_path" ]; then
 	stop_pid "$(cat "$pid_path")"
 	rm -f "$pid_path"
 fi
+test_host_tool="$HOME/defold_test_host/test_host.py"
 test_host=local
 if [ "${LINUX_LAUNCH_ONLY:-0}" != "1" ] && [ "${LINUX_ON_DESKTOP:-0}" != "1" ]; then
 	case "${LINUX_TEST_HOST:-auto}" in
-	auto) test_host=$(python3 "$root/build_shell/test/test_host.py" pick) ;;
+	auto) test_host=$(python3 "$test_host_tool" pick) ;;
 	*) test_host=$LINUX_TEST_HOST ;;
 	esac
 fi
@@ -93,7 +94,7 @@ if [ "$test_host" != local ]; then
 	for port in ${main_host_ports[@]+"${main_host_ports[@]}"}; do
 		main_port_args+=(--main-port "$port")
 	done
-	exec python3 "$root/build_shell/test/test_host.py" run --host "$test_host" --root "$root" \
+	exec python3 "$test_host_tool" run --host "$test_host" --root "$root" \
 		--instance "$instance" --bob "$bob" --run-dir "$run_dir" \
 		${main_port_args[@]+"${main_port_args[@]}"} -- "$@"
 fi

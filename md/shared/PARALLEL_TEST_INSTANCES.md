@@ -6,7 +6,7 @@ Several agents work on the project at the same time. Every agent needs its own c
 
 This document is shared by every Defold project and synced by `$HOME/my_shell/sync_defold_docs.py`. Everything except the last section is project independent; `Project Settings` holds the values of the current project, and the sync keeps that section of each project as it is.
 
-The scripts are shared the same way: `build_shell/test/linux_test.sh`, `build_quiet.sh`, `run-test-env`, `test_host.py`, `agent_worktree.sh` and `agent_worktree_clean.sh` are identical in every project and overwritten by the sync, so never put project-specific code into them. What differs per project lives in `build_shell/test/linux_test_project.sh`, which the shared scripts source when it exists and the sync never touches: how the bundle is built for `$test_platform` (`bundle_project`), the bundle folder and the folder the engine starts in, extra engine arguments per instance (`project_engine_args`), the per-instance save folder (`save_root`, `save_name`), the ports of this PC the game needs when it runs on a test host (`main_host_ports`) and the test output a worktree leaves behind (`worktree_output_dirs`). The header of `linux_test.sh` lists these hooks.
+The scripts are shared the same way: `build_shell/test/linux_test.sh`, `build_quiet.sh`, `run-test-env`, `agent_worktree.sh` and `agent_worktree_clean.sh` are identical in every project and overwritten by the sync, so never put project-specific code into them. What differs per project lives in `build_shell/test/linux_test_project.sh`, which the shared scripts source when it exists and the sync never touches: how the bundle is built for `$test_platform` (`bundle_project`), the bundle folder and the folder the engine starts in, extra engine arguments per instance (`project_engine_args`), the per-instance save folder (`save_root`, `save_name`), the ports of this PC the game needs when it runs on a test host (`main_host_ports`) and the test output a worktree leaves behind (`worktree_output_dirs`). The header of `linux_test.sh` lists these hooks.
 
 ## Rules
 
@@ -54,7 +54,7 @@ Environment switches:
 
 ## Test hosts
 
-Before building, `linux_test.sh` checks the free RAM of this PC (`MemAvailable`) through `build_shell/test/test_host.py pick`. With at least 6144 MB free (`MIN_FREE_MB`: a bob build peaks at about 4.6 GB, the engine adds a few hundred MB) everything runs here as described above. Below that, a UDP broadcast finds the test hosts of the LAN with their free RAM (no addresses to configure), and the build moves to the one with the most, provided it has 6144 MB free too. `python3 build_shell/test/test_host.py hosts` prints what the broadcast finds. When neither this PC nor a test host has enough, the script prints the free RAM of every machine and exits with code 3: stop and tell me that there is not enough free RAM to start a test safely - never start the build another way (editor, `LINUX_TEST_HOST=local`).
+Before building, `linux_test.sh` checks the free RAM of this PC (`MemAvailable`) through `~/defold_test_host/test_host.py pick` (one copy per computer, installed by `md/shared/TEST_HOSTS.md`; without it `linux_test.sh` cannot start). With at least 6144 MB free (`MIN_FREE_MB`: a bob build peaks at about 4.6 GB, the engine adds a few hundred MB) everything runs here as described above. Below that, a UDP broadcast finds the other computers of the test network with their free RAM (no addresses to configure; any computer of the network can be the one an agent works on), and the build moves to the one with the most, provided it has 6144 MB free too. `python3 ~/defold_test_host/test_host.py hosts` prints what the broadcast finds. When neither this PC nor a test host has enough, the script prints the free RAM of every machine and exits with code 3: stop and tell me that there is not enough free RAM to start a test safely - never start the build another way (editor, `LINUX_TEST_HOST=local`).
 
 A remote run changes nothing for the agent:
 
@@ -65,7 +65,7 @@ A remote run changes nothing for the agent:
 - What needs the machine itself does not work remotely: X tools and video capture on `ENGINE_DISPLAY` (`tools/motion/capture.py`, `ffmpeg -f x11grab`), the Remotery profiler (`game.profiler`, the `gc-profile` skill) and timings that compare with local runs. For such a task run with `LINUX_TEST_HOST=local` when this PC has the RAM; when it does not, stop and tell me.
 - On a Mac the game window opens on that machine's desktop; on Linux hosts it uses `run-test-env` as here. Windows hosts are not supported yet.
 
-Setting a test host up and checking it is `md/shared/TEST_HOSTS.md`. The agent (`test_host.py agent`) answers only LAN addresses, keeps its checkouts, bob.jar copies and job logs in `~/defold_test_host` and starts by itself after every login. The header of `build_shell/test/test_host.py` describes the protocol.
+Adding a computer to the network and checking it is `md/shared/TEST_HOSTS.md`; every computer of the network reaches every other one by `ssh <alias>` too. The agent (`test_host.py agent`) answers only LAN addresses, keeps its checkouts, bob.jar copies and job logs in `~/defold_test_host` and starts by itself after every login. The header of `~/defold_test_host/test_host.py` describes the protocol.
 
 ## Saves and accounts
 
