@@ -14,7 +14,8 @@ HOW IT WORKS
     the discovery broadcast on UDP 47800, both only from private (LAN) addresses.
   - linux_test.sh calls `pick`: enough MemAvailable here -> "local"; otherwise a UDP broadcast finds the
     test hosts of the LAN with their free RAM and the one with the most is printed. Nothing fits -> exit 3.
-  - `run` snapshots the checkout as it is (uncommitted and untracked files included, ignored ones not)
+  - `run` first sends this file to the agent when its copy differs (`/update`, the agent restarts from
+    systemd or launchd and keeps the engines it started), then snapshots the checkout as it is (uncommitted and untracked files included, ignored ones not)
     into a parentless commit through a temporary index, sends it as a git bundle that leaves out what the
     host already has, uploads bob.jar of the same Defold version once, and runs
     build_shell/test/linux_test.sh of that snapshot on the host (LINUX_TEST_HOST=local there).
@@ -36,6 +37,7 @@ import argparse
 import base64
 import ctypes
 import ipaddress
+import hashlib
 import http.client
 import http.server
 import json
@@ -56,7 +58,7 @@ import urllib.parse
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
-PROTOCOL = 1
+PROTOCOL = 2
 AGENT_PORT = 47800
 SHARE_PORT = 47801
 MIN_FREE_MB = 6144
@@ -138,6 +140,10 @@ def memory_mb():
     if system == "Darwin":
         return macos_memory_mb()
     return linux_memory_mb()
+
+
+def script_sha():
+    return hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
 
 
 def is_lan_address(address):
@@ -280,7 +286,7 @@ def cmd_pick(_args):
     fitting = [
         (status["mem_available_mb"], address, status)
         for address, status in hosts.items()
-        if status["protocol"] == PROTOCOL and status["mem_available_mb"] >= MIN_FREE_MB
+        if status["protocol"] >= PROTOCOL and status["mem_available_mb"] >= MIN_FREE_MB
     ]
     if not fitting:
         fail(
@@ -302,7 +308,7 @@ def cmd_hosts(_args):
     if not hosts:
         print("no test host answered in the LAN")
     for address, status in sorted(hosts.items()):
-        protocol = "" if status["protocol"] == PROTOCOL else f"  OLD AGENT (protocol {status['protocol']}), reinstall it"
+        protocol = "" if status["protocol"] >= PROTOCOL else f"  OLD AGENT (protocol {status['protocol']}), reinstall it"
         print(f"{describe_host(address, status)} of {status['mem_total_mb']} MB{protocol}")
 
 
@@ -461,11 +467,27 @@ def wait_engine(proxy_port):
     fail("the remote engine does not answer through the forwarder")
 
 
+def update_agent(client, status):
+    if status["script_sha"] == script_sha():
+        return
+    print(f"test_host: updating the agent on {status['name']}", file=sys.stderr)
+    client.upload("/update", {}, __file__)
+    for _ in range(60):
+        time.sleep(0.5)
+        try:
+            if client.json("GET", "/status", timeout=3)["script_sha"] == script_sha():
+                return
+        except (OSError, RuntimeError, ValueError):
+            pass
+    fail(f"the agent on {status['name']} did not come back after the update")
+
+
 def cmd_run(args):
     root = Path(args.root)
     run_dir = Path(args.run_dir)
     client = AgentClient(args.host)
     status = client.json("GET", "/status")
+    update_agent(client, status)
     project = project_name(root)
     sha = make_snapshot(root, args.instance, run_dir)
     send_snapshot(client, root, project, args.instance, sha, run_dir)
@@ -682,6 +704,7 @@ class Agent:
         bob_dir = self.root / "bob"
         return {
             "protocol": PROTOCOL,
+            "script_sha": script_sha(),
             "name": socket.gethostname(),
             "os": platform.system(),
             "arch": platform.machine(),
@@ -878,6 +901,12 @@ def make_agent_handler(agent):
                     request = json.loads(self.body())
                     agent.stop(request["project"], request["instance"])
                     self.reply_json({})
+                elif path == "/update":
+                    script = Path(__file__)
+                    self.body_to_file(script.with_suffix(".part"))
+                    os.replace(script.with_suffix(".part"), script)
+                    self.reply_json({})
+                    threading.Timer(0.5, os._exit, args=(0,)).start()
                 elif path == "/quit":
                     self.reply_json({})
                     os._exit(0)
@@ -902,6 +931,16 @@ def make_agent_handler(agent):
             data = response.read()
             connection.close()
             self.reply(response.status, data, response.getheader("Content-Type", "application/octet-stream"))
+
+        def do_PUT(self):
+            if not self.authorized():
+                return
+            if self.route()[0].startswith("/engine/"):
+                self.proxy_engine()
+            else:
+                self.send_error(404)
+
+        do_DELETE = do_PUT
 
         def do_CONNECT(self):
             if not self.authorized():
@@ -973,7 +1012,7 @@ def install_autostart(script):
         unit_dir.mkdir(parents=True, exist_ok=True)
         (unit_dir / "defold-test-host.service").write_text(
             "[Unit]\nDescription=Defold test host agent\n\n"
-            f"[Service]\nExecStart={sys.executable} {script} agent\nRestart=always\nRestartSec=5\n\n"
+            f"[Service]\nExecStart={sys.executable} {script} agent\nRestart=always\nRestartSec=2\nKillMode=process\n\n"
             "[Install]\nWantedBy=default.target\n"
         )
         subprocess.run(["systemctl", "--user", "daemon-reload"], check=True)
@@ -989,7 +1028,7 @@ def install_autostart(script):
             '<plist version="1.0"><dict>\n'
             "<key>Label</key><string>defold.test-host</string>\n"
             f"<key>ProgramArguments</key><array><string>{sys.executable}</string><string>{script}</string><string>agent</string></array>\n"
-            "<key>RunAtLoad</key><true/><key>KeepAlive</key><true/>\n"
+            "<key>RunAtLoad</key><true/><key>KeepAlive</key><true/><key>AbandonProcessGroup</key><true/>\n"
             f"<key>StandardOutPath</key><string>{log}</string><key>StandardErrorPath</key><string>{log}</string>\n"
             "</dict></plist>\n"
         )
