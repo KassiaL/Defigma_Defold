@@ -5,7 +5,7 @@
 # usage: agent_worktree.sh <name> [base-ref]
 set -euo pipefail
 
-root=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
+root=$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)
 worktree_name="${1:?usage: agent_worktree.sh <name> [base-ref]}"
 base_ref="${2:-HEAD}"
 # Everything is anchored to the main checkout, so calling this from inside a worktree still

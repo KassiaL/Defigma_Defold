@@ -8,7 +8,9 @@ Keep a checklist of subtasks and mark off completed work as you go. Before finis
 
 Never overwrite user's existing changes in files. When editing a file the user has modified, always read it first and make only additive or targeted changes. Do not replace the entire file contents unless explicitly asked.
 
-Build only when the change is large enough that it has to be checked in the running game (new screen/flow, gameplay, animations, effects, non-trivial runtime logic); skip the build for small, local edits. The `automation-bridge` skill may be used without asking. Do not revert changes in git (I may be working concurrently).
+Build only when the change is large enough that it has to be checked in the running game (new screen/flow, gameplay, animations, effects, non-trivial runtime logic); skip the build for small, local edits. The `automation-bridge` skill may be used without asking.
+
+Every build that runs the game for a check is `build_shell/test/linux_test.sh` started from the root of the checkout you work in, also outside a worktree, and the bridge attaches with `engine.connect(<ENGINE_PORT>)`. Never build or run the game through the editor (`project.build_and_run`, `project.clean_build_and_run`, `project.connect_engine`, hot reload) unless I ask for it. When this PC is short of RAM the script moves the build and the instance to a free computer of the LAN by itself and the bridge works the same; exit code 3 means no computer has enough free RAM: stop and tell me, never start the build another way. See `md/shared/PARALLEL_TEST_INSTANCES.md`. Do not revert changes in git (I may be working concurrently).
 
 Update the documentation as part of every change, without being asked: grep `md/`, `m/PROJECT_STRUCTURE.md` and `docs/` for what the change touched and fix every stale statement found there, not only the line that mentions the edited symbol.
 
@@ -31,7 +33,7 @@ Use Codex skills for repeatable workflows:
 - After editing Lua files, use `lua-check`.
 - When working with Defold `.gui` files, use `defold-gui`.
 - When a change needs a runtime check (see the build rule above) or the user asks to run/test/check the game, reproduce a runtime bug, automate input, inspect the runtime scene, take screenshots, read engine logs, resize/reboot the engine, or profile the running game, use the `automation-bridge` skill. The game registers `automation_bridge.command` callbacks for reaching screens and states without clicking through the UI; they are listed in `md/AUTOMATION_COMMANDS.md`. Keep that file current when adding or removing a command.
-- For checking fresh Lua/resource changes in the running game, use `automation-bridge` to rebuild, perform inputs and verify runtime state.
+- For checking fresh Lua/resource changes in the running game, rebuild with `build_shell/test/linux_test.sh` and use `automation-bridge` to perform inputs and verify runtime state.
 - When the user explicitly asks to inspect Nakama DB/storage, call an RPC, run a healthcheck, or restart the server, use `nakama-db`.
 - When the user asks to check GC pressure, memory allocations per frame, or to find the source of periodic frame hitches on a screen, use `gc-profile`.
 
@@ -67,15 +69,17 @@ Call `gradient_nodes.create_for_widget` from the widget that owns the nodes, but
 
 Project structure note: see `m/PROJECT_STRUCTURE.md`.
 
-`AGENTS.md`, every file in `md/shared/` and the test scripts `build_shell/linux_test.sh`, `build_quiet.sh`, `run-test-env`, `agent_worktree.sh`, `agent_worktree_clean.sh` are shared by all Defold projects: `$HOME/my_shell/sync_defold_docs.py` copies the newest edited version into every project. Keep project-specific content out of them, except a trailing `## Project Settings` section, which the sync keeps per project; project-specific script behaviour goes to `build_shell/linux_test_project.sh`, which the sync never touches.
+`AGENTS.md`, every file in `md/shared/` and the test scripts `build_shell/test/linux_test.sh`, `build_quiet.sh`, `run-test-env`, `test_host.py`, `agent_worktree.sh`, `agent_worktree_clean.sh` are shared by all Defold projects: `$HOME/my_shell/sync_defold_docs.py` copies the newest edited version into every project. Keep project-specific content out of them, except a trailing `## Project Settings` section, which the sync keeps per project; project-specific script behaviour goes to `build_shell/test/linux_test_project.sh`, which the sync never touches.
+
+`bridge/` (the SDK bridge) is identical in every project that has it and is synced by `$HOME/my_shell/sync_defold_bridge.py` (the edited copy wins). Nothing in it may require project code: project-specific behaviour is set from the project's bridge setup (for example `bridge.mock` `set_save_appname` / `set_save_writer`). A change of its API means updating the callers in every project that has the folder.
 
 ## Worktree
 
 When I ask you to work in your own worktree, read `md/shared/PARALLEL_TEST_INSTANCES.md` and follow it:
 
-- Create the checkout with `build_shell/agent_worktree.sh <name>` and keep every edit there, on its `agent/<name>` branch.
-- Always build with `build_shell/linux_test.sh` and always verify through the `automation-bridge` skill attached with `engine.connect(<ENGINE_PORT>)`; never build or attach through the editor there. Asking for worktree work is asking for the build, so the rule above does not apply: the task is finished when the built instance shows the change working, not when the diff looks right.
-- Build only from that checkout, with `build_shell/linux_test.sh` started from its root, so what runs is that branch. Never build a worktree branch from the main checkout or from another agent's checkout.
+- Create the checkout with `build_shell/test/agent_worktree.sh <name>` and keep every edit there, on its `agent/<name>` branch.
+- Always verify through a `build_shell/test/linux_test.sh` build and the `automation-bridge` skill attached with `engine.connect(<ENGINE_PORT>)`. Asking for worktree work is asking for the build, so the "build only large changes" rule above does not apply: the task is finished when the built instance shows the change working, not when the diff looks right.
+- Build only from that checkout, with `build_shell/test/linux_test.sh` started from its root, so what runs is that branch. Never build a worktree branch from the main checkout or from another agent's checkout.
 - When the task is done and verified, always merge it into the integration branch: commit on `agent/<name>`, then merge that branch from the main checkout. If the merge is refused or conflicts with my uncommitted changes, stop and tell me.
 
 ## Clarifications
