@@ -133,6 +133,40 @@ def linux_memory_mb():
     return values["MemAvailable"] // 1024, values["MemTotal"] // 1024
 
 
+def linux_process_sizes():
+    sizes = {}
+    for status_path in Path("/proc").glob("[0-9]*/status"):
+        try:
+            text = status_path.read_text()
+        except OSError:
+            continue
+        name = re.search(r"^Name:\s*(.+)$", text, re.M)
+        rss = re.search(r"^VmRSS:\s*(\d+)", text, re.M)
+        if name and rss:
+            sizes[name.group(1)] = sizes.get(name.group(1), 0) + int(rss.group(1)) // 1024
+    return sizes
+
+
+def macos_process_sizes():
+    sizes = {}
+    for line in subprocess.check_output(["ps", "-axo", "rss=,comm="], text=True).splitlines():
+        rss, _, command = line.strip().partition(" ")
+        name = command.strip().rsplit("/", 1)[-1]
+        sizes[name] = sizes.get(name, 0) + int(rss) // 1024
+    return sizes
+
+
+def top_processes(count=5):
+    system = platform.system()
+    if system == "Linux":
+        sizes = linux_process_sizes()
+    elif system == "Darwin":
+        sizes = macos_process_sizes()
+    else:
+        return []
+    return sorted(sizes.items(), key=lambda item: item[1], reverse=True)[:count]
+
+
 def memory_mb():
     system = platform.system()
     if system == "Windows":
@@ -310,6 +344,8 @@ def cmd_hosts(_args):
     for address, status in sorted(hosts.items()):
         protocol = "" if status["protocol"] >= PROTOCOL else f"  OLD AGENT (protocol {status['protocol']}), reinstall it"
         print(f"{describe_host(address, status)} of {status['mem_total_mb']} MB{protocol}")
+        if "top_processes" in status:
+            print("    most memory: " + ", ".join(f"{name} {size} MB" for name, size in status["top_processes"]))
 
 
 def lan_addresses():
@@ -710,6 +746,7 @@ class Agent:
             "arch": platform.machine(),
             "mem_available_mb": available,
             "mem_total_mb": total,
+            "top_processes": top_processes(),
             "bob": sorted(path.name for path in bob_dir.iterdir()) if bob_dir.exists() else [],
         }
 

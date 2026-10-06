@@ -80,11 +80,13 @@ python3 ~/test_host.py check
 python3 build_shell/test/test_host.py hosts
 ```
 
-Должна быть строка с каждым хостом: имя, IP, ОС, свободная и общая RAM. Пример:
+Должна быть строка с каждым хостом: имя, IP, ОС, свободная и общая RAM, под ней — какие программы занимают
+больше всего памяти. Пример:
 
 ```text
 this PC: 14133 of 31943 MB free, a test host is used below 6144 MB
 macbook (192.168.0.57, Darwin) 9120 MB free of 16384 MB
+    most memory: Google Chrome Helper 2410 MB, Figma 1320 MB, java 980 MB, WindowServer 610 MB, Finder 120 MB
 ```
 
 `OLD AGENT` в строке означает агента, который ещё не умеет обновляться сам: один раз повтори на нём шаги 1 и 2.
