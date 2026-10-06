@@ -30,7 +30,9 @@ COMMANDS
   test host: `python3 test_host.py` installs (or updates) the agent with autostart and runs `check`;
              `check` prints what the host has, each line marked OK or FAIL.
   main PC:   `share` serves this file and prints the one-line install command for a test host;
-             `hosts` lists the test hosts that answer the broadcast.
+             `hosts` lists the test hosts that answer the broadcast;
+             `address <name>` prints the current IP of the test host whose name starts with <name>
+             (the ProxyCommand of the ssh aliases in md/shared/TEST_HOSTS.md).
 """
 
 import argparse
@@ -349,6 +351,14 @@ def cmd_hosts(_args):
         print(f"{describe_host(address, status)} of {status['mem_total_mb']} MB{protocol}")
         if "top_processes" in status:
             print("    most memory: " + ", ".join(f"{name} {size} MB" for name, size in status["top_processes"]))
+
+
+def cmd_address(args):
+    for address, status in discover().items():
+        if status["name"].lower().startswith(args.name.lower()):
+            print(address)
+            return
+    fail(f"no test host named {args.name} answered in the LAN")
 
 
 def lan_addresses():
@@ -1186,6 +1196,9 @@ def main():
     commands.add_parser("pick").set_defaults(func=cmd_pick)
     commands.add_parser("hosts").set_defaults(func=cmd_hosts)
     commands.add_parser("share").set_defaults(func=cmd_share)
+    address = commands.add_parser("address")
+    address.add_argument("name")
+    address.set_defaults(func=cmd_address)
     commands.add_parser("check").set_defaults(func=cmd_check)
     run = commands.add_parser("run")
     run.add_argument("--host", required=True)

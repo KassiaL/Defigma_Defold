@@ -102,6 +102,28 @@ LINUX_TEST_HOST=<IP хоста> build_shell/test/linux_test.sh --config=sound.ga
 В выводе должны быть `ENGINE_PORT=...`, `ENGINE_LOG=...` и `ENGINE_HOST=<IP хоста>`. Первая сборка дольше
 обычной: на хост один раз уходят весь проект и `bob.jar`.
 
+## SSH на тестовые хосты
+
+Для работы на хосте вне сборок (например, iOS-сборка на Mac) этот ПК заходит на него по SSH с ключом
+`~/.ssh/lan_hosts`. В `~/.ssh/config` основного ПК записи `mac` и `linux` находят текущий IP хоста через
+`test_host.py address <начало имени>`, поэтому смена IP ничего не ломает (агент на хосте должен работать):
+
+```text
+Host mac
+    User <пользователь на Mac>
+    IdentityFile ~/.ssh/lan_hosts
+    IdentitiesOnly yes
+    ProxyCommand sh -c 'nc "$(python3 ~/defold_projects/Dexfut/build_shell/test/test_host.py address macbookair)" %p'
+```
+
+Включить один раз:
+- Mac: «Системные настройки → Основные → Общий доступ → Удалённый вход» — включить.
+- Linux: `sudo apt install -y openssh-server && sudo systemctl enable --now ssh`.
+- Основной ПК, в обычном терминале (спросит пароль хоста один раз):
+  `ssh-copy-id -i ~/.ssh/lan_hosts.pub mac` и `ssh-copy-id -i ~/.ssh/lan_hosts.pub linux`.
+
+Проверка: `ssh mac uname -a` и `ssh linux uname -a` отвечают без пароля.
+
 ## Обновить или удалить агент
 
 - Обновлять не нужно: перед каждой удалённой сборкой основной ПК сам отправляет агенту свой `test_host.py`, если
