@@ -24,7 +24,7 @@ python3 build_shell/test/test_host.py share
 ### Linux
 
 Открой терминал на рабочем столе (не по ssh) и вставь строку `Run on a Linux test host` из шага 1. Она:
-- ставит git, Python, JDK 21, Xvfb и VirtualGL;
+- ставит git, Python, JDK 25, Xvfb и VirtualGL;
 - включает запуск пользовательских сервисов без входа в систему;
 - скачивает `test_host.py` в `~/test_host.py`;
 - устанавливает агент с автозапуском и сразу выводит проверку.
@@ -40,7 +40,7 @@ python3 build_shell/test/test_host.py share
    В конце установщик Homebrew пишет «Next steps» с двумя командами `echo ... >> ~/.zprofile` и `eval ...` —
    выполни их и открой новое окно терминала.
 2. Вставь строку `Run on a Mac test host` из шага 1. Она:
-   - ставит bash 5, JDK 21, Python и git;
+   - ставит bash 5, JDK 25 (`openjdk`), Python и git;
    - отключает сон при питании от сети;
    - скачивает и устанавливает агент, затем выводит проверку.
 
@@ -67,7 +67,7 @@ python3 ~/test_host.py check
 | `free RAM` | не меньше 6144 MB свободно. Если меньше, хост виден, но сборки на него не уходят |
 | `python` | 3.9 или новее |
 | `git` | любая версия |
-| `java` | 21 или новее |
+| `java` | 25 или новее: этого требует `bob.jar` Defold 1.13 |
 | `bash` | 4 или новее. На Mac это должен быть `/opt/homebrew/bin/bash` (или `/usr/local/bin/bash`), а не `/bin/bash` 3.2 |
 | `Xvfb`, `VirtualGL` | только Linux: путь найден |
 | `GPU` | настоящая видеокарта (на Linux — `OpenGL renderer` через VirtualGL), не `llvmpipe` и не `not found` |

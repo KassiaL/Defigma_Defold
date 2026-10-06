@@ -62,7 +62,7 @@ PROTOCOL = 2
 AGENT_PORT = 47800
 SHARE_PORT = 47801
 MIN_FREE_MB = 6144
-MIN_JAVA = 21
+MIN_JAVA = 25
 DISCOVERY_REQUEST = b"defold-test-host?"
 AGENT_ROOT = Path.home() / "defold_test_host"
 CONFIG_PATH = AGENT_ROOT / "config.json"
@@ -178,6 +178,9 @@ def memory_mb():
 
 def script_sha():
     return hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
+
+
+RUNNING_SHA = script_sha()
 
 
 def is_lan_address(address):
@@ -358,13 +361,13 @@ def lan_addresses():
 def install_line(source):
     fetch = f'curl -fsSL {source} -o ~/test_host.py'
     linux = (
-        "sudo apt update && sudo apt install -y git python3 openjdk-21-jdk xvfb curl libopenal1 libglu1-mesa"
+        "sudo apt update && sudo apt install -y git python3 openjdk-25-jdk xvfb curl libopenal1 libglu1-mesa"
         f" && curl -fsSLo /tmp/virtualgl.deb {VIRTUALGL_DEB} && sudo apt install -y /tmp/virtualgl.deb"
         f' && sudo loginctl enable-linger "$USER" && {fetch} && python3 ~/test_host.py'
     )
     mac = (
-        "brew install bash openjdk@21 python git"
-        ' && sudo ln -sfn "$(brew --prefix)/opt/openjdk@21/libexec/openjdk.jdk" /Library/Java/JavaVirtualMachines/openjdk-21.jdk'
+        "brew install bash openjdk python git"
+        ' && sudo ln -sfn "$(brew --prefix)/opt/openjdk/libexec/openjdk.jdk" /Library/Java/JavaVirtualMachines/openjdk.jdk'
         f' && sudo pmset -c sleep 0 && {fetch} && "$(brew --prefix)/bin/python3" ~/test_host.py'
     )
     return linux, mac
@@ -740,7 +743,7 @@ class Agent:
         bob_dir = self.root / "bob"
         return {
             "protocol": PROTOCOL,
-            "script_sha": script_sha(),
+            "script_sha": RUNNING_SHA,
             "name": socket.gethostname(),
             "os": platform.system(),
             "arch": platform.machine(),
