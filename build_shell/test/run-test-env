@@ -15,6 +15,8 @@
 #     (`vglrun -d egl`): the game renders on the GPU off-screen and VirtualGL copies every frame
 #     into the Xvfb window. It does not need access to :0 and changes no X configuration. Measured:
 #     60 fps and the same CPU load as a normal desktop run.
+#   - Under WSL2 (Windows) there is no render node for VirtualGL; Mesa renders on the GPU through
+#     Direct3D 12 instead (GALLIUM_DRIVER=d3d12, /dev/dxg), with the same invisible Xvfb display.
 #   - Xvfb runs with -terminate: it exits by itself when its last client (the game) disconnects.
 #   - The automation bridge drives the game over its HTTP port, so input and screenshots work
 #     without any window manager or focus. Tools that talk to X for an instance (xdotool, ffmpeg
@@ -151,11 +153,17 @@ while [ $# -gt 0 ]; do
 	esac
 done
 [ $# -gt 0 ] || die "no command given"
-[ "$software" = "1" ] || [ -x "$vglrun_path" ] || die "VirtualGL is not installed, see INSTALL at the top of $0 (or pass --software)"
+is_wsl=0
+[ -e /dev/dxg ] && is_wsl=1
+[ "$software" = "1" ] || [ "$is_wsl" = "1" ] || [ -x "$vglrun_path" ] || die "VirtualGL is not installed, see INSTALL at the top of $0 (or pass --software)"
 
 display=$(ensure_display "$name")
 export DISPLAY=$display
 unset WAYLAND_DISPLAY XAUTHORITY
+if [ "$is_wsl" = "1" ] && [ "$software" != "1" ]; then
+	export GALLIUM_DRIVER=d3d12
+	exec "$@"
+fi
 if [ "$software" = "1" ]; then
 	exec "$@"
 fi
