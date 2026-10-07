@@ -139,7 +139,7 @@ LINUX_TEST_HOST=<IP компьютера> build_shell/test/linux_test.sh --confi
   ```
 
 На остальных компьютерах его ключ остаётся в `~/.ssh/authorized_keys` (строка с `defold_test_host <алиас>`),
-а алиас — в `~/defold_test_host/known_hosts.json`; удали их там, если компьютер уходит насовсем.
+а алиас — в `~/defold_test_host/hosts.json`; удали их там, если компьютер уходит насовсем.
 
 ## Если не работает
 
