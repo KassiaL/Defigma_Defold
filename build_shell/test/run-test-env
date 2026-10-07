@@ -17,6 +17,7 @@
 #     60 fps and the same CPU load as a normal desktop run.
 #   - Under WSL2 (Windows) there is no render node for VirtualGL; Mesa renders on the GPU through
 #     Direct3D 12 instead (GALLIUM_DRIVER=d3d12, /dev/dxg), with the same invisible Xvfb display.
+#     WSLg mounts /tmp/.X11-unix read-only, so Xvfb listens on its abstract socket only there.
 #   - Xvfb runs with -terminate: it exits by itself when its last client (the game) disconnects.
 #   - The automation bridge drives the game over its HTTP port, so input and screenshots work
 #     without any window manager or focus. Tools that talk to X for an instance (xdotool, ffmpeg
@@ -57,6 +58,8 @@ vglrun_path=/opt/VirtualGL/bin/vglrun
 name=default
 size=2300x2300
 software=0
+is_wsl=0
+[ -e /dev/dxg ] && is_wsl=1
 
 die() {
 	echo "run-test-env: $*" >&2
@@ -79,7 +82,9 @@ start_display() {
 	local env_name=$1 ready
 	command -v Xvfb >/dev/null || die "Xvfb is not installed, see INSTALL at the top of $0"
 	ready=$(mktemp "$state_dir/$env_name.ready.XXXXXX")
-	setsid Xvfb -displayfd 3 -screen 0 "${size}x24" -nolisten tcp -terminate \
+	local listen_args=(-nolisten tcp)
+	[ "$is_wsl" = "1" ] && listen_args+=(-nolisten unix)
+	setsid Xvfb -displayfd 3 -screen 0 "${size}x24" "${listen_args[@]}" -terminate \
 		3>"$ready" </dev/null >"$state_dir/$env_name.log" 2>&1 &
 	echo $! >"$(pid_file "$env_name")"
 	for _ in $(seq 1 100); do
@@ -153,8 +158,6 @@ while [ $# -gt 0 ]; do
 	esac
 done
 [ $# -gt 0 ] || die "no command given"
-is_wsl=0
-[ -e /dev/dxg ] && is_wsl=1
 [ "$software" = "1" ] || [ "$is_wsl" = "1" ] || [ -x "$vglrun_path" ] || die "VirtualGL is not installed, see INSTALL at the top of $0 (or pass --software)"
 
 display=$(ensure_display "$name")

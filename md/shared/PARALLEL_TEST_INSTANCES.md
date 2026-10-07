@@ -63,7 +63,7 @@ A remote run changes nothing for the agent:
 - `engine.pid` holds the pid of the local forwarder (`test_host.py forward`); stopping it stops the remote engine, so the next `linux_test.sh` run and `agent_worktree_clean.sh` handle a remote instance like a local one. `game.close_engine()` works as usual.
 - The game reaches the ports of this PC that `main_host_ports` names (local server, CDN) through relays on the LAN address of this PC; `project_engine_args` passes `TEST_MAIN_HOST` and `TEST_MAIN_PORT_<port>` to the client.
 - What needs the machine itself does not work remotely: X tools and video capture on `ENGINE_DISPLAY` (`tools/motion/capture.py`, `ffmpeg -f x11grab`), the Remotery profiler (`game.profiler`, the `gc-profile` skill) and timings that compare with local runs. For such a task run with `LINUX_TEST_HOST=local` when this PC has the RAM; when it does not, stop and tell me.
-- On a Mac the game window opens on that machine's desktop; on Linux hosts it uses `run-test-env` as here. Windows hosts are not supported yet.
+- On a Mac the game window opens on that machine's desktop; on Linux hosts it uses `run-test-env` as here, and a Windows PC joins through WSL2, where `run-test-env` renders through Direct3D 12 (about 35-40 FPS instead of 60: fine for checking behaviour, not for timing or recordings).
 
 Adding a computer to the network and checking it is `md/shared/TEST_HOSTS.md`; every computer of the network reaches every other one by `ssh <alias>` too. The agent (`test_host.py agent`) answers only LAN addresses, keeps its checkouts, bob.jar copies and job logs in `~/defold_test_host` and starts by itself after every login. The header of `~/defold_test_host/test_host.py` describes the protocol.
 

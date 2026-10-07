@@ -8,7 +8,7 @@
   `ssh likanion-computer` — без пароля и без IP-адресов.
 
 Работать можно с любого компьютера сети: каждый одновременно и «основной», и хост для чужих сборок.
-Windows пока не поддерживается.
+Windows подключается через WSL2 (раздел `Windows`): внутри WSL это обычный Linux-компьютер сети.
 
 ## Как это устроено
 
@@ -140,6 +140,28 @@ LINUX_TEST_HOST=<IP компьютера> build_shell/test/linux_test.sh --confi
 
 На остальных компьютерах его ключ остаётся в `~/.ssh/authorized_keys` (строка с `defold_test_host <алиас>`),
 а алиас — в `~/defold_test_host/hosts.json`; удали их там, если компьютер уходит насовсем.
+
+## Windows
+
+Windows-компьютер входит в сеть через WSL2 с Ubuntu. Один раз на Windows (PowerShell от администратора):
+
+- `wsl --install -d Ubuntu-24.04`, в Ubuntu `/etc/wsl.conf` с `[boot] systemd=true`;
+- `%UserProfile%\.wslconfig`: `networkingMode=mirrored` (WSL получает IP самого Windows), `vmIdleTimeout=-1`,
+  `memory=` — сколько RAM отдать WSL (на 32 GB — `12GB`); если mirrored падает с `0x8007054f`, включи
+  `Enable-WindowsOptionalFeature -Online -FeatureName HypervisorPlatform` и перезагрузи;
+- файрвол Hyper-V: TCP 22 и 47800, UDP 47800 (`New-NetFirewallHyperVRule ... -VMCreatorId
+  '{40E0AC32-46A5-438A-A0B2-2B479E8F2E90}'`);
+- скрытая задача Планировщика при входе в систему, которая держит WSL запущенным
+  (`wsl.exe -d Ubuntu-24.04 --exec sleep infinity`), и отключённый сон от сети (`powercfg`).
+
+Затем в терминале Ubuntu — обычная строка установки из раздела выше. Алиас компьютера — имя Windows
+(`desktop-sfl4k`). В WSL игра рисует на видеокарте через Direct3D 12 (`GALLIUM_DRIVER=d3d12`) в невидимом
+Xvfb, окна в Windows нет; свободная RAM — меньшее из свободной памяти Windows и доступной в WSL.
+
+Измерено 2026-10-08 (RTX 4060 Ti, Ryzen 5 7500F): Dexfut в меню — 40 FPS при окне 432×920 и 35 FPS при
+1080×2300, против 60 FPS на Linux того же компьютера (кадр копируется из Direct3D в Xvfb через
+процессор, основной поток занят на 80–90%). Сборка — 40 секунд инкрементальная, около 2 минут с нуля.
+Для проверки работы игры этого хватает; замеры производительности и запись видео делай на основном ПК.
 
 ## Если не работает
 
