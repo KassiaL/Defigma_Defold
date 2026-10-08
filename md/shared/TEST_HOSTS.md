@@ -2,9 +2,9 @@
 
 Все компьютеры дома (Linux и Mac) объединены в одну сеть:
 
-- сборка `build_shell/test/test_instance.sh` по умолчанию уходит на Mac или Windows, где тестовая игра
-  молчит; с `TEST_SOUND=1` (задача проверяет звук) — только на Linux; на любой компьютер — только при
-  6144 MB свободной RAM (подробности — раздел `Test hosts` в `md/shared/PARALLEL_TEST_INSTANCES.md`);
+- сборка `build_shell/test/test_instance.sh` уходит на свободный компьютер, когда на текущем меньше 6144 MB
+  свободной RAM; с `TEST_SOUND=1` (задача проверяет звук) — только на Linux, на Mac и Windows тестовая игра
+  молчит (подробности — раздел `Test hosts` в `md/shared/PARALLEL_TEST_INSTANCES.md`);
 - с любого компьютера на любой другой можно зайти по SSH по его имени: `ssh macbookair`, `ssh sergey`,
   `ssh likanion-computer` — без пароля и без IP-адресов.
 

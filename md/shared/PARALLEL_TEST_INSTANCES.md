@@ -57,9 +57,9 @@ Environment switches:
 
 Before building, `test_instance.sh` chooses the computer through `~/defold_test_host/test_host.py pick` (one copy per computer, installed by `md/shared/TEST_HOSTS.md`; without it `test_instance.sh` cannot start). A computer fits with at least 6144 MB free (`MemAvailable`, `MIN_FREE_MB`: a clean bob build peaks at about 6 GB, an incremental one at about 4.6 GB, the engine itself takes about 400 MB; the peak is bob's native resource processing, not its Java heap, so `-Xmx` does not lower it); a UDP broadcast finds the other computers of the test network with their free RAM (no addresses to configure; any computer of the network can be the one an agent works on).
 
-- By default a silent computer comes first: tests and every other check that surely needs no sound run on a Mac or a Windows computer automatically, where the instance is muted. This PC when it is one and fits, else the Mac or Windows host with the most free RAM; when none fits, this PC, else any host with the most.
-- `TEST_SOUND=1` is for a task that checks sound: only Linux fits, this PC first, else the Linux host with the most free RAM.
-- `TEST_HOST=local` keeps the instance on this PC for what needs it: the Remotery profiler, timings that compare with local runs, X tools on `ENGINE_DISPLAY`, project scripts that start more engines next to it through `run-test-env`.
+- This PC when it fits, as described above; else the other computer with the most free RAM - a Linux, Mac or Windows one, the instance muted on the last two.
+- `TEST_SOUND=1` is for a task that checks sound: only Linux fits (this PC first), because only there the sound reaches the recording.
+- `TEST_HOST=local` keeps the instance on this PC without the RAM check, for what needs it: the Remotery profiler, timings that compare with local runs, X tools on `ENGINE_DISPLAY`, project scripts that start more engines next to it through `run-test-env`.
 
 `python3 ~/defold_test_host/test_host.py hosts` prints what the broadcast finds. When no computer fits, the script prints the free RAM of every machine and exits with code 3: stop and tell me that there is not enough free RAM to start a test safely - never start the build another way (editor, `TEST_HOST=local`).
 

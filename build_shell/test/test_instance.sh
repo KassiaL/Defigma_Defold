@@ -8,10 +8,10 @@
 # into the bundle re-signed without the hardened runtime, sets the volume of every AVAudioPlayerNode to 0
 # before it plays; on Windows run-test-window.py mutes the
 # audio sessions of the engine. The game's own volume (the master group gain) is never touched.
-# ~/defold_test_host/test_host.py pick (md/shared/TEST_HOSTS.md) chooses the computer: a silent one first
-# (macOS, Windows), Linux only with TEST_SOUND=1, this PC only with enough free RAM. On a test host the
-# output is ENGINE_PORT (a local port), ENGINE_LOG (a local mirror) and ENGINE_HOST=<host>; exit code 3
-# means no computer fits.
+# When this PC is short of RAM the build and the engine move to a test host of the LAN through
+# ~/defold_test_host/test_host.py pick (md/shared/TEST_HOSTS.md), only to a Linux one with TEST_SOUND=1;
+# the output is then ENGINE_PORT (a local port), ENGINE_LOG (a local mirror) and ENGINE_HOST=<host>;
+# exit code 3 means no computer fits.
 # On a test host the same script runs on Linux, macOS (bash 4+) and Windows (Git Bash).
 # Shared by every Defold project and synced by sync_defold_docs.py. What differs per project lives
 # in build_shell/test/test_instance_project.sh, sourced when present; see md/shared/PARALLEL_TEST_INSTANCES.md.
