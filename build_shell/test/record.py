@@ -120,8 +120,14 @@ def window_area(shell, window_id):
     return int(re.search(r"Width:\s+(\d+)", info).group(1)) * int(re.search(r"Height:\s+(\d+)", info).group(1))
 
 
+def window_pid(shell, window_id):
+    match = re.search(r"= (\d+)", shell.run("xprop", "-id", window_id, "_NET_WM_PID"))
+    return int(match.group(1)) if match else None
+
+
 def engine_window(shell, pid):
-    ids = subprocess.run(shell.command("xdotool", "search", "--pid", str(pid)), capture_output=True, text=True).stdout.split()
+    tree = shell.run("xwininfo", "-root", "-tree")
+    ids = [window_id for window_id in re.findall(r"^\s+(0x[0-9a-f]+) ", tree, re.M) if window_pid(shell, window_id) == pid]
     areas = {window_id: window_area(shell, window_id) for window_id in ids}
     best = max(areas, key=areas.get, default=None)
     if not best or not areas[best]:
