@@ -9,7 +9,8 @@
 # before it plays; on Windows run-test-window.py mutes the
 # audio sessions of the engine. The game's own volume (the master group gain) is never touched.
 # When this PC is short of RAM the build and the engine move to a test host of the LAN through
-# ~/defold_test_host/test_host.py pick (md/shared/TEST_HOSTS.md), only to a Linux one with TEST_SOUND=1;
+# ~/defold_test_host/test_host.py pick (md/shared/TEST_HOSTS.md): only to a Linux one with TEST_SOUND=1,
+# never with TEST_PERF=1 (profiler, frame times: this PC only);
 # the output is then ENGINE_PORT (a local port), ENGINE_LOG (a local mirror) and ENGINE_HOST=<host>;
 # exit code 3 means no computer fits.
 # On a test host the same script runs on Linux, macOS (bash 4+) and Windows (Git Bash).
@@ -93,7 +94,7 @@ test_host_tool="$HOME/defold_test_host/test_host.py"
 test_host=local
 if [ "${TEST_LAUNCH_ONLY:-0}" != "1" ] && [ "${TEST_ON_DESKTOP:-0}" != "1" ]; then
 	case "${TEST_HOST:-auto}" in
-	auto) test_host=$(python3 "$test_host_tool" pick $([ "${TEST_SOUND:-0}" = "1" ] && echo --sound)) ;;
+	auto) test_host=$(python3 "$test_host_tool" pick $([ "${TEST_SOUND:-0}" = "1" ] && echo --sound) $([ "${TEST_PERF:-0}" = "1" ] && echo --perf)) ;;
 	*) test_host=$TEST_HOST ;;
 	esac
 fi

@@ -35,7 +35,7 @@ build_shell/test/test_instance.sh
 - Prints `ENGINE_PORT=<port>`, `ENGINE_LOG=<path>` and `ENGINE_DISPLAY=:<n>`, or `ENGINE_HOST=<host>` instead of `ENGINE_DISPLAY` when the instance runs on a test host (see `Test hosts`). The log is `<worktree>/.internal/test_instance/engine.log`.
 - The engine service port is dynamic, the pid is kept in `<worktree>/.internal/test_instance/engine.pid`, so starting an instance stops the previous engine of that checkout only and never touches the engine of another agent.
 - The game never appears on my desktop: the engine is started through `build_shell/test/run-test-env`, which gives every instance its own invisible X display - an Xvfb server named after the instance - and renders OpenGL on the GPU through VirtualGL. The game runs at full frame rate there, and bridge input and screenshots work as usual. The display closes by itself when the engine exits. `TEST_ON_DESKTOP=1` starts the engine on my real display instead; use it only when I ask to watch the game.
-- Anything else that talks to X for the instance (`xdotool`, `xwininfo`, `ffmpeg -f x11grab`, a recording tool) must run with `DISPLAY=<ENGINE_DISPLAY>`; never move an engine window to `:0`. Another process that has to run in the same environment - a second engine for a two-account test - is started as `build_shell/test/run-test-env --name <instance> <command>` with a name of its own; `build_shell/test/run-test-env --list` shows the running environments, `--stop <name>` closes one.
+- Never move an engine window to the desktop display `:0`; a tool that talks to X for a local instance runs with `DISPLAY=<ENGINE_DISPLAY>` (video does not need it: `record.py`). Another process that has to run in the same environment - a second engine for a two-account test - is started as `build_shell/test/run-test-env --name <instance> <command>` with a name of its own; `build_shell/test/run-test-env --list` shows the running environments, `--stop <name>` closes one.
 - The machine needs Xvfb and VirtualGL; how to install them, and why this setup, is written at the top of `build_shell/test/run-test-env`. When the script reports that one of them is missing, stop and tell me instead of falling back to the desktop display.
 - The sound of an instance never reaches the speakers, and nothing has to be passed for it. On Linux `run-test-env` gives every environment a PulseAudio/PipeWire null sink `test-<name>` next to its display and plays the game into it; `test_instance.sh` prints its monitor source as `ENGINE_AUDIO=test-<instance>.monitor`, and `record.py` (below) records it next to the picture. On macOS `test_instance.sh` re-signs the bundle ad hoc without the hardened runtime and injects `build_shell/test/mute_macos.m` (compiled there with `cc`, `DYLD_INSERT_LIBRARIES`), which sets the volume of every `AVAudioPlayerNode` of the engine to 0 before it plays; on Windows `run-test-window.py` mutes the audio sessions of the engine (`ISimpleAudioVolume`, as the Volume Mixer does). Neither touches the volume of the game (its `master` group), which the game may set itself, so the clips recorded there have no sound: a task that checks sound runs with `TEST_SOUND=1`, which picks a Linux computer. `TEST_ON_DESKTOP=1` plays on the speakers.
 
@@ -60,18 +60,17 @@ Environment switches:
 | `TEST_LAUNCH_ONLY=1` | Launches the existing bundle without building |
 | `TEST_ON_DESKTOP=1` | Starts the engine on my real display (only when I ask to watch); always local |
 | `TEST_SOUND=1` | The task checks sound: only a Linux computer is picked, where the sound reaches the recording (see `Test hosts`) |
-| `TEST_HOST=local` | Builds and runs on this PC without the RAM check (only when the task needs a local instance, see `Test hosts`) |
-| `TEST_HOST=<host>` | Builds and runs on that test host |
+| `TEST_PERF=1` | The task measures performance (profiler, `gc-profile`, FPS, frame times): only this PC, where the numbers are compared (see `Test hosts`) |
+| `TEST_HOST=local` / `<host>` | For the scripts, not for a task: forces this PC (no RAM check) or that test host. `ab_checkout.py` and a remote run use it |
 
 ## Test hosts
 
 Before building, `test_instance.sh` chooses the computer through `~/defold_test_host/test_host.py pick` (one copy per computer, installed by `md/shared/TEST_HOSTS.md`; without it `test_instance.sh` cannot start). A computer fits with at least 6144 MB free (`MemAvailable`, `MIN_FREE_MB`: a clean bob build peaks at about 6 GB, an incremental one at about 4.6 GB, the engine itself takes about 400 MB; the peak is bob's native resource processing, not its Java heap, so `-Xmx` does not lower it); a UDP broadcast finds the other computers of the test network with their free RAM (no addresses to configure; any computer of the network can be the one an agent works on).
 
 - This PC when it fits, as described above; else the other computer with the most free RAM - a Linux, Mac or Windows one, the instance muted on the last two.
-- `TEST_SOUND=1` is for a task that checks sound: only Linux fits (this PC first), because only there the sound reaches the recording.
-- `TEST_HOST=local` keeps the instance on this PC without the RAM check, for what needs it: the Remotery profiler, timings that compare with local runs, X tools on `ENGINE_DISPLAY`, project scripts that start more engines next to it through `run-test-env`.
+- A task tells what it needs, never which computer: `TEST_SOUND=1` when it checks sound (only Linux fits, this PC first: only there the sound reaches the recording), `TEST_PERF=1` when it measures performance (only this PC fits: the Remotery profiler reaches only a local engine, and frame times of another computer do not compare). Both may be given together.
 
-`python3 ~/defold_test_host/test_host.py hosts` prints what the broadcast finds. When no computer fits, the script prints the free RAM of every machine and exits with code 3: stop and tell me that there is not enough free RAM to start a test safely - never start the build another way (editor, `TEST_HOST=local`).
+`python3 ~/defold_test_host/test_host.py hosts` prints what the broadcast finds. When no computer fits, the script prints why and exits with code 3: stop and tell me - never start the build another way (editor, `TEST_HOST`).
 
 A remote run changes nothing for the agent:
 
@@ -86,9 +85,9 @@ A remote run changes nothing for the agent:
   | --- | --- | --- |
   | Bridge commands, input, scene, screenshots, logs | work | work the same; a screenshot path points to a local copy |
   | Video | `record.py` | `record.py`; the clip is copied here, without sound from a Mac or Windows |
-  | Profiler, timings, X tools (`xdotool`, `ENGINE_DISPLAY`) | work | do not: start with `TEST_HOST=local` |
+  | Profiler, FPS, frame times | work | never there: `TEST_PERF=1` keeps the instance here |
 
-- Video under the hood (`record.py` reads `remote.json`): on Linux ffmpeg `x11grab` of the engine window on its invisible display, over ssh on a test host, with the sound of `test-<instance>.monitor` of that computer; on a Mac (macOS 15+, needs the Screen Recording permission there) and on Windows the native recorder of the automation bridge (`/recording/start`), the clip coming back through the test host agent. What still needs this machine: the Remotery profiler (`game.profiler`, the `gc-profile` skill) and timings that compare with local runs; for such a task run with `TEST_HOST=local` when this PC has the RAM, and when it does not, stop and tell me.
+- Video under the hood (`record.py` reads `remote.json`): on Linux ffmpeg `x11grab` of the engine window on its invisible display, over ssh on a test host, with the sound of `test-<instance>.monitor` of that computer; on a Mac (macOS 15+, needs the Screen Recording permission there) and on Windows the native recorder of the automation bridge (`/recording/start`), the clip coming back through the test host agent.
 - On a Mac the game window opens on that machine's desktop; on Linux hosts it uses `run-test-env` as here, and on Windows `run-test-window.py` keeps the window on the user's desktop but invisible (layered alpha 1, click-through, no taskbar button, never focused, bottom of the Z order) at 60 FPS.
 
 Adding a computer to the network and checking it is `md/shared/TEST_HOSTS.md`; every computer of the network reaches every other one by `ssh <alias>` too. The agent (`test_host.py agent`) answers only LAN addresses, keeps its checkouts, bob.jar copies and job logs in `~/defold_test_host` and starts by itself after every login. The header of `~/defold_test_host/test_host.py` describes the protocol.
