@@ -2,8 +2,9 @@
 
 Все компьютеры дома (Linux и Mac) объединены в одну сеть:
 
-- сборка `build_shell/test/test_instance.sh` уходит на свободный компьютер, когда на текущем меньше 6144 MB
-  свободной RAM (подробности — раздел `Test hosts` в `md/shared/PARALLEL_TEST_INSTANCES.md`);
+- сборка `build_shell/test/test_instance.sh` по умолчанию уходит на Mac или Windows, где тестовая игра
+  молчит; с `TEST_SOUND=1` (задача проверяет звук) — только на Linux; на любой компьютер — только при
+  6144 MB свободной RAM (подробности — раздел `Test hosts` в `md/shared/PARALLEL_TEST_INSTANCES.md`);
 - с любого компьютера на любой другой можно зайти по SSH по его имени: `ssh macbookair`, `ssh sergey`,
   `ssh likanion-computer` — без пароля и без IP-адресов.
 
@@ -110,7 +111,7 @@ python3 ~/defold_test_host/test_host.py hosts
 Пример вывода:
 
 ```text
-this computer (sergey): 11631 of 31943 MB free, a build moves away below 6144 MB
+this computer (sergey, Linux): 11631 of 31943 MB free, a test instance needs 6144 MB
 macbookair: MacBookAir.Dlink (192.168.0.32, Darwin) 10297 MB free of 16384 MB, version 3
     most memory: com.apple.WebKit.WebContent 396 MB, Telegram 265 MB, Finder 124 MB
 likanion-computer: likanion-computer (192.168.0.93, Linux) 10783 MB free of 31833 MB, version 3

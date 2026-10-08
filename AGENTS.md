@@ -10,7 +10,7 @@ Never overwrite user's existing changes in files. When editing a file the user h
 
 Build only when the change is large enough that it has to be checked in the running game (new screen/flow, gameplay, animations, effects, non-trivial runtime logic); skip the build for small, local edits. The `automation-bridge` skill may be used without asking.
 
-Every build that runs the game for a check is `build_shell/test/test_instance.sh` started from the root of the checkout you work in, also outside a worktree, and the bridge attaches with `engine.connect(<ENGINE_PORT>)`. Never build or run the game through the editor (`project.build_and_run`, `project.clean_build_and_run`, `project.connect_engine`, hot reload) unless I ask for it. When this PC is short of RAM the script moves the build and the instance to a free computer of the LAN by itself and the bridge works the same; exit code 3 means no computer has enough free RAM: stop and tell me, never start the build another way. See `md/shared/PARALLEL_TEST_INSTANCES.md`. Do not revert changes in git (I may be working concurrently).
+Every build that runs the game for a check is `build_shell/test/test_instance.sh` started from the root of the checkout you work in, also outside a worktree, and the bridge attaches with `engine.connect(<ENGINE_PORT>)`. Never build or run the game through the editor (`project.build_and_run`, `project.clean_build_and_run`, `project.connect_engine`, hot reload) unless I ask for it. The script picks the computer by itself and the bridge works the same: a Mac or Windows computer of the LAN, where the instance is muted, for everything that surely needs no sound; `TEST_SOUND=1` for a task that checks sound (Linux only); `TEST_HOST=local` for what needs this PC (profiler, local timings, X tools). Exit code 3 means no computer has enough free RAM: stop and tell me, never start the build another way. See `md/shared/PARALLEL_TEST_INSTANCES.md`. Do not revert changes in git (I may be working concurrently).
 
 Update the documentation as part of every change, without being asked: grep `md/`, `m/PROJECT_STRUCTURE.md` and `docs/` for what the change touched and fix every stale statement found there, not only the line that mentions the edited symbol.
 
@@ -75,10 +75,10 @@ Project structure note: see `m/PROJECT_STRUCTURE.md`.
 
 ## Worktree
 
-When I ask you to work in your own worktree, read `md/shared/PARALLEL_TEST_INSTANCES.md` and follow it:
+Every task that changes files is done in your own worktree, without being asked; read `md/shared/PARALLEL_TEST_INSTANCES.md` and follow it. Work directly in the main checkout only when I allowed it for that task.
 
 - Create the checkout with `build_shell/test/agent_worktree.sh <name>` and keep every edit there, on its `agent/<name>` branch.
-- Always verify through a `build_shell/test/test_instance.sh` build and the `automation-bridge` skill attached with `engine.connect(<ENGINE_PORT>)`. Asking for worktree work is asking for the build, so the "build only large changes" rule above does not apply: the task is finished when the built instance shows the change working, not when the diff looks right.
+- Verify through a `build_shell/test/test_instance.sh` build and the `automation-bridge` skill attached with `engine.connect(<ENGINE_PORT>)` whenever the "build only large changes" rule above calls for a build: then the task is finished when the built instance shows the change working, not when the diff looks right.
 - Build only from that checkout, with `build_shell/test/test_instance.sh` started from its root, so what runs is that branch. Never build a worktree branch from the main checkout or from another agent's checkout.
 - When the task is done and verified, always merge it into the integration branch: commit on `agent/<name>`, then merge that branch from the main checkout. If the merge is refused or conflicts with my uncommitted changes, stop and tell me.
 
