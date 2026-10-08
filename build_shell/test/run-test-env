@@ -22,6 +22,13 @@
 #   - The automation bridge drives the game over its HTTP port, so input and screenshots work
 #     without any window manager or focus. Tools that talk to X for an instance (xdotool, ffmpeg
 #     x11grab, tools/motion/capture.py) must use that instance's DISPLAY (see --display).
+#   - Sound never reaches the speakers: every environment also gets its own PulseAudio/PipeWire null
+#     sink "test-NAME" (pactl load-module module-null-sink), and the command plays into it through
+#     OpenAL's ALSA back end (ALSOFT_DRIVERS=alsa, PIPEWIRE_NODE/PULSE_SINK; OpenAL's own PulseAudio
+#     back end ignores both and plays on the default output). A recording takes the sound from the
+#     sink's monitor source (--audio): ffmpeg -f x11grab -i $DISPLAY -f pulse -i test-NAME.monitor.
+#     The sink is unloaded when the Xvfb server exits. Without pactl OpenAL gets its null back end and
+#     the game is silent.
 #   - Do not minimize or hide a desktop window instead: Defold stops rendering an iconified window,
 #     so bridge screenshots never complete.
 #
@@ -43,6 +50,7 @@
 # USAGE
 #   build_shell/test/run-test-env [--name NAME] [--size WxH] [--software] command [args...]
 #   build_shell/test/run-test-env --display [NAME]   print the DISPLAY of a running environment
+#   build_shell/test/run-test-env --audio [NAME]     print the pulse source that records its sound
 #   build_shell/test/run-test-env --list             list running environments
 #   build_shell/test/run-test-env --stop [NAME]      stop one environment (kills its game too)
 #   build_shell/test/run-test-env --stop-all         stop every environment
@@ -68,6 +76,29 @@ die() {
 
 pid_file() { echo "$state_dir/$1.pid"; }
 display_file() { echo "$state_dir/$1.display"; }
+sink_name() { echo "test-$1"; }
+
+start_sink() {
+	local env_name=$1 xvfb_pid=$2 sink module
+	command -v pactl >/dev/null || return 0
+	sink=$(sink_name "$env_name")
+	for module in $(pactl list short modules | awk -v arg="sink_name=$sink" '$2 == "module-null-sink" && index($0, arg) {print $1}'); do
+		pactl unload-module "$module"
+	done
+	module=$(pactl load-module module-null-sink "sink_name=$sink" "sink_properties=device.description=$sink")
+	setsid bash -c 'while kill -0 "$1" 2>/dev/null; do sleep 2; done; pactl unload-module "$2"' _ "$xvfb_pid" "$module" \
+		</dev/null >/dev/null 2>&1 &
+}
+
+route_sound() {
+	local sink
+	sink=$(sink_name "$1")
+	if command -v pactl >/dev/null && pactl list short sinks | awk '{print $2}' | grep -qxF "$sink"; then
+		export ALSOFT_DRIVERS=alsa PIPEWIRE_NODE=$sink PULSE_SINK=$sink
+	else
+		export ALSOFT_DRIVERS=null
+	fi
+}
 
 running_display() {
 	local env_name=$1 pid
@@ -91,6 +122,7 @@ start_display() {
 		if [ -s "$ready" ]; then
 			tr -d '\n' <"$ready" >"$(display_file "$env_name")"
 			rm -f "$ready"
+			start_sink "$env_name" "$(cat "$(pid_file "$env_name")")"
 			return 0
 		fi
 		sleep 0.05
@@ -125,6 +157,11 @@ env_names() {
 case "${1:-}" in
 --display)
 	running_display "${2:-$name}" || die "environment '${2:-$name}' is not running"
+	exit 0
+	;;
+--audio)
+	running_display "${2:-$name}" >/dev/null || die "environment '${2:-$name}' is not running"
+	echo "$(sink_name "${2:-$name}").monitor"
 	exit 0
 	;;
 --list)
@@ -163,6 +200,7 @@ done
 display=$(ensure_display "$name")
 export DISPLAY=$display
 unset WAYLAND_DISPLAY XAUTHORITY
+route_sound "$name"
 if [ "$is_wsl" = "1" ] && [ "$software" != "1" ]; then
 	export GALLIUM_DRIVER=d3d12
 	exec "$@"

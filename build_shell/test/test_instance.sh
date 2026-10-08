@@ -2,7 +2,12 @@
 # Builds and starts a test instance of this checkout: the debug bundle of the platform it runs on
 # (x86_64-linux, arm64-macos, x86_64-win32) with the automation bridge, started so it never shows up
 # for the person at that computer (on Linux inside its own invisible X display, build_shell/test/run-test-env).
-# Prints ENGINE_PORT=<port>, ENGINE_LOG=<path> and ENGINE_DISPLAY=:<n>; arguments go to the engine.
+# Prints ENGINE_PORT=<port>, ENGINE_LOG=<path>, ENGINE_DISPLAY=:<n> and ENGINE_AUDIO=<pulse source>; arguments go to the engine.
+# The sound never reaches the speakers: on Linux it plays into a null sink of the instance that a recording
+# takes it from (run-test-env); on macOS build_shell/test/mute_macos.m, injected with DYLD_INSERT_LIBRARIES
+# into the bundle re-signed without the hardened runtime, sets the volume of every AVAudioPlayerNode to 0
+# before it plays; on Windows run-test-window.py mutes the
+# audio sessions of the engine. The game's own volume (the master group gain) is never touched.
 # When this PC is short of RAM the build and the engine move to a test host of the LAN through
 # ~/defold_test_host/test_host.py (md/shared/TEST_HOSTS.md): the output is then ENGINE_PORT (a local port), ENGINE_LOG (a local mirror)
 # and ENGINE_HOST=<host>; exit code 3 means neither this PC nor a test host has enough free RAM.
@@ -123,6 +128,11 @@ launcher=()
 if [ "$test_platform" = x86_64-linux ] && [ "${TEST_ON_DESKTOP:-0}" != "1" ]; then
 	launcher=("$root/build_shell/test/run-test-env" --name "$instance")
 fi
+if [[ "$test_platform" == *-macos ]] && [ "${TEST_ON_DESKTOP:-0}" != "1" ]; then
+	codesign --force --sign - "${executable%/Contents/MacOS/*}" >/dev/null 2>&1
+	cc -dynamiclib -fobjc-arc -framework AVFoundation -o "$run_dir/mute_macos.dylib" "$root/build_shell/test/mute_macos.m"
+	launcher=(env "DYLD_INSERT_LIBRARIES=$run_dir/mute_macos.dylib")
+fi
 engine_args=(--config=display.vsync=0 --config=display.update_frequency=60 ${extra_args[@]+"${extra_args[@]}"} "$@")
 rm -f "$log_path" "$port_path"
 if [ "$test_platform" = x86_64-win32 ]; then
@@ -145,6 +155,9 @@ for _ in $(seq 1 120); do
 		echo "ENGINE_LOG=$log_path"
 		if [ "$test_platform" = x86_64-linux ]; then
 			echo "ENGINE_DISPLAY=$(tr '\0' '\n' <"/proc/$(cat "$pid_path")/environ" | sed -n 's/^DISPLAY=//p')"
+			if [ ${#launcher[@]} -gt 0 ]; then
+				echo "ENGINE_AUDIO=$("${launcher[0]}" --audio "$instance")"
+			fi
 		fi
 		exit 0
 	fi
