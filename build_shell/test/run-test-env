@@ -2,7 +2,7 @@
 # run-test-env - runs a command inside an isolated, invisible X11 display.
 #
 # WHY
-#   Agents build and launch the game for automated tests (build_shell/test/linux_test.sh). On the
+#   Agents build and launch the game for automated tests (build_shell/test/test_instance.sh). On the
 #   desktop display (:0) every test window pops up, steals focus and keyboard input from the person
 #   working there. This script gives every test instance its own X server instead, so the game never
 #   exists on the desktop at all: no window, no focus change, no input stealing.
@@ -48,7 +48,7 @@
 #   build_shell/test/run-test-env --stop-all         stop every environment
 #
 #   NAME defaults to "default"; every parallel instance needs its own NAME so the windows never
-#   share a screen (linux_test.sh uses the checkout folder name). The default 2300x2300 screen
+#   share a screen (test_instance.sh uses the checkout folder name). The default 2300x2300 screen
 #   holds a 1080x2300 portrait window for recordings. --software skips VirtualGL (llvmpipe).
 #   This file is shared between the Defold projects and synced by sync_defold_docs.py.
 set -euo pipefail

@@ -2,13 +2,13 @@
 
 Все компьютеры дома (Linux и Mac) объединены в одну сеть:
 
-- сборка `build_shell/test/linux_test.sh` уходит на свободный компьютер, когда на текущем меньше 6144 MB
+- сборка `build_shell/test/test_instance.sh` уходит на свободный компьютер, когда на текущем меньше 6144 MB
   свободной RAM (подробности — раздел `Test hosts` в `md/shared/PARALLEL_TEST_INSTANCES.md`);
 - с любого компьютера на любой другой можно зайти по SSH по его имени: `ssh macbookair`, `ssh sergey`,
   `ssh likanion-computer` — без пароля и без IP-адресов.
 
 Работать можно с любого компьютера сети: каждый одновременно и «основной», и хост для чужих сборок.
-Windows подключается через WSL2 (раздел `Windows`): внутри WSL это обычный Linux-компьютер сети.
+Windows подключается своей строкой установки для PowerShell (раздел `Windows`).
 
 ## Как это устроено
 
@@ -121,7 +121,7 @@ add a computer: bash -c "$(curl -fsSL http://192.168.0.33:47800/install.sh)"
 Пробная сборка на конкретном компьютере (из worktree):
 
 ```bash
-LINUX_TEST_HOST=<IP компьютера> build_shell/test/linux_test.sh --config=sound.gain=0
+TEST_HOST=<IP компьютера> build_shell/test/test_instance.sh --config=sound.gain=0
 ```
 
 В выводе должны быть `ENGINE_PORT=...`, `ENGINE_LOG=...` и `ENGINE_HOST=<IP>`. Первая сборка дольше
@@ -146,25 +146,31 @@ LINUX_TEST_HOST=<IP компьютера> build_shell/test/linux_test.sh --confi
 
 ## Windows
 
-Windows-компьютер входит в сеть через WSL2 с Ubuntu. Один раз на Windows (PowerShell от администратора):
+Windows подключается без WSL: агент работает в обычной Windows, сборка идёт через Git Bash, игра — обычная
+Windows-сборка (`x86_64-win32`) на видеокарте напрямую. Установка — одна строка в **PowerShell от
+администратора** (её печатает `hosts` на любом компьютере сети):
 
-- `wsl --install -d Ubuntu-24.04`, в Ubuntu `/etc/wsl.conf` с `[boot] systemd=true`;
-- `%UserProfile%\.wslconfig`: `networkingMode=mirrored` (WSL получает IP самого Windows), `vmIdleTimeout=-1`,
-  `memory=` — сколько RAM отдать WSL (на 32 GB — `12GB`); если mirrored падает с `0x8007054f`, включи
-  `Enable-WindowsOptionalFeature -Online -FeatureName HypervisorPlatform` и перезагрузи;
-- файрвол Hyper-V: TCP 22 и 47800, UDP 47800 (`New-NetFirewallHyperVRule ... -VMCreatorId
-  '{40E0AC32-46A5-438A-A0B2-2B479E8F2E90}'`);
-- скрытая задача Планировщика при входе в систему, которая держит WSL запущенным
-  (`wsl.exe -d Ubuntu-24.04 --exec sleep infinity`), и отключённый сон от сети (`powercfg`).
+```powershell
+irm http://192.168.0.33:47800/install.ps1 | iex
+```
 
-Затем в терминале Ubuntu — обычная строка установки из раздела выше. Алиас компьютера — имя Windows
-(`desktop-sfl4k`). В WSL игра рисует на видеокарте через Direct3D 12 (`GALLIUM_DRIVER=d3d12`) в невидимом
-Xvfb, окна в Windows нет; свободная RAM — меньшее из свободной памяти Windows и доступной в WSL.
+Она ставит Git, Python и JDK 25 (через winget, если их нет), OpenSSH Server (ключи сети в
+`~/.ssh/authorized_keys`, для этого в `sshd_config` отключается блок `Match Group administrators`), правила
+файрвола TCP/UDP 47800, отключает сон от сети и ставит агента с автозапуском (папка «Автозагрузка», агент
+работает в сессии вошедшего пользователя). Алиас — имя компьютера Windows (`desktop-sfl4k`); файлы для
+двойного клика — `~/defold_test_host/ssh_<алиас>.cmd`.
 
-Измерено 2026-10-08 (RTX 4060 Ti, Ryzen 5 7500F): Dexfut в меню — 40 FPS при окне 432×920 и 35 FPS при
-1080×2300, против 60 FPS на Linux того же компьютера (кадр копируется из Direct3D в Xvfb через
-процессор, основной поток занят на 80–90%). Сборка — 40 секунд инкрементальная, около 2 минут с нуля.
-Для проверки работы игры этого хватает; замеры производительности и запись видео делай на основном ПК.
+Игру запускает `build_shell/test/run-test-window.py`: окно лежит на обычном рабочем столе, но прозрачное
+(alpha 1 из 255), пропускает клики, без значка в панели задач и Alt+Tab, никогда не получает фокус и стоит
+в самом низу по Z. Скрытый рабочий стол (`CreateDesktop`) не подошёл: там не работает ни одна запись видео.
+Скрипт также возвращает окну физический размер (масштаб экрана Windows 175% иначе превращает 1080×2300 в
+617×1314). Видео пишет встроенный рекордер automation bridge (Windows Graphics Capture).
+
+Измерено 2026-10-08 (RTX 4060 Ti, монитор 144 Гц): ролик 1080×2300, 60 fps, во время анимаций каждый кадр
+новый; около 60 FPS в среднем за минуту; тестовая игра — около 8% CPU, 1–4% GPU, 250–330 MB, на FPS
+полноэкранного бенчмарка не влияет. Сборка идёт с пониженным приоритетом, а пока на Windows открыта
+полноэкранная игра, компьютер отвечает «занят» и сборки на него не уходят. Каждый запрос к bridge на Windows
+занимает около 200 мс (задержка подтверждений TCP), поэтому длинные сценарии там медленнее.
 
 ## Если не работает
 

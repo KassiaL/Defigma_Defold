@@ -2,7 +2,7 @@
 # Throw away the agent worktrees of this project and the save folders their instances left behind.
 # Shared by every Defold project and synced by sync_defold_docs.py: the checkout comes from the
 # directory the script lives in; save_root/save_name and worktree_output_dirs() of
-# build_shell/test/linux_test_project.sh name the save folders and the test output a worktree leaves
+# build_shell/test/test_instance_project.sh name the save folders and the test output a worktree leaves
 # behind (none without that file). The engine a worktree still runs is stopped first, also on a test
 # host, and the checkout ~/defold_test_host/test_host.py made of it on every other computer is removed.
 #
@@ -44,8 +44,8 @@ save_name=""
 worktree_output_dirs() {
 	:
 }
-if [ -f "$root/build_shell/test/linux_test_project.sh" ]; then
-	. "$root/build_shell/test/linux_test_project.sh"
+if [ -f "$root/build_shell/test/test_instance_project.sh" ]; then
+	. "$root/build_shell/test/test_instance_project.sh"
 fi
 project_label=$(basename "$root")
 # Every worktree of this repository is listed by the main checkout, and that is also the only
@@ -134,7 +134,7 @@ for path in "${worktree_paths[@]+"${worktree_paths[@]}"}"; do
 		echo "skip $path: uncommitted changes, pass -f to remove it anyway"
 		continue
 	fi
-	pid_path="$path/.internal/linux_test/engine.pid"
+	pid_path="$path/.internal/test_instance/engine.pid"
 	if [ -f "$pid_path" ]; then
 		kill "$(cat "$pid_path")" 2>/dev/null || true
 	fi
