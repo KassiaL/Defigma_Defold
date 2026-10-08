@@ -88,7 +88,7 @@ if [ -f "$pid_path" ]; then
 	stop_pid "$(cat "$pid_path")"
 	rm -f "$pid_path"
 fi
-rm -f "$run_dir/remote.json"
+rm -f "$run_dir/remote.json" "$run_dir/recording.json"
 test_host_tool="$HOME/defold_test_host/test_host.py"
 test_host=local
 if [ "${TEST_LAUNCH_ONLY:-0}" != "1" ] && [ "${TEST_ON_DESKTOP:-0}" != "1" ]; then
