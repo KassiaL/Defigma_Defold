@@ -6,7 +6,7 @@ Several agents work on the project at the same time. Every agent needs its own c
 
 This document is shared by every Defold project and synced by `$HOME/my_shell/sync_defold_docs.py`. Everything except the last section is project independent; `Project Settings` holds the values of the current project, and the sync keeps that section of each project as it is.
 
-The scripts are shared the same way: `build_shell/test/test_instance.sh`, `build_quiet.sh`, `run-test-env`, `run-test-window.py`, `mute_macos.m`, `play.sh`, `record.py`, `agent_worktree.sh` and `agent_worktree_clean.sh` are identical in every project and overwritten by the sync, so never put project-specific code into them. What differs per project lives in `build_shell/test/test_instance_project.sh`, which the shared scripts source when it exists and the sync never touches: how the bundle is built for `$test_platform` (`bundle_project`), the bundle folder and the folder the engine starts in, extra engine arguments per instance (`project_engine_args`), the per-instance save folder (`save_root`, `save_name`), the ports of this PC the game needs when it runs on a test host (`main_host_ports`) and the test output a worktree leaves behind (`worktree_output_dirs`). The header of `test_instance.sh` lists these hooks.
+The scripts are shared the same way: `build_shell/test/test_instance.sh`, `build_quiet.sh`, `run-test-env`, `run-test-window.py`, `mute_macos.m`, `play.sh`, `record.py`, `agent_worktree.sh`, `agent_worktree_clean.sh` and `defigma_twin.py` are identical in every project and overwritten by the sync, so never put project-specific code into them. What differs per project lives in `build_shell/test/test_instance_project.sh`, which the shared scripts source when it exists and the sync never touches: how the bundle is built for `$test_platform` (`bundle_project`), the bundle folder and the folder the engine starts in, extra engine arguments per instance (`project_engine_args`), the per-instance save folder (`save_root`, `save_name`), the ports of this PC the game needs when it runs on a test host (`main_host_ports`) and the test output a worktree leaves behind (`worktree_output_dirs`). The header of `test_instance.sh` lists these hooks.
 
 ## Rules
 
@@ -23,6 +23,8 @@ build_shell/test/agent_worktree.sh <name>
 ```
 
 Creates `<parent of the main checkout>/worktrees/<project-dir>-<name>` on branch `agent/<name>`, always next to the main checkout - calling it from inside a worktree makes a sibling, not a nested one - and copies the resolved dependency cache into it, which is the slow part of a fresh checkout. It prints `WORKTREE=<path>`. Running it again for an existing name resets that branch to the new base. Every worktree lives in that one folder next to the projects, so finished ones can be thrown away without picking them out from between the real checkouts.
+
+A project whose main checkout runs a Defigma web server under pm2 (the server the Figma plugins upload exports to) gets a twin of it for the worktree: `build_shell/test/defigma_twin.py`, called by the script, starts the same server under the pm2 name of the worktree folder, writing into the worktree, on a free port from 16900, prints `DEFIGMA_PORT=<port>` and writes the port to `<worktree>/.internal/defigma_port`; an export sent with that port (Figma Bridge: `defigma.export(nodes, { upload_port })`) lands in the worktree. `agent_worktree_clean.sh` deletes the twin with the worktree.
 
 ## Building and running
 
@@ -48,6 +50,7 @@ build_shell/test/test_instance.sh
   ```
 
   60 fps of the game window only. With `CLIP_SOUND=no` and a task that needs the sound, start the instance again with `TEST_SOUND=1`.
+  The ffmpeg recording (Linux) encodes with libx264, which needs even sides: a window with an odd width or height (`game.resize(490, 1043)`) is not refused, the clip gets one black column or row added (490x1044) and `record.py` prints a warning; resize the engine to even sides when that edge matters. The game window is never resized by the script, since that would change the layout being recorded.
 
 Environment switches:
 

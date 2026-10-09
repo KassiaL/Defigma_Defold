@@ -9,7 +9,9 @@
 The same commands work wherever `test_instance.sh` started the engine; the script finds it through
 `.internal/test_instance/` (engine.pid, engine.port, remote.json) and picks the way to record:
   - Linux, this PC: ffmpeg x11grab of the engine window on its invisible run-test-env display, with the
-    sound of the instance from its null sink (`test-<instance>.monitor`, run-test-env).
+    sound of the instance from its null sink (`test-<instance>.monitor`, run-test-env). libx264 needs
+    even sides, so a window with an odd width or height (490x1043) is padded with one black column or
+    row in the clip, and the script says so; the game window itself is never resized.
   - Linux test host: the same ffmpeg over `ssh <alias>` there; the clip is copied here.
   - macOS, Windows (this PC or a test host): the native recorder of the automation bridge in the engine
     (/recording/start, /recording/stop); a clip of a test host comes back through its test host agent.
@@ -39,6 +41,7 @@ STATE = RUN_DIR / "recording.json"
 REMOTE = RUN_DIR / "remote.json"
 FPS = 60
 AGENT_PORT = 47800
+EVEN_PAD = ["-vf", "pad=ceil(iw/2)*2:ceil(ih/2)*2"]
 VIDEO = ["-c:v", "libx264", "-preset", "veryfast", "-crf", "16", "-pix_fmt", "yuv420p"]
 AUDIO = ["-c:a", "aac", "-b:a", "192k"]
 
@@ -113,11 +116,23 @@ def engine_display(shell, pid, host):
     return next(variable[len(b"DISPLAY="):].decode() for variable in variables if variable.startswith(b"DISPLAY="))
 
 
-def window_area(shell, window_id):
+def window_size(shell, window_id):
     info = shell.run("xwininfo", "-id", window_id)
-    if "IsViewable" not in info:
+    return int(re.search(r"Width:\s+(\d+)", info).group(1)), int(re.search(r"Height:\s+(\d+)", info).group(1))
+
+
+def window_area(shell, window_id):
+    if "IsViewable" not in shell.run("xwininfo", "-id", window_id):
         return 0
-    return int(re.search(r"Width:\s+(\d+)", info).group(1)) * int(re.search(r"Height:\s+(\d+)", info).group(1))
+    width, height = window_size(shell, window_id)
+    return width * height
+
+
+def warn_odd_size(width, height):
+    if width % 2 or height % 2:
+        print(f"record.py: the window is {width}x{height}, libx264 needs even sides: the clip is padded to "
+              f"{width + width % 2}x{height + height % 2} with black (resize the engine to even sides to avoid it)",
+              file=sys.stderr)
 
 
 def window_pid(shell, window_id):
@@ -147,13 +162,14 @@ def start_ffmpeg(host, out):
     display = engine_display(shell, pid, host)
     shell.display = display
     window = engine_window(shell, pid)
+    warn_odd_size(*window_size(shell, window))
     source = sound_source(shell)
     target = f"/tmp/record-{instance()}-{os.getpid()}.mp4" if host else str(out)
     command = ["ffmpeg", "-hide_banner", "-nostats", "-y",
                "-f", "x11grab", "-window_id", window, "-framerate", str(FPS), "-draw_mouse", "0", "-i", display]
     if source:
         command += ["-f", "pulse", "-i", source]
-    command += VIDEO + (AUDIO if source else []) + [target]
+    command += EVEN_PAD + VIDEO + (AUDIO if source else []) + [target]
     log = f"{target}.log" if host else str(RUN_DIR / "record.log")
     return {"backend": "ffmpeg", "pid": shell.background(command, log), "target": target, "log": log,
             "sound": bool(source)}

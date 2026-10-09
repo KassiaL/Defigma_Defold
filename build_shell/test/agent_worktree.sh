@@ -26,4 +26,7 @@ if [ -d "$main_checkout/.internal/lib" ]; then
 	cp -r "$main_checkout/.internal/lib" "$worktree_root/.internal/lib"
 fi
 
+# A project with a Defigma web server gets one for the worktree too, so a Figma export can land here.
+python3 "$main_checkout/build_shell/test/defigma_twin.py" start "$main_checkout" "$worktree_root"
+
 echo "WORKTREE=$worktree_root"

@@ -4,7 +4,8 @@
 # directory the script lives in; save_root/save_name and worktree_output_dirs() of
 # build_shell/test/test_instance_project.sh name the save folders and the test output a worktree leaves
 # behind (none without that file). The engine a worktree still runs is stopped first, also on a test
-# host, and the checkout ~/defold_test_host/test_host.py made of it on every other computer is removed.
+# host, and the checkout ~/defold_test_host/test_host.py made of it on every other computer is removed;
+# so is the Defigma web server agent_worktree.sh started for it (build_shell/test/defigma_twin.py).
 #
 # usage: agent_worktree_clean.sh [-n] [-y] [-f] [--include-main-save] [<name> ...]
 #   <name>               clean only these agents (the <name> of agent_worktree.sh); all when omitted
@@ -138,6 +139,7 @@ for path in "${worktree_paths[@]+"${worktree_paths[@]}"}"; do
 	if [ -f "$pid_path" ]; then
 		kill "$(cat "$pid_path")" 2>/dev/null || true
 	fi
+	python3 "$main_checkout/build_shell/test/defigma_twin.py" stop "$path"
 	# --force only drops the build artifacts and the copied dependency cache; the uncommitted
 	# work that --force is meant to protect is checked above.
 	git -C "$main_checkout" worktree remove --force "$path"
