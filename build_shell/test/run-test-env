@@ -29,6 +29,10 @@
 #     sink's monitor source (--audio): ffmpeg -f x11grab -i $DISPLAY -f pulse -i test-NAME.monitor.
 #     The sink is unloaded when the Xvfb server exits. Without pactl OpenAL gets its null back end and
 #     the game is silent.
+#   - The microphone is never the real one either: a second null sink "test-NAME-mic" is the
+#     environment's microphone, its monitor the default source of the command (PULSE_SOURCE), so a
+#     game that records the default input (a voice chat) hears only what a test plays into that sink
+#     (--mic: paplay --device=test-NAME-mic speech.wav), silence otherwise.
 #   - Do not minimize or hide a desktop window instead: Defold stops rendering an iconified window,
 #     so bridge screenshots never complete.
 #
@@ -51,6 +55,7 @@
 #   build_shell/test/run-test-env [--name NAME] [--size WxH] [--software] command [args...]
 #   build_shell/test/run-test-env --display [NAME]   print the DISPLAY of a running environment
 #   build_shell/test/run-test-env --audio [NAME]     print the pulse source that records its sound
+#   build_shell/test/run-test-env --mic [NAME]       print the pulse sink that plays into its microphone
 #   build_shell/test/run-test-env --list             list running environments
 #   build_shell/test/run-test-env --stop [NAME]      stop one environment (kills its game too)
 #   build_shell/test/run-test-env --stop-all         stop every environment
@@ -77,11 +82,16 @@ die() {
 pid_file() { echo "$state_dir/$1.pid"; }
 display_file() { echo "$state_dir/$1.display"; }
 sink_name() { echo "test-$1"; }
+mic_name() { echo "test-$1-mic"; }
+
+start_sinks() {
+	command -v pactl >/dev/null || return 0
+	start_sink "$(sink_name "$1")" "$2"
+	start_sink "$(mic_name "$1")" "$2"
+}
 
 start_sink() {
-	local env_name=$1 xvfb_pid=$2 sink module
-	command -v pactl >/dev/null || return 0
-	sink=$(sink_name "$env_name")
+	local sink=$1 xvfb_pid=$2 module
 	for module in $(pactl list short modules | awk -v arg="sink_name=$sink" '$2 == "module-null-sink" && index($0, arg) {print $1}'); do
 		pactl unload-module "$module"
 	done
@@ -91,10 +101,11 @@ start_sink() {
 }
 
 route_sound() {
-	local sink
+	local sink mic
 	sink=$(sink_name "$1")
+	mic=$(mic_name "$1")
 	if command -v pactl >/dev/null && pactl list short sinks | awk '{print $2}' | grep -qxF "$sink"; then
-		export ALSOFT_DRIVERS=alsa PIPEWIRE_NODE=$sink PULSE_SINK=$sink
+		export ALSOFT_DRIVERS=alsa PIPEWIRE_NODE=$sink PULSE_SINK=$sink PULSE_SOURCE=$mic.monitor
 	else
 		export ALSOFT_DRIVERS=null
 	fi
@@ -122,7 +133,7 @@ start_display() {
 		if [ -s "$ready" ]; then
 			tr -d '\n' <"$ready" >"$(display_file "$env_name")"
 			rm -f "$ready"
-			start_sink "$env_name" "$(cat "$(pid_file "$env_name")")"
+			start_sinks "$env_name" "$(cat "$(pid_file "$env_name")")"
 			return 0
 		fi
 		sleep 0.05
@@ -162,6 +173,11 @@ case "${1:-}" in
 --audio)
 	running_display "${2:-$name}" >/dev/null || die "environment '${2:-$name}' is not running"
 	echo "$(sink_name "${2:-$name}").monitor"
+	exit 0
+	;;
+--mic)
+	running_display "${2:-$name}" >/dev/null || die "environment '${2:-$name}' is not running"
+	mic_name "${2:-$name}"
 	exit 0
 	;;
 --list)

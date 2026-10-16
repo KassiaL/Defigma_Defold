@@ -6,7 +6,8 @@
 # log goes to the terminal.
 # bob builds into build/play and bundles into bundles/play, apart from the editor and the test instances.
 # build_shell/test/play_project.sh, sourced when present (not synced), may set engine_cwd (the folder the
-# engine starts in, default: the bundle folder) and bundle_project() (default: plain bob bundle).
+# engine starts in, default: the bundle folder), prepend engine arguments with `set --`, and replace
+# bundle_project() (default: plain bob bundle).
 # PLAY_CLEAN=1 forces a clean build. Shared by every Defold project and synced by sync_defold_docs.py.
 set -euo pipefail
 
@@ -53,4 +54,8 @@ if [ -z "$executable" ]; then
 	exit 1
 fi
 cd "${engine_cwd:-$(dirname "$executable")}"
-exec "$executable" "$@"
+case "$play_platform" in
+*-macos) project_file="${executable%/MacOS/*}/Resources/game.projectc" ;;
+*) project_file="$(dirname "$executable")/game.projectc" ;;
+esac
+exec "$executable" "$@" "$project_file"

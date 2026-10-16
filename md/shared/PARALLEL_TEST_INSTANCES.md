@@ -28,6 +28,8 @@ A project whose main checkout runs a Defigma web server under pm2 (the server th
 
 ## Building and running
 
+`play.sh` and `test_instance.sh` pass the bundle's `game.projectc` as the last engine argument (on macOS, `Contents/Resources/game.projectc`), as required by Defold 1.13.1's engine argument parser. This keeps a launch from the project root from loading the editor's `build/default` resources with the bundled engine.
+
 ```sh
 cd <worktree>
 build_shell/test/test_instance.sh
@@ -40,6 +42,7 @@ build_shell/test/test_instance.sh
 - Never move an engine window to the desktop display `:0`; a tool that talks to X for a local instance runs with `DISPLAY=<ENGINE_DISPLAY>` (video does not need it: `record.py`). Another process that has to run in the same environment - a second engine for a two-account test - is started as `build_shell/test/run-test-env --name <instance> <command>` with a name of its own; `build_shell/test/run-test-env --list` shows the running environments, `--stop <name>` closes one.
 - The machine needs Xvfb and VirtualGL; how to install them, and why this setup, is written at the top of `build_shell/test/run-test-env`. When the script reports that one of them is missing, stop and tell me instead of falling back to the desktop display.
 - The sound of an instance never reaches the speakers, and nothing has to be passed for it. On Linux `run-test-env` gives every environment a PulseAudio/PipeWire null sink `test-<name>` next to its display and plays the game into it; `test_instance.sh` prints its monitor source as `ENGINE_AUDIO=test-<instance>.monitor`, and `record.py` (below) records it next to the picture. On macOS `test_instance.sh` re-signs the bundle ad hoc without the hardened runtime and injects `build_shell/test/mute_macos.m` (compiled there with `cc`, `DYLD_INSERT_LIBRARIES`), which sets the volume of every `AVAudioPlayerNode` of the engine to 0 before it plays; on Windows `run-test-window.py` mutes the audio sessions of the engine (`ISimpleAudioVolume`, as the Volume Mixer does). Neither touches the volume of the game (its `master` group), which the game may set itself, so the clips recorded there have no sound: a task that checks sound runs with `TEST_SOUND=1`, which picks a Linux computer. `TEST_ON_DESKTOP=1` plays on the speakers.
+- The microphone of an instance is never the real one either. On Linux `run-test-env` gives every environment a second null sink, `test-<name>-mic`, and makes its monitor the default source of the engine (`PULSE_SOURCE`): a game that records the default input hears only what a test plays into that sink (`paplay --device=test-<instance>-mic speech.wav`), silence otherwise. `test_instance.sh` prints it as `ENGINE_MIC=test-<instance>-mic`; `run-test-env --mic <name>` prints it for any environment. With that source gone (the sink unloaded), PulseAudio moves the stream to the default source of the desktop, the real microphone: a test that takes the microphone away runs against a PulseAudio/PipeWire server of its own (`PULSE_SERVER`, `PIPEWIRE_REMOTE`), never the desktop's. A game that names the device it records reads the default of the server, not `PULSE_SOURCE`, so the name it shows in an instance is not the device it records. On macOS and Windows nothing replaces the microphone: a game that records it keeps it off in its test builds (`Project Settings`).
 
 - Video is always `build_shell/test/record.py`, wherever the instance runs - it finds the engine of this checkout and picks the way to record by itself:
 
@@ -59,6 +62,7 @@ Environment switches:
 | `TEST_INSTANCE=<id>` | Overrides the instance id (default: the checkout folder name); it names the X display and, where the project has them, the save folder and the server account |
 | `TEST_RESET=1` | Deletes the save folder of that instance before building (projects with per-instance saves) |
 | `TEST_CLEAN=1` | Forces a clean bob build |
+| `TEST_BUILD_SERVER=local` / `<url>` | Builds the native engine on the local Extender (`http://localhost:9000`, checked at `/actuator/health`) or that build server instead of build.defold.com; only when I ask for it (the cloud server is down). Keeps the build on this PC |
 | `TEST_BUILD_ONLY=1` | Bundles without launching |
 | `TEST_LAUNCH_ONLY=1` | Launches the existing bundle without building |
 | `TEST_ON_DESKTOP=1` | Starts the engine on my real display (only when I ask to watch); always local |

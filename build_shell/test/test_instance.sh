@@ -2,7 +2,7 @@
 # Builds and starts a test instance of this checkout: the debug bundle of the platform it runs on
 # (x86_64-linux, arm64-macos, x86_64-win32) with the automation bridge, started so it never shows up
 # for the person at that computer (on Linux inside its own invisible X display, build_shell/test/run-test-env).
-# Prints ENGINE_PORT=<port>, ENGINE_LOG=<path>, ENGINE_DISPLAY=:<n> and ENGINE_AUDIO=<pulse source>; arguments go to the engine.
+# Prints ENGINE_PORT=<port>, ENGINE_LOG=<path>, ENGINE_DISPLAY=:<n>, ENGINE_AUDIO=<pulse source> and ENGINE_MIC=<pulse sink played into its microphone>; arguments go to the engine.
 # The sound never reaches the speakers: on Linux it plays into a null sink of the instance that a recording
 # takes it from (run-test-env); on macOS build_shell/test/mute_macos.m, injected with DYLD_INSERT_LIBRARIES
 # into the bundle re-signed without the hardened runtime, sets the volume of every AVAudioPlayerNode to 0
@@ -21,7 +21,8 @@
 #   save_root, save_name    per-instance save folder "$save_root/$save_name-<instance>" (TEST_RESET,
 #                           agent_worktree_clean.sh); leave save_name empty when there is none
 #   bundle_dir, engine_cwd  bundle folder; folder the engine starts in (default: the bundle folder)
-#   bundle_project()        builds the bundle for $test_platform into $bundle_dir (default: plain bob bundle)
+#   bundle_project()        builds the bundle for $test_platform into $bundle_dir (default: plain bob bundle);
+#                           an override passes $(build_server_args) to bob
 #   project_engine_args()   prints extra engine arguments, one per line; gets the instance id
 #   worktree_output_dirs()  prints test output folders of a worktree path (agent_worktree_clean.sh)
 #   main_host_ports         ports of this PC the game needs (local server, CDN); on a test host the engine
@@ -50,6 +51,16 @@ MINGW* | MSYS*) test_platform=x86_64-win32 ;;
 esac
 export test_platform
 
+local_extender_url="http://localhost:9000"
+
+build_server_args() {
+	case "${TEST_BUILD_SERVER:-}" in
+	"") ;;
+	local) echo "--build-server $local_extender_url" ;;
+	*) echo "--build-server $TEST_BUILD_SERVER" ;;
+	esac
+}
+
 bundle_project() {
 	local commands=(resolve build bundle)
 	if [ "${TEST_CLEAN:-0}" = "1" ]; then
@@ -57,7 +68,7 @@ bundle_project() {
 	fi
 	rm -rf "$bundle_dir"
 	java -jar "$bob" --root "$root" --archive --platform "$test_platform" --variant debug \
-		--bundle-output "$bundle_dir" "${commands[@]}"
+		$(build_server_args) --bundle-output "$bundle_dir" "${commands[@]}"
 }
 
 project_engine_args() {
@@ -93,9 +104,10 @@ rm -f "$run_dir/remote.json" "$run_dir/recording.json"
 test_host_tool="$HOME/defold_test_host/test_host.py"
 test_host=local
 if [ "${TEST_LAUNCH_ONLY:-0}" != "1" ] && [ "${TEST_ON_DESKTOP:-0}" != "1" ]; then
-	case "${TEST_HOST:-auto}" in
+	default_host=$([ -n "${TEST_BUILD_SERVER:-}" ] && echo local || echo auto)
+	case "${TEST_HOST:-$default_host}" in
 	auto) test_host=$(python3 "$test_host_tool" pick $([ "${TEST_SOUND:-0}" = "1" ] && echo --sound) $([ "${TEST_PERF:-0}" = "1" ] && echo --perf)) ;;
-	*) test_host=$TEST_HOST ;;
+	*) test_host=${TEST_HOST:-$default_host} ;;
 	esac
 fi
 if [ "$test_host" != local ]; then
@@ -109,6 +121,10 @@ if [ "$test_host" != local ]; then
 fi
 if [ "${TEST_RESET:-0}" = "1" ] && [ -n "$save_name" ]; then
 	rm -rf "${save_root:?}/$save_name-$instance"
+fi
+if [ "${TEST_BUILD_SERVER:-}" = local ] && ! curl -sf "$local_extender_url/actuator/health" | grep -q UP; then
+	echo "error: the local Extender does not answer at $local_extender_url" >&2
+	exit 1
 fi
 if [ "${TEST_LAUNCH_ONLY:-0}" != "1" ]; then
 	bundle_project
@@ -135,7 +151,11 @@ if [[ "$test_platform" == *-macos ]] && [ "${TEST_ON_DESKTOP:-0}" != "1" ]; then
 	cc -dynamiclib -fobjc-arc -framework AVFoundation -o "$run_dir/mute_macos.dylib" "$root/build_shell/test/mute_macos.m"
 	launcher=(env "DYLD_INSERT_LIBRARIES=$run_dir/mute_macos.dylib")
 fi
-engine_args=(--config=display.vsync=0 --config=display.update_frequency=60 ${extra_args[@]+"${extra_args[@]}"} "$@")
+case "$test_platform" in
+*-macos) project_file="${executable%/MacOS/*}/Resources/game.projectc" ;;
+*) project_file="$(dirname "$executable")/game.projectc" ;;
+esac
+engine_args=(--config=display.vsync=0 --config=display.update_frequency=60 ${extra_args[@]+"${extra_args[@]}"} "$@" "$project_file")
 rm -f "$log_path" "$port_path"
 if [ "$test_platform" = x86_64-win32 ]; then
 	: >"$log_path"
@@ -159,6 +179,7 @@ for _ in $(seq 1 120); do
 			echo "ENGINE_DISPLAY=$(tr '\0' '\n' <"/proc/$(cat "$pid_path")/environ" | sed -n 's/^DISPLAY=//p')"
 			if [ ${#launcher[@]} -gt 0 ]; then
 				echo "ENGINE_AUDIO=$("${launcher[0]}" --audio "$instance")"
+				echo "ENGINE_MIC=$("${launcher[0]}" --mic "$instance")"
 			fi
 		fi
 		exit 0
