@@ -5,7 +5,7 @@
 # (test_instance.sh: invisible display, muted sound, test hosts). Arguments go to the engine; the engine
 # log goes to the terminal.
 # bob builds into build/play and bundles into bundles/play, apart from the editor and the test instances.
-# build_shell/play_project.sh, sourced when present (not synced), may set engine_cwd (the folder the
+# build_shell/test/play_project.sh, sourced when present (not synced), may set engine_cwd (the folder the
 # engine starts in, default: the bundle folder), prepend engine arguments with `set --`, and replace
 # bundle_project() (default: plain bob bundle).
 # PLAY_CLEAN=1 forces a clean build. PLAY_BUILD_SERVER (auto|local|cloud|<url>, default auto) picks the server
@@ -45,8 +45,8 @@ bundle_project() {
 		$(build_server_args) --bundle-output "$bundle_dir" "${commands[@]}"
 }
 
-if [ -f "$root/build_shell/play_project.sh" ]; then
-	. "$root/build_shell/play_project.sh"
+if [ -f "$root/build_shell/test/play_project.sh" ]; then
+	. "$root/build_shell/test/play_project.sh"
 fi
 
 bundled_executable() {

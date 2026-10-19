@@ -6,7 +6,7 @@ The build scripts of every Defold project that has `build_shell/project.conf`. T
 build_shell/
   android_wireless.sh  ios_wireless.sh   the phone builds, over Wi-Fi
   liveupdate.sh                          dev liveupdate publish
-  play.sh                                desktop build to play, with sound
+  play.sh                                desktop build to play, with sound (the person's, the one test/ script outside test/)
   adb_logs.sh                            Defold log of the connected Android phone
   dev/                                   the phone builds with a local liveupdate
   release/                               store release: release_all_platforms.sh, liveupdate.sh, bump_all_versions.sh
@@ -21,7 +21,7 @@ build_shell/
   release/release.conf                   what a release ships
   helpers/project.sh                     the hooks of the project
   helpers/build_servers.conf             where the Android engine is built
-  play_project.sh                        overrides of play.sh
+  test/play_project.sh                   overrides of play.sh
   test/test_instance_project.sh          overrides of test_instance.sh
   custom/                                the project's own scripts
   PROJECT.md                             what all of these do in this project
@@ -52,7 +52,7 @@ Everything under `release/` builds or publishes what reaches a store or the prod
 
 `adb_logs.sh` tails the Defold log of the connected Android phone.
 
-`play.sh` builds a desktop debug bundle into `bundles/play` (`build/play`) and launches it with sound; it is the person's build, never the agents'. `play_project.sh`, when present, may set `engine_cwd`, prepend engine arguments and replace `bundle_project`. The script launches the bundle's `game.projectc`, keeping the editor's `build/default` resources out of this run. `PLAY_CLEAN=1` forces a clean build, `PLAY_BUILD_SERVER` picks the build server; arguments are forwarded to the engine.
+`play.sh` builds a desktop debug bundle into `bundles/play` (`build/play`) and launches it with sound; it is the person's build, never the agents'. `test/play_project.sh`, when present, may set `engine_cwd`, prepend engine arguments and replace `bundle_project`. The script launches the bundle's `game.projectc`, keeping the editor's `build/default` resources out of this run. `PLAY_CLEAN=1` forces a clean build, `PLAY_BUILD_SERVER` picks the build server; arguments are forwarded to the engine.
 
 ## Shared shell
 
