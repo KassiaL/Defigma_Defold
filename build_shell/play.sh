@@ -5,14 +5,14 @@
 # (test_instance.sh: invisible display, muted sound, test hosts). Arguments go to the engine; the engine
 # log goes to the terminal.
 # bob builds into build/play and bundles into bundles/play, apart from the editor and the test instances.
-# build_shell/test/play_project.sh, sourced when present (not synced), may set engine_cwd (the folder the
+# build_shell/play_project.sh, sourced when present (not synced), may set engine_cwd (the folder the
 # engine starts in, default: the bundle folder), prepend engine arguments with `set --`, and replace
 # bundle_project() (default: plain bob bundle).
 # PLAY_CLEAN=1 forces a clean build. PLAY_BUILD_SERVER (auto|local|cloud|<url>, default auto) picks the server
-# the native engine is built on, see build_shell/build_server.sh. Shared by every Defold project and synced by sync_defold_docs.py.
+# the native engine is built on, see build_shell/helpers/build_server.sh. Shared by every Defold project and synced by sync_defold_docs.py.
 set -euo pipefail
 
-root=$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)
+root=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 if [ -z "${bob:-}" ]; then
 	bob="$HOME/defold_engines/$(ls -1 "$HOME/defold_engines" | grep -E '^[0-9]' | sort -V | tail -n1)/bob.jar"
 	export bob
@@ -26,7 +26,7 @@ MINGW* | MSYS*) play_platform=x86_64-win32 ;;
 esac
 export play_platform
 
-. "$root/build_shell/build_server.sh"
+. "$root/build_shell/helpers/build_server.sh"
 build_server=""
 
 build_server_args() {
@@ -45,8 +45,8 @@ bundle_project() {
 		$(build_server_args) --bundle-output "$bundle_dir" "${commands[@]}"
 }
 
-if [ -f "$root/build_shell/test/play_project.sh" ]; then
-	. "$root/build_shell/test/play_project.sh"
+if [ -f "$root/build_shell/play_project.sh" ]; then
+	. "$root/build_shell/play_project.sh"
 fi
 
 bundled_executable() {

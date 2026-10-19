@@ -51,7 +51,7 @@ MINGW* | MSYS*) test_platform=x86_64-win32 ;;
 esac
 export test_platform
 
-. "$root/build_shell/build_server.sh"
+. "$root/build_shell/helpers/build_server.sh"
 build_server=""
 
 build_server_args() {
