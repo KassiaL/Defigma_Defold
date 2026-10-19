@@ -22,7 +22,7 @@
 #                           agent_worktree_clean.sh); leave save_name empty when there is none
 #   bundle_dir, engine_cwd  bundle folder; folder the engine starts in (default: the bundle folder)
 #   bundle_project()        builds the bundle for $test_platform into $bundle_dir (default: plain bob bundle);
-#                           an override passes $(build_server_args) to bob
+#                           an override passes $(build_server_args) and $(bob_commands) to bob
 #   project_engine_args()   prints extra engine arguments, one per line; gets the instance id
 #   worktree_output_dirs()  prints test output folders of a worktree path (agent_worktree_clean.sh)
 #   main_host_ports         ports of this PC the game needs (local server, CDN); on a test host the engine
@@ -61,14 +61,16 @@ build_server_args() {
 	esac
 }
 
+bob_commands() {
+	[ "${TEST_CLEAN:-0}" = "1" ] && echo clean
+	[ "${TEST_RESOLVE:-1}" = "1" ] && echo resolve
+	echo build bundle
+}
+
 bundle_project() {
-	local commands=(resolve build bundle)
-	if [ "${TEST_CLEAN:-0}" = "1" ]; then
-		commands=(clean resolve build bundle)
-	fi
 	rm -rf "$bundle_dir"
 	java -jar "$bob" --root "$root" --archive --platform "$test_platform" --variant debug \
-		$(build_server_args) --bundle-output "$bundle_dir" "${commands[@]}"
+		$(build_server_args) --bundle-output "$bundle_dir" $(bob_commands)
 }
 
 project_engine_args() {
@@ -145,6 +147,7 @@ done < <(project_engine_args "$instance")
 launcher=()
 if [ "$test_platform" = x86_64-linux ] && [ "${TEST_ON_DESKTOP:-0}" != "1" ]; then
 	launcher=("$root/build_shell/test/run-test-env" --name "$instance")
+	[ "${TEST_SOFTWARE_GL:-0}" = "1" ] && launcher+=(--software)
 fi
 if [[ "$test_platform" == *-macos ]] && [ "${TEST_ON_DESKTOP:-0}" != "1" ]; then
 	codesign --force --sign - "${executable%/Contents/MacOS/*}" >/dev/null 2>&1

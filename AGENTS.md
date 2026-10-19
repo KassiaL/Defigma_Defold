@@ -4,6 +4,10 @@ Be terse and technical. Answer first, no preamble, no recap of what you just did
 Once you have answered something, treat that answer as done. On later turns, focus your thinking on what the user is asking now, and don't go back over an earlier answer unless the user asks about it or points out a problem with it.
 Keep a checklist of subtasks and mark off completed work as you go. Before finishing, check the list.
 
+## Cloud session
+
+When `CLAUDE_CODE_REMOTE=true` (a Claude Code cloud session), read `md/shared/CLOUD.md` first; otherwise skip it.
+
 ## File editing
 
 Never overwrite user's existing changes in files. When editing a file the user has modified, always read it first and make only additive or targeted changes. Do not replace the entire file contents unless explicitly asked.
@@ -75,7 +79,7 @@ Call `gradient_nodes.create_for_widget` from the widget that owns the nodes, but
 
 Project structure note: see `m/PROJECT_STRUCTURE.md`.
 
-`AGENTS.md`, every file in `md/shared/` and the test scripts `build_shell/test/test_instance.sh`, `build_quiet.sh`, `run-test-env`, `run-test-window.py`, `mute_macos.m`, `play.sh`, `record.py`, `agent_worktree.sh`, `agent_worktree_clean.sh`, `defigma_twin.py` are shared by all Defold projects: `$HOME/my_shell/sync_defold_docs.py` copies the newest edited version into every project. `build_shell/adb/adb_wifi.sh` and `build_shell/ios/ios_wifi_install.sh` are synced the same way into every project that has that folder. They are identical in every project: keep project-specific content out of them. The test-instance values of a project (checkout, branch, hooks, saves, servers) go to its own `md/TEST_INSTANCES.md`, project-specific script behaviour to `build_shell/test/test_instance_project.sh`; the sync never touches either.
+`AGENTS.md`, every file in `md/shared/` and the test scripts `build_shell/test/test_instance.sh`, `build_quiet.sh`, `run-test-env`, `run-test-window.py`, `mute_macos.m`, `play.sh`, `record.py`, `agent_worktree.sh`, `agent_worktree_clean.sh`, `defigma_twin.py` and the folder `build_shell/test/cloud/` are shared by all Defold projects: `$HOME/my_shell/sync_defold_docs.py` copies the newest edited version into every project. `build_shell/adb/adb_wifi.sh` and `build_shell/ios/ios_wifi_install.sh` are synced the same way into every project that has that folder. They are identical in every project: keep project-specific content out of them. The test-instance values of a project (checkout, branch, hooks, saves, servers) go to its own `md/TEST_INSTANCES.md`, project-specific script behaviour to `build_shell/test/test_instance_project.sh`; the sync never touches either.
 
 `bridge/` (the SDK bridge) is identical in every project that has it and is synced by `$HOME/my_shell/sync_defold_bridge.py` (the edited copy wins). Nothing in it may require project code: project-specific behaviour is set from the project's bridge setup (for example `bridge.mock` `set_save_appname` / `set_save_writer`). A change of its API means updating the callers in every project that has the folder.
 
