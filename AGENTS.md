@@ -46,6 +46,12 @@ Every visual or feel-driven task — Figma work, new or reworked screens, gamepl
 - Apply the fixes, regenerate the evidence and send it back to the same reviewer (`SendMessage`). Repeat until it has no blocking remarks.
 - Report the final state and any reviewer remark you deliberately rejected, with the reason.
 
+### How a design is checked
+
+- The look of a screen — layout, sizes, colours, symmetry, every state — is checked in Figma only. The running game is for what Figma cannot show: animations and motion, runtime behaviour, layout that code moves. A change made only in Figma, with the animations already done, needs no build and no `automation-bridge` recording.
+- Build every screen so each of its states can be seen in Figma: repeated elements show different states side by side, and an element (or the whole screen) with states of its own is a component set with one variant per state, placed in the screen, so switching the variant sets that state of the screen.
+- Export every state that needs review as an image (`figma.py shot`) and give the images to the reviewer together with the node geometry of the screen. Full resolution is not needed: about 1000 px high is enough to judge whether it is pleasing to the eye, symmetric, aligned and consistent; crop or zoom a detail when a remark needs it.
+
 ## GUI rules
 
 Prefer `gui.set_enabled` for visibility control. Use `gui.set_visible` only for the renderable node whose own visual content is being swapped or explicitly hidden/shown, such as an image node after `set_texture` or a text/image-bearing node whose drawable must stay enabled but not rendered. Do not use `gui.set_visible` for containers, parents, layout/grouping nodes, or as a general replacement for `gui.set_enabled`. To turn an `on_input` action into node coordinates use `mylib.screen_to_node_local(node, mylib.input_screen_point(action))`, and `gui.pick_node(node, action.x, action.y)` for a plain box hit test. Never rebuild a node's transform by walking parents with `gui.get_position` / `gui.get_scale`: those return authored values and omit the per-node adjust mode, so the result silently breaks as soon as anything in the chain is scaled through `PLATFORM_SCALER_CONFIG`.

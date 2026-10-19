@@ -8,7 +8,8 @@
 # build_shell/test/play_project.sh, sourced when present (not synced), may set engine_cwd (the folder the
 # engine starts in, default: the bundle folder), prepend engine arguments with `set --`, and replace
 # bundle_project() (default: plain bob bundle).
-# PLAY_CLEAN=1 forces a clean build. Shared by every Defold project and synced by sync_defold_docs.py.
+# PLAY_CLEAN=1 forces a clean build. PLAY_BUILD_SERVER=local builds the native engine on the local Extender
+# (http://localhost:9000), PLAY_BUILD_SERVER=<url> on that build server, instead of build.defold.com. Shared by every Defold project and synced by sync_defold_docs.py.
 set -euo pipefail
 
 root=$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)
@@ -25,6 +26,16 @@ MINGW* | MSYS*) play_platform=x86_64-win32 ;;
 esac
 export play_platform
 
+local_extender_url="http://localhost:9000"
+
+build_server_args() {
+	case "${PLAY_BUILD_SERVER:-}" in
+	"") ;;
+	local) echo "--build-server $local_extender_url" ;;
+	*) echo "--build-server $PLAY_BUILD_SERVER" ;;
+	esac
+}
+
 bundle_project() {
 	local commands=(resolve build bundle)
 	if [ "${PLAY_CLEAN:-0}" = "1" ]; then
@@ -32,7 +43,7 @@ bundle_project() {
 	fi
 	rm -rf "$bundle_dir"
 	java -jar "$bob" --root "$root" --output build/play --archive --platform "$play_platform" --variant debug \
-		--bundle-output "$bundle_dir" "${commands[@]}"
+		$(build_server_args) --bundle-output "$bundle_dir" "${commands[@]}"
 }
 
 if [ -f "$root/build_shell/test/play_project.sh" ]; then
@@ -47,6 +58,10 @@ bundled_executable() {
 	esac
 }
 
+if [ "${PLAY_BUILD_SERVER:-}" = local ] && ! curl -sf "$local_extender_url/actuator/health" | grep -q UP; then
+	echo "error: the local Extender does not answer at $local_extender_url" >&2
+	exit 1
+fi
 bundle_project
 executable=$(bundled_executable)
 if [ -z "$executable" ]; then
