@@ -74,7 +74,6 @@ push_release_commit
 # resources. The content is published before any store package exists, so a new build never asks the
 # CDN for archives it does not hold. Exporting after the commit is what makes project_version the bumped one.
 export_android_release
-require_release_vendor
 if [ "$release_liveupdate" = yes ]; then
 	build_android_liveupdate_bundle --with-symbols
 	package_android_symbols_zip

@@ -2,7 +2,7 @@
 
 # Publishes the production liveupdate content, built from the store vendor so the archives are the ones
 # the store packages ship. With --skip-build it only publishes what the caller (release_all_platforms.sh)
-# already packed, and then checks the branch and the vendor but not the tree: the build it continues has
+# already packed, and then checks the branch but not the tree: the build it continues has
 # already left the files of project_build_start rewritten.
 #
 # usage: liveupdate.sh [--skip-build]
@@ -17,7 +17,6 @@ if [ "$release_liveupdate" != yes ]; then
 fi
 export_android_release
 require_git_branch "$release_branch"
-require_release_vendor
 enter_project_root
 if [ "${1:-}" != "--skip-build" ]; then
 	require_clean_working_tree

@@ -6,6 +6,7 @@
 #   project_build_start / project_build_finish   around every bob run (vendor in $vendor); nothing
 #   project_android_bob_args                     may append to the android_bob_args array; nothing
 #   project_before_ios_bundle                    before an iOS bundle (on the Mac); nothing
+#   project_verify_ipa                           checks the store ipa at $ipa_path (on the Mac); nothing
 #   project_release_checks                       before a release bumps anything; nothing
 #   project_bump_versions                        after the game.project versions are bumped; nothing
 #   project_before_release_commit                before the RELEASE commit; nothing
@@ -24,6 +25,7 @@ project_build_start() { :; }
 project_build_finish() { :; }
 project_android_bob_args() { :; }
 project_before_ios_bundle() { :; }
+project_verify_ipa() { :; }
 project_release_checks() { :; }
 project_bump_versions() { :; }
 project_before_release_commit() { :; }
@@ -65,26 +67,11 @@ require_git_branch() {
 	fi
 }
 
-require_release_vendor() {
-	if [ "$vendor" = "$android_dev_vendor" ]; then
-		echo "error: a release build must not use the $android_dev_vendor vendor" >&2
-		exit 1
-	fi
-}
-
-require_dev_vendor() {
-	if [ "$vendor" != "$android_dev_vendor" ]; then
-		echo "error: a dev build must use the $android_dev_vendor vendor (current: '$vendor')" >&2
-		exit 1
-	fi
-}
-
 # Everything under build_shell/release publishes to a store or to the production liveupdate folder,
-# so it is pinned to a clean release branch and to a store vendor.
+# so it is pinned to a clean release branch.
 require_release_build() {
 	require_git_branch "$release_branch"
 	require_clean_working_tree
-	require_release_vendor
 }
 
 # The dev liveupdate publish (liveupdate.sh) is pinned to the dev branch, but not to a clean tree: the
@@ -92,7 +79,6 @@ require_release_build() {
 # publish nothing and run on any branch.
 require_dev_build() {
 	require_git_branch "$dev_branch"
-	require_dev_vendor
 }
 
 clean_bundle_output() {
@@ -249,7 +235,9 @@ install_android_build() {
 	adb logcat -s defold
 }
 
+# An empty telegram_chat_id in project.conf: the project sends no notifications.
 send_telegram_message() {
+	[ -n "$telegram_chat_id" ] || return 0
 	curl -sSf -m 30 -o /dev/null "https://api.telegram.org/bot$telegram_bot_token/sendMessage" \
 		--data-urlencode "chat_id=$telegram_chat_id" --data-urlencode "text=$1" --data-urlencode "parse_mode=HTML"
 }

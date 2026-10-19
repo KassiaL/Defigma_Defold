@@ -124,7 +124,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--zip", help="liveupdate.zip produced by bob")
     parser.add_argument("--target", help="liveupdate folder of the CDN content; archives are published into its <game_version> subfolder")
-    parser.add_argument("--bundle-resource-dir", action="append", required=True, help="bundle resource folder the archives are mirrored into, relative to the project root")
+    parser.add_argument("--bundle-resource-dir", action="append", default=[], help="bundle resource folder the archives are mirrored into, relative to the project root")
     parser.add_argument("--game-version-file", help="file that holds the game version, relative to the project root")
     parser.add_argument("--game-version-pattern", help="regular expression whose first group is the game version")
     parser.add_argument("--graph", default="build/default/game.graph.json")

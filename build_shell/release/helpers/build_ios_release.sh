@@ -28,4 +28,5 @@ enter_project_root
 run_ios_bundle
 remove_liveupdate_zip
 verify_ipa_bundle_version
+project_verify_ipa
 echo "IPA=$ipa_path"
