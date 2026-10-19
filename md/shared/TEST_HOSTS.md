@@ -93,7 +93,7 @@ python3 ~/defold_test_host/test_host.py check
 | `free RAM` | не меньше 6144 MB свободно. Если меньше, компьютер виден, но сборки на него не уходят |
 | `python` | 3.9 или новее |
 | `git` | любая версия |
-| `java` | 25 или новее: этого требует `bob.jar` Defold 1.13 |
+| `java` | 25 или новее: этого требует `bob.jar` Defold 1.13+ |
 | `bash` | 4 или новее. На Mac это `/opt/homebrew/bin/bash` (или `/usr/local/bin/bash`), не `/bin/bash` 3.2 |
 | `Xvfb`, `VirtualGL` | только Linux: путь найден |
 | `GPU` | настоящая видеокарта (на Linux — `OpenGL renderer` через VirtualGL), не `llvmpipe` и не `not found` |

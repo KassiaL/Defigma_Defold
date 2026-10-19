@@ -6,7 +6,7 @@
 # are listed in /var/log/defold_cloud_setup.status, which the session reads first.
 # Shared by every Defold project and synced by sync_defold_docs.py.
 
-DEFOLD_VERSIONS="1.13.1"
+DEFOLD_VERSIONS="1.14.0"
 BLENDER_VERSION="5.2.1"
 REFORGE_REPO="https://github.com/KassiaL/reforge.git"
 
