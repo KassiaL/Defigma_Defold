@@ -12,7 +12,7 @@ Read `/var/log/defold_cloud_setup.status`. It lists every step of the setup scri
 
 Installed by the setup script `build_shell/test/cloud/setup.sh`:
 
-- Java 25 (default `java`); bob of every version in `DEFOLD_VERSIONS` and in `/home/user/*/build_shell/bob.sh` at `~/defold_engines/<version>/bob.jar`.
+- Java 25 (default `java`); bob of every version in `DEFOLD_VERSIONS` and in `/home/user/*/build_shell/custom/bob.sh` at `~/defold_engines/<version>/bob.jar`.
 - Blender `BLENDER_VERSION` at `/opt/blender-<version>-linux-x64/blender`, the path the project scripts use; the Reforge exporter from `REFORGE_REPO` as the extension `bl_ext.user_default.reforge`.
 - Xvfb with Mesa llvmpipe (software OpenGL), `x11-utils`, `xdotool`, `ffmpeg`.
 

@@ -36,7 +36,7 @@ apt_packages() {
 }
 
 project_defold_versions() {
-	cat /home/user/*/build_shell/bob.sh 2>/dev/null | sed -n 's/^defold_version=//p'
+	cat /home/user/*/build_shell/custom/bob.sh 2>/dev/null | sed -n 's/^defold_version=//p'
 }
 
 bob_jars() {
