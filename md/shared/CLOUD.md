@@ -20,7 +20,7 @@ Not there:
 
 - **Figma.** There is no Figma, no Figma plugin bridge and no Defigma server. A task that needs anything in Figma (a design change, an export, `figma.py shot`, a check of a screen's look) is not done here: do the rest, then hand the Figma part to a local agent — queue it with `spawn_task` when that tool exists (I start it on my computer), otherwise write the prompt for it in the reply. The prompt stands alone: what to change in Figma, which file and frame, what to export, what to check.
 - The local skills (`automation-bridge`, `lua-check`, `defold-gui`, `nakama-db`, `gc-profile`) when they are not in the session's skill list. Drive the game with the Python client in `automation-bridge-python/` directly (below). Without `lua-check`, say in the report that the Lua diagnostics were not run.
-- Test hosts, the LAN, the local Extender, `~/defold_test_host`, my servers: `TEST_HOST`, `TEST_BUILD_SERVER=local` and `TEST_PERF=1` do not apply.
+- Test hosts, the LAN, the local Extender, `~/defold_test_host`, my servers: `TEST_HOST`, `TEST_BUILD_SERVER=local` and `TEST_PERF=1` do not apply (`instance.sh` sets `TEST_BUILD_SERVER` to its proxy).
 - A GPU and a sound device: the game renders on the CPU (a 3D scene runs at about 20 fps on 4 cores), so frame times and FPS mean nothing here, and clips have no sound (`TEST_SOUND=1` checks are for a local agent).
 
 ## Rules that change

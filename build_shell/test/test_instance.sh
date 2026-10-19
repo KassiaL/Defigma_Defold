@@ -51,14 +51,13 @@ MINGW* | MSYS*) test_platform=x86_64-win32 ;;
 esac
 export test_platform
 
-local_extender_url="http://localhost:9000"
+. "$root/build_shell/build_server.sh"
+build_server=""
 
 build_server_args() {
-	case "${TEST_BUILD_SERVER:-}" in
-	"") ;;
-	local) echo "--build-server $local_extender_url" ;;
-	*) echo "--build-server $TEST_BUILD_SERVER" ;;
-	esac
+	if [ -n "$build_server" ]; then
+		echo "--build-server $build_server"
+	fi
 }
 
 bob_commands() {
@@ -124,11 +123,8 @@ fi
 if [ "${TEST_RESET:-0}" = "1" ] && [ -n "$save_name" ]; then
 	rm -rf "${save_root:?}/$save_name-$instance"
 fi
-if [ "${TEST_BUILD_SERVER:-}" = local ] && ! curl -sf "$local_extender_url/actuator/health" | grep -q UP; then
-	echo "error: the local Extender does not answer at $local_extender_url" >&2
-	exit 1
-fi
 if [ "${TEST_LAUNCH_ONLY:-0}" != "1" ]; then
+	build_server=$(build_server_url "${TEST_BUILD_SERVER:-auto}" "$test_platform")
 	bundle_project
 fi
 if [ "${TEST_BUILD_ONLY:-0}" = "1" ]; then

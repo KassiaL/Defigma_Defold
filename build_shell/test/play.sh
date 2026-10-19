@@ -8,8 +8,8 @@
 # build_shell/test/play_project.sh, sourced when present (not synced), may set engine_cwd (the folder the
 # engine starts in, default: the bundle folder), prepend engine arguments with `set --`, and replace
 # bundle_project() (default: plain bob bundle).
-# PLAY_CLEAN=1 forces a clean build. PLAY_BUILD_SERVER=local builds the native engine on the local Extender
-# (http://localhost:9000), PLAY_BUILD_SERVER=<url> on that build server, instead of build.defold.com. Shared by every Defold project and synced by sync_defold_docs.py.
+# PLAY_CLEAN=1 forces a clean build. PLAY_BUILD_SERVER (auto|local|cloud|<url>, default auto) picks the server
+# the native engine is built on, see build_shell/build_server.sh. Shared by every Defold project and synced by sync_defold_docs.py.
 set -euo pipefail
 
 root=$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)
@@ -26,14 +26,13 @@ MINGW* | MSYS*) play_platform=x86_64-win32 ;;
 esac
 export play_platform
 
-local_extender_url="http://localhost:9000"
+. "$root/build_shell/build_server.sh"
+build_server=""
 
 build_server_args() {
-	case "${PLAY_BUILD_SERVER:-}" in
-	"") ;;
-	local) echo "--build-server $local_extender_url" ;;
-	*) echo "--build-server $PLAY_BUILD_SERVER" ;;
-	esac
+	if [ -n "$build_server" ]; then
+		echo "--build-server $build_server"
+	fi
 }
 
 bundle_project() {
@@ -58,10 +57,7 @@ bundled_executable() {
 	esac
 }
 
-if [ "${PLAY_BUILD_SERVER:-}" = local ] && ! curl -sf "$local_extender_url/actuator/health" | grep -q UP; then
-	echo "error: the local Extender does not answer at $local_extender_url" >&2
-	exit 1
-fi
+build_server=$(build_server_url "${PLAY_BUILD_SERVER:-auto}" "$play_platform")
 bundle_project
 executable=$(bundled_executable)
 if [ -z "$executable" ]; then
