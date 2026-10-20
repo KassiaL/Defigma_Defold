@@ -21,6 +21,7 @@ build_shell/
   release/release.conf                   what a release ships
   helpers/project.sh                     the hooks of the project
   helpers/build_servers.conf             where the Android engine is built
+  helpers/build_servers_auto.conf        ordered servers and local platforms for auto
   test/play_project.sh                   overrides of play.sh
   test/test_instance_project.sh          overrides of test_instance.sh
   custom/                                the project's own scripts
@@ -62,7 +63,19 @@ Everything under `release/` builds or publishes what reaches a store or the prod
 
 `helpers/pack_liveupdate.py` unpacks the `liveupdate.zip` produced by bob, splits it into content-versioned archives (`<archive>_<hash>.arcd0` + `manifest.json` + `archive_sizes.json`) through `helpers/liveupdate_pack.py`, and copies the result into `<target>/<game version>`, so every client generation publishes into its own folder and a release never moves the content older clients download. Archives whose content did not change keep their name, so they are neither re-uploaded nor re-downloaded by clients; previously published archives are never deleted, so clients that already fetched an older manifest keep working. It mirrors the archives into the `liveupdate_bundle_resource_dirs` as `<archive>_<hash>.zip` (the extension the Android bundler stores uncompressed), so the next bundling pass ships them as bundle resources; `--clear-bundle-resources` empties those folders and exits. It prints `LIVEUPDATE_GAME_VERSION`, `MANIFEST_VERSION`, `ARCHIVES_TOTAL`, `ARCHIVES_CHANGED`, `ARCHIVES_BUNDLED`, `TOTAL_MB` and `CHANGED_MB`. `helpers/liveupdate_pack.py` reads the bob manifest through `helpers/liveupdate_ddf_pb2.py` (generated from `helpers/liveupdate_ddf.proto`, needs the Python `protobuf` module) and refuses resources with identical content, listing them. `send_telegram_message` posts HTML to the chat of `project.conf`. The guards are `require_release_build` (`release_branch`, clean tree) and `require_dev_build` (`dev_branch`). `send_telegram_message` sends nothing when `telegram_chat_id` is empty.
 
-`helpers/build_servers.conf` is the switch for where the Android engine is built: `debug_build_server` and `release_build_server` take a choice of `helpers/build_server.sh` (`build_server_url`): `auto` takes the local Extender at `http://localhost:9000` when its `/actuator/health` answers within 2 s and otherwise builds on `build.defold.com` with a line on stderr; `local` fails the build when the Extender does not answer; `cloud` is `build.defold.com`; a url is that server. A `beta_*` bob always builds on `build-stage.defold.com`. The release export reads `release`, the dev and phone exports `debug`; iOS always builds on the cloud, the local Extender builds no iOS. `require_clean_working_tree` ignores that file, so switching it does not block a release.
+`helpers/build_servers.conf` is the switch for where the Android engine is built: `debug_build_server` and `release_build_server` take a choice of `helpers/build_server.sh` (`build_server_url`): `auto` reads `helpers/build_servers_auto.conf`: `auto_build_servers` is an ordered Bash array of `local`, server URLs and `cloud` (`build.defold.com`). It selects the first server whose `/actuator/health` answers UP within 2 s, logging unavailable servers on stderr; `cloud` selects bob's cloud without a health probe, so put it last. Without `cloud`, an exhausted list fails. `auto_local_platforms` lists the platform patterns supported by `local`; set it to the builders actually installed on that computer. Without the config the default is `(local cloud)` for all non-Apple platforms; `local` fails the build when the Extender does not answer; `cloud` is `build.defold.com`; a url is that server. A `beta_*` bob always builds on `build-stage.defold.com`. The release export reads `release`, the dev and phone exports `debug`; iOS always builds on the cloud, the local Extender builds no iOS. `require_clean_working_tree` ignores both server config files, so switching them does not block a release. The config is Bash, sourced by `helpers/build_server.sh`; a computer of the LAN running the Extender goes in as its url, through a variable an empty value of which leaves it out:
+
+```bash
+auto_lan_build_server="http://<host>:9000"
+auto_build_servers=(
+	local
+	${auto_lan_build_server:+"$auto_lan_build_server"}
+	cloud
+)
+auto_local_platforms=(x86_64-linux)
+```
+
+A compilation error is not retried on the next server: only a server that does not answer is skipped. Apple targets and a `beta_*` bob keep their cloud server in `auto`. `TEST_BUILD_SERVER` of `test/test_instance.sh` and `PLAY_BUILD_SERVER` of `play.sh` take the same choices (`auto` by default); they choose where the engine is built, not the computer the test runs on.
 
 ## Release
 

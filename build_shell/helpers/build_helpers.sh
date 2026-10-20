@@ -50,7 +50,7 @@ git_current_branch() {
 
 require_clean_working_tree() {
 	local status
-	status=$(git -C "$directory_defold_project" status --porcelain -- . ':!build_shell/helpers/build_servers.conf')
+	status=$(git -C "$directory_defold_project" status --porcelain -- . ':!build_shell/helpers/build_servers.conf' ':!build_shell/helpers/build_servers_auto.conf')
 	if [ -n "$status" ]; then
 		echo "error: working tree is not clean; commit or stash changes before building" >&2
 		printf '%s\n' "$status" >&2
