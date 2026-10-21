@@ -1,5 +1,7 @@
 """Run the current Defigma exporter sources inside the open Figma Bridge plugin and write the
-exported files into this project, without the Defigma web server.
+exported files into this project. The font metrics come from the Defigma web server of this
+checkout: the port in DEFIGMA_PORT, else in .internal/defigma_port (the twin of a worktree), else
+the port of the Figma file's settings node.
 
     python3 tools/figma/hot_export.py export <node_id> [<node_id> ...]
     python3 tools/figma/hot_export.py scenario tools/figma/scenes/<scene>.js
@@ -19,13 +21,15 @@ BRIDGE = os.environ.get("FIGMA_BRIDGE", os.path.expanduser("~/figma_plugins/Figm
 DEFIGMA = os.environ.get("DEFIGMA", os.path.expanduser("~/figma_plugins/Defigma"))
 PORT = os.environ.get("BRIDGE_PORT", "8788")
 TIMEOUT = os.environ.get("BRIDGE_TIMEOUT", "600")
+PORT_FILE = os.path.join(PROJECT, ".internal", "defigma_port")
+SERVER_PORT = os.environ.get("DEFIGMA_PORT") or (open(PORT_FILE).read().strip() if os.path.exists(PORT_FILE) else None)
 PNG_END = b"IEND\xaeB`\x82"
 
 PRELUDE = """
 const __exportNode = async (id) => {
   const node = await figma.getNodeByIdAsync(id)
   if (!node) throw new Error("node not found: " + id)
-  const result = await __hot_defigma.export_defigma_nodes([node], { require_path_to_screen: true })
+  const result = await __hot_defigma.export_defigma_nodes([node], { require_path_to_screen: true, server_port: __server_port })
   if (result.kind !== "export") throw new Error(JSON.stringify(result))
   const files = []
   for (const data of result.export_data) {
@@ -79,7 +83,7 @@ def write_files(files):
 def main():
     mode = sys.argv[1]
     work = tempfile.mkdtemp(prefix="defigma_export_")
-    code = bundle(work) + PRELUDE
+    code = bundle(work) + "const __server_port = %s\n" % (SERVER_PORT or "undefined") + PRELUDE
     if mode == "export":
         for node_id in sys.argv[2:]:
             result = run_job(code + "return JSON.stringify({ files: await exportNode(%s) })" % json.dumps(node_id), work)

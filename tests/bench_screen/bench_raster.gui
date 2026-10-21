@@ -248,8 +248,8 @@ nodes {
 }
 nodes {
   position {
-    x: -490
-    y: 60
+    x: -460
+    y: 59.196
     z: 0
     w: 1
   }
@@ -266,7 +266,7 @@ nodes {
     w: 1
   }
   size {
-    x: 330
+    x: 300
     y: 40
     z: 0
     w: 1
@@ -296,6 +296,7 @@ nodes {
     z: 0
   }
   shadow_alpha: 0.6000000238418579
+  text_leading: 1.0213285229202038
   text_tracking: 0
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -310,7 +311,7 @@ nodes {
 nodes {
   position {
     x: 460
-    y: 42
+    y: 41.272
     z: 0
     w: 1
   }
@@ -352,6 +353,7 @@ nodes {
   line_break: true
   outline_alpha: 0
   shadow_alpha: 0
+  text_leading: 1.0257498585172609
   text_tracking: 0
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -478,7 +480,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: -40
+    y: -40.25
     z: 0
     w: 1
   }
@@ -520,6 +522,7 @@ nodes {
   line_break: true
   outline_alpha: 0
   shadow_alpha: 0
+  text_leading: 1.0144927536231885
   text_tracking: 0
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -533,7 +536,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: -108
+    y: -108.29599999999999
     z: 0
     w: 1
   }
@@ -575,6 +578,7 @@ nodes {
   line_break: true
   outline_alpha: 0
   shadow_alpha: 0
+  text_leading: 1.0139596302584417
   text_tracking: 0
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -701,7 +705,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: -40
+    y: -40.25
     z: 0
     w: 1
   }
@@ -743,6 +747,7 @@ nodes {
   line_break: true
   outline_alpha: 0
   shadow_alpha: 0
+  text_leading: 1.0144927536231885
   text_tracking: 0
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -756,7 +761,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: -108
+    y: -108.29599999999999
     z: 0
     w: 1
   }
@@ -798,6 +803,7 @@ nodes {
   line_break: true
   outline_alpha: 0
   shadow_alpha: 0
+  text_leading: 1.0139596302584417
   text_tracking: 0
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -924,7 +930,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: -40
+    y: -40.25
     z: 0
     w: 1
   }
@@ -966,6 +972,7 @@ nodes {
   line_break: true
   outline_alpha: 0
   shadow_alpha: 0
+  text_leading: 1.0144927536231885
   text_tracking: 0
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -979,7 +986,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: -108
+    y: -108.29599999999999
     z: 0
     w: 1
   }
@@ -1021,6 +1028,7 @@ nodes {
   line_break: true
   outline_alpha: 0
   shadow_alpha: 0
+  text_leading: 1.0139596302584417
   text_tracking: 0
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -1147,7 +1155,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: -40
+    y: -40.25
     z: 0
     w: 1
   }
@@ -1189,6 +1197,7 @@ nodes {
   line_break: true
   outline_alpha: 0
   shadow_alpha: 0
+  text_leading: 1.0144927536231885
   text_tracking: 0
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -1202,7 +1211,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: -108
+    y: -108.29599999999999
     z: 0
     w: 1
   }
@@ -1244,6 +1253,7 @@ nodes {
   line_break: true
   outline_alpha: 0
   shadow_alpha: 0
+  text_leading: 1.0139596302584417
   text_tracking: 0
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -1370,7 +1380,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: -40
+    y: -40.25
     z: 0
     w: 1
   }
@@ -1412,6 +1422,7 @@ nodes {
   line_break: true
   outline_alpha: 0
   shadow_alpha: 0
+  text_leading: 1.0144927536231885
   text_tracking: 0
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -1425,7 +1436,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: -108
+    y: -108.29599999999999
     z: 0
     w: 1
   }
@@ -1467,6 +1478,7 @@ nodes {
   line_break: true
   outline_alpha: 0
   shadow_alpha: 0
+  text_leading: 1.0139596302584417
   text_tracking: 0
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -1593,7 +1605,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: -40
+    y: -40.25
     z: 0
     w: 1
   }
@@ -1635,6 +1647,7 @@ nodes {
   line_break: true
   outline_alpha: 0
   shadow_alpha: 0
+  text_leading: 1.0144927536231885
   text_tracking: 0
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -1648,7 +1661,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: -108
+    y: -108.29599999999999
     z: 0
     w: 1
   }
@@ -1690,6 +1703,7 @@ nodes {
   line_break: true
   outline_alpha: 0
   shadow_alpha: 0
+  text_leading: 1.0139596302584417
   text_tracking: 0
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -1816,7 +1830,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: -40
+    y: -40.25
     z: 0
     w: 1
   }
@@ -1858,6 +1872,7 @@ nodes {
   line_break: true
   outline_alpha: 0
   shadow_alpha: 0
+  text_leading: 1.0144927536231885
   text_tracking: 0
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -1871,7 +1886,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: -108
+    y: -108.29599999999999
     z: 0
     w: 1
   }
@@ -1913,6 +1928,7 @@ nodes {
   line_break: true
   outline_alpha: 0
   shadow_alpha: 0
+  text_leading: 1.0139596302584417
   text_tracking: 0
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -2039,7 +2055,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: -40
+    y: -40.25
     z: 0
     w: 1
   }
@@ -2081,6 +2097,7 @@ nodes {
   line_break: true
   outline_alpha: 0
   shadow_alpha: 0
+  text_leading: 1.0144927536231885
   text_tracking: 0
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -2094,7 +2111,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: -108
+    y: -108.29599999999999
     z: 0
     w: 1
   }
@@ -2136,6 +2153,7 @@ nodes {
   line_break: true
   outline_alpha: 0
   shadow_alpha: 0
+  text_leading: 1.0139596302584417
   text_tracking: 0
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -2262,7 +2280,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: -40
+    y: -40.25
     z: 0
     w: 1
   }
@@ -2304,6 +2322,7 @@ nodes {
   line_break: true
   outline_alpha: 0
   shadow_alpha: 0
+  text_leading: 1.0144927536231885
   text_tracking: 0
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -2317,7 +2336,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: -108
+    y: -108.29599999999999
     z: 0
     w: 1
   }
@@ -2359,6 +2378,7 @@ nodes {
   line_break: true
   outline_alpha: 0
   shadow_alpha: 0
+  text_leading: 1.0139596302584417
   text_tracking: 0
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -2485,7 +2505,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: 40
+    y: 38.908
     z: 0
     w: 1
   }
@@ -2527,6 +2547,7 @@ nodes {
   line_break: true
   outline_alpha: 0
   shadow_alpha: 0
+  text_leading: 1.0257498585172609
   text_tracking: 0
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -2575,7 +2596,7 @@ nodes {
 }
 material: "/builtins/materials/gui.material"
 adjust_reference: ADJUST_REFERENCE_PARENT
-max_nodes: 4096
+max_nodes: 1024
 materials {
   name: "text_shadow"
   material: "/defigma/materials/text_shadow.material"

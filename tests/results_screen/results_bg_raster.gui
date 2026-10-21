@@ -376,7 +376,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: 111.5
+    y: 111.20400000000001
     z: 0
     w: 1
   }
@@ -393,7 +393,7 @@ nodes {
     w: 1
   }
   size {
-    x: 990
+    x: 960
     y: 38.22222222222222
     z: 0
     w: 1
@@ -437,7 +437,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: 72.5
+    y: 70.13
     z: 0
     w: 1
   }
@@ -454,7 +454,7 @@ nodes {
     w: 1
   }
   size {
-    x: 233.2941176470588
+    x: 203.2941176470588
     y: 38.588235294117645
     z: 0
     w: 1
@@ -727,7 +727,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: 1
+    y: -0.000003814697265625
     z: 0
     w: 1
   }
@@ -745,7 +745,7 @@ nodes {
   }
   size {
     x: 1016
-    y: 400
+    y: 371.8285827636719
     z: 0
     w: 1
   }
@@ -757,7 +757,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  id: "scoreboard_bg_tile"
+  id: "tile"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -801,7 +801,7 @@ nodes {
   }
   size {
     x: 1016
-    y: 400
+    y: 270
     z: 0
     w: 1
   }
@@ -813,12 +813,12 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "scoreboard_bg_tile_glassfill"
+  id: "tile_glassfill"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "scoreboard_bg_tile_glass"
+  parent: "tile_glass"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
@@ -872,7 +872,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: 0
+    y: 50.91429138183594
     z: 0
     w: 1
   }
@@ -890,7 +890,7 @@ nodes {
   }
   size {
     x: 1016
-    y: 400
+    y: 270
     z: 0
     w: 1
   }
@@ -902,12 +902,12 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  id: "scoreboard_bg_tile_glass"
+  id: "tile_glass"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "scoreboard_bg_tile"
+  parent: "tile"
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -946,7 +946,7 @@ nodes {
   }
   size {
     x: 1016
-    y: 400
+    y: 270
     z: 0
     w: 1
   }
@@ -958,12 +958,12 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "scoreboard_bg_tile_fill"
+  id: "tile_fill"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "scoreboard_bg_tile_glass"
+  parent: "tile_glass"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
@@ -1017,7 +1017,7 @@ nodes {
 nodes {
   position {
     x: -40.63999938964844
-    y: 0
+    y: -65
     z: 0
     w: 1
   }
@@ -1047,24 +1047,24 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "scoreboard_bg_pattern"
+  id: "pattern"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "scoreboard_bg_tile_glass"
+  parent: "tile_glass"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
   custom_properties {
     id: "clip"
     type: TYPE_STRING
-    string: "[203.1992,40,203.3918,36.0793,203.9678,32.1964,204.9216,28.3886,206.244,24.6927,207.9224,21.1441,209.9404,17.7772,212.2788,14.6243,214.9149,11.7157,217.8235,9.0796,220.9764,6.7412,224.3433,4.7231,227.8919,3.0448,231.5878,1.7224,235.3956,0.7686,239.2785,0.1926,243.1992,0,1179.1992,0,1183.1199,0.1926,1187.0028,0.7686,1190.8106,1.7224,1194.5066,3.0448,1198.0551,4.7231,1201.422,6.7412,1204.575,9.0796,1207.4835,11.7157,1210.1196,14.6243,1212.458,17.7772,1214.4761,21.1441,1216.1544,24.6927,1217.4768,28.3886,1218.4306,32.1964,1219.0066,36.0793,1219.1992,40,1219.1992,360,1219.0066,363.9207,1218.4306,367.8036,1217.4768,371.6114,1216.1544,375.3073,1214.4761,378.8559,1212.458,382.2228,1210.1196,385.3757,1207.4835,388.2843,1204.575,390.9204,1201.422,393.2588,1198.0551,395.2769,1194.5066,396.9552,1190.8106,398.2776,1187.0028,399.2314,1183.1199,399.8074,1179.1992,400,243.1992,400,239.2785,399.8074,235.3956,399.2314,231.5878,398.2776,227.8919,396.9552,224.3433,395.2769,220.9764,393.2588,217.8235,390.9204,214.9149,388.2843,212.2788,385.3757,209.9404,382.2228,207.9224,378.8559,206.244,375.3073,204.9216,371.6114,203.9678,367.8036,203.3918,363.9207,203.1992,360]"
+    string: "[203.1992,40,203.3918,36.0793,203.9678,32.1964,204.9216,28.3886,206.244,24.6927,207.9224,21.1441,209.9404,17.7772,212.2788,14.6243,214.9149,11.7157,217.8235,9.0796,220.9764,6.7412,224.3433,4.7231,227.8919,3.0448,231.5878,1.7224,235.3956,0.7686,239.2785,0.1926,243.1992,0,1179.1992,0,1183.1199,0.1926,1187.0028,0.7686,1190.8106,1.7224,1194.5066,3.0448,1198.0551,4.7231,1201.422,6.7412,1204.575,9.0796,1207.4835,11.7157,1210.1196,14.6243,1212.458,17.7772,1214.4761,21.1441,1216.1544,24.6927,1217.4768,28.3886,1218.4306,32.1964,1219.0066,36.0793,1219.1992,40,1219.1992,230,1219.0066,233.9207,1218.4306,237.8036,1217.4768,241.6114,1216.1544,245.3073,1214.4761,248.8559,1212.458,252.2228,1210.1196,255.3757,1207.4835,258.2843,1204.575,260.9204,1201.422,263.2588,1198.0551,265.2769,1194.5066,266.9552,1190.8106,268.2776,1187.0028,269.2314,1183.1199,269.8074,1179.1992,270,243.1992,270,239.2785,269.8074,235.3956,269.2314,231.5878,268.2776,227.8919,266.9552,224.3433,265.2769,220.9764,263.2588,217.8235,260.9204,214.9149,258.2843,212.2788,255.3757,209.9404,252.2228,207.9224,248.8559,206.244,245.3073,204.9216,241.6114,203.9678,237.8036,203.3918,233.9207,203.1992,230]"
   }
   custom_properties {
     id: "fills"
     type: TYPE_STRING
-    string: "[{\"type\":\"solid\",\"color\":[1,1,1,0.035]}]"
+    string: "[{\"type\":\"solid\",\"color\":[1,1,1,1]}]"
   }
   custom_properties {
     id: "path"
@@ -1086,7 +1086,7 @@ nodes {
     type: TYPE_STRING
     string: "[]"
   }
-  alpha: 1
+  alpha: 0.035
   template_node_child: false
   custom_type: 1816843757
   enabled: true
@@ -1096,7 +1096,7 @@ nodes {
 nodes {
   position {
     x: 92.44000244140625
-    y: 0
+    y: -65
     z: 0
     w: 1
   }
@@ -1119,26 +1119,31 @@ nodes {
     w: 1
   }
   color {
-    x: 1
-    y: 1
-    z: 1
+    x: 0.4314
+    y: 0.9059
+    z: 0.7176
     w: 1
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "scoreboard_bg_pattern_lines"
+  id: "pattern_lines"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "scoreboard_bg_tile_glass"
+  parent: "tile_glass"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
   custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: "[-325.1191,40,-324.9265,36.0793,-324.3506,32.1964,-323.3968,28.3886,-322.0743,24.6927,-320.396,21.1441,-318.3779,17.7772,-316.0396,14.6243,-313.4034,11.7157,-310.4949,9.0796,-307.3419,6.7412,-303.975,4.7231,-300.4265,3.0448,-296.7305,1.7224,-292.9228,0.7686,-289.0398,0.1926,-285.1191,0,650.8809,0,654.8015,0.1926,658.6845,0.7686,662.4922,1.7224,666.1882,3.0448,669.7367,4.7231,673.1037,6.7412,676.2566,9.0796,679.1651,11.7157,681.8013,14.6243,684.1396,17.7772,686.1577,21.1441,687.836,24.6927,689.1585,28.3886,690.1123,32.1964,690.6882,36.0793,690.8809,40,690.8809,230,690.6882,233.9207,690.1123,237.8036,689.1585,241.6114,687.836,245.3073,686.1577,248.8559,684.1396,252.2228,681.8013,255.3757,679.1651,258.2843,676.2566,260.9204,673.1037,263.2588,669.7367,265.2769,666.1882,266.9552,662.4922,268.2776,658.6845,269.2314,654.8015,269.8074,650.8809,270,-285.1191,270,-289.0398,269.8074,-292.9228,269.2314,-296.7305,268.2776,-300.4265,266.9552,-303.975,265.2769,-307.3419,263.2588,-310.4949,260.9204,-313.4034,258.2843,-316.0396,255.3757,-318.3779,252.2228,-320.396,248.8559,-322.0743,245.3073,-323.3968,241.6114,-324.3506,237.8036,-324.9265,233.9207,-325.1191,230]"
+  }
+  custom_properties {
     id: "fills"
     type: TYPE_STRING
-    string: "[{\"type\":\"solid\",\"color\":[0.4314,0.9059,0.7176,0.12]}]"
+    string: "[{\"type\":\"solid\",\"color\":[1,1,1,1]}]"
   }
   custom_properties {
     id: "path"
@@ -1160,7 +1165,7 @@ nodes {
     type: TYPE_STRING
     string: "[]"
   }
-  alpha: 1
+  alpha: 0.12
   template_node_child: false
   custom_type: 1816843757
   enabled: true
@@ -1170,7 +1175,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: -200
+    y: -135
     z: 0
     w: 1
   }
@@ -1200,19 +1205,19 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "scoreboard_bg_tile_bottom_glow"
+  id: "tile_bottom_glow"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "scoreboard_bg_tile_glass"
+  parent: "tile_glass"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
   custom_properties {
     id: "clip"
     type: TYPE_STRING
-    string: "[-81.2793,-288,-81.0867,-291.9207,-80.5107,-295.8036,-79.5569,-299.6114,-78.2345,-303.3073,-76.5561,-306.8559,-74.5381,-310.2228,-72.1997,-313.3757,-69.5636,-316.2843,-66.655,-318.9204,-63.5021,-321.2588,-60.1352,-323.2769,-56.5866,-324.9552,-52.8907,-326.2776,-49.0829,-327.2314,-45.2,-327.8074,-41.2793,-328,894.7207,-328,898.6414,-327.8074,902.5243,-327.2314,906.3321,-326.2776,910.028,-324.9552,913.5766,-323.2769,916.9435,-321.2588,920.0964,-318.9204,923.005,-316.2843,925.6411,-313.3757,927.9795,-310.2228,929.9976,-306.8559,931.6759,-303.3073,932.9983,-299.6114,933.9521,-295.8036,934.5281,-291.9207,934.7207,-288,934.7207,32,934.5281,35.9207,933.9521,39.8036,932.9983,43.6114,931.6759,47.3073,929.9976,50.8559,927.9795,54.2228,925.6411,57.3757,923.005,60.2843,920.0964,62.9204,916.9435,65.2588,913.5766,67.2769,910.028,68.9552,906.3321,70.2776,902.5243,71.2314,898.6414,71.8074,894.7207,72,-41.2793,72,-45.2,71.8074,-49.0829,71.2314,-52.8907,70.2776,-56.5866,68.9552,-60.1352,67.2769,-63.5021,65.2588,-66.655,62.9204,-69.5636,60.2843,-72.1997,57.3757,-74.5381,54.2228,-76.5561,50.8559,-78.2345,47.3073,-79.5569,43.6114,-80.5107,39.8036,-81.0867,35.9207,-81.2793,32]"
+    string: "[-81.2793,-158,-81.0867,-161.9207,-80.5107,-165.8036,-79.5569,-169.6114,-78.2345,-173.3073,-76.5561,-176.8559,-74.5381,-180.2228,-72.1997,-183.3757,-69.5636,-186.2843,-66.655,-188.9204,-63.5021,-191.2588,-60.1352,-193.2769,-56.5866,-194.9552,-52.8907,-196.2776,-49.0829,-197.2314,-45.2,-197.8074,-41.2793,-198,894.7207,-198,898.6414,-197.8074,902.5243,-197.2314,906.3321,-196.2776,910.028,-194.9552,913.5766,-193.2769,916.9435,-191.2588,920.0964,-188.9204,923.005,-186.2843,925.6411,-183.3757,927.9795,-180.2228,929.9976,-176.8559,931.6759,-173.3073,932.9983,-169.6114,933.9521,-165.8036,934.5281,-161.9207,934.7207,-158,934.7207,32,934.5281,35.9207,933.9521,39.8036,932.9983,43.6114,931.6759,47.3073,929.9976,50.8559,927.9795,54.2228,925.6411,57.3757,923.005,60.2843,920.0964,62.9204,916.9435,65.2588,913.5766,67.2769,910.028,68.9552,906.3321,70.2776,902.5243,71.2314,898.6414,71.8074,894.7207,72,-41.2793,72,-45.2,71.8074,-49.0829,71.2314,-52.8907,70.2776,-56.5866,68.9552,-60.1352,67.2769,-63.5021,65.2588,-66.655,62.9204,-69.5636,60.2843,-72.1997,57.3757,-74.5381,54.2228,-76.5561,50.8559,-78.2345,47.3073,-79.5569,43.6114,-80.5107,39.8036,-81.0867,35.9207,-81.2793,32]"
   }
   custom_properties {
     id: "corner_radius"
@@ -1264,7 +1269,7 @@ nodes {
 nodes {
   position {
     x: -302.17924880981445
-    y: 50
+    y: -15
     z: 0
     w: 1
   }
@@ -1294,19 +1299,19 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "scoreboard_bg_tile_sheen"
+  id: "tile_sheen"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "scoreboard_bg_tile_glass"
+  parent: "tile_glass"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
   custom_properties {
     id: "clip"
     type: TYPE_STRING
-    string: "[-35.4805,40,-35.2879,36.0793,-34.7119,32.1964,-33.7581,28.3886,-32.4357,24.6927,-30.7573,21.1441,-28.7393,17.7772,-26.4009,14.6243,-23.7647,11.7157,-20.8562,9.0796,-17.7033,6.7412,-14.3363,4.7231,-10.7878,3.0448,-7.0919,1.7224,-3.2841,0.7686,0.5988,0.1926,4.5195,0,940.5195,0,944.4402,0.1926,948.3231,0.7686,952.1309,1.7224,955.8269,3.0448,959.3754,4.7231,962.7423,6.7412,965.8953,9.0796,968.8038,11.7157,971.4399,14.6243,973.7783,17.7772,975.7964,21.1441,977.4747,24.6927,978.7971,28.3886,979.7509,32.1964,980.3269,36.0793,980.5195,40,980.5195,360,980.3269,363.9207,979.7509,367.8036,978.7971,371.6114,977.4747,375.3073,975.7964,378.8559,973.7783,382.2228,971.4399,385.3757,968.8038,388.2843,965.8953,390.9204,962.7423,393.2588,959.3754,395.2769,955.8269,396.9552,952.1309,398.2776,948.3231,399.2314,944.4402,399.8074,940.5195,400,4.5195,400,0.5988,399.8074,-3.2841,399.2314,-7.0919,398.2776,-10.7878,396.9552,-14.3363,395.2769,-17.7033,393.2588,-20.8562,390.9204,-23.7647,388.2843,-26.4009,385.3757,-28.7393,382.2228,-30.7573,378.8559,-32.4357,375.3073,-33.7581,371.6114,-34.7119,367.8036,-35.2879,363.9207,-35.4805,360]"
+    string: "[-35.4805,40,-35.2879,36.0793,-34.7119,32.1964,-33.7581,28.3886,-32.4357,24.6927,-30.7573,21.1441,-28.7393,17.7772,-26.4009,14.6243,-23.7647,11.7157,-20.8562,9.0796,-17.7033,6.7412,-14.3363,4.7231,-10.7878,3.0448,-7.0919,1.7224,-3.2841,0.7686,0.5988,0.1926,4.5195,0,940.5195,0,944.4402,0.1926,948.3231,0.7686,952.1309,1.7224,955.8269,3.0448,959.3754,4.7231,962.7423,6.7412,965.8953,9.0796,968.8038,11.7157,971.4399,14.6243,973.7783,17.7772,975.7964,21.1441,977.4747,24.6927,978.7971,28.3886,979.7509,32.1964,980.3269,36.0793,980.5195,40,980.5195,230,980.3269,233.9207,979.7509,237.8036,978.7971,241.6114,977.4747,245.3073,975.7964,248.8559,973.7783,252.2228,971.4399,255.3757,968.8038,258.2843,965.8953,260.9204,962.7423,263.2588,959.3754,265.2769,955.8269,266.9552,952.1309,268.2776,948.3231,269.2314,944.4402,269.8074,940.5195,270,4.5195,270,0.5988,269.8074,-3.2841,269.2314,-7.0919,268.2776,-10.7878,266.9552,-14.3363,265.2769,-17.7033,263.2588,-20.8562,260.9204,-23.7647,258.2843,-26.4009,255.3757,-28.7393,252.2228,-30.7573,248.8559,-32.4357,245.3073,-33.7581,241.6114,-34.7119,237.8036,-35.2879,233.9207,-35.4805,230]"
   }
   custom_properties {
     id: "fills"
@@ -1343,7 +1348,7 @@ nodes {
 nodes {
   position {
     x: -222.79066467285156
-    y: 0
+    y: -65
     z: 0
     w: 1
   }
@@ -1373,15 +1378,20 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "scoreboard_bg_tile_facet"
+  id: "tile_facet"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "scoreboard_bg_tile_glass"
+  parent: "tile_glass"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: "[-131.2539,40,-131.0613,36.0793,-130.4853,32.1964,-129.5315,28.3886,-128.2091,24.6927,-126.5308,21.1441,-124.5127,17.7772,-122.1743,14.6243,-119.5382,11.7157,-116.6296,9.0796,-113.4767,6.7412,-110.1098,4.7231,-106.5612,3.0448,-102.8653,1.7224,-99.0575,0.7686,-95.1746,0.1926,-91.2539,0,844.7461,0,848.6668,0.1926,852.5497,0.7686,856.3575,1.7224,860.0534,3.0448,863.602,4.7231,866.9689,6.7412,870.1218,9.0796,873.0304,11.7157,875.6665,14.6243,878.0049,17.7772,880.0229,21.1441,881.7013,24.6927,883.0237,28.3886,883.9775,32.1964,884.5535,36.0793,884.7461,40,884.7461,230,884.5535,233.9207,883.9775,237.8036,883.0237,241.6114,881.7013,245.3073,880.0229,248.8559,878.0049,252.2228,875.6665,255.3757,873.0304,258.2843,870.1218,260.9204,866.9689,263.2588,863.602,265.2769,860.0534,266.9552,856.3575,268.2776,852.5497,269.2314,848.6668,269.8074,844.7461,270,-91.2539,270,-95.1746,269.8074,-99.0575,269.2314,-102.8653,268.2776,-106.5612,266.9552,-110.1098,265.2769,-113.4767,263.2588,-116.6296,260.9204,-119.5382,258.2843,-122.1743,255.3757,-124.5127,252.2228,-126.5308,248.8559,-128.2091,245.3073,-129.5315,241.6114,-130.4853,237.8036,-131.0613,233.9207,-131.2539,230]"
+  }
   custom_properties {
     id: "fills"
     type: TYPE_STRING
@@ -1417,7 +1427,7 @@ nodes {
 nodes {
   position {
     x: 0.00000762939453125
-    y: 199
+    y: 134
     z: 0
     w: 1
   }
@@ -1447,12 +1457,12 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "scoreboard_bg_tile_top_line"
+  id: "tile_top_line"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "scoreboard_bg_tile_glass"
+  parent: "tile_glass"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
@@ -1506,7 +1516,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: 0
+    y: 50.91429138183594
     z: 0
     w: 1
   }
@@ -1524,7 +1534,7 @@ nodes {
   }
   size {
     x: 1016
-    y: 400
+    y: 270
     z: 0
     w: 1
   }
@@ -1536,12 +1546,12 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "scoreboard_bg_tile_rim"
+  id: "tile_rim"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "scoreboard_bg_tile"
+  parent: "tile"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
@@ -1595,7 +1605,7 @@ nodes {
 nodes {
   position {
     x: -348
-    y: 198.5
+    y: 184.41429138183594
     z: 0
     w: 1
   }
@@ -1625,12 +1635,12 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "scoreboard_bg_tile_glint"
+  id: "tile_glint"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "scoreboard_bg_tile"
+  parent: "tile"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
@@ -1684,7 +1694,7 @@ nodes {
 nodes {
   position {
     x: 348
-    y: -198.5
+    y: -82.58570861816406
     z: 0
     w: 1
   }
@@ -1714,12 +1724,12 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "scoreboard_bg_tile_glint_low"
+  id: "tile_glint_low"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "scoreboard_bg_tile"
+  parent: "tile"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
@@ -1773,7 +1783,7 @@ nodes {
 nodes {
   position {
     x: -506.5
-    y: 112
+    y: 97.91429138183594
     z: 0
     w: 1
   }
@@ -1803,12 +1813,12 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "scoreboard_bg_tile_glint_side"
+  id: "tile_glint_side"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "scoreboard_bg_tile"
+  parent: "tile"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
@@ -2542,26 +2552,78 @@ nodes {
     z: 1
     w: 1
   }
-  type: TYPE_PIE
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "rim2"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "nation_ring"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "arc_ratio"
+    type: TYPE_NUMBER
+    number: 90.5
+  }
+  custom_properties {
+    id: "arc_start"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "arc_sweep"
+    type: TYPE_NUMBER
+    number: 100
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[0,1,0,-1,0,1],\"stops\":[[0,1,1,1,1],[0.3,0.8353,0.8588,0.8863,1],[0.52,0.4824,0.5216,0.5686,1],[0.7,0.7255,0.7569,0.7922,1],[1,0.9569,0.9647,0.9725,1]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "ellipse"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
   alpha: 1
   template_node_child: false
   custom_type: 1816843757
   enabled: true
   visible: true
   material: "shape"
-  blend_mode: BLEND_MODE_ALPHA
-  id: "nation_ring_rim2"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
-  parent: "nation_ring"
-  inherit_alpha: true
-  layer: ""
-  outerBounds: PIEBOUNDS_RECTANGLE
-  innerRadius: 47.7839977989197
-  perimeterVertices: 49
-  pieFillAngle: -360
 }
 nodes {
   position {
@@ -2596,7 +2658,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "nation_ring_shade"
+  id: "shade"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -2685,7 +2747,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  id: "nation_ring_Frame 427319545"
+  id: "Frame 427319545"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -2741,12 +2803,12 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "nation_ring_gloss"
+  id: "gloss"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "nation_ring_Frame 427319545"
+  parent: "Frame 427319545"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
@@ -2800,7 +2862,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: -26
+    y: -26.380000000000003
     z: 0
     w: 1
   }
@@ -2934,9 +2996,9 @@ nodes {
     w: 1
   }
   color {
-    x: 1
-    y: 1
-    z: 1
+    x: 0.2902
+    y: 0.8706
+    z: 0.502
     w: 1
   }
   type: TYPE_CUSTOM
@@ -2968,7 +3030,7 @@ nodes {
   custom_properties {
     id: "fills"
     type: TYPE_STRING
-    string: "[{\"type\":\"solid\",\"color\":[0.2902,0.8706,0.502,1]}]"
+    string: "[{\"type\":\"solid\",\"color\":[1,1,1,1]}]"
   }
   custom_properties {
     id: "shape"
@@ -3000,7 +3062,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: 16.40000009536743
+    y: 15.920800544738768
     z: 0
     w: 1
   }
@@ -3735,26 +3797,78 @@ nodes {
     z: 1
     w: 1
   }
-  type: TYPE_PIE
+  type: TYPE_CUSTOM
+  blend_mode: BLEND_MODE_ALPHA
+  id: "rim3"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "nation_ring1"
+  layer: ""
+  inherit_alpha: true
+  custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "arc_ratio"
+    type: TYPE_NUMBER
+    number: 90.5
+  }
+  custom_properties {
+    id: "arc_start"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "arc_sweep"
+    type: TYPE_NUMBER
+    number: 100
+  }
+  custom_properties {
+    id: "corner_radius"
+    type: TYPE_VECTOR4
+    vector4 {
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+    }
+  }
+  custom_properties {
+    id: "effects"
+    type: TYPE_STRING
+    string: "[]"
+  }
+  custom_properties {
+    id: "fills"
+    type: TYPE_STRING
+    string: "[{\"type\":\"linear\",\"transform\":[0,1,0,-1,0,1],\"stops\":[[0,1,1,1,1],[0.3,0.8353,0.8588,0.8863,1],[0.52,0.4824,0.5216,0.5686,1],[0.7,0.7255,0.7569,0.7922,1],[1,0.9569,0.9647,0.9725,1]]}]"
+  }
+  custom_properties {
+    id: "shape"
+    type: TYPE_STRING
+    string: "ellipse"
+  }
+  custom_properties {
+    id: "stroke_align"
+    type: TYPE_STRING
+    string: "inside"
+  }
+  custom_properties {
+    id: "stroke_width"
+    type: TYPE_NUMBER
+    number: 0
+  }
+  custom_properties {
+    id: "strokes"
+    type: TYPE_STRING
+    string: "[]"
+  }
   alpha: 1
   template_node_child: false
   custom_type: 1816843757
   enabled: true
   visible: true
   material: "shape"
-  blend_mode: BLEND_MODE_ALPHA
-  id: "nation_ring_rim3"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
-  parent: "nation_ring1"
-  inherit_alpha: true
-  layer: ""
-  outerBounds: PIEBOUNDS_RECTANGLE
-  innerRadius: 47.7839977989197
-  perimeterVertices: 49
-  pieFillAngle: -360
 }
 nodes {
   position {
@@ -3789,7 +3903,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "nation_ring_shade1"
+  id: "shade1"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -3878,7 +3992,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  id: "nation_ring_Frame 427319546"
+  id: "Frame 427319546"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -3934,12 +4048,12 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "nation_ring_gloss1"
+  id: "gloss1"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "nation_ring_Frame 427319546"
+  parent: "Frame 427319546"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
@@ -3993,7 +4107,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: -26
+    y: -26.380000000000003
     z: 0
     w: 1
   }
@@ -4047,8 +4161,8 @@ nodes {
 }
 nodes {
   position {
-    x: 29.625
-    y: 62.5
+    x: -36
+    y: 60.459999999999994
     z: 0
     w: 1
   }
@@ -4065,7 +4179,7 @@ nodes {
     w: 1
   }
   size {
-    x: 80.28571428571429
+    x: 50.285714285714285
     y: 38.628571428571426
     z: 0
     w: 1
@@ -4114,7 +4228,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: 50.5
+    y: 48.78999999999999
     z: 0
     w: 1
   }
@@ -4131,7 +4245,7 @@ nodes {
     w: 1
   }
   size {
-    x: 47.45454545454545
+    x: 17.454545454545453
     y: 38.69090909090909
     z: 0
     w: 1
@@ -4174,8 +4288,8 @@ nodes {
 }
 nodes {
   position {
-    x: -29.625
-    y: 62.5
+    x: 36
+    y: 60.459999999999994
     z: 0
     w: 1
   }
@@ -4192,7 +4306,7 @@ nodes {
     w: 1
   }
   size {
-    x: 80.28571428571429
+    x: 50.285714285714285
     y: 38.628571428571426
     z: 0
     w: 1
@@ -4236,7 +4350,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: -88
+    y: -88.33
     z: 0
     w: 1
   }
@@ -4253,7 +4367,7 @@ nodes {
     w: 1
   }
   size {
-    x: 1113.7333333333333
+    x: 1083.7333333333333
     y: 38.4
     z: 0
     w: 1
@@ -4376,9 +4490,9 @@ nodes {
     w: 1
   }
   color {
-    x: 1
-    y: 1
-    z: 1
+    x: 0
+    y: 0
+    z: 0
     w: 1
   }
   type: TYPE_CUSTOM
@@ -4410,7 +4524,7 @@ nodes {
   custom_properties {
     id: "fills"
     type: TYPE_STRING
-    string: "[{\"type\":\"solid\",\"color\":[0,0,0,0.45]}]"
+    string: "[{\"type\":\"solid\",\"color\":[1,1,1,1]}]"
   }
   custom_properties {
     id: "shape"
@@ -4432,7 +4546,7 @@ nodes {
     type: TYPE_STRING
     string: "[]"
   }
-  alpha: 1
+  alpha: 0.45
   template_node_child: false
   custom_type: 1816843757
   enabled: true
@@ -4465,9 +4579,9 @@ nodes {
     w: 1
   }
   color {
-    x: 1
-    y: 1
-    z: 1
+    x: 0.2902
+    y: 0.8706
+    z: 0.502
     w: 1
   }
   type: TYPE_CUSTOM
@@ -4494,12 +4608,12 @@ nodes {
   custom_properties {
     id: "effects"
     type: TYPE_STRING
-    string: "[{\"type\":\"drop_shadow\",\"offset\":[0,0],\"radius\":10,\"spread\":0,\"color\":[0.2902,0.8706,0.502,0.8],\"show_behind\":false}]"
+    string: "[{\"type\":\"drop_shadow\",\"offset\":[0,0],\"radius\":10,\"spread\":0,\"color\":[1,1,1,0.8],\"show_behind\":false}]"
   }
   custom_properties {
     id: "fills"
     type: TYPE_STRING
-    string: "[{\"type\":\"solid\",\"color\":[0.2902,0.8706,0.502,1]}]"
+    string: "[{\"type\":\"solid\",\"color\":[1,1,1,1]}]"
   }
   custom_properties {
     id: "shape"
@@ -4588,7 +4702,7 @@ nodes {
   custom_properties {
     id: "fills"
     type: TYPE_STRING
-    string: "[{\"type\":\"solid\",\"color\":[1,1,1,0.6]}]"
+    string: "[{\"type\":\"solid\",\"color\":[1,1,1,1]}]"
   }
   custom_properties {
     id: "shape"
@@ -4610,7 +4724,7 @@ nodes {
     type: TYPE_STRING
     string: "[]"
   }
-  alpha: 1
+  alpha: 0.6
   template_node_child: false
   custom_type: 1816843757
   enabled: true
@@ -4643,9 +4757,9 @@ nodes {
     w: 1
   }
   color {
-    x: 1
-    y: 1
-    z: 1
+    x: 0
+    y: 0
+    z: 0
     w: 1
   }
   type: TYPE_CUSTOM
@@ -4677,7 +4791,7 @@ nodes {
   custom_properties {
     id: "fills"
     type: TYPE_STRING
-    string: "[{\"type\":\"solid\",\"color\":[0,0,0,0.45]}]"
+    string: "[{\"type\":\"solid\",\"color\":[1,1,1,1]}]"
   }
   custom_properties {
     id: "shape"
@@ -4699,7 +4813,7 @@ nodes {
     type: TYPE_STRING
     string: "[]"
   }
-  alpha: 1
+  alpha: 0.45
   template_node_child: false
   custom_type: 1816843757
   enabled: true
@@ -4821,7 +4935,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: 1
+    y: 0
     z: 0
     w: 1
   }
@@ -4839,7 +4953,7 @@ nodes {
   }
   size {
     x: 1016
-    y: 500
+    y: 548.7428588867188
     z: 0
     w: 1
   }
@@ -4851,7 +4965,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  id: "compare_bg_tile1"
+  id: "tile1"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -4895,7 +5009,7 @@ nodes {
   }
   size {
     x: 1016
-    y: 500
+    y: 1320
     z: 0
     w: 1
   }
@@ -4907,12 +5021,12 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "compare_bg_tile_glassfill1"
+  id: "tile_glassfill1"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "compare_bg_tile_glass1"
+  parent: "tile_glass1"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
@@ -4966,7 +5080,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: 0
+    y: -385.6285705566406
     z: 0
     w: 1
   }
@@ -4984,7 +5098,7 @@ nodes {
   }
   size {
     x: 1016
-    y: 500
+    y: 1320
     z: 0
     w: 1
   }
@@ -4996,12 +5110,12 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  id: "compare_bg_tile_glass1"
+  id: "tile_glass1"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "compare_bg_tile1"
+  parent: "tile1"
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -5040,7 +5154,7 @@ nodes {
   }
   size {
     x: 1016
-    y: 500
+    y: 1320
     z: 0
     w: 1
   }
@@ -5052,12 +5166,12 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "compare_bg_tile_fill1"
+  id: "tile_fill1"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "compare_bg_tile_glass1"
+  parent: "tile_glass1"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
@@ -5110,8 +5224,8 @@ nodes {
 }
 nodes {
   position {
-    x: -40.63999938964844
-    y: -120
+    x: -40.6400146484375
+    y: 0
     z: 0
     w: 1
   }
@@ -5128,8 +5242,8 @@ nodes {
     w: 1
   }
   size {
-    x: 1341.1199951171875
-    y: 740
+    x: 2392.26806640625
+    y: 1320
     z: 0
     w: 1
   }
@@ -5141,29 +5255,29 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "compare_bg_pattern1"
+  id: "pattern1"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "compare_bg_tile_glass1"
+  parent: "tile_glass1"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
   custom_properties {
     id: "clip"
     type: TYPE_STRING
-    string: "[203.1992,40,203.3918,36.0793,203.9678,32.1964,204.9216,28.3886,206.244,24.6927,207.9224,21.1441,209.9404,17.7772,212.2788,14.6243,214.9149,11.7157,217.8235,9.0796,220.9764,6.7412,224.3433,4.7231,227.8919,3.0448,231.5878,1.7224,235.3956,0.7686,239.2785,0.1926,243.1992,0,1179.1992,0,1183.1199,0.1926,1187.0028,0.7686,1190.8106,1.7224,1194.5066,3.0448,1198.0551,4.7231,1201.422,6.7412,1204.575,9.0796,1207.4835,11.7157,1210.1196,14.6243,1212.458,17.7772,1214.4761,21.1441,1216.1544,24.6927,1217.4768,28.3886,1218.4306,32.1964,1219.0066,36.0793,1219.1992,40,1219.1992,460,1219.0066,463.9207,1218.4306,467.8036,1217.4768,471.6114,1216.1544,475.3073,1214.4761,478.8559,1212.458,482.2228,1210.1196,485.3757,1207.4835,488.2843,1204.575,490.9204,1201.422,493.2588,1198.0551,495.2769,1194.5066,496.9552,1190.8106,498.2776,1187.0028,499.2314,1183.1199,499.8074,1179.1992,500,243.1992,500,239.2785,499.8074,235.3956,499.2314,231.5878,498.2776,227.8919,496.9552,224.3433,495.2769,220.9764,493.2588,217.8235,490.9204,214.9149,488.2843,212.2788,485.3757,209.9404,482.2228,207.9224,478.8559,206.244,475.3073,204.9216,471.6114,203.9678,467.8036,203.3918,463.9207,203.1992,460]"
+    string: "[728.7734,40,728.966,36.0793,729.542,32.1964,730.4958,28.3886,731.8183,24.6927,733.4966,21.1441,735.5147,17.7772,737.853,14.6243,740.4892,11.7157,743.3977,9.0796,746.5506,6.7412,749.9176,4.7231,753.4661,3.0448,757.1621,1.7224,760.9698,0.7686,764.8528,0.1926,768.7734,0,1704.7734,0,1708.6941,0.1926,1712.5771,0.7686,1716.3848,1.7224,1720.0808,3.0448,1723.6293,4.7231,1726.9962,6.7412,1730.1492,9.0796,1733.0577,11.7157,1735.6939,14.6243,1738.0322,17.7772,1740.0503,21.1441,1741.7286,24.6927,1743.0511,28.3886,1744.0048,32.1964,1744.5808,36.0793,1744.7734,40,1744.7734,1280,1744.5808,1283.9207,1744.0048,1287.8036,1743.0511,1291.6114,1741.7286,1295.3073,1740.0503,1298.8559,1738.0322,1302.2228,1735.6939,1305.3757,1733.0577,1308.2843,1730.1492,1310.9204,1726.9962,1313.2588,1723.6293,1315.2769,1720.0808,1316.9552,1716.3848,1318.2776,1712.5771,1319.2314,1708.6941,1319.8074,1704.7734,1320,768.7734,1320,764.8528,1319.8074,760.9698,1319.2314,757.1621,1318.2776,753.4661,1316.9552,749.9176,1315.2769,746.5506,1313.2588,743.3977,1310.9204,740.4892,1308.2843,737.853,1305.3757,735.5147,1302.2228,733.4966,1298.8559,731.8183,1295.3073,730.4958,1291.6114,729.542,1287.8036,728.966,1283.9207,728.7734,1280]"
   }
   custom_properties {
     id: "fills"
     type: TYPE_STRING
-    string: "[{\"type\":\"solid\",\"color\":[1,1,1,0.035]}]"
+    string: "[{\"type\":\"solid\",\"color\":[1,1,1,1]}]"
   }
   custom_properties {
     id: "path"
     type: TYPE_STRING
-    string: "{\"fill\":{\"polygons\":[[203.2,740,528.32,0,853.44,740],[762,740,1076.96,74,1341.12,740],[0,0,345.44,0,172.72,518]],\"edges\":[528.32,0,203.2,740,853.44,740,528.32,0,203.2,740,853.44,740,1076.96,74,762,740,1341.12,740,1076.96,74,762,740,1341.12,740,345.44,0,0,0,172.72,518,345.44,0,0,0,172.72,518]},\"stroke\":{\"polygons\":[],\"edges\":[]}}"
+    string: "{\"fill\":{\"polygons\":[[362.465,1320,942.409,0,1522.35,1320],[1359.24,1320,1921.06,132,2392.27,1320],[0,0,616.19,0,308.095,924]],\"edges\":[942.409,0,362.465,1320,1522.35,1320,942.409,0,362.465,1320,1522.35,1320,1921.06,132,1359.24,1320,2392.27,1320,1921.06,132,1359.24,1320,2392.27,1320,616.19,0,0,0,308.095,924,616.19,0,0,0,308.095,924]},\"stroke\":{\"polygons\":[],\"edges\":[]}}"
   }
   custom_properties {
     id: "shape"
@@ -5180,7 +5294,7 @@ nodes {
     type: TYPE_STRING
     string: "[]"
   }
-  alpha: 1
+  alpha: 0.035
   template_node_child: false
   custom_type: 1816843757
   enabled: true
@@ -5190,7 +5304,7 @@ nodes {
 nodes {
   position {
     x: 92.44000244140625
-    y: -120
+    y: 0
     z: 0
     w: 1
   }
@@ -5207,42 +5321,42 @@ nodes {
     w: 1
   }
   size {
-    x: 550.6400146484375
-    y: 740
+    x: 982.2227172851562
+    y: 1320
     z: 0
     w: 1
   }
   color {
-    x: 1
-    y: 1
-    z: 1
+    x: 0.4314
+    y: 0.9059
+    z: 0.7176
     w: 1
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "compare_bg_pattern_lines1"
+  id: "pattern_lines1"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "compare_bg_tile_glass1"
+  parent: "tile_glass1"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
   custom_properties {
     id: "clip"
     type: TYPE_STRING
-    string: "[-325.1191,40,-324.9265,36.0793,-324.3506,32.1964,-323.3968,28.3886,-322.0743,24.6927,-320.396,21.1441,-318.3779,17.7772,-316.0396,14.6243,-313.4034,11.7157,-310.4949,9.0796,-307.3419,6.7412,-303.975,4.7231,-300.4265,3.0448,-296.7305,1.7224,-292.9228,0.7686,-289.0398,0.1926,-285.1191,0,650.8809,0,654.8015,0.1926,658.6845,0.7686,662.4922,1.7224,666.1882,3.0448,669.7367,4.7231,673.1037,6.7412,676.2566,9.0796,679.1651,11.7157,681.8013,14.6243,684.1396,17.7772,686.1577,21.1441,687.836,24.6927,689.1585,28.3886,690.1123,32.1964,690.6882,36.0793,690.8809,40,690.8809,460,690.6882,463.9207,690.1123,467.8036,689.1585,471.6114,687.836,475.3073,686.1577,478.8559,684.1396,482.2228,681.8013,485.3757,679.1651,488.2843,676.2566,490.9204,673.1037,493.2588,669.7367,495.2769,666.1882,496.9552,662.4922,498.2776,658.6845,499.2314,654.8015,499.8074,650.8809,500,-285.1191,500,-289.0398,499.8074,-292.9228,499.2314,-296.7305,498.2776,-300.4265,496.9552,-303.975,495.2769,-307.3419,493.2588,-310.4949,490.9204,-313.4034,488.2843,-316.0396,485.3757,-318.3779,482.2228,-320.396,478.8559,-322.0743,475.3073,-323.3968,471.6114,-324.3506,467.8036,-324.9265,463.9207,-325.1191,460]"
+    string: "[-109.3281,40,-109.1355,36.0793,-108.5595,32.1964,-107.6057,28.3886,-106.2833,24.6927,-104.605,21.1441,-102.5869,17.7772,-100.2485,14.6243,-97.6124,11.7157,-94.7039,9.0796,-91.5509,6.7412,-88.184,4.7231,-84.6355,3.0448,-80.9395,1.7224,-77.1317,0.7686,-73.2488,0.1926,-69.3281,0,866.6719,0,870.5926,0.1926,874.4755,0.7686,878.2833,1.7224,881.9792,3.0448,885.5277,4.7231,888.8947,6.7412,892.0476,9.0796,894.9561,11.7157,897.5923,14.6243,899.9307,17.7772,901.9487,21.1441,903.6271,24.6927,904.9495,28.3886,905.9033,32.1964,906.4793,36.0793,906.6719,40,906.6719,1280,906.4793,1283.9207,905.9033,1287.8036,904.9495,1291.6114,903.6271,1295.3073,901.9487,1298.8559,899.9307,1302.2228,897.5923,1305.3757,894.9561,1308.2843,892.0476,1310.9204,888.8947,1313.2588,885.5277,1315.2769,881.9792,1316.9552,878.2833,1318.2776,874.4755,1319.2314,870.5926,1319.8074,866.6719,1320,-69.3281,1320,-73.2488,1319.8074,-77.1317,1319.2314,-80.9395,1318.2776,-84.6355,1316.9552,-88.184,1315.2769,-91.5509,1313.2588,-94.7039,1310.9204,-97.6124,1308.2843,-100.2485,1305.3757,-102.5869,1302.2228,-104.605,1298.8559,-106.2833,1295.3073,-107.6057,1291.6114,-108.5595,1287.8036,-109.1355,1283.9207,-109.3281,1280]"
   }
   custom_properties {
     id: "fills"
     type: TYPE_STRING
-    string: "[{\"type\":\"solid\",\"color\":[0.4314,0.9059,0.7176,0.12]}]"
+    string: "[{\"type\":\"solid\",\"color\":[1,1,1,1]}]"
   }
   custom_properties {
     id: "path"
     type: TYPE_STRING
-    string: "{\"fill\":{\"polygons\":[[325.12,740,0,0,2,0,327.12,740],[233.68,740,548.64,74,550.64,74,235.68,740]],\"edges\":[2,0,0,0,327.12,740,2,0,325.12,740,327.12,740,0,0,325.12,740,550.64,74,548.64,74,235.68,740,550.64,74,233.68,740,235.68,740,548.64,74,233.68,740]},\"stroke\":{\"polygons\":[],\"edges\":[]}}"
+    string: "{\"fill\":{\"polygons\":[[579.944,1320,0,0,3.5676,0,583.511,1320],[416.835,1320,978.655,132,982.223,132,420.402,1320]],\"edges\":[3.5676,0,0,0,583.511,1320,3.5676,0,579.944,1320,583.511,1320,0,0,579.944,1320,982.223,132,978.655,132,420.402,1320,982.223,132,416.835,1320,420.402,1320,978.655,132,416.835,1320]},\"stroke\":{\"polygons\":[],\"edges\":[]}}"
   }
   custom_properties {
     id: "shape"
@@ -5259,7 +5373,7 @@ nodes {
     type: TYPE_STRING
     string: "[]"
   }
-  alpha: 1
+  alpha: 0.12
   template_node_child: false
   custom_type: 1816843757
   enabled: true
@@ -5269,7 +5383,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: -250
+    y: -660
     z: 0
     w: 1
   }
@@ -5299,19 +5413,19 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "compare_bg_tile_bottom_glow1"
+  id: "tile_bottom_glow1"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "compare_bg_tile_glass1"
+  parent: "tile_glass1"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
   custom_properties {
     id: "clip"
     type: TYPE_STRING
-    string: "[-81.2793,-388,-81.0867,-391.9207,-80.5107,-395.8036,-79.5569,-399.6114,-78.2345,-403.3073,-76.5561,-406.8559,-74.5381,-410.2228,-72.1997,-413.3757,-69.5636,-416.2843,-66.655,-418.9204,-63.5021,-421.2588,-60.1352,-423.2769,-56.5866,-424.9552,-52.8907,-426.2776,-49.0829,-427.2314,-45.2,-427.8074,-41.2793,-428,894.7207,-428,898.6414,-427.8074,902.5243,-427.2314,906.3321,-426.2776,910.028,-424.9552,913.5766,-423.2769,916.9435,-421.2588,920.0964,-418.9204,923.005,-416.2843,925.6411,-413.3757,927.9795,-410.2228,929.9976,-406.8559,931.6759,-403.3073,932.9983,-399.6114,933.9521,-395.8036,934.5281,-391.9207,934.7207,-388,934.7207,32,934.5281,35.9207,933.9521,39.8036,932.9983,43.6114,931.6759,47.3073,929.9976,50.8559,927.9795,54.2228,925.6411,57.3757,923.005,60.2843,920.0964,62.9204,916.9435,65.2588,913.5766,67.2769,910.028,68.9552,906.3321,70.2776,902.5243,71.2314,898.6414,71.8074,894.7207,72,-41.2793,72,-45.2,71.8074,-49.0829,71.2314,-52.8907,70.2776,-56.5866,68.9552,-60.1352,67.2769,-63.5021,65.2588,-66.655,62.9204,-69.5636,60.2843,-72.1997,57.3757,-74.5381,54.2228,-76.5561,50.8559,-78.2345,47.3073,-79.5569,43.6114,-80.5107,39.8036,-81.0867,35.9207,-81.2793,32]"
+    string: "[-81.2793,-1208,-81.0867,-1211.9207,-80.5107,-1215.8036,-79.5569,-1219.6114,-78.2345,-1223.3073,-76.5561,-1226.8559,-74.5381,-1230.2228,-72.1997,-1233.3757,-69.5636,-1236.2843,-66.655,-1238.9204,-63.5021,-1241.2588,-60.1352,-1243.2769,-56.5866,-1244.9552,-52.8907,-1246.2776,-49.0829,-1247.2314,-45.2,-1247.8074,-41.2793,-1248,894.7207,-1248,898.6414,-1247.8074,902.5243,-1247.2314,906.3321,-1246.2776,910.028,-1244.9552,913.5766,-1243.2769,916.9435,-1241.2588,920.0964,-1238.9204,923.005,-1236.2843,925.6411,-1233.3757,927.9795,-1230.2228,929.9976,-1226.8559,931.6759,-1223.3073,932.9983,-1219.6114,933.9521,-1215.8036,934.5281,-1211.9207,934.7207,-1208,934.7207,32,934.5281,35.9207,933.9521,39.8036,932.9983,43.6114,931.6759,47.3073,929.9976,50.8559,927.9795,54.2228,925.6411,57.3757,923.005,60.2843,920.0964,62.9204,916.9435,65.2588,913.5766,67.2769,910.028,68.9552,906.3321,70.2776,902.5243,71.2314,898.6414,71.8074,894.7207,72,-41.2793,72,-45.2,71.8074,-49.0829,71.2314,-52.8907,70.2776,-56.5866,68.9552,-60.1352,67.2769,-63.5021,65.2588,-66.655,62.9204,-69.5636,60.2843,-72.1997,57.3757,-74.5381,54.2228,-76.5561,50.8559,-78.2345,47.3073,-79.5569,43.6114,-80.5107,39.8036,-81.0867,35.9207,-81.2793,32]"
   }
   custom_properties {
     id: "corner_radius"
@@ -5363,7 +5477,7 @@ nodes {
 nodes {
   position {
     x: 0.00000762939453125
-    y: 249
+    y: 659
     z: 0
     w: 1
   }
@@ -5393,12 +5507,12 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "compare_bg_tile_top_line1"
+  id: "tile_top_line1"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "compare_bg_tile_glass1"
+  parent: "tile_glass1"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
@@ -5452,7 +5566,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: 0
+    y: -385.6285705566406
     z: 0
     w: 1
   }
@@ -5470,7 +5584,7 @@ nodes {
   }
   size {
     x: 1016
-    y: 500
+    y: 1320
     z: 0
     w: 1
   }
@@ -5482,15 +5596,20 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "compare_bg_tile_rim1"
+  id: "tile_rim1"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "compare_bg_tile1"
+  parent: "tile1"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: "[-40,-16.6289,1056,-16.6289,1056,565.3711,-40,565.3711]"
+  }
   custom_properties {
     id: "corner_radius"
     type: TYPE_VECTOR4
@@ -5541,7 +5660,7 @@ nodes {
 nodes {
   position {
     x: -348
-    y: 248.5
+    y: 272.8714294433594
     z: 0
     w: 1
   }
@@ -5571,12 +5690,12 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "compare_bg_tile_glint1"
+  id: "tile_glint1"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "compare_bg_tile1"
+  parent: "tile1"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
@@ -5630,7 +5749,7 @@ nodes {
 nodes {
   position {
     x: 348
-    y: -248.5
+    y: -1044.1285705566406
     z: 0
     w: 1
   }
@@ -5660,15 +5779,20 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "compare_bg_tile_glint_low1"
+  id: "tile_glint_low1"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "compare_bg_tile1"
+  parent: "tile1"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
+  custom_properties {
+    id: "clip"
+    type: TYPE_STRING
+    string: "[-797,-1331.6289,299,-1331.6289,299,-749.6289,-797,-749.6289]"
+  }
   custom_properties {
     id: "corner_radius"
     type: TYPE_VECTOR4
@@ -5719,7 +5843,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: 212.5
+    y: 212.026
     z: 0
     w: 1
   }
@@ -5736,7 +5860,7 @@ nodes {
     w: 1
   }
   size {
-    x: 986.2352941176471
+    x: 956.2352941176471
     y: 38.588235294117645
     z: 0
     w: 1
@@ -5836,7 +5960,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: 81.5
+    y: 81.026
     z: 0
     w: 1
   }
@@ -5853,7 +5977,7 @@ nodes {
     w: 1
   }
   size {
-    x: 910.9411764705883
+    x: 880.9411764705883
     y: 38.588235294117645
     z: 0
     w: 1
@@ -5896,8 +6020,8 @@ nodes {
 }
 nodes {
   position {
-    x: -507.375
-    y: 105.5
+    x: -468
+    y: 104.476
     z: 0
     w: 1
   }
@@ -5914,7 +6038,7 @@ nodes {
     w: 1
   }
   size {
-    x: 144.28571428571428
+    x: 114.28571428571429
     y: 38.476190476190474
     z: 0
     w: 1
@@ -5962,8 +6086,8 @@ nodes {
 }
 nodes {
   position {
-    x: 507.375
-    y: 105.5
+    x: 468
+    y: 104.476
     z: 0
     w: 1
   }
@@ -5980,7 +6104,7 @@ nodes {
     w: 1
   }
   size {
-    x: 144.28571428571428
+    x: 114.28571428571429
     y: 38.476190476190474
     z: 0
     w: 1
@@ -6047,9 +6171,9 @@ nodes {
     w: 1
   }
   color {
-    x: 1
-    y: 1
-    z: 1
+    x: 0
+    y: 0
+    z: 0
     w: 1
   }
   type: TYPE_CUSTOM
@@ -6081,7 +6205,7 @@ nodes {
   custom_properties {
     id: "fills"
     type: TYPE_STRING
-    string: "[{\"type\":\"solid\",\"color\":[0,0,0,0.45]}]"
+    string: "[{\"type\":\"solid\",\"color\":[1,1,1,1]}]"
   }
   custom_properties {
     id: "shape"
@@ -6103,7 +6227,7 @@ nodes {
     type: TYPE_STRING
     string: "[]"
   }
-  alpha: 1
+  alpha: 0.45
   template_node_child: false
   custom_type: 1816843757
   enabled: true
@@ -6136,9 +6260,9 @@ nodes {
     w: 1
   }
   color {
-    x: 1
-    y: 1
-    z: 1
+    x: 0
+    y: 0
+    z: 0
     w: 1
   }
   type: TYPE_CUSTOM
@@ -6170,7 +6294,7 @@ nodes {
   custom_properties {
     id: "fills"
     type: TYPE_STRING
-    string: "[{\"type\":\"solid\",\"color\":[0,0,0,0.45]}]"
+    string: "[{\"type\":\"solid\",\"color\":[1,1,1,1]}]"
   }
   custom_properties {
     id: "shape"
@@ -6192,7 +6316,7 @@ nodes {
     type: TYPE_STRING
     string: "[]"
   }
-  alpha: 1
+  alpha: 0.45
   template_node_child: false
   custom_type: 1816843757
   enabled: true
@@ -6225,9 +6349,9 @@ nodes {
     w: 1
   }
   color {
-    x: 1
-    y: 1
-    z: 1
+    x: 0.2902
+    y: 0.8706
+    z: 0.502
     w: 1
   }
   type: TYPE_CUSTOM
@@ -6254,12 +6378,12 @@ nodes {
   custom_properties {
     id: "effects"
     type: TYPE_STRING
-    string: "[{\"type\":\"drop_shadow\",\"offset\":[0,0],\"radius\":10,\"spread\":0,\"color\":[0.2902,0.8706,0.502,0.8],\"show_behind\":false}]"
+    string: "[{\"type\":\"drop_shadow\",\"offset\":[0,0],\"radius\":10,\"spread\":0,\"color\":[1,1,1,0.8],\"show_behind\":false}]"
   }
   custom_properties {
     id: "fills"
     type: TYPE_STRING
-    string: "[{\"type\":\"solid\",\"color\":[0.2902,0.8706,0.502,1]}]"
+    string: "[{\"type\":\"solid\",\"color\":[1,1,1,1]}]"
   }
   custom_properties {
     id: "shape"
@@ -6348,7 +6472,7 @@ nodes {
   custom_properties {
     id: "fills"
     type: TYPE_STRING
-    string: "[{\"type\":\"solid\",\"color\":[1,1,1,0.6]}]"
+    string: "[{\"type\":\"solid\",\"color\":[1,1,1,1]}]"
   }
   custom_properties {
     id: "shape"
@@ -6370,7 +6494,7 @@ nodes {
     type: TYPE_STRING
     string: "[]"
   }
-  alpha: 1
+  alpha: 0.6
   template_node_child: false
   custom_type: 1816843757
   enabled: true
@@ -6436,7 +6560,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: 81.5
+    y: 81.026
     z: 0
     w: 1
   }
@@ -6453,7 +6577,7 @@ nodes {
     w: 1
   }
   size {
-    x: 910.9411764705883
+    x: 880.9411764705883
     y: 38.588235294117645
     z: 0
     w: 1
@@ -6496,8 +6620,8 @@ nodes {
 }
 nodes {
   position {
-    x: -507.375
-    y: 105.5
+    x: -468
+    y: 104.476
     z: 0
     w: 1
   }
@@ -6514,7 +6638,7 @@ nodes {
     w: 1
   }
   size {
-    x: 144.28571428571428
+    x: 114.28571428571429
     y: 38.476190476190474
     z: 0
     w: 1
@@ -6562,8 +6686,8 @@ nodes {
 }
 nodes {
   position {
-    x: 507.375
-    y: 105.5
+    x: 468
+    y: 104.476
     z: 0
     w: 1
   }
@@ -6580,7 +6704,7 @@ nodes {
     w: 1
   }
   size {
-    x: 144.28571428571428
+    x: 114.28571428571429
     y: 38.476190476190474
     z: 0
     w: 1
@@ -6647,9 +6771,9 @@ nodes {
     w: 1
   }
   color {
-    x: 1
-    y: 1
-    z: 1
+    x: 0
+    y: 0
+    z: 0
     w: 1
   }
   type: TYPE_CUSTOM
@@ -6681,7 +6805,7 @@ nodes {
   custom_properties {
     id: "fills"
     type: TYPE_STRING
-    string: "[{\"type\":\"solid\",\"color\":[0,0,0,0.45]}]"
+    string: "[{\"type\":\"solid\",\"color\":[1,1,1,1]}]"
   }
   custom_properties {
     id: "shape"
@@ -6703,7 +6827,7 @@ nodes {
     type: TYPE_STRING
     string: "[]"
   }
-  alpha: 1
+  alpha: 0.45
   template_node_child: false
   custom_type: 1816843757
   enabled: true
@@ -6736,9 +6860,9 @@ nodes {
     w: 1
   }
   color {
-    x: 1
-    y: 1
-    z: 1
+    x: 0
+    y: 0
+    z: 0
     w: 1
   }
   type: TYPE_CUSTOM
@@ -6770,7 +6894,7 @@ nodes {
   custom_properties {
     id: "fills"
     type: TYPE_STRING
-    string: "[{\"type\":\"solid\",\"color\":[0,0,0,0.45]}]"
+    string: "[{\"type\":\"solid\",\"color\":[1,1,1,1]}]"
   }
   custom_properties {
     id: "shape"
@@ -6792,7 +6916,7 @@ nodes {
     type: TYPE_STRING
     string: "[]"
   }
-  alpha: 1
+  alpha: 0.45
   template_node_child: false
   custom_type: 1816843757
   enabled: true
@@ -6825,9 +6949,9 @@ nodes {
     w: 1
   }
   color {
-    x: 1
-    y: 1
-    z: 1
+    x: 0.2902
+    y: 0.8706
+    z: 0.502
     w: 1
   }
   type: TYPE_CUSTOM
@@ -6854,12 +6978,12 @@ nodes {
   custom_properties {
     id: "effects"
     type: TYPE_STRING
-    string: "[{\"type\":\"drop_shadow\",\"offset\":[0,0],\"radius\":10,\"spread\":0,\"color\":[0.2902,0.8706,0.502,0.8],\"show_behind\":false}]"
+    string: "[{\"type\":\"drop_shadow\",\"offset\":[0,0],\"radius\":10,\"spread\":0,\"color\":[1,1,1,0.8],\"show_behind\":false}]"
   }
   custom_properties {
     id: "fills"
     type: TYPE_STRING
-    string: "[{\"type\":\"solid\",\"color\":[0.2902,0.8706,0.502,1]}]"
+    string: "[{\"type\":\"solid\",\"color\":[1,1,1,1]}]"
   }
   custom_properties {
     id: "shape"
@@ -6948,7 +7072,7 @@ nodes {
   custom_properties {
     id: "fills"
     type: TYPE_STRING
-    string: "[{\"type\":\"solid\",\"color\":[1,1,1,0.6]}]"
+    string: "[{\"type\":\"solid\",\"color\":[1,1,1,1]}]"
   }
   custom_properties {
     id: "shape"
@@ -6970,7 +7094,7 @@ nodes {
     type: TYPE_STRING
     string: "[]"
   }
-  alpha: 1
+  alpha: 0.6
   template_node_child: false
   custom_type: 1816843757
   enabled: true
@@ -7122,7 +7246,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  id: "leagues_bg_tile2"
+  id: "tile2"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -7178,12 +7302,12 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "leagues_bg_tile_glassfill2"
+  id: "tile_glassfill2"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "leagues_bg_tile_glass2"
+  parent: "tile_glass2"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
@@ -7267,12 +7391,12 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  id: "leagues_bg_tile_glass2"
+  id: "tile_glass2"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "leagues_bg_tile2"
+  parent: "tile2"
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -7323,12 +7447,12 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "leagues_bg_tile_fill2"
+  id: "tile_fill2"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "leagues_bg_tile_glass2"
+  parent: "tile_glass2"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
@@ -7412,12 +7536,12 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "leagues_bg_pattern2"
+  id: "pattern2"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "leagues_bg_tile_glass2"
+  parent: "tile_glass2"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
@@ -7429,7 +7553,7 @@ nodes {
   custom_properties {
     id: "fills"
     type: TYPE_STRING
-    string: "[{\"type\":\"solid\",\"color\":[1,1,1,0.035]}]"
+    string: "[{\"type\":\"solid\",\"color\":[1,1,1,1]}]"
   }
   custom_properties {
     id: "path"
@@ -7451,7 +7575,7 @@ nodes {
     type: TYPE_STRING
     string: "[]"
   }
-  alpha: 1
+  alpha: 0.035
   template_node_child: false
   custom_type: 1816843757
   enabled: true
@@ -7484,19 +7608,19 @@ nodes {
     w: 1
   }
   color {
-    x: 1
-    y: 1
-    z: 1
+    x: 0.4314
+    y: 0.9059
+    z: 0.7176
     w: 1
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "leagues_bg_pattern_lines2"
+  id: "pattern_lines2"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "leagues_bg_tile_glass2"
+  parent: "tile_glass2"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
@@ -7508,7 +7632,7 @@ nodes {
   custom_properties {
     id: "fills"
     type: TYPE_STRING
-    string: "[{\"type\":\"solid\",\"color\":[0.4314,0.9059,0.7176,0.12]}]"
+    string: "[{\"type\":\"solid\",\"color\":[1,1,1,1]}]"
   }
   custom_properties {
     id: "path"
@@ -7530,7 +7654,7 @@ nodes {
     type: TYPE_STRING
     string: "[]"
   }
-  alpha: 1
+  alpha: 0.12
   template_node_child: false
   custom_type: 1816843757
   enabled: true
@@ -7570,12 +7694,12 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "leagues_bg_tile_bottom_glow2"
+  id: "tile_bottom_glow2"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "leagues_bg_tile_glass2"
+  parent: "tile_glass2"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
@@ -7664,12 +7788,12 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "leagues_bg_tile_top_line2"
+  id: "tile_top_line2"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "leagues_bg_tile_glass2"
+  parent: "tile_glass2"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
@@ -7753,12 +7877,12 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "leagues_bg_tile_rim2"
+  id: "tile_rim2"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "leagues_bg_tile2"
+  parent: "tile2"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
@@ -7842,12 +7966,12 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "leagues_bg_tile_glint2"
+  id: "tile_glint2"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "leagues_bg_tile2"
+  parent: "tile2"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
@@ -7931,12 +8055,12 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "leagues_bg_tile_glint_low2"
+  id: "tile_glint_low2"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "leagues_bg_tile2"
+  parent: "tile2"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
@@ -7990,7 +8114,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: 123
+    y: 122.526
     z: 0
     w: 1
   }
@@ -8007,7 +8131,7 @@ nodes {
     w: 1
   }
   size {
-    x: 986.2352941176471
+    x: 956.2352941176471
     y: 38.588235294117645
     z: 0
     w: 1
@@ -8050,8 +8174,8 @@ nodes {
 }
 nodes {
   position {
-    x: -507.375
-    y: 139
+    x: -468
+    y: 137.976
     z: 0
     w: 1
   }
@@ -8068,7 +8192,7 @@ nodes {
     w: 1
   }
   size {
-    x: 144.28571428571428
+    x: 114.28571428571429
     y: 38.476190476190474
     z: 0
     w: 1
@@ -8116,8 +8240,8 @@ nodes {
 }
 nodes {
   position {
-    x: 507.375
-    y: 139
+    x: 468
+    y: 137.976
     z: 0
     w: 1
   }
@@ -8134,7 +8258,7 @@ nodes {
     w: 1
   }
   size {
-    x: 144.28571428571428
+    x: 114.28571428571429
     y: 38.476190476190474
     z: 0
     w: 1
@@ -8409,7 +8533,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "me_league1_bg_rim4"
+  id: "rim4"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -8498,7 +8622,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "me_league1_bg_inner2"
+  id: "inner2"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -8587,7 +8711,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "me_league1_bg_gloss2"
+  id: "gloss2"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -8845,7 +8969,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "me_league2_bg_rim5"
+  id: "rim5"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -8934,7 +9058,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "me_league2_bg_inner3"
+  id: "inner3"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -9023,7 +9147,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "me_league2_bg_gloss3"
+  id: "gloss3"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -9281,7 +9405,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "me_league3_bg_rim6"
+  id: "rim6"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -9370,7 +9494,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "me_league3_bg_inner4"
+  id: "inner4"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -9459,7 +9583,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "me_league3_bg_gloss4"
+  id: "gloss4"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -9717,7 +9841,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "me_league4_bg_rim7"
+  id: "rim7"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -9806,7 +9930,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "me_league4_bg_inner5"
+  id: "inner5"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -9895,7 +10019,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "me_league4_bg_gloss5"
+  id: "gloss5"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -10153,7 +10277,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "enemy_league1_bg_rim8"
+  id: "rim8"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -10242,7 +10366,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "enemy_league1_bg_inner6"
+  id: "inner6"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -10331,7 +10455,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "enemy_league1_bg_gloss6"
+  id: "gloss6"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -10589,7 +10713,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "enemy_league2_bg_rim9"
+  id: "rim9"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -10678,7 +10802,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "enemy_league2_bg_inner7"
+  id: "inner7"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -10767,7 +10891,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "enemy_league2_bg_gloss7"
+  id: "gloss7"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -11025,7 +11149,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "enemy_league3_bg_rim10"
+  id: "rim10"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -11114,7 +11238,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "enemy_league3_bg_inner8"
+  id: "inner8"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -11203,7 +11327,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "enemy_league3_bg_gloss8"
+  id: "gloss8"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -11461,7 +11585,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "enemy_league4_bg_rim11"
+  id: "rim11"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -11550,7 +11674,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "enemy_league4_bg_inner9"
+  id: "inner9"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -11639,7 +11763,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "enemy_league4_bg_gloss9"
+  id: "gloss9"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -11897,7 +12021,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  id: "tasks_bg_tile3"
+  id: "tile3"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -11953,12 +12077,12 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "tasks_bg_tile_glassfill3"
+  id: "tile_glassfill3"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "tasks_bg_tile_glass3"
+  parent: "tile_glass3"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
@@ -12042,12 +12166,12 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  id: "tasks_bg_tile_glass3"
+  id: "tile_glass3"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "tasks_bg_tile3"
+  parent: "tile3"
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -12098,12 +12222,12 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "tasks_bg_tile_fill3"
+  id: "tile_fill3"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "tasks_bg_tile_glass3"
+  parent: "tile_glass3"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
@@ -12187,12 +12311,12 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "tasks_bg_pattern3"
+  id: "pattern3"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "tasks_bg_tile_glass3"
+  parent: "tile_glass3"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
@@ -12204,7 +12328,7 @@ nodes {
   custom_properties {
     id: "fills"
     type: TYPE_STRING
-    string: "[{\"type\":\"solid\",\"color\":[1,1,1,0.035]}]"
+    string: "[{\"type\":\"solid\",\"color\":[1,1,1,1]}]"
   }
   custom_properties {
     id: "path"
@@ -12226,7 +12350,7 @@ nodes {
     type: TYPE_STRING
     string: "[]"
   }
-  alpha: 1
+  alpha: 0.035
   template_node_child: false
   custom_type: 1816843757
   enabled: true
@@ -12259,19 +12383,19 @@ nodes {
     w: 1
   }
   color {
-    x: 1
-    y: 1
-    z: 1
+    x: 0.4314
+    y: 0.9059
+    z: 0.7176
     w: 1
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "tasks_bg_pattern_lines3"
+  id: "pattern_lines3"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "tasks_bg_tile_glass3"
+  parent: "tile_glass3"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
@@ -12283,7 +12407,7 @@ nodes {
   custom_properties {
     id: "fills"
     type: TYPE_STRING
-    string: "[{\"type\":\"solid\",\"color\":[0.4314,0.9059,0.7176,0.12]}]"
+    string: "[{\"type\":\"solid\",\"color\":[1,1,1,1]}]"
   }
   custom_properties {
     id: "path"
@@ -12305,7 +12429,7 @@ nodes {
     type: TYPE_STRING
     string: "[]"
   }
-  alpha: 1
+  alpha: 0.12
   template_node_child: false
   custom_type: 1816843757
   enabled: true
@@ -12345,12 +12469,12 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "tasks_bg_tile_bottom_glow3"
+  id: "tile_bottom_glow3"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "tasks_bg_tile_glass3"
+  parent: "tile_glass3"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
@@ -12439,12 +12563,12 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "tasks_bg_tile_facet1"
+  id: "tile_facet1"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "tasks_bg_tile_glass3"
+  parent: "tile_glass3"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
@@ -12513,12 +12637,12 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "tasks_bg_tile_facet_2"
+  id: "tile_facet_2"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "tasks_bg_tile_glass3"
+  parent: "tile_glass3"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
@@ -12587,12 +12711,12 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "tasks_bg_tile_top_line3"
+  id: "tile_top_line3"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "tasks_bg_tile_glass3"
+  parent: "tile_glass3"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
@@ -12676,12 +12800,12 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "tasks_bg_tile_rim3"
+  id: "tile_rim3"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "tasks_bg_tile3"
+  parent: "tile3"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
@@ -12765,12 +12889,12 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "tasks_bg_tile_glint3"
+  id: "tile_glint3"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "tasks_bg_tile3"
+  parent: "tile3"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
@@ -12854,12 +12978,12 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "tasks_bg_tile_glint_low3"
+  id: "tile_glint_low3"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "tasks_bg_tile3"
+  parent: "tile3"
   layer: ""
   inherit_alpha: true
   custom_type_name: "DefigmaShape"
@@ -12913,7 +13037,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: 108
+    y: 107.526
     z: 0
     w: 1
   }
@@ -12930,7 +13054,7 @@ nodes {
     w: 1
   }
   size {
-    x: 986.2352941176471
+    x: 956.2352941176471
     y: 38.588235294117645
     z: 0
     w: 1
@@ -12973,8 +13097,8 @@ nodes {
 }
 nodes {
   position {
-    x: -507.375
-    y: 124
+    x: -468
+    y: 122.976
     z: 0
     w: 1
   }
@@ -12991,7 +13115,7 @@ nodes {
     w: 1
   }
   size {
-    x: 144.28571428571428
+    x: 114.28571428571429
     y: 38.476190476190474
     z: 0
     w: 1
@@ -13039,8 +13163,8 @@ nodes {
 }
 nodes {
   position {
-    x: 507.375
-    y: 124
+    x: 468
+    y: 122.976
     z: 0
     w: 1
   }
@@ -13057,7 +13181,7 @@ nodes {
     w: 1
   }
   size {
-    x: 144.28571428571428
+    x: 114.28571428571429
     y: 38.476190476190474
     z: 0
     w: 1
@@ -13444,7 +13568,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "plate_rim12"
+  id: "rim12"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -13533,7 +13657,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "plate_inner10"
+  id: "inner10"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -13622,7 +13746,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "plate_gloss10"
+  id: "gloss10"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -13711,7 +13835,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "plate_spark"
+  id: "spark"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -13723,7 +13847,7 @@ nodes {
   custom_properties {
     id: "fills"
     type: TYPE_STRING
-    string: "[{\"type\":\"solid\",\"color\":[1,1,1,0.95]}]"
+    string: "[{\"type\":\"solid\",\"color\":[1,1,1,1]}]"
   }
   custom_properties {
     id: "path"
@@ -13745,7 +13869,7 @@ nodes {
     type: TYPE_STRING
     string: "[]"
   }
-  alpha: 1
+  alpha: 0.95
   template_node_child: false
   custom_type: 1816843757
   enabled: true
@@ -13954,7 +14078,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "count_bg_pill"
+  id: "pill"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -14013,7 +14137,7 @@ nodes {
 nodes {
   position {
     x: 9.5367431640625e-7
-    y: 16.194443702697754
+    y: 16.031999507904054
     z: 0
     w: 1
   }
@@ -14030,7 +14154,7 @@ nodes {
     w: 1
   }
   size {
-    x: 85.27272438376049
+    x: 55.27272438376049
     y: 38.08264402779439
     z: 0
     w: 1
@@ -14160,7 +14284,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "done_disc"
+  id: "disc"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -14249,7 +14373,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "done_check"
+  id: "check"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -14547,7 +14671,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "plate_rim"
+  id: "rim"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -14636,7 +14760,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "plate_inner"
+  id: "inner"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -14725,7 +14849,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "plate_gloss11"
+  id: "gloss11"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -14814,7 +14938,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "plate_spark1"
+  id: "spark1"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -14826,7 +14950,7 @@ nodes {
   custom_properties {
     id: "fills"
     type: TYPE_STRING
-    string: "[{\"type\":\"solid\",\"color\":[1,1,1,0.95]}]"
+    string: "[{\"type\":\"solid\",\"color\":[1,1,1,1]}]"
   }
   custom_properties {
     id: "path"
@@ -14848,7 +14972,7 @@ nodes {
     type: TYPE_STRING
     string: "[]"
   }
-  alpha: 1
+  alpha: 0.95
   template_node_child: false
   custom_type: 1816843757
   enabled: true
@@ -15057,7 +15181,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "count_bg_pill1"
+  id: "pill1"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -15116,7 +15240,7 @@ nodes {
 nodes {
   position {
     x: 9.5367431640625e-7
-    y: 16.194443702697754
+    y: 16.031999507904054
     z: 0
     w: 1
   }
@@ -15133,7 +15257,7 @@ nodes {
     w: 1
   }
   size {
-    x: 85.27272438376049
+    x: 55.27272438376049
     y: 38.08264402779439
     z: 0
     w: 1
@@ -15263,7 +15387,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "done_disc1"
+  id: "disc1"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -15352,7 +15476,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "done_check1"
+  id: "check1"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -15706,7 +15830,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "plate_rim13"
+  id: "rim13"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -15795,7 +15919,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "plate_inner11"
+  id: "inner11"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -15884,7 +16008,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "plate_gloss12"
+  id: "gloss12"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -16086,7 +16210,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "ban_ring"
+  id: "ring"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -16175,7 +16299,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "ban_bar"
+  id: "bar"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -16264,7 +16388,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "ban_spark2"
+  id: "spark2"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -16276,7 +16400,7 @@ nodes {
   custom_properties {
     id: "fills"
     type: TYPE_STRING
-    string: "[{\"type\":\"solid\",\"color\":[1,1,1,0.95]}]"
+    string: "[{\"type\":\"solid\",\"color\":[1,1,1,1]}]"
   }
   custom_properties {
     id: "path"
@@ -16298,7 +16422,7 @@ nodes {
     type: TYPE_STRING
     string: "[]"
   }
-  alpha: 1
+  alpha: 0.95
   template_node_child: false
   custom_type: 1816843757
   enabled: true
@@ -16450,7 +16574,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "count_bg_pill2"
+  id: "pill2"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -16509,7 +16633,7 @@ nodes {
 nodes {
   position {
     x: 9.5367431640625e-7
-    y: 16.194443702697754
+    y: 16.031999507904054
     z: 0
     w: 1
   }
@@ -16526,7 +16650,7 @@ nodes {
     w: 1
   }
   size {
-    x: 85.27272438376049
+    x: 55.27272438376049
     y: 38.08264402779439
     z: 0
     w: 1
@@ -16656,7 +16780,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "done_disc2"
+  id: "disc2"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -16745,7 +16869,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "done_check2"
+  id: "check2"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -17155,7 +17279,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "plate_rim14"
+  id: "rim14"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -17244,7 +17368,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "plate_inner12"
+  id: "inner12"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -17333,7 +17457,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "plate_gloss13"
+  id: "gloss13"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -17422,7 +17546,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "plate_spark3"
+  id: "spark3"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -17434,7 +17558,7 @@ nodes {
   custom_properties {
     id: "fills"
     type: TYPE_STRING
-    string: "[{\"type\":\"solid\",\"color\":[1,1,1,0.95]}]"
+    string: "[{\"type\":\"solid\",\"color\":[1,1,1,1]}]"
   }
   custom_properties {
     id: "path"
@@ -17456,7 +17580,7 @@ nodes {
     type: TYPE_STRING
     string: "[]"
   }
-  alpha: 1
+  alpha: 0.95
   template_node_child: false
   custom_type: 1816843757
   enabled: true
@@ -17665,7 +17789,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "count_bg_pill3"
+  id: "pill3"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -17724,7 +17848,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: 26.5
+    y: 25.915999999999997
     z: 0
     w: 1
   }
@@ -17741,7 +17865,7 @@ nodes {
     w: 1
   }
   size {
-    x: 85.27272727272727
+    x: 55.27272727272727
     y: 38.54545454545455
     z: 0
     w: 1
@@ -17871,7 +17995,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "done_disc3"
+  id: "disc3"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -17960,7 +18084,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "done_check3"
+  id: "check3"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -18202,7 +18326,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "plate_rim1"
+  id: "rim1"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -18291,7 +18415,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "plate_inner1"
+  id: "inner1"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -18380,7 +18504,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "plate_gloss14"
+  id: "gloss14"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -18469,7 +18593,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "plate_spark4"
+  id: "spark4"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -18481,7 +18605,7 @@ nodes {
   custom_properties {
     id: "fills"
     type: TYPE_STRING
-    string: "[{\"type\":\"solid\",\"color\":[1,1,1,0.95]}]"
+    string: "[{\"type\":\"solid\",\"color\":[1,1,1,1]}]"
   }
   custom_properties {
     id: "path"
@@ -18503,7 +18627,7 @@ nodes {
     type: TYPE_STRING
     string: "[]"
   }
-  alpha: 1
+  alpha: 0.95
   template_node_child: false
   custom_type: 1816843757
   enabled: true
@@ -18712,7 +18836,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "count_bg_pill4"
+  id: "pill4"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -18771,7 +18895,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: 26.5
+    y: 25.915999999999997
     z: 0
     w: 1
   }
@@ -18788,7 +18912,7 @@ nodes {
     w: 1
   }
   size {
-    x: 85.27272727272727
+    x: 55.27272727272727
     y: 38.54545454545455
     z: 0
     w: 1
@@ -18918,7 +19042,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "done_disc4"
+  id: "disc4"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -19007,7 +19131,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "done_check4"
+  id: "check4"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -19249,7 +19373,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "plate_rim16"
+  id: "rim16"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -19323,7 +19447,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "plate_inner14"
+  id: "inner14"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -19397,7 +19521,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "plate_gloss15"
+  id: "gloss15"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -19486,7 +19610,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "plate_spark5"
+  id: "spark5"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -19498,7 +19622,7 @@ nodes {
   custom_properties {
     id: "fills"
     type: TYPE_STRING
-    string: "[{\"type\":\"solid\",\"color\":[1,1,1,0.95]}]"
+    string: "[{\"type\":\"solid\",\"color\":[1,1,1,1]}]"
   }
   custom_properties {
     id: "path"
@@ -19520,7 +19644,7 @@ nodes {
     type: TYPE_STRING
     string: "[]"
   }
-  alpha: 1
+  alpha: 0.95
   template_node_child: false
   custom_type: 1816843757
   enabled: true
@@ -19729,7 +19853,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "count_bg_pill5"
+  id: "pill5"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -19788,7 +19912,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: 26.5
+    y: 25.915999999999997
     z: 0
     w: 1
   }
@@ -19805,7 +19929,7 @@ nodes {
     w: 1
   }
   size {
-    x: 85.27272727272727
+    x: 55.27272727272727
     y: 38.54545454545455
     z: 0
     w: 1
@@ -19935,7 +20059,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "done_disc5"
+  id: "disc5"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -20024,7 +20148,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "done_check5"
+  id: "check5"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -20266,7 +20390,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "plate_rim15"
+  id: "rim15"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -20355,7 +20479,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "plate_inner13"
+  id: "inner13"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -20444,7 +20568,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "plate_gloss16"
+  id: "gloss16"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -20646,7 +20770,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "ban_ring1"
+  id: "ring1"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -20735,7 +20859,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "ban_bar1"
+  id: "bar1"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -20824,7 +20948,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "ban_spark6"
+  id: "spark6"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -20836,7 +20960,7 @@ nodes {
   custom_properties {
     id: "fills"
     type: TYPE_STRING
-    string: "[{\"type\":\"solid\",\"color\":[1,1,1,0.95]}]"
+    string: "[{\"type\":\"solid\",\"color\":[1,1,1,1]}]"
   }
   custom_properties {
     id: "path"
@@ -20858,7 +20982,7 @@ nodes {
     type: TYPE_STRING
     string: "[]"
   }
-  alpha: 1
+  alpha: 0.95
   template_node_child: false
   custom_type: 1816843757
   enabled: true
@@ -21010,7 +21134,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "count_bg_pill6"
+  id: "pill6"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -21069,7 +21193,7 @@ nodes {
 nodes {
   position {
     x: 0
-    y: 26.5
+    y: 25.915999999999997
     z: 0
     w: 1
   }
@@ -21086,7 +21210,7 @@ nodes {
     w: 1
   }
   size {
-    x: 85.27272727272727
+    x: 55.27272727272727
     y: 38.54545454545455
     z: 0
     w: 1
@@ -21216,7 +21340,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "done_disc6"
+  id: "disc6"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -21305,7 +21429,7 @@ nodes {
   }
   type: TYPE_CUSTOM
   blend_mode: BLEND_MODE_ALPHA
-  id: "done_check6"
+  id: "check6"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -21372,7 +21496,7 @@ nodes {
     w: 1
   }
   type: TYPE_TEXT
-  text: "{\"gradients\":{},\"params\":{},\"text_shadows\":{\"chem_enemy_t\":[[0,-1.5238,1.3104]],\"chem_me_t\":[[0,-1.5238,1.3104],[0,0,1.9657]],\"count_t\":[[0,-2.1818,1.8763]],\"count_t1\":[[0,-2.1818,1.8763]],\"count_t2\":[[0,-2.1818,1.8763]],\"count_t3\":[[0,-2.1818,1.8763]],\"count_t4\":[[0,-2.1818,1.8763]],\"count_t5\":[[0,-2.1818,1.8763]],\"count_t6\":[[0,-2.1818,1.8763]],\"enemy_score_t\":[[0,-0.9142,0.7862]],\"leagues_enemy_t\":[[0,-1.5238,1.3104]],\"leagues_me_t\":[[0,-1.5238,1.3104],[0,0,1.9657]],\"locale_chemistry\":[[0,-3.7647,3.2376]],\"locale_od_breakdown\":[[0,-3.7647,3.2376]],\"locale_od_leagues\":[[0,-3.7647,3.2376]],\"locale_od_match_result\":[[0,-3.5555,3.0577]],\"locale_od_score\":[[0,-4.2666,3.6693]],\"locale_od_tasks\":[[0,-3.7647,3.2376]],\"locale_rating\":[[0,-3.7647,3.2376]],\"me_score_t\":[[0,-0.9142,0.7862],[0,0,1.5725]],\"rating_enemy_t\":[[0,-1.5238,1.3104]],\"rating_me_t\":[[0,-1.5238,1.3104],[0,0,1.9657]],\"result_t\":[[0,-0.7529,0.6475],[0,0,2.9138]],\"score_sep\":[[0,-1.1636,1.0007]],\"tasks_enemy_t\":[[0,-1.5238,1.3104]],\"tasks_me_t\":[[0,-1.5238,1.3104],[0,0,1.9657]]}}"
+  text: "{\"gradients\":{},\"params\":{},\"text_shadows\":{\"chem_enemy_t\":[[0,-1.5238,1.3104]],\"chem_me_t\":[[0,-1.5238,1.3104],[0,0,1.9657]],\"count_t\":[[0,-2.1818,1.8763]],\"count_t1\":[[0,-2.1818,1.8763]],\"count_t2\":[[0,-2.1818,1.8763]],\"count_t3\":[[0,-2.1818,1.8763]],\"count_t4\":[[0,-2.1818,1.8763]],\"count_t5\":[[0,-2.1818,1.8763]],\"count_t6\":[[0,-2.1818,1.8763]],\"enemy_score_t\":[[0,-0.9142,0.7862]],\"leagues_enemy_t\":[[0,-1.5238,1.3104]],\"leagues_me_t\":[[0,-1.5238,1.3104],[0,0,1.9657]],\"locale_chemistry\":[[0,-3.7647,3.2376]],\"locale_od_breakdown\":[[0,-3.7647,3.2376]],\"locale_od_leagues\":[[0,-3.7647,3.2376]],\"locale_od_match_result\":[[0,-3.5555,3.0577]],\"locale_od_score\":[[0,-4.2666,3.6693]],\"locale_od_tasks\":[[0,-3.7647,3.2376]],\"locale_rating\":[[0,-3.7647,3.2376]],\"me_score_t\":[[0,-0.9142,0.7862],[0,0,1.5725]],\"rating_enemy_t\":[[0,-1.5238,1.3104]],\"rating_me_t\":[[0,-1.5238,1.3104],[0,0,1.9657]],\"result_t\":[[0,-0.7529,0.6475],[0,0,2.9138]],\"score_sep\":[[0,-1.1636,1.0007]],\"tasks_enemy_t\":[[0,-1.5238,1.3104]],\"tasks_me_t\":[[0,-1.5238,1.3104],[0,0,1.9657]]},\"locales\":{\"locale_chemistry\":\"chemistry\",\"locale_od_breakdown\":\"od_breakdown\",\"locale_od_leagues\":\"od_leagues\",\"locale_od_match_result\":\"od_match_result\",\"locale_od_score\":\"od_score\",\"locale_od_tasks\":\"od_tasks\",\"locale_rating\":\"rating\"}}"
   font: "din_pro_condensed_black_italic_shadow"
   id: "defigma_data"
   parent: "root"
@@ -21384,7 +21508,7 @@ nodes {
 }
 material: "/builtins/materials/gui.material"
 adjust_reference: ADJUST_REFERENCE_PARENT
-max_nodes: 4096
+max_nodes: 1024
 materials {
   name: "text_shadow"
   material: "/defigma/materials/text_shadow.material"

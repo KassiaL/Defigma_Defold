@@ -197,15 +197,17 @@ font glyphs", #13221, and the native font compiler): up to 1.13.1 bob padded a g
 the shadows too far, too wide and cut at the glyph quads. The runtime does not support older
 engines: the library sets `defold_min_version = 1.14.0`.
 
-Up to 1.13.1 the engine counted the padding of these fonts into the layout of a line (30 font units
-more in `resource.get_text_metrics`, the glyphs of a left aligned text 15 units right of the pivot,
-of a right aligned one 15 units left of it) and the exporter grows the box of a shadowed text by
-those 15 units times the text scale on both sides. Defold 1.14.0 lays these fonts out by their
-metrics with no padding at the ends, as it does a runtime font, so a text exported with that grown
-box sits 15 units times its scale too far left (left aligned) or right (right aligned); a centred
-text stays put. Measured on `tests/divisions_gold`: `250 000` and `DIV 2` moved left, `DIV 1` right,
-the centred texts stayed, every text about 1 px higher. The exporter has to stop growing the box
-for 1.14.0, as it already does for a runtime font, and the screens have to be exported again.
+Defold 1.14.0 lays these fonts out by the ascent and descent of their TTF with no padding at the
+ends, the same as a runtime font (engine commit "Preserve native layout metrics in compiled font
+glyph banks"), so the node box of a shadowed text is its Figma box and the exporter places every
+text, with or without a shadow and in every project, by the metrics the Defigma web server reads
+from the TTFs (`text_leading` and the vertical move of a top or bottom pivot). Up to 1.13.1 the
+engine counted the padding into the layout of a line (30 font units more in
+`resource.get_text_metrics`) and the exporter grew the box of a shadowed text by 15 units times the
+text scale on both sides; a screen exported that way sits 15 units times its scale too far left
+(left aligned) or right (right aligned) and about 1 px too high on 1.14.0, and has to be exported
+again. Measured on `tests/divisions_gold` exported again: every shadowed text sits within 1 px of
+the Figma export.
 
 Measured against Figma exports of the same texts (offset 4, blur 8, 26-42 px, Defold 1.13.1): the
 offset and the peak match, the blur comes out 3-7% wider and up to 10% denser on the thinnest and
