@@ -161,9 +161,12 @@ them:
   `python/sync_defigma.py` writes next to `<font>.font` whenever an exported `.gui` refers to them:
   the same glyphs in `MODE_MULTI_LAYER` with `outline_width: 4` and `shadow_blur: 11`, and in
   `_shadow2` also `outline_alpha: 1` to turn the outline layer on. Multi-layer makes the engine emit
-  each layer of all glyphs before the next one, so no shadow covers a neighbouring letter. The two
-  widths give every glyph 16 px of padding for the blur to spread into and a distance field that
-  measures 5.4 px into the glyph; the shadow channel they also create is not read. The glyph cache
+  each layer of all glyphs before the next one, so no shadow covers a neighbouring letter. Since
+  Defold 1.14.0 bob generates the glyphs with the engine's own generator, the one a runtime font
+  (`[font] runtime_generation = 1`) uses: every glyph is padded by `3 + outline_width + shadow_blur`
+  = 18 px and the distance field has the edge at 0.75 and changes by 0.25 over those 18 px
+  (`FONT_SDF_DISTANCE_SCALE`), so it measures 18 px out of the glyph, where it stays at 0.5, and
+  18 px into it; the shadow channel the engine also writes is not read. The glyph cache
   is fixed at 1024x512: GLSL ES 1.00 has no `textureSize`, so `GLYPH_CACHE_SIZE` in
   `materials/text_shadow.glsl` holds it, and the two change together.
 - The material, `text_shadow`, or `linear_text_shadow` over a gradient fill (the gradient runs
@@ -181,22 +184,38 @@ them:
   widget's template, and `gui.clone` copies them along with the node. Nothing refreshes them later:
   they do not depend on the node transform.
 
-The engine counts the padding of these fonts into the layout of a line: `resource.get_text_metrics`
-returns 30 font units more than for the base font whatever the text, and the glyphs of a left
-aligned text start 15 units (`outline_width + shadow_blur`) to the right of the pivot, of a right
-aligned one end 15 units to the left of it; a centred text stays put. The exporter grows the box of
-a shadowed text by those 15 units times the text scale on both sides, so the glyphs sit where Figma
-draws them. Code that measures such a text gets the padding too; centring it by the measured width
-is still right, since the padding is the same on both ends.
+The vertex parameters of a glyph carry its distance field only through `sdf_params`: `x` the edge
+(0.75), `y` the outline and `w` the shadow limit, both `edge - width * k`, `z` the smoothing
+`0.25 / (padding * scale)`. With the padding `3 + outline + blur` the three give the change per
+pixel `k = (0.25 - 2x + y + w) / 3` and the node scale `0.25 k / (0.25 z)`, which
+`text_world_scale` and `text_face_spread` compute; the constant `SDF_DISTANCE_SCALE` is the engine's
+`FONT_SDF_DISTANCE_SCALE` and `SDF_BASE_PADDING` its default base padding
+(`fontgen.stbtt_sdf_base_padding`), and each changes together with its engine value. Defold 1.14.0
+changed both the field and the padding of bob fonts (engine commit "Fix for jagged sdf edges in
+font glyphs", #13221, and the native font compiler): up to 1.13.1 bob padded a glyph by
+`sqrt(2) + outline_width` and the shader read the field from that; on 1.14.0 such a shader draws
+the shadows too far, too wide and cut at the glyph quads. The runtime does not support older
+engines: the library sets `defold_min_version = 1.14.0`.
 
-Measured against Figma exports of the same texts (offset 4, blur 8, 26-42 px): the offset and the
-peak match, the blur comes out 3-7% wider and up to 10% denser on the thinnest and smallest texts,
-where the softened taps thicken the strokes a little.
+Up to 1.13.1 the engine counted the padding of these fonts into the layout of a line (30 font units
+more in `resource.get_text_metrics`, the glyphs of a left aligned text 15 units right of the pivot,
+of a right aligned one 15 units left of it) and the exporter grows the box of a shadowed text by
+those 15 units times the text scale on both sides. Defold 1.14.0 lays these fonts out by their
+metrics with no padding at the ends, as it does a runtime font, so a text exported with that grown
+box sits 15 units times its scale too far left (left aligned) or right (right aligned); a centred
+text stays put. Measured on `tests/divisions_gold`: `250 000` and `DIV 2` moved left, `DIV 1` right,
+the centred texts stayed, every text about 1 px higher. The exporter has to stop growing the box
+for 1.14.0, as it already does for a runtime font, and the screens have to be exported again.
+
+Measured against Figma exports of the same texts (offset 4, blur 8, 26-42 px, Defold 1.13.1): the
+offset and the peak match, the blur comes out 3-7% wider and up to 10% denser on the thinnest and
+smallest texts, where the softened taps thicken the strokes a little. On 1.14.0 the shadows of
+`tests/divisions_gold` match the 1.13.1 build.
 
 Limits:
 
 - The offset is applied along the screen axes: a rotated text keeps its shadow straight down.
-- The blur must fit into the 16 px of padding: sigma up to about 5 font units is clean, that is the
+- The blur must fit into the 18 px of padding: sigma up to about 5 font units is clean, that is the
   Figma blur 8 on a text of 22 px and more, a glow of 16 on a text of 44 px; a wider one is cut at
   the edge of the glyph quad.
 - A third shadow and inner shadows are not exported, and a text with two shadows loses its stroke.
@@ -550,7 +569,7 @@ which the home screen already lags). Tools: `tools/` (see `tools/README.md`).
   the rotated frame of the ellipse: top is `-90 + rotation`. `gui.animate` cannot animate a custom
   property: tween in Lua and call `defigma_shape.set_sweep`. A layout change restores the layout's
   arc values.
-- **Engine and build.** Needs Defold 1.13.1+ (custom node properties) and the native build server.
+- **Engine and build.** Needs Defold 1.14.0+ (custom node properties, the 1.14.0 font distance field) and the native build server.
   Every `CompGuiNodeTypeSet*Fn` and the context must be set (an unset update callback crashed
   Android). The shader needs screen derivatives (`GL_OES_standard_derivatives` on GLES2): after a
   shader change build for `arm64-android` and read the `SHADERC` lines.

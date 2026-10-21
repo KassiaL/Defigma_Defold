@@ -49,7 +49,8 @@ time with `defigma_shape.set_arc`) in one node, drawn by the native extension wi
 batched into one draw call per run of shape nodes. The editor shows the preview and lets you resize
 the node like a box. Details: [defigma/DEFIGMA.md](defigma/DEFIGMA.md#shape-nodes).
 
-Requires Defold 1.13.1 or newer (custom GUI node properties).
+Requires Defold 1.14.0 or newer (custom GUI node properties, the font distance field of 1.14.0); the
+library declares it with `defold_min_version`, so bob and the editor refuse it on an older version.
 
 ## Test Project
 

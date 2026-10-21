@@ -1,4 +1,5 @@
-const highp float SDF_DIAGONAL_SPREAD = 1.4142;
+const highp float SDF_DISTANCE_SCALE = 0.25;
+const highp float SDF_BASE_PADDING = 3.0;
 const highp float SDF_SMOOTHING_PIXEL = 0.25;
 const highp float PIXEL_SIGMA = 0.45;
 const highp float TAP_STEP_SHARE = 1.0;
@@ -11,14 +12,19 @@ const mediump float TAP_WEIGHT_NEAR = 0.2423;
 const mediump float TAP_WEIGHT_FAR = 0.0444;
 const highp vec2 GLYPH_CACHE_SIZE = vec2(1024.0, 512.0);
 
+highp float text_sdf_per_pixel(highp vec4 sdf_params)
+{
+    return (SDF_DISTANCE_SCALE - 2.0 * sdf_params.x + sdf_params.y + sdf_params.w) / SDF_BASE_PADDING;
+}
+
 highp float text_face_spread(highp vec4 sdf_params)
 {
-    return SDF_DIAGONAL_SPREAD * (1.0 - sdf_params.x) / (1.0 - 2.0 * sdf_params.x + sdf_params.y);
+    return (1.0 - sdf_params.x) / text_sdf_per_pixel(sdf_params);
 }
 
 highp float text_world_scale(highp vec4 sdf_params)
 {
-    return SDF_SMOOTHING_PIXEL / (text_face_spread(sdf_params) * sdf_params.z);
+    return SDF_SMOOTHING_PIXEL * text_sdf_per_pixel(sdf_params) / (SDF_DISTANCE_SCALE * sdf_params.z);
 }
 
 highp float text_front_shadow_layer(mediump vec3 layer_mask)

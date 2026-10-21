@@ -22,6 +22,7 @@ dependencies#1 = https://github.com/Insality/defold-event/archive/refs/tags/14.z
 
 [library]
 include_dirs = defigma
+defold_min_version = 1.14.0
 
 [automation_bridge]
 application_api = 1
