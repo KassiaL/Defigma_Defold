@@ -4,7 +4,7 @@ Several agents work on the project at the same time. Every agent needs its own c
 
 `build_shell/test/test_instance.sh` is the only way an agent builds and runs the game for a check - in a worktree and in the main checkout alike. `build_shell/play.sh` is the person's build, never the agents': it bundles the debug build of the platform it runs on into `bundles/play` (bob output `build/play`; `build_shell/test/play_project.sh`, when present, overrides `bundle_project` and `engine_cwd`; `PLAY_BUILD_SERVER` picks the build server of the native engine, like `TEST_BUILD_SERVER`) and starts it on the desktop with sound, in place of the editor's Build. The editor builds (`project.build_and_run`, `project.clean_build_and_run`, `project.connect_engine`, hot reload) are used only when I ask for them.
 
-This document is shared by every Defold project and synced by `$HOME/my_shell/sync_defold_docs.py`: it is identical in every project and holds nothing project specific. The values of the current project (main checkout, integration branch, worktree folder, hooks, saves, servers) are in its own `md/TEST_INSTANCES.md`, which the sync never touches.
+This document is shared by every Defold project and synced by `$HOME/my_shell/sync_defold_docs.py`: it is identical in every project and holds nothing project specific. The values of the current project (main checkout, worktree folder, hooks, saves, servers) are in its own `md/TEST_INSTANCES.md`, which the sync never touches.
 
 The scripts are shared the same way: `build_shell/test/test_instance.sh`, `build_quiet.sh`, `run-test-env`, `run-test-window.py`, `mute_macos.m`, `record.py`, `agent_worktree.sh`, `agent_worktree_clean.sh`, `defigma_twin.py`, the folder `build_shell/test/cloud/` (a Claude Code cloud session, `md/shared/CLOUD.md`) and `build_shell/play.sh` are identical in every project and overwritten by the sync, so never put project-specific code into them. What differs per project lives in `build_shell/test/test_instance_project.sh`, which the shared scripts source when it exists and the sync never touches: how the bundle is built for `$test_platform` (`bundle_project`, which passes `$(build_server_args)` and `$(bob_commands)` to bob), the bundle folder and the folder the engine starts in, extra engine arguments per instance (`project_engine_args`), the per-instance save folder (`save_root`, `save_name`), the ports of this PC the game needs when it runs on a test host (`main_host_ports`) and the test output a worktree leaves behind (`worktree_output_dirs`). The header of `test_instance.sh` lists these hooks.
 
@@ -14,6 +14,7 @@ The scripts are shared the same way: `build_shell/test/test_instance.sh`, `build
 - Always build with `build_shell/test/test_instance.sh` and always verify through the `automation-bridge` skill attached with `engine.connect(<ENGINE_PORT>)` (see `Driving the instance`). When the change needs a build (the "build only large changes" rule of `AGENTS.md`), the task is not finished on the diff: it is finished when the built instance shows the change working.
 - The build always runs from the worktree root. The build scripts derive the project directory from their own location, so what they bundle is the branch checked out next to them. Never build a worktree branch from the main checkout, never build another agent's checkout, and never switch the branch of a checkout to build something else.
 - Never build two branches in one directory. `bob` and the build scripts write `build/`, `.internal/` and `bundles/` (plus the files listed in `md/TEST_INSTANCES.md`); two builds in one directory clobber each other and the damage shows up later as an unexplained runtime error.
+- The integration branch is `dev` in every project unless the user explicitly requests another branch. A branch name recorded in older project documentation is not an instruction to use another branch.
 - When the task is done and verified, merge it into the integration branch (see `Merging the work back`).
 
 ## Creating the checkout
@@ -129,6 +130,8 @@ Never call `editor.open_project`, `project.build_and_run`, `project.clean_build_
 Stop an instance through the bridge, never with `kill`: `game.close_engine()` posts `@system/exit` to the engine, so it shuts itself down.
 
 Rebuild with `build_shell/test/test_instance.sh` after every Lua or resource change: the script stops the previous engine of that checkout itself and starts the new bundle. Hot reload through the editor is not an option here, and it invalidates registered bridge commands anyway.
+
+Screenshots, clips and engine logs for a check are usually taken by a `sonnet` subagent (`Subagents and models` in `AGENTS.md`); it drives the instance of the checkout it was given, and only one agent drives an instance at a time.
 
 Registered commands and published states are listed in `md/AUTOMATION_COMMANDS.md`; use them to reach a screen or a state instead of clicking through the whole UI.
 

@@ -41,6 +41,21 @@ Use Codex skills for repeatable workflows:
 - When the user explicitly asks to inspect Nakama DB/storage, call an RPC, run a healthcheck, or restart the server, use `nakama-db`.
 - When the user asks to check GC pressure, memory allocations per frame, or to find the source of periodic frame hitches on a screen, use `gc-profile`.
 
+## Subagents and models
+
+Every subagent gets the model its job needs (`model` of the Agent tool; a project agent in `.claude/agents/` carries its own in its frontmatter):
+
+- `opus`: an executor that writes code or works in Figma, and the strict reviewers of design and motion (the reviewer of `Review by a second agent`, `motion-reviewer`). Judging taste is where a weaker model misses defects, and a review is a small share of the cost.
+- `sonnet`: everything that gathers or checks without judging taste — building and driving an instance to capture screenshots, clips and engine logs, regression and smoke tests against a written list of expectations, reproducing a bug, reading logs, `lua-check`, searches across the code, Figma exports for a review.
+
+Keep the context of an Opus agent clean. An executor with one small task does its checks itself. An executor with several tasks, or one that would loop through many builds and captures, hands that work to a `sonnet` subagent: give it the checkout, the `ENGINE_PORT` (or let it run `test_instance.sh` itself), the steps that reach each state and what must be seen there. It keeps the screenshots, clips and logs in its own context, saves them as files and returns a short verdict per check with the file paths and only the excerpts that prove a failure. The Opus agent opens an image or a log only when the verdict needs it and passes paths, not contents, to a reviewer. While the subagent drives the instance of a checkout, nobody else builds or drives it.
+
+Run at most 3 Opus executors at the same time unless I name another number, even when a prompt says to use as many agents as the work needs; queue the rest and start the next one when one finishes. Reviewers and `sonnet` helpers do not count. Give one executor one independent unit of the work, not one step of it: an agent costs its startup reading, and steps that share files stay with one executor.
+
+## Showing the result
+
+At the end of every task with a visible result — Figma work, a screen, an animation, gameplay, an effect — send me the evidence the check rests on without being asked: the exports or screenshots of every changed state and a clip of every changed animation or motion, with `SendUserFile` (where it is not available, list the paths). A file made by a subagent is forwarded by its path; the agent I talk to does not open it first.
+
 ## Review by a second agent
 
 Every visual or feel-driven task — Figma work, new or reworked screens, gameplay, animations, effects, "make it cool / juicy" requests — goes through a review loop without being asked:
@@ -90,7 +105,7 @@ Every task that changes files is done in your own worktree, without being asked;
 - Create the checkout with `build_shell/test/agent_worktree.sh <name>` and keep every edit there, on its `agent/<name>` branch.
 - Verify through a `build_shell/test/test_instance.sh` build and the `automation-bridge` skill attached with `engine.connect(<ENGINE_PORT>)` whenever the "build only large changes" rule above calls for a build: then the task is finished when the built instance shows the change working, not when the diff looks right.
 - Build only from that checkout, with `build_shell/test/test_instance.sh` started from its root, so what runs is that branch. Never build a worktree branch from the main checkout or from another agent's checkout.
-- When the task is done and verified, always merge it into the integration branch: commit on `agent/<name>`, then merge that branch from the main checkout. If the merge is refused or conflicts with my uncommitted changes, stop and tell me.
+- When the task is done and verified, always merge it into the integration branch (`dev` in every project unless the user explicitly requests another branch): commit on `agent/<name>`, then merge that branch from the main checkout. If the merge is refused or conflicts with my uncommitted changes, stop and tell me.
 
 ## Clarifications
 
