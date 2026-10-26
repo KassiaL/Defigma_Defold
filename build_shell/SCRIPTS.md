@@ -5,7 +5,6 @@ The build scripts of every Defold project that has `build_shell/project.conf`. T
 ```
 build_shell/
   android_wireless.sh  ios_wireless.sh   the phone builds, over Wi-Fi
-  liveupdate.sh                          dev liveupdate publish
   play.sh                                desktop build to play, with sound (the person's, the one test/ script outside test/)
   adb_logs.sh                            Defold log of the connected Android phone
   dev/                                   the phone builds with a local liveupdate
@@ -30,7 +29,7 @@ build_shell/
 
 Every build script stops with an error when `$bob` (the `bob.jar` of the project's Defold version) is not in the environment.
 
-Everything under `release/` builds or publishes what reaches a store or the production liveupdate: it requires `release_branch` and a clean working tree. `liveupdate.sh` requires `dev_branch`. The phone builds and `test/test_instance.sh` publish nothing and run on any branch, which keeps the agent worktrees buildable.
+Everything under `release/` builds or publishes what reaches a store or the production liveupdate: it requires `release_branch` and a clean working tree. The phone builds and `test/test_instance.sh` publish nothing and run on any branch, which keeps the agent worktrees buildable.
 
 ## Project files
 
@@ -38,7 +37,7 @@ Everything under `release/` builds or publishes what reaches a store or the prod
 
 `helpers/project.sh` redefines the hooks the project needs; the list and the defaults (nothing, or an error for the liveupdate ones) are in the header of `helpers/build_helpers.sh`. A project without liveupdate leaves out the liveupdate hooks, sets `release_liveupdate=no` and an empty `game_version_file`.
 
-`custom/` holds the scripts only one project has (desktop and html5 builds, scene exports, deploys); the sync never touches it.
+`custom/` holds the scripts only one project has (desktop and html5 builds, scene exports, deploys, a dev liveupdate publish); the sync never touches it.
 
 ## Phone builds
 
@@ -86,8 +85,6 @@ A compilation error is not retried on the next server: only a server that does n
 `release/bump_all_versions.sh` requires a clean `release_branch`, bumps `game.project` (`game_project.py bump`), the game version of `game_version_file` when the project has one (`game_project.py bump-game-version`) and runs `project_bump_versions`.
 
 `release/liveupdate.sh [--skip-build]` publishes the production liveupdate content and refuses to run when `release_liveupdate` is not `yes`. Without arguments it requires a clean `release_branch`, runs `project_validate_liveupdate`, builds the store vendor (so the archives are the ones the store packages ship) and publishes. With `--skip-build` it only publishes what the caller already packed, and checks the branch but not the tree: the build it continues has already left the files of `project_build_start` rewritten.
-
-`liveupdate.sh` is the dev counterpart: `dev_branch`, the `android_dev_vendor` build, no clean tree, no `project_validate_liveupdate` (on the dev branch everything has changed since the last RELEASE commit by definition).
 
 `release/helpers/build_on_mac.sh <commit> [--upload]` builds the iOS store package of one commit on the home Mac over ssh (`helpers/mac.sh`): it pushes the commit into `~/<mac_checkout>` with `bob.jar`, with liveupdate also `res/ios/liveupdate` (rsync), downloads the App Store profile through the App Store Connect API, and runs `release/helpers/setup_ios_signing.sh`, `release/helpers/build_ios_release.sh` and, with `--upload`, `release/helpers/appstore_upload.sh` on the Mac, with the distribution certificate in a throwaway keychain that is deleted when the build ends. It checks no branch.
 
