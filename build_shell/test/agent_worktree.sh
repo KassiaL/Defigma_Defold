@@ -20,10 +20,18 @@ worktree_root="$worktree_parent/$(basename "$main_checkout")-$worktree_name"
 mkdir -p "$worktree_parent"
 git -C "$main_checkout" worktree add -B "agent/$worktree_name" "$worktree_root" "$base_ref"
 
-# The resolved dependency cache is the slow part of a fresh checkout; copy it instead of refetching.
+# The dependency caches and the build output are the slow part of a fresh checkout; copy them instead of refetching and rebuilding.
+# The rest of .internal is the runtime state of the main checkout (engine pid and port, bridge identity), which the worktree must not inherit.
 mkdir -p "$worktree_root/.internal"
-if [ -d "$main_checkout/.internal/lib" ]; then
-	cp -r "$main_checkout/.internal/lib" "$worktree_root/.internal/lib"
+for cached_dir in build .internal/lib .internal/cache .internal/lua-annotations; do
+	if [ -d "$main_checkout/$cached_dir" ]; then
+		cp -a --reflink=auto "$main_checkout/$cached_dir" "$worktree_root/$cached_dir"
+	fi
+done
+
+# The Lua language server config is git-ignored, so a fresh checkout has none and diagnostics run without the project's settings.
+if [ -f "$main_checkout/.luarc.json" ]; then
+	cp "$main_checkout/.luarc.json" "$worktree_root/.luarc.json"
 fi
 
 # A project with a Defigma web server gets one for the worktree too, so a Figma export can land here.
