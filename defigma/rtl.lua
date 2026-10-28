@@ -95,7 +95,7 @@ screen.register(feature)
 ---nodes that stop inheriting the flip at runtime — a node detached from the mirrored root no longer
 ---sits under it, so the flip has to be written onto the node itself.
 ---@param self table
----@param node_id string
+---@param node_id string|hash
 function M.track(self, node_id)
 	screen.register_runtime_param(self, node_id, PARAM)
 end

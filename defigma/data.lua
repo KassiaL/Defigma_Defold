@@ -2,6 +2,7 @@
 ---@field gradients defigma_gradients
 ---@field text_shadows defigma_text_shadows
 ---@field params table<string, any>
+---@field locales table<string, string> text node id -> localization key
 
 local M = {}
 
@@ -54,6 +55,7 @@ function M.load(node)
 		decode_gradient(gradient)
 	end
 	data.text_shadows = decode_text_shadows(data.text_shadows or {})
+	data.locales = data.locales or {}
 	return data
 end
 

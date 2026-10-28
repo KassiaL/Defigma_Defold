@@ -103,7 +103,7 @@ function M.bind_scroll(self, scroll)
 end
 
 ---@param self table
----@param node_id string
+---@param node_id string|hash
 ---@param value any
 function M.register_runtime_param(self, node_id, value)
 	local params = self.defigma.runtime_params

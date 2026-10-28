@@ -10,7 +10,7 @@ Script generation: `python/sync_defigma.py`, documented in `python/sync_defigma.
 
 | File | Role |
 |---|---|
-| `data.lua` | Decodes the `defigma_data` node into `{ gradients, text_shadows, params }`. |
+| `data.lua` | Decodes the `defigma_data` node into `{ gradients, text_shadows, params, locales }`. |
 | `screen.lua` | Hook dispatcher used by every generated `.gui_script`. Knows nothing about concrete features. |
 | `rtl.lua` | Feature: horizontal mirroring for right-to-left locales. |
 | `gradient.lua` | Text gradient (`linear_text`) application and transform math. |
@@ -46,6 +46,9 @@ Its text is single-line JSON:
 - `text_shadows` — `[[x, y, sigma], …]`, one or two drop shadows of a text in Figma order, see
   [Text shadows](#text-shadows). Only a `.gui` with a shadowed text has this section; `data.load`
   returns an empty table otherwise.
+- `locales` — `{node id: localization key}` of every text node whose id contains `locale_`, the key
+  being the part of the id after `locale_`. Only a `.gui` with such texts has this section;
+  `data.load` returns an empty table otherwise. The project's localization code reads it.
 - Keys are the **local** node ids of that `.gui`. A template carries its own data, so one widget
   module serves any number of visual variants.
 
@@ -206,8 +209,8 @@ engine counted the padding into the layout of a line (30 font units more in
 `resource.get_text_metrics`) and the exporter grew the box of a shadowed text by 15 units times the
 text scale on both sides; a screen exported that way sits 15 units times its scale too far left
 (left aligned) or right (right aligned) and about 1 px too high on 1.14.0, and has to be exported
-again. Measured on `tests/divisions_gold` exported again: every shadowed text sits within 1 px of
-the Figma export.
+again. Measured on `tests/divisions_gold` of Defigma_Defold exported again: every shadowed text sits within 1 px
+of the Figma export.
 
 Measured against Figma exports of the same texts (offset 4, blur 8, 26-42 px, Defold 1.13.1): the
 offset and the peak match, the blur comes out 3-7% wider and up to 10% denser on the thinnest and

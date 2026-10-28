@@ -98,6 +98,8 @@ Project structure note: see `m/PROJECT_STRUCTURE.md`.
 
 `bridge/` (the SDK bridge) is identical in every project that has it and is synced by `$HOME/my_shell/sync_defold_bridge.py` (the edited copy wins). Nothing in it may require project code: project-specific behaviour is set from the project's bridge setup (for example `bridge.mock` `set_save_appname` / `set_save_writer`). A change of its API means updating the callers in every project that has the folder.
 
+`defigma/` (the Defigma runtime: Lua modules, materials, the `DefigmaShape` native extension and its editor plugin) is identical in every project that has it and is synced by `$HOME/my_shell/sync_defold_defigma.py` (the edited copy wins; `--source <project>` makes every copy match one project). Nothing in it may name project code or project paths. A change of its API means updating the callers in every project that has the folder.
+
 ## Worktree
 
 Every task that changes files is done in your own worktree, without being asked; read `md/shared/PARALLEL_TEST_INSTANCES.md` and follow it. Work directly in the main checkout only when I allowed it for that task.
