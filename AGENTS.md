@@ -43,19 +43,30 @@ Use Codex skills for repeatable workflows:
 
 ## Subagents and models
 
+This is the only model-selection policy. The orchestrator selects models only through the settings and roles in this block; other project documents and agent definitions describe procedures, not model assignments. Edit the settings here to change the routing:
+
+```text
+CHECK_MODEL: haiku
 CODE_MODEL: sonnet
+DESIGN_MODEL: opus
+REVIEW_MODEL: opus
+HARD_MODEL: opus
+```
 
-Change only `CODE_MODEL` to choose the code implementation model (`opus` or `sonnet`). It applies to writing code, bug fixes and refactoring in every executor, and overrides hard-coded code-executor models in other project instructions or agent frontmatter. Pass its value explicitly in the Agent tool when delegating implementation. It does not change the model of an already running session: use an executor on the selected model. Never silently substitute another model. Figma/3D design and visual/motion review stay on `opus`; the checking and capture helpers below stay on `sonnet`.
+| Setting | Use it for |
+| --- | --- |
+| `CHECK_MODEL` | Run existing build/export/diagnostic scripts; execute supplied automation-bridge steps and regression/smoke checks against explicit expected results; reproduce a bug using supplied steps; capture screenshots, videos, timestamped frames and contact sheets; extract specified runtime values and relevant log/error excerpts; targeted code/documentation lookups. |
+| `CODE_MODEL` | Implement features, bug fixes and refactors; review code for correctness; investigate unexpected runtime/build/test failures; design or repair test scenarios and automation scripts; turn an unclear bug report into reproducible steps. |
+| `DESIGN_MODEL` | Create or rework Figma screens and 3D assets, choose composition/style, design animations and gameplay feel, and implement changes whose main acceptance criterion is subjective visual or motion quality. |
+| `REVIEW_MODEL` | Independent review of design, readability, animation, motion and gameplay feel, including the project's specialised visual/motion reviewers. Never substitute a functional check for this review. |
+| `HARD_MODEL` | Difficult architecture and cross-system reasoning: client/server protocols, physics/network desynchronisation, rare intermittent bugs with several possible causes, wide architectural refactors, and coding investigations that remain unresolved after two distinct, evidence-based attempts by the code executor. |
 
-Every subagent gets the model its job needs (`model` of the Agent tool; a project agent in `.claude/agents/` carries its own in its frontmatter):
-
-- `CODE_MODEL`: code implementation, bug fixes and refactoring.
-- `opus`: an executor that works in Figma, and the strict reviewers of design and motion (the reviewer of `Review by a second agent`, `motion-reviewer`). Judging taste is where a weaker model misses defects, and a review is a small share of the cost.
-- `sonnet`: everything that gathers or checks without judging taste — building and driving an instance to capture screenshots, clips and engine logs, regression and smoke tests against a written list of expectations, reproducing a bug, reading logs, `lua-check`, searches across the code, Figma exports for a review.
-
-Keep the context of an Opus agent clean. An executor with one small task does its checks itself. An executor with several tasks, or one that would loop through many builds and captures, hands that work to a `sonnet` subagent: give it the checkout, the `ENGINE_PORT` (or let it run `test_instance.sh` itself), the steps that reach each state and what must be seen there. It keeps the screenshots, clips and logs in its own context, saves them as files and returns a short verdict per check with the file paths and only the excerpts that prove a failure. The Opus agent opens an image or a log only when the verdict needs it and passes paths, not contents, to a reviewer. While the subagent drives the instance of a checkout, nobody else builds or drives it.
-
-Run at most 3 Opus executors at the same time unless I name another number, even when a prompt says to use as many agents as the work needs; queue the rest and start the next one when one finishes. Reviewers and `sonnet` helpers do not count. Give one executor one independent unit of the work, not one step of it: an agent costs its startup reading, and steps that share files stay with one executor.
+- Resolve the role before starting each worker and pass the configured model explicitly in the Agent tool. This overrides model assignments elsewhere, including agent frontmatter; do not infer the worker's model from the parent session. Starting the orchestrator on a stronger model is not a reason to use that model for checks or routine implementation. An already-running session does not switch models because these settings changed: delegate to the selected model. If the selected model is unavailable, report it instead of silently choosing another.
+- Split mixed tasks by responsibility: the design owner supplies the intended result and fixed constraints, the code owner implements the behavior, the check worker runs the procedure and collects evidence, and the independent reviewer judges visual/motion quality. Keep steps that share implementation files with one executor. Do not delegate work further from a check worker.
+- Give a check worker the checkout, engine port (or permission to run `test_instance.sh`), exact scripts or screen/input steps, expected states/values, evidence directory and report format. Batch related build/check/capture steps into one assignment. The worker may write a short capture driver using the supplied steps, but does not change game code, invent missing acceptance criteria, weaken checks, or judge subjective quality.
+- On a failed check, return its name, expected/actual values, the relevant error excerpt and the full log/evidence paths to the code owner. An incomplete check is reported as incomplete, never passed. Do not retry a failing command blindly or treat a nonzero exit as success. Build exit code 3 stops the runtime check under the existing build rules. The code owner diagnoses and fixes the failure, then returns the relevant procedure to the check worker. Escalate unresolved investigations to the hard-task owner with the attempted fixes and the concrete remaining question; use that owner from the start for the hard-task categories above.
+- Keep the orchestrator's context clean. Workers retain raw logs, scene dumps, screenshots and video on disk and return only verdicts, relevant failure excerpts, changed files/commit, and absolute evidence paths. Motion evidence includes the original clip and timestamped frames/contact sheets; the reviewer can inspect the clip or request more frames when needed. Forward evidence by path rather than opening it merely to relay it. Only one worker builds or drives a checkout at a time.
+- Run at most 3 executors on `opus` concurrently unless the user names another number; reviewers do not count. Give one executor one independent unit of work rather than one step. All workers follow the same worktree, skill, diagnostics, build and documentation rules. Functional checks, code review and visual review remain separate responsibilities.
 
 ## Showing the result
 
