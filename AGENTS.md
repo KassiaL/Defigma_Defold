@@ -43,7 +43,7 @@ Use Codex skills for repeatable workflows:
 
 ## Subagents and models
 
-CODE_MODEL: opus
+CODE_MODEL: sonnet
 
 Change only `CODE_MODEL` to choose the code implementation model (`opus` or `sonnet`). It applies to writing code, bug fixes and refactoring in every executor, and overrides hard-coded code-executor models in other project instructions or agent frontmatter. Pass its value explicitly in the Agent tool when delegating implementation. It does not change the model of an already running session: use an executor on the selected model. Never silently substitute another model. Figma/3D design and visual/motion review stay on `opus`; the checking and capture helpers below stay on `sonnet`.
 
