@@ -43,14 +43,15 @@ Use Codex skills for repeatable workflows:
 
 ## Subagents and models
 
-Every subagent gets the model its job needs (`model` of the Agent tool; a project agent in `.claude/agents/` carries its own in its frontmatter):
+- MiniMax M3 is the default executor for code implementation, bug fixes, code searches, diagnostics, builds, functional checks, Figma exports and screenshots/video capture. Invoke it as an external worker with `minimax-task`; its requests use Wormsoft, not the Claude subscription. Setup, invocation and reporting: `md/shared/MODEL_WORKFLOW.md`.
+- Opus owns design decisions in Figma and 3D, visual and motion review, and complex architecture or unresolved investigations. Do not assign routine implementation to Opus merely because it writes code.
+- Do not switch to Kimi K3, another paid provider or a different model without the user's instruction. If MiniMax is unavailable, lacks credits, or cannot finish a task, report the blocker instead of silently spending Claude on the same implementation.
 
-- `opus`: an executor that writes code or works in Figma, and the strict reviewers of design and motion (the reviewer of `Review by a second agent`, `motion-reviewer`). Judging taste is where a weaker model misses defects, and a review is a small share of the cost.
-- `sonnet`: everything that gathers or checks without judging taste — building and driving an instance to capture screenshots, clips and engine logs, regression and smoke tests against a written list of expectations, reproducing a bug, reading logs, `lua-check`, searches across the code, Figma exports for a review.
+Delegate a complete unit of work with a checkout, goal, constraints, relevant API/documentation paths, acceptance checks and evidence paths. The worker reads its own context, implements, runs the required diagnostics and runtime checks, and fixes failures itself. Existing deterministic scripts perform known checks without an agent interpreting every intermediate step. Return failures to the worker with the failing assertion, expected/actual values, relevant error excerpt and full log path. Escalate repeated failures with the attempted fixes and a concrete unresolved question.
 
-Keep the context of an Opus agent clean. An executor with one small task does its checks itself. An executor with several tasks, or one that would loop through many builds and captures, hands that work to a `sonnet` subagent: give it the checkout, the `ENGINE_PORT` (or let it run `test_instance.sh` itself), the steps that reach each state and what must be seen there. It keeps the screenshots, clips and logs in its own context, saves them as files and returns a short verdict per check with the file paths and only the excerpts that prove a failure. The Opus agent opens an image or a log only when the verdict needs it and passes paths, not contents, to a reviewer. While the subagent drives the instance of a checkout, nobody else builds or drives it.
+Keep the strong model's context clean: the executor keeps raw logs, screenshots and clips on disk and returns a short verdict per check, changed files/commit, diagnostics status and evidence paths. For motion review, prepare timestamped frames/contact sheets as well as the original video; the reviewer opens evidence needed to judge motion. Only one worker builds or drives a given checkout at a time. The external worker follows the same worktree, build, Lua diagnostics and documentation rules as any other executor.
 
-Run at most 3 Opus executors at the same time unless I name another number, even when a prompt says to use as many agents as the work needs; queue the rest and start the next one when one finishes. Reviewers and `sonnet` helpers do not count. Give one executor one independent unit of the work, not one step of it: an agent costs its startup reading, and steps that share files stay with one executor.
+Run at most 3 Opus executors at once unless the user names another number. Give one executor one independent unit of work; steps sharing files stay together. Visual and motion reviewers remain independent of the implementation worker.
 
 ## Showing the result
 
