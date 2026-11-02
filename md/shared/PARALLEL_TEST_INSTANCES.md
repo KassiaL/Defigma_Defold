@@ -131,7 +131,7 @@ Stop an instance through the bridge, never with `kill`: `game.close_engine()` po
 
 Rebuild with `build_shell/test/test_instance.sh` after every Lua or resource change: the script stops the previous engine of that checkout itself and starts the new bundle. Hot reload through the editor is not an option here, and it invalidates registered bridge commands anyway.
 
-Screenshots, clips and engine logs for a check are taken by the MiniMax M3 external executor (`md/shared/MODEL_WORKFLOW.md`); it drives the instance of the checkout it was given, and only one worker drives an instance at a time.
+Screenshots, clips and engine logs for a check are usually taken by a `sonnet` subagent (`Subagents and models` in `AGENTS.md`); it drives the instance of the checkout it was given, and only one agent drives an instance at a time.
 
 Registered commands and published states are listed in `md/AUTOMATION_COMMANDS.md`; use them to reach a screen or a state instead of clicking through the whole UI.
 
