@@ -43,9 +43,14 @@ Use Codex skills for repeatable workflows:
 
 ## Subagents and models
 
+CODE_MODEL: opus
+
+Change only `CODE_MODEL` to choose the code implementation model (`opus` or `sonnet`). It applies to writing code, bug fixes and refactoring in every executor, and overrides hard-coded code-executor models in other project instructions or agent frontmatter. Pass its value explicitly in the Agent tool when delegating implementation. It does not change the model of an already running session: use an executor on the selected model. Never silently substitute another model. Figma/3D design and visual/motion review stay on `opus`; the checking and capture helpers below stay on `sonnet`.
+
 Every subagent gets the model its job needs (`model` of the Agent tool; a project agent in `.claude/agents/` carries its own in its frontmatter):
 
-- `opus`: an executor that writes code or works in Figma, and the strict reviewers of design and motion (the reviewer of `Review by a second agent`, `motion-reviewer`). Judging taste is where a weaker model misses defects, and a review is a small share of the cost.
+- `CODE_MODEL`: code implementation, bug fixes and refactoring.
+- `opus`: an executor that works in Figma, and the strict reviewers of design and motion (the reviewer of `Review by a second agent`, `motion-reviewer`). Judging taste is where a weaker model misses defects, and a review is a small share of the cost.
 - `sonnet`: everything that gathers or checks without judging taste — building and driving an instance to capture screenshots, clips and engine logs, regression and smoke tests against a written list of expectations, reproducing a bug, reading logs, `lua-check`, searches across the code, Figma exports for a review.
 
 Keep the context of an Opus agent clean. An executor with one small task does its checks itself. An executor with several tasks, or one that would loop through many builds and captures, hands that work to a `sonnet` subagent: give it the checkout, the `ENGINE_PORT` (or let it run `test_instance.sh` itself), the steps that reach each state and what must be seen there. It keeps the screenshots, clips and logs in its own context, saves them as files and returns a short verdict per check with the file paths and only the excerpts that prove a failure. The Opus agent opens an image or a log only when the verdict needs it and passes paths, not contents, to a reviewer. While the subagent drives the instance of a checkout, nobody else builds or drives it.
