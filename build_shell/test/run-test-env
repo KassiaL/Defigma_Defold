@@ -25,7 +25,11 @@
 #   - Sound never reaches the speakers: every environment also gets its own PulseAudio/PipeWire null
 #     sink "test-NAME" (pactl load-module module-null-sink), and the command plays into it through
 #     OpenAL's ALSA back end (ALSOFT_DRIVERS=alsa, PIPEWIRE_NODE/PULSE_SINK; OpenAL's own PulseAudio
-#     back end ignores both and plays on the default output). A recording takes the sound from the
+#     back end ignores both and plays on the default output). The stream is node.dont-reconnect
+#     (PIPEWIRE_ALSA): when its sink is gone PipeWire drops it instead of moving it to the default
+#     output, so a vanished sink silences the game, never plays it on the speakers. Only the module of
+#     exactly this sink name is replaced, never one of another environment whose name starts with this
+#     one. A recording takes the sound from the
 #     sink's monitor source (--audio): ffmpeg -f x11grab -i $DISPLAY -f pulse -i test-NAME.monitor.
 #     The sink is unloaded when the Xvfb server exits. Without pactl OpenAL gets its null back end and
 #     the game is silent.
@@ -92,7 +96,7 @@ start_sinks() {
 
 start_sink() {
 	local sink=$1 xvfb_pid=$2 module
-	for module in $(pactl list short modules | awk -v arg="sink_name=$sink" '$2 == "module-null-sink" && index($0, arg) {print $1}'); do
+	for module in $(pactl list short modules | awk -v arg="sink_name=$sink" '$2 == "module-null-sink" && $3 == arg {print $1}'); do
 		pactl unload-module "$module"
 	done
 	module=$(pactl load-module module-null-sink "sink_name=$sink" "sink_properties=device.description=$sink")
@@ -105,7 +109,8 @@ route_sound() {
 	sink=$(sink_name "$1")
 	mic=$(mic_name "$1")
 	if command -v pactl >/dev/null && pactl list short sinks | awk '{print $2}' | grep -qxF "$sink"; then
-		export ALSOFT_DRIVERS=alsa PIPEWIRE_NODE=$sink PULSE_SINK=$sink PULSE_SOURCE=$mic.monitor
+		export ALSOFT_DRIVERS=alsa PIPEWIRE_NODE=$sink PULSE_SINK=$sink PULSE_SOURCE=$mic.monitor \
+			PIPEWIRE_ALSA='{ node.dont-reconnect = true }'
 	else
 		export ALSOFT_DRIVERS=null
 	fi
