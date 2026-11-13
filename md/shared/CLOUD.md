@@ -13,7 +13,7 @@ Read `/var/log/defold_cloud_setup.status`. It lists every step of the setup scri
 Installed by the setup script `build_shell/test/cloud/setup.sh`:
 
 - Java 25 (default `java`); bob of every version in `DEFOLD_VERSIONS` and in `/home/user/*/build_shell/custom/bob.sh` at `~/defold_engines/<version>/bob.jar`.
-- Blender `BLENDER_VERSION` at `/opt/blender-<version>-linux-x64/blender`, the path the project scripts use; the Reforge exporter from `REFORGE_REPO` as the extension `bl_ext.user_default.reforge`.
+- Blender `BLENDER_VERSION` at `/opt/blender-<version>-linux-x64/blender`, the path the project scripts use; the Reforge exporter from `REFORGE_REPO` as the extension `bl_ext.user_default.reforge`, patched by the step `reforge library props` (until that repository has it): a library prop, a collection linked from `blender/props/<name>.blend`, is not exported with the map (the exporter died on it) and its instances point at `/assets/props/<name>/prefabs/<name>.go`, the prefab of the prop's own export.
 - Xvfb with Mesa llvmpipe (software OpenGL), `x11-utils`, `xdotool`, `ffmpeg`.
 
 Not there:
@@ -46,7 +46,7 @@ Not there:
 
 The cloud network goes through an egress proxy; `instance.sh` sets up three things around `test_instance.sh`:
 
-- `deps.py`: the GitHub proxy of the session answers 403 to archive downloads of repositories that are not attached to the session (every `dependencies#N` of `game.project`), while `git clone` of a public repository works. The script clones each dependency into `~/.cache/defold_cloud_deps`, packs it with `git archive` into the file bob would have written (`.internal/lib/<sha1 of the url>-<base64url etag>.zip`) and bob builds without `resolve` (`TEST_RESOLVE=0`, honoured by `bob_commands` of `test_instance.sh`). A new dependency needs nothing: the next run packs it.
+- `deps.py`: the GitHub proxy of the session answers 403 to archive downloads of repositories that are not attached to the session (every `dependencies#N` of `game.project`), while `git clone` of a public repository works. The script fetches the ref of each dependency (a tag, a branch or a commit hash, `git fetch --depth 1`: `git clone --branch` refuses a commit) into `~/.cache/defold_cloud_deps`, packs it with `git archive` into the file bob would have written (`.internal/lib/<sha1 of the url>-<base64url etag>.zip`) and bob builds without `resolve` (`TEST_RESOLVE=0`, honoured by `bob_commands` of `test_instance.sh`). A new dependency needs nothing: the next run packs it.
 - `extender_proxy.py`: the Extender client of bob ignores the proxy settings and cannot resolve build.defold.com in a container without DNS, so bob builds against `http://127.0.0.1:9100` (`TEST_BUILD_SERVER`) and the script forwards every request to build.defold.com through the proxy. Its log is `/tmp/extender_proxy.log`.
 - `TEST_SOFTWARE_GL=1`: `run-test-env` starts the engine with `--software` (llvmpipe) instead of VirtualGL.
 

@@ -24,7 +24,7 @@ Avoid unnecessary defensive programming. Do not assume data is missing or consta
 Use `assert` to narrow nullable Lua locals when needed to clear diagnostics.
 Maximize code reuse with small, composable functions. No comments — code must be self-explanatory through names and structure.
 Do not mix data types for a field or parameter. Keep types consistent end-to-end.
-Do not keep legacy compatibility code unless explicitly requested. When replacing a flow or data format, remove the old code path completely and do not preserve previous save formats, globals, or fallback behavior.
+Do not keep legacy compatibility code unless explicitly requested. Backward compatibility is needed only for what players already have: the last commit named `RELEASE` on `main` (`git log main -i --grep='^release' -1`) is the released version. A mode or feature that is in that commit and playable there keeps working for that client; one missing from it, or present but still locked, has no old clients, so its protocol, storage and config change freely, with no compatibility code and no old-client handling. When replacing a flow or data format, remove the old code path completely and do not preserve previous save formats, globals, or fallback behavior.
 
 ## Lua diagnostics
 
@@ -40,6 +40,10 @@ Use Codex skills for repeatable workflows:
 - For checking fresh Lua/resource changes in the running game, rebuild with `build_shell/test/test_instance.sh` and use `automation-bridge` to perform inputs and verify runtime state.
 - When the user explicitly asks to inspect Nakama DB/storage, call an RPC, run a healthcheck, or restart the server, use `nakama-db`.
 - When the user asks to check GC pressure, memory allocations per frame, or to find the source of periodic frame hitches on a screen, use `gc-profile`.
+
+## Figma
+
+Figma is reached only through Figma Bridge (`~/figma_plugins/FigmaBridge/figma.py`, protocol in its `README.md`), never through a Figma MCP connector. Before the first Figma command read `md/FIGMA_BRIDGE.md` of the project: the file, the bridge port and what may be exported. Use it without asking whenever a task needs Figma: reading the design, editing it, exporting a `.gui` or an atlas, `figma.py shot`.
 
 ## Subagents and models
 

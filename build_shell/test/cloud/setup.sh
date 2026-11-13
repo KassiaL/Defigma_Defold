@@ -66,9 +66,34 @@ reforge() {
 	rm -f "$extensions"/reforge/*.zip
 }
 
+# The Reforge of REFORGE_REPO exports a library prop (a collection linked from blender/props/<name>.blend) with the
+# map and dies on it (select_set of a linked object); the projects' maps point its instances at the prefab the prop's
+# own export wrote, assets/props/<name>/prefabs/<name>.go. Patched here until REFORGE_REPO has it.
+reforge_library_props() {
+	python3 - "$HOME/.config/blender/${BLENDER_VERSION%.*}/extensions/user_default/reforge/export_core.py" <<'EOF'
+import sys
+path = sys.argv[1]
+text = open(path).read()
+if "def is_library_collection" in text:
+    sys.exit(0)
+skip_old = "        export_prototype_collection(context, proto, collection)\n"
+skip_new = "        if not is_library_collection(collection):\n            export_prototype_collection(context, proto, collection)\n"
+path_old = '        go_path = f"/{s.prefabs_dir}/{proto}.go".replace("\\\\", "/")\n'
+path_new = path_old + ('        if proto in collection_groups and is_library_collection(collection_groups[proto][0]):\n'
+                       '            go_path = f"/assets/props/{proto}/prefabs/{proto}.go"\n')
+for old in (skip_old, path_old):
+    if text.count(old) != 1:
+        sys.exit(f"export_core.py changed: {old.strip()!r} not found once")
+text = text.replace(skip_old, skip_new).replace(path_old, path_new)
+text += "\n\ndef is_library_collection(collection):\n    return collection.library is not None\n"
+open(path, "w").write(text)
+EOF
+}
+
 step "apt packages, java 25" apt_packages
 step "bob.jar" bob_jars
 step "blender $BLENDER_VERSION" blender
 step "reforge" reforge
+step "reforge library props" reforge_library_props
 cat "$status"
 exit 0

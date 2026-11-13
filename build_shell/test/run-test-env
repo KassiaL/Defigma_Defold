@@ -22,17 +22,19 @@
 #   - The automation bridge drives the game over its HTTP port, so input and screenshots work
 #     without any window manager or focus. Tools that talk to X for an instance (xdotool, ffmpeg
 #     x11grab, tools/motion/capture.py) must use that instance's DISPLAY (see --display).
-#   - Sound never reaches the speakers: every environment also gets its own PulseAudio/PipeWire null
+#   - Sound never reaches the speakers: the command has no sound device at all (ALSOFT_DRIVERS=null,
+#     OpenAL's null back end). Only with TEST_SOUND=1 the environment gets its own PulseAudio/PipeWire null
 #     sink "test-NAME" (pactl load-module module-null-sink), and the command plays into it through
 #     OpenAL's ALSA back end (ALSOFT_DRIVERS=alsa, PIPEWIRE_NODE/PULSE_SINK; OpenAL's own PulseAudio
 #     back end ignores both and plays on the default output). The stream is node.dont-reconnect
 #     (PIPEWIRE_ALSA): when its sink is gone PipeWire drops it instead of moving it to the default
-#     output, so a vanished sink silences the game, never plays it on the speakers. Only the module of
-#     exactly this sink name is replaced, never one of another environment whose name starts with this
-#     one. A recording takes the sound from the
+#     output, so a vanished sink silences the game, never plays it on the speakers. A sink of exactly
+#     this name that is already loaded is reused, and only it is ever unloaded, never one of another
+#     environment whose name starts with this one. A recording takes the sound from the
 #     sink's monitor source (--audio): ffmpeg -f x11grab -i $DISPLAY -f pulse -i test-NAME.monitor.
-#     The sink is unloaded when the Xvfb server exits. Without pactl OpenAL gets its null back end and
-#     the game is silent.
+#     The sink is unloaded once the Xvfb server has exited and nothing plays into it or records from it any more:
+#     a game that outlives its environment (a restarted one, --stop) stays on its sink, silent, and is never moved
+#     by PipeWire to the default output, the speakers. Without pactl OpenAL gets its null back end.
 #   - The microphone is never the real one either: a second null sink "test-NAME-mic" is the
 #     environment's microphone, its monitor the default source of the command (PULSE_SOURCE), so a
 #     game that records the default input (a voice chat) hears only what a test plays into that sink
@@ -90,27 +92,51 @@ mic_name() { echo "test-$1-mic"; }
 
 start_sinks() {
 	command -v pactl >/dev/null || return 0
-	start_sink "$(sink_name "$1")" "$2"
-	start_sink "$(mic_name "$1")" "$2"
+	[ "${TEST_SOUND:-0}" != 1 ] || start_sink "$(sink_name "$1")" "$1"
+	start_sink "$(mic_name "$1")" "$1"
+}
+
+pulse_id() { pactl list short "$1" | awk -v name="$2" '$2 == name {print $1}'; }
+
+sink_in_use() {
+	local sink=$1 sink_id source_id
+	sink_id=$(pulse_id sinks "$sink")
+	source_id=$(pulse_id sources "$sink.monitor")
+	{ pactl list short sink-inputs | awk -v id="$sink_id" '$2 == id'
+	  pactl list short source-outputs | awk -v id="$source_id" '$2 == id'; } | grep -q .
+}
+
+unload_sink() {
+	local module
+	for module in $(pactl list short modules | awk -v arg="sink_name=$1" '$2 == "module-null-sink" && $3 == arg {print $1}'); do
+		pactl unload-module "$module"
+	done
 }
 
 start_sink() {
-	local sink=$1 xvfb_pid=$2 module
-	for module in $(pactl list short modules | awk -v arg="sink_name=$sink" '$2 == "module-null-sink" && $3 == arg {print $1}'); do
-		pactl unload-module "$module"
+	local sink=$1 env_name=$2
+	[ -z "$(pulse_id sinks "$sink")" ] || return 0
+	pactl load-module module-null-sink "sink_name=$sink" "sink_properties=device.description=$sink" >/dev/null
+	setsid "$0" --watch-sink "$env_name" "$sink" </dev/null >/dev/null 2>&1 &
+}
+
+watch_sink() {
+	local env_name=$1 sink=$2
+	while sleep 2; do
+		running_display "$env_name" >/dev/null && continue
+		sink_in_use "$sink" && continue
+		unload_sink "$sink"
+		return 0
 	done
-	module=$(pactl load-module module-null-sink "sink_name=$sink" "sink_properties=device.description=$sink")
-	setsid bash -c 'while kill -0 "$1" 2>/dev/null; do sleep 2; done; pactl unload-module "$2"' _ "$xvfb_pid" "$module" \
-		</dev/null >/dev/null 2>&1 &
 }
 
 route_sound() {
 	local sink mic
 	sink=$(sink_name "$1")
 	mic=$(mic_name "$1")
-	if command -v pactl >/dev/null && pactl list short sinks | awk '{print $2}' | grep -qxF "$sink"; then
-		export ALSOFT_DRIVERS=alsa PIPEWIRE_NODE=$sink PULSE_SINK=$sink PULSE_SOURCE=$mic.monitor \
-			PIPEWIRE_ALSA='{ node.dont-reconnect = true }'
+	export PULSE_SOURCE=$mic.monitor
+	if [ "${TEST_SOUND:-0}" = 1 ] && command -v pactl >/dev/null && pactl list short sinks | awk '{print $2}' | grep -qxF "$sink"; then
+		export ALSOFT_DRIVERS=alsa PIPEWIRE_NODE=$sink PULSE_SINK=$sink PIPEWIRE_ALSA='{ node.dont-reconnect = true }'
 	else
 		export ALSOFT_DRIVERS=null
 	fi
@@ -138,7 +164,6 @@ start_display() {
 		if [ -s "$ready" ]; then
 			tr -d '\n' <"$ready" >"$(display_file "$env_name")"
 			rm -f "$ready"
-			start_sinks "$env_name" "$(cat "$(pid_file "$env_name")")"
 			return 0
 		fi
 		sleep 0.05
@@ -153,6 +178,7 @@ ensure_display() {
 	exec 9>"$state_dir/$env_name.lock"
 	flock 9
 	running_display "$env_name" >/dev/null || start_display "$env_name"
+	start_sinks "$env_name"
 	running_display "$env_name"
 	flock -u 9
 }
@@ -171,6 +197,10 @@ env_names() {
 }
 
 case "${1:-}" in
+--watch-sink)
+	watch_sink "$2" "$3"
+	exit 0
+	;;
 --display)
 	running_display "${2:-$name}" || die "environment '${2:-$name}' is not running"
 	exit 0

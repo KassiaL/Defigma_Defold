@@ -3,7 +3,8 @@
 # Publishes the production liveupdate content, built from the store vendor so the archives are the ones
 # the store packages ship. With --skip-build it only publishes what the caller (release_all_platforms.sh)
 # already packed, and then checks the branch but not the tree: the build it continues has
-# already left the files of project_build_start rewritten.
+# already left the files of project_build_start rewritten. Without it the publish is marked by an empty
+# LIVEUPDATE commit, pushed like RELEASE: what players run is the later of the two.
 #
 # usage: liveupdate.sh [--skip-build]
 
@@ -24,3 +25,7 @@ if [ "${1:-}" != "--skip-build" ]; then
 	build_android_liveupdate_bundle
 fi
 publish_liveupdate "New build available"
+if [ "${1:-}" != "--skip-build" ]; then
+	git commit --allow-empty -m 'LIVEUPDATE'
+	push_head_over_ssh
+fi

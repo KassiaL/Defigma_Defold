@@ -58,6 +58,13 @@ require_clean_working_tree() {
 	fi
 }
 
+# The https remote only reads from here, so the RELEASE and LIVEUPDATE commits go over ssh.
+push_head_over_ssh() {
+	local remote
+	remote="git@github.com:$(git -C "$directory_defold_project" remote get-url origin | sed -E 's#.*github\.com[:/]##; s#\.git$##').git"
+	GIT_SSH_COMMAND="ssh -i $HOME/.ssh/github -o IdentitiesOnly=yes" git -C "$directory_defold_project" push "$remote" "HEAD:refs/heads/$(git_current_branch)"
+}
+
 require_git_branch() {
 	local current
 	current=$(git_current_branch)

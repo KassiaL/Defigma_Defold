@@ -9,19 +9,30 @@ the main checkout as its project path) gets a twin of it for the worktree: the s
 worktree as project path and in its gui command, a free port, and the worktree folder name as the
 pm2 name. An export sent with that port (`defigma.export(nodes, { upload_port })` of Figma Bridge)
 lands in the worktree and is synced there. A project without such a server gets nothing.
+One start at a time on this computer (a lock over all projects): a port is free for the next start
+only once the server of the previous one holds it. The port is written only after the server on it
+answers with this worktree as its project path; a port lost to something else is left for the next.
 Called by agent_worktree.sh and agent_worktree_clean.sh; shared by every Defold project and synced by
 sync_defold_docs.py.
 """
 
+import fcntl
 import json
 import os
 import socket
 import subprocess
 import sys
+import tempfile
+import time
+import urllib.error
+import urllib.request
 
 SERVER_SCRIPT = "Defigma_Web_Server/index.js"
 FIRST_PORT = 16900
 LAST_PORT = 17899
+LOCK_FILE = os.path.join(tempfile.gettempdir(), "defigma_twin.lock")
+START_ATTEMPTS = 5
+ANSWER_SECONDS = 15
 
 
 def pm2_processes():
@@ -63,6 +74,23 @@ def free_port(taken):
     raise SystemExit("no free port for the Defigma web server")
 
 
+def serves(port, worktree):
+    try:
+        with urllib.request.urlopen("http://127.0.0.1:%d/" % port, timeout=1) as response:
+            return json.loads(response.read()).get("project_path") == worktree
+    except (OSError, ValueError, urllib.error.URLError):
+        return False
+
+
+def wait_for_answer(port, worktree):
+    deadline = time.time() + ANSWER_SECONDS
+    while time.time() < deadline:
+        if serves(port, worktree):
+            return True
+        time.sleep(0.2)
+    return False
+
+
 def stop(worktree):
     name = os.path.basename(worktree)
     for process in pm2_processes():
@@ -80,19 +108,28 @@ def start(main_checkout, worktree):
     stop(worktree)
     args = main["pm2_env"]["args"]
     gui_command = args[1].replace(main_checkout, worktree) if len(args) > 1 else ""
-    port = free_port({server_port(process) for process in servers})
+    taken = {server_port(process) for process in servers}
     name = os.path.basename(worktree)
-    subprocess.run(["pm2", "start", main["pm2_env"]["pm_exec_path"], "--name", name, "--cwd", worktree, "--",
-                    worktree, gui_command, "--port", str(port)], capture_output=True, check=True)
-    os.makedirs(os.path.join(worktree, ".internal"), exist_ok=True)
-    with open(os.path.join(worktree, ".internal", "defigma_port"), "w") as port_file:
-        port_file.write(str(port))
-    print("DEFIGMA_PORT=%d" % port)
+    for _ in range(START_ATTEMPTS):
+        port = free_port(taken)
+        subprocess.run(["pm2", "start", main["pm2_env"]["pm_exec_path"], "--name", name, "--cwd", worktree, "--",
+                        worktree, gui_command, "--port", str(port)], capture_output=True, check=True)
+        if wait_for_answer(port, worktree):
+            os.makedirs(os.path.join(worktree, ".internal"), exist_ok=True)
+            with open(os.path.join(worktree, ".internal", "defigma_port"), "w") as port_file:
+                port_file.write(str(port))
+            print("DEFIGMA_PORT=%d" % port)
+            return
+        stop(worktree)
+        taken.add(port)
+    raise SystemExit("the Defigma web server of %s did not come up" % worktree)
 
 
 def main():
     if len(sys.argv) == 4 and sys.argv[1] == "start":
-        start(os.path.abspath(sys.argv[2]), os.path.abspath(sys.argv[3]))
+        with open(LOCK_FILE, "w") as lock:
+            fcntl.flock(lock, fcntl.LOCK_EX)
+            start(os.path.abspath(sys.argv[2]), os.path.abspath(sys.argv[3]))
     elif len(sys.argv) == 3 and sys.argv[1] == "stop":
         stop(os.path.abspath(sys.argv[2]))
     else:

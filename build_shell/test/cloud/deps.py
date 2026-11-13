@@ -41,11 +41,17 @@ def git(*args, cwd=None):
     return subprocess.run(["git", *args], cwd=cwd, check=True, capture_output=True, text=True).stdout.strip()
 
 
+def shallow_checkout(clone, remote, ref):
+    clone.mkdir(parents=True, exist_ok=True)
+    git("init", "--quiet", cwd=clone)
+    git("fetch", "--quiet", "--depth", "1", remote, ref, cwd=clone)
+    git("checkout", "--quiet", "FETCH_HEAD", cwd=clone)
+
+
 def github_zip(owner, repo, ref, target_dir, url):
     clone = CACHE / owner / repo / ref
     if not (clone / ".git").exists():
-        clone.parent.mkdir(parents=True, exist_ok=True)
-        git("clone", "--quiet", "--depth", "1", "--branch", ref, f"https://github.com/{owner}/{repo}.git", str(clone))
+        shallow_checkout(clone, f"https://github.com/{owner}/{repo}.git", ref)
     commit = git("rev-parse", "HEAD", cwd=clone)
     digest, name = archive_name(url, f"git-{commit}")
     write(target_dir, digest, name, ["git", "-C", str(clone), "archive", "--format=zip", f"--prefix={repo}-{ref}/", "HEAD"])

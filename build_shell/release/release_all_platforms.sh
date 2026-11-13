@@ -43,13 +43,6 @@ check_store_versions() {
 	done
 }
 
-# The https remote only reads from here, so the RELEASE commit goes over ssh.
-push_release_commit() {
-	local remote
-	remote="git@github.com:$(git remote get-url origin | sed -E 's#.*github\.com[:/]##; s#\.git$##').git"
-	GIT_SSH_COMMAND="ssh -i $HOME/.ssh/github -o IdentitiesOnly=yes" git push "$remote" "HEAD:refs/heads/$(git_current_branch)"
-}
-
 upload_android() {
 	python3 "$release_all_platforms_dir/helpers/play_upload.py" --aab "$aab_path" --symbols "$symbols_zip_path" \
 		--track "$play_track" --status "$play_status"
@@ -67,7 +60,7 @@ project_before_release_commit
 git add .
 git commit -m 'RELEASE'
 release_sha=$(git rev-parse HEAD)
-push_release_commit
+push_head_over_ssh
 # With liveupdate the Android bundle is the build the archives are packed from, also for an iOS-only
 # release: its first pass produces liveupdate.zip, the pack mirrors the archives into
 # res/android/assets/liveupdate and res/ios/liveupdate, and the second pass ships them as bundle
